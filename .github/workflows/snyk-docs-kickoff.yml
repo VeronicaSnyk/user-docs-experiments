@@ -1,0 +1,150 @@
+name: Snyk Docs Kickoff Agent
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+jobs:
+  kickoff:
+    if: ${{ github.repository_owner == 'VeronicaSnyk' && !contains(github.event.pull_request.labels.*.name, 'docs-agent:off') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Post kickoff guidance
+        uses: actions/github-script@v7
+        env:
+          GITBOOK_API_KEY: ${{ secrets.GITBOOK_API_KEY }}
+          DOCS_AGENT_DRY_RUN: ${{ vars.DOCS_AGENT_DRY_RUN || '' }}
+          GITBOOK_MCP_ENDPOINT: ${{ vars.GITBOOK_MCP_ENDPOINT || '' }}
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) {
+              core.info('Not a pull_request event.');
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = pr.number;
+
+            const defaultMcpEndpoint = 'https://app.gitbook.com/o/-M4tdxG8qotLgGZnLpFR/s/-MdwVZ6HOZriajCf5nXH//~gitbook/mcp';
+            const mcpEndpoint = process.env.GITBOOK_MCP_ENDPOINT || defaultMcpEndpoint;
+            const styleGuidePath = 'writing-rules-style-guide.md';
+            const styleGuideUrl = `https://github.com/${owner}/${repo}/blob/${pr.base.ref}/${styleGuidePath}`;
+
+            const isDryRun = (String(process.env.DRY_RUN || '').trim() === '1')
+              || (String(process.env.DOCS_AGENT_DRY_RUN || '').trim() === '1')
+              || !!process.env.ACT;
+
+            // Fetch changed files (first 100 per page, then paginate)
+            let files = [];
+            if (!isDryRun) {
+              files = await github.paginate(
+                github.rest.pulls.listFiles,
+                { owner, repo, pull_number: issue_number, per_page: 100 }
+              );
+            } else {
+              core.info('DRY_RUN is enabled; skipping network calls to list changed files.');
+            }
+
+            const isDocLike = (f) => {
+              const docExt = /\.(md|mdx|adoc|txt|rst|mkdn|mkd)$/i;
+              return docExt.test(f.filename)
+                || f.filename.startsWith('docs/')
+                || f.filename.startsWith('help/')
+                || f.filename.includes('/docs/')
+                || f.filename.includes('/content/');
+            };
+
+            const docFiles = files.filter(isDocLike);
+
+            const suggestTitle = (title) => {
+              if (!title) return '';
+              let s = String(title).replace(/^(wip|draft)[:\-\s]+/i, '').trim();
+              s = s.replace(/\s+/g, ' ');
+              s = s.replace(/[.!?]$/, '');
+              if (s.length > 80) {
+                const cut = s.indexOf(':') > 0 ? s.indexOf(':') : (s.indexOf(' - ') > 0 ? s.indexOf(' - ') : 80);
+                s = s.slice(0, Math.max(40, cut)).trim();
+              }
+              s = s.charAt(0).toUpperCase() + s.slice(1);
+              return s;
+            };
+
+            const sampleList = (arr) => arr.slice(0, 12).map(f => `- ${f.filename} (${f.status})`).join('\n') || '- None detected.';
+
+            const suggestedTitle = suggestTitle(pr.title || '');
+
+            const lines = [];
+            const markerHeader = '### Snyk Docs Kickoff Agent';
+
+            lines.push(markerHeader);
+            lines.push('');
+            lines.push('Early guidance to align your PR with Snyk Docs. Non-blocking; will update on new commits.');
+            lines.push('');
+
+            lines.push('#### Suggested PR title');
+            if (suggestedTitle && suggestedTitle !== pr.title) {
+              lines.push(`- ${suggestedTitle}`);
+            } else {
+              lines.push('- Title looks reasonable. Consider imperative mood and keeping it concise.');
+            }
+            lines.push('');
+
+            lines.push('#### Description checklist');
+            lines.push('- [ ] State the user goal and summarize what changed.');
+            lines.push('- [ ] Clarify product/feature names and link to authoritative docs.');
+            lines.push('- [ ] Note breaking changes or migration steps, if any.');
+            lines.push('- [ ] Add screenshots/previews for UI/docs pages when helpful.');
+            lines.push('- [ ] Include release note if externally visible.');
+            lines.push('');
+
+            lines.push('#### Detected doc-related files');
+            lines.push(sampleList(docFiles));
+            lines.push('');
+
+            lines.push('#### Terminology and style');
+            lines.push('- Use consistent product names (for example, "Snyk Open Source", "Snyk Code", "Snyk IaC").');
+            lines.push('- Prefer active voice and imperative titles.');
+            lines.push('- Use American English spelling.');
+            lines.push('- Use code formatting for CLI, API names, and file paths.');
+            lines.push('');
+
+            lines.push('#### Style guide links');
+            if (process.env.GITBOOK_API_KEY) {
+              lines.push('- Style‑guide integration detected. Citations will be added in a subsequent iteration of this pilot.');
+            } else {
+              lines.push('- Add the repository secret `GITBOOK_API_KEY` to enable style‑guide citations from GitBook.');
+            }
+            lines.push(`- Snyk writing rules & style guide: [${styleGuidePath}](${styleGuideUrl})`);
+            lines.push(`- MCP endpoint: ${mcpEndpoint}`);
+            lines.push('');
+
+            lines.push('_Add the label `docs-agent:off` to silence this comment._');
+
+            const body = lines.join('\n');
+
+            if (isDryRun) {
+              core.info('DRY_RUN=1 set; not posting to GitHub.\n----- Kickoff comment preview -----\n' + body + '\n----------------------------------');
+              return;
+            }
+
+            // Upsert sticky comment
+            const { data: comments } = await github.rest.issues.listComments({ owner, repo, issue_number, per_page: 100 });
+            const existing = comments.find(c => typeof c.body === 'string' && c.body.includes(markerHeader));
+
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+              core.info(`Updated kickoff comment #${existing.id}`);
+            } else {
+              const created = await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              core.info(`Created kickoff comment #${created.data.id}`);
+            }

@@ -1,3 +1,48 @@
+## 2026-03-25 - Updated 2026-05-04
+
+### GET - `/tenants` - Updated
+- added the new optional `query` request parameter `name`
+
+
+
+### POST - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Create a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
+
+### PATCH - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Update a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
+
+### GET - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Get a container registry import policy
+
+#### Required permissions
+
+- `View integrations (org.integration.read)`
+
+
+### DELETE - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Delete a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
+
+### GET - `/groups/{group_id}/orgs` - Updated
+- added the new optional `query` request parameter `expand`
+
+- added the optional property `meta` to the response with the `200` status
+
+
 ## 2026-03-25 - Updated 2026-04-28
 
 ### GET - `/groups/{group_id}/orgs` - Updated

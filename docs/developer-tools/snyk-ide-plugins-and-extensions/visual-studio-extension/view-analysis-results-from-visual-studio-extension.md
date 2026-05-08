@@ -14,7 +14,7 @@ Filter by name by typing the name of the vulnerability in the search bar.
 
 Filter by severity by selecting one or more of the severities when you open the search bar filter.
 
-![Filter by severity](../../../.gitbook/assets/readme_image_3_2_okta-saml-application-creation.png)
+![Filter by severity](../../../.gitbook/assets/readme_image_3_2_2.png)
 
 Users can configure the Snyk extension using the **Solution settings** in the **Options**.
 

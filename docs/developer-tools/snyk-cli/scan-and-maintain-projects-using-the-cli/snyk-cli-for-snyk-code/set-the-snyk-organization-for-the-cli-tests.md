@@ -93,4 +93,4 @@ snyk code test --org=snyk-xxxx-xxx
 
 The internal name of the Snyk Test Org Organization appears in the results of this test:
 
-![Organization internal name in test results](<../../../../.gitbook/assets/Snyk Code - CLI - Organization - Specific test Settings - Results - okta-saml-application-creation.png>)
+![Organization internal name in test results](<../../../../.gitbook/assets/Snyk Code - CLI - Organization - Specific test Settings - Results - 2.png>)

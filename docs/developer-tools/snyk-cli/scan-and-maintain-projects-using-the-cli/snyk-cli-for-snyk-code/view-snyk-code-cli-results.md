@@ -91,7 +91,7 @@ snyk code test /Users/username/Documents/Repositories/snyk-goof-master --severit
 
 The results show four issues, all with a High severity level. Issues with a lower severity level are not displayed:
 
-![CLI test results for Snyk Code with High severity](<../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Filter Severity - Example - after - okta-saml-application-creation.png>)
+![CLI test results for Snyk Code with High severity](<../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Filter Severity - Example - after - 2.png>)
 
 ## Severity levels in JSON and SARIF files
 

@@ -6,7 +6,7 @@ description: The list of options and some examples for GitLab
 
 The following options are available for the `snyk-scm-contributors-count gitlab` command:
 
-```
+```bash
   --version                 Show version number                        [boolean]
   --help                    Show help                                  [boolean]
   --token                   GitLab token                               [required]
@@ -33,12 +33,12 @@ Consider the following levels of usage and options:
 
 *   To get commits for all groups and their projects in GitLab, provide the GitLab token (and server url for GitLab Enterprise):
 
-    ```
+```bash
     snyk-scm-contributors-count gitlab --token TOKEN --url URL
     ```
 *   To get commits for some groups and their projects in GitLab, provide the GitLab token and the group names, separated by a comma:
 
-    ```
+```bash
     snyk-scm-contributors-count gitlab --token TOKEN --groups GROUP1,GROUP2
     ```
 
@@ -48,7 +48,7 @@ Note that for nested groups, you need to provide the lowest level group name, fo
 
 *   To get commits for a specific project in GitLab, provide the GitLab token and **one** group name and **one** project name:
 
-    ```
+```bash
     snyk-scm-contributors-count gitlab --token TOKEN --groups GROUP --project PROJECT
     ```
 
@@ -56,17 +56,17 @@ Note that for nested groups, you need to provide the lowest level group name, fo
 
 * To exclude some contributors from being counted in the commits, add an exclusion file with the emails to ignore(separated by a new line) and apply the `--exclusionFilePath` with the path to that file:
 
-```
+```bash
 snyk-scm-contributors-count gitlab --token TOKEN --projectKeys ID1,ID2,Path1/Namespace1 --exclusionFilePath PATH_TO_FILE
 ```
 
 *   To set the output to json format, add the `--json` flag:
 
-    ```
+```bash
     snyk-scm-contributors-count gitlab --token TOKEN --json
     ```
 * To run in debug mode for verbose output, prefix with`DEBUG=snyk*`:
 
-```
+```bash
 DEBUG=snyk* snyk-scm-contributors-count gitlab --token TOKEN --url URL --exclusionFilePath PATH_TO_FILE --json
 ```

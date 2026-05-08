@@ -1,3 +1,7 @@
+---
+description: Manage your local Snyk CLI configuration file, including setting and clearing key-value pairs.
+---
+
 # Config
 
 ## Usage

@@ -1,3 +1,7 @@
+---
+description: Reference the required environment variables for configuring the Snyk Broker Client for GitHub.com.
+---
+
 # GitHub - environment variables for Snyk Broker
 
 The following environment variables are required to configure the Broker Client for GitHub:

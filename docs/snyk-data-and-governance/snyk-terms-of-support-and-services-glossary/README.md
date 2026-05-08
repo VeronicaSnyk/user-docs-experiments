@@ -1,3 +1,7 @@
+---
+description: Review the support and success offering terms available to Snyk Enterprise customers, including response SLAs, training, and technical success manager access.
+---
+
 # Snyk terms of support and services glossary
 
 The following terms shall apply if and to the extent the Customer purchases the offerings below on an Order Form. The Success Offerings are inclusive of the Support Plan with the same name. All Snyk customers receive Standard Success as part of their Subscription Allocation. The Flex, Gold, and Platinum Success Offerings are only available for purchase by customers on the Snyk Enterprise Plan.

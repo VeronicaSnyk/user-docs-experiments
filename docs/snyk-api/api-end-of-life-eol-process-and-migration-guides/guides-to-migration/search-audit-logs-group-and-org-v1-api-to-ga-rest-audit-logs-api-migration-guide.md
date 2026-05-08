@@ -1,3 +1,7 @@
+---
+description: Migrate from the V1 audit log endpoints to the GA REST Audit Logs API with cursor-based pagination for better performance.
+---
+
 # Search Audit Logs (Group and Org) v1 API to GA REST Audit logs API migration guide
 
 ## What’s new in the REST Search Audit Logs API?

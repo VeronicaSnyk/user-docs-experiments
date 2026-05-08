@@ -1,3 +1,7 @@
+---
+description: Configure SAML-based Single Sign-On yourself as a Group Admin without requiring Snyk Support involvement.
+---
+
 # Configure Self-Serve Single Sign-On (SSO)
 
 Group Admins on a Snyk Enterprise plan who use SAML for SSO can configure Snyk Single Sign-on themselves. Ensure you have at least one Group and Organization where you can assign new users. See [Manage Groups and Organizations](../../../../snyk-platform-administration/groups-and-organizations/).

@@ -6,7 +6,7 @@ description: The list of options and some examples
 
 The following options are available for the `snyk-scm-contributors-count github-enterprise` command:
 
-```
+```bash
   --version                 Show version number                        [boolean]
   --help                    Show help                                  [boolean]
   --token                   Github Enterprise token                    [required]
@@ -35,17 +35,17 @@ Consider the following levels of usage and options:
 
 *   To get commits for all repos in all your orgs in GitHub Enterprise, provide the GitHub Enterprise token:
 
-    ```
+```bash
     snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL
     ```
 *   To get commits for some orgs and their repos in GitHub Enterprise, provide the GitHub Enterprise token and the org names, separated by a comma:
 
-    ```
+```bash
     snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL --orgs ORG_ONE,ORG_TWO,ORG_THREE
     ```
 *   To get commits for only one repo in GitHub Enterprise, provide the GitHub Enterprise token, one org name, and one repo name:
 
-    ```
+```bash
     snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL --orgs ORG --repo REPO
     ```
 
@@ -53,22 +53,22 @@ Consider the following levels of usage and options:
 
 * To map all the orgs in GitHub Enterprise and not just the ones you have operate rights to, add the `--fetchAllOrgs` flag:
 
-```
+```bash
 snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL --fetchAllOrgs
 ```
 
 *   To exclude some contributors from being counted in the commits, add an exclusion file with the emails to ignore(separated by a new line) and apply the `--exclusionFilePath` with the path to that file:
 
-    ```
+```bash
     snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL --orgs ORG_ONE,ORG_TWO --exclusionFilePath PATH_TO_FILE
     ```
 *   To set the output to json format, dd the `--json` flag:
 
-    ```
+```bash
     snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL --json
     ```
 * To run in debug mode for verbose output, prefix with `DEBUG=snyk*` :
 
-```
+```bash
 DEBUG=snyk* snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL --orgs ORG --repo REPO --exclusionFilePath PATH_TO_FILE --json
 ```

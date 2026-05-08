@@ -1,3 +1,7 @@
+---
+description: Share a single Broker token across multiple Snyk Organizations by cloning an existing integration to each Organization.
+---
+
 # Enabling Broker across multiple Organizations
 
 You can use the same Git service across multiple Organizations in Snyk with the same Broker token.

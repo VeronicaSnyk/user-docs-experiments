@@ -1,3 +1,7 @@
+---
+description: Connect your Snyk Organization to a Bitbucket Cloud workspace using the Bitbucket Cloud App for continuous security scanning.
+---
+
 # Bitbucket Cloud App
 
 The Bitbucket Cloud App is positioned to be the default Bitbucket Cloud integration
@@ -15,7 +19,7 @@ Snyk recommends using the Bitbucket Cloud App integration for smoother integrati
 If you are using the [Bitbucket Cloud API token integration](bitbucket-cloud.md), see [Migrate a Bitbucket Cloud integration](bitbucket-cloud.md#migrate-to-the-bitbucket-cloud-app) for more information.
 {% endhint %}
 
-### Setting up a Bitbucket Cloud App
+## Setting up a Bitbucket Cloud App
 
 To give Snyk access to your Bitbucket account, you need to install the Snyk App on your Bitbucket Cloud workspace.
 
@@ -30,16 +34,16 @@ To install the Snyk App on your Bitbucket Cloud workspace, you must have **Admin
     * Read and modify your repositories and their pull requests
     * Read and modify your repositories' webhooks
 
-    <figure><img src="../../../.gitbook/assets/image (14) (1).png" alt="Allow access for Snyk to Bitbucket Cloud" width="563"><figcaption><p>Allow access for Snyk to Bitbucket Cloud</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/allow-access-snyk-bitbucket-cloud.png" alt="Allow access for Snyk to Bitbucket Cloud" width="563"><figcaption><p>Allow access for Snyk to Bitbucket Cloud</p></figcaption></figure>
 3.  Grant access to your Snyk Organization when you're prompted.
 
-    <figure><img src="../../../.gitbook/assets/bitbucket-cloud-permissions_10nov2022.png" alt="Allow Bitbucket Cloud access to your Snyk Organization" width="365"><figcaption><p>Allow Bitbucket Cloud access to your Snyk Organization<br></p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/bitbucket-cloud-permissions_10nov202okta-saml-application-creation.png" alt="Allow Bitbucket Cloud access to your Snyk Organization" width="365"><figcaption><p>Allow Bitbucket Cloud access to your Snyk Organization<br></p></figcaption></figure>
 
     After you allow access to the Snyk Organization, the Snyk **Organization Settings** page opens and confirms that the Bitbucket Cloud App is connected.
 
 After Snyk is integrated with Bitbucket Cloud, you can see the new Snyk security tab on the repository page and import and explore the issues and vulnerabilities for your repository Projects directly in Bitbucket.
 
-<figure><img src="../../../.gitbook/assets/bbcloud-app_snyk-security_6oct2022.png" alt="Bitbucket security insights with Snyk Bitbucket Cloud App"><figcaption><p>Bitbucket security insights with Snyk Bitbucket Cloud App</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bbcloud-app_snyk-security_6oct202okta-saml-application-creation.png" alt="Bitbucket security insights with Snyk Bitbucket Cloud App"><figcaption><p>Bitbucket security insights with Snyk Bitbucket Cloud App</p></figcaption></figure>
 
 Watch this short video to see how to set up **Snyk security** in Bitbucket Cloud.
 
@@ -53,7 +57,7 @@ If you need to, you can also install the Snyk Bitbucket Cloud App integration wh
 
 In one of your Bitbucket Cloud workspaces, navigate to the **Security** tab in one of your repositories, click **Try now**, and follow the procedure.
 
-<figure><img src="../../../.gitbook/assets/install-app-bbc_6oct-2022.png" alt="Install the Snyk Bitbucket Cloud App from Bitbucket"><figcaption><p>Install the Snyk Bitbucket Cloud App from Bitbucket</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/install-app-bbc_6oct-202okta-saml-application-creation.png" alt="Install the Snyk Bitbucket Cloud App from Bitbucket"><figcaption><p>Install the Snyk Bitbucket Cloud App from Bitbucket</p></figcaption></figure>
 
 ### Adding Bitbucket repositories to Snyk
 
@@ -80,20 +84,20 @@ Snyk produces advanced [remediation reports](../../../manage-risk/analytics/repo
 
 The example that follows shows a Project-level security report.
 
-<figure><img src="../../../.gitbook/assets/bbc_project-sec-rpt_21sept2022.png" alt="Project-level security report"><figcaption><p>Project-level security report</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bbc_project-sec-rpt_21sept202okta-saml-application-creation.png" alt="Project-level security report"><figcaption><p>Project-level security report</p></figcaption></figure>
 
 Snyk scans your Projects on either a daily or a weekly basis. When new vulnerabilities are found, Snyk notifies you by email and by opening [automated pull requests](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/enable-automatic-fix-prs.md) with fixes for your repositories.
 
 The example that follows shows a fix pull request opened by Snyk.
 
-<figure><img src="../../../.gitbook/assets/bbc-app_pr_6oct2022.png" alt="Fix pull request opened by Snyk"><figcaption><p>Fix pull request opened by Snyk</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bbc-app_pr_6oct202okta-saml-application-creation.png" alt="Fix pull request opened by Snyk"><figcaption><p>Fix pull request opened by Snyk</p></figcaption></figure>
 
 To review and adjust the automatic fix pull request settings:
 
 1. In Snyk, go to **Organization settings** > **Integrations** > **Source control** > **Bitbucket Cloud App**, and click **Edit Settings**.
 2.  Scroll to the **Automatic fix PRs** section and configure the relevant options.
 
-    <div align="left"><figure><img src="../../../.gitbook/assets/Screenshot 2023-05-02 at 11.19.09.png" alt="Automatic fix PR settings "><figcaption><p>Automatic fix PR settings </p></figcaption></figure></div>
+    <div align="left"><figure><img src="../../../.gitbook/assets/automatic-fix-pr-settings.png" alt="Automatic fix PR settings "><figcaption><p>Automatic fix PR settings </p></figcaption></figure></div>
 
 {% hint style="info" %}
 Unlike manual pull requests opened from the Bitbucket interface, Snyk pull requests are _not_ automatically assigned to the default reviewer set in your Bitbucket Cloud account.
@@ -107,7 +111,7 @@ Snyk tests any newly created pull request in your repositories for security vuln
 
 The example that follows shows a Snyk pull request build check on the Bitbucket Cloud **Pull Request** page.
 
-<figure><img src="../../../.gitbook/assets/888.png" alt="BitBucket Cloud pull request page showing Snyk pull request"><figcaption><p>BitBucket Cloud pull request page showing Snyk pull request</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/88enter-details-snyk-google.png" alt="BitBucket Cloud pull request page showing Snyk pull request"><figcaption><p>BitBucket Cloud pull request page showing Snyk pull request</p></figcaption></figure>
 
 To review and adjust the pull request test settings, follow these steps:
 
@@ -118,7 +122,7 @@ To review and adjust the pull request test settings, follow these steps:
 
 When you install the Snyk Bitbucket Cloud App integration in your Bitbucket workspace, the members of your workspace can import repositories and see the security issues related to their repositories in a dedicated Snyk security tab in Bitbucket Cloud.
 
-<figure><img src="../../../.gitbook/assets/bbcloud-app_snyk-security_6oct2022.png" alt="Snyk Security tab in Bitbucket Cloud"><figcaption><p>Snyk Security tab in Bitbucket Cloud</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bbcloud-app_snyk-security_6oct202okta-saml-application-creation.png" alt="Snyk Security tab in Bitbucket Cloud"><figcaption><p>Snyk Security tab in Bitbucket Cloud</p></figcaption></figure>
 
 {% hint style="warning" %}
 The first-party interface currently supports only the [Snyk Open Source](../../../scan-with-snyk/snyk-open-source/) and [Snyk Container](../../../scan-with-snyk/snyk-container/) products. Issues from other Snyk products do not show up on this page.
@@ -130,7 +134,7 @@ During the first-time Bitbucket Cloud App onboarding process, the first-party in
 
 To change the Snyk Organization after onboarding, go to the workspace settings > **Security for Bitbucket Cloud** > **Integration Settings** and click **Connect via a different Snyk user/organization**.
 
-<figure><img src="../../../.gitbook/assets/bbc-app-1st-party_change-org_6oct2022.png" alt="Create integration settings for a different Organization"><figcaption><p>Create integration settings for a different Organization</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bbc-app-1st-party_change-org_6oct202okta-saml-application-creation.png" alt="Create integration settings for a different Organization"><figcaption><p>Create integration settings for a different Organization</p></figcaption></figure>
 
 The installation process begins again, and you can choose the relevant Snyk Organization.
 

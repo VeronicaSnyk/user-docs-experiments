@@ -1,3 +1,7 @@
+---
+description: Install and configure the Snyk Broker Client for GitLab using Docker to create a secure connection to your GitLab instance.
+---
+
 # GitLab - install and configure using Docker
 
 Before installing, review the [prerequisites](../../../../../../enterprise-setup/snyk-broker/classic-broker/install-and-configure-snyk-broker/gitlab-prerequisites-and-steps-to-install-and-configure-broker/) and the general instructions for installation using [Docker](../../../../../../enterprise-setup/snyk-broker/classic-broker/install-and-configure-snyk-broker/install-and-configure-broker-using-docker.md).

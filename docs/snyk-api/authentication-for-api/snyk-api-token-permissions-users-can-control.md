@@ -1,3 +1,7 @@
+---
+description: Set a service account to read-only permissions by assigning it the Group Viewer role to limit write access.
+---
+
 # Snyk API token permissions users can control
 
 To set an API token to have read-only permissions so the user is unable to write to the platform, use a service account and set it to Group Viewer.

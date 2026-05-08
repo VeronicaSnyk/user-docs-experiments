@@ -1,3 +1,7 @@
+---
+description: Enable Snyk PR Checks on your integrations and open a test pull request to verify that Snyk automatically scans and blocks new vulnerabilities introduced in code changes.
+---
+
 # Test PR Checks
 
 {% include "../../../../.gitbook/includes/pilot-guide-toc.md" %}

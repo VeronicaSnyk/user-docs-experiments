@@ -1,3 +1,7 @@
+---
+description: Configure email and Slack notifications to alert you when Snyk finds new issues in your monitored Projects.
+---
+
 # Manage notifications
 
 Snyk notifies you automatically when new issues are found in the Projects you are monitoring to alert you to new possible new risks in these Projects.

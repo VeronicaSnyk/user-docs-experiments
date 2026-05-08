@@ -1,3 +1,7 @@
+---
+description: View and customize AppSec program performance metrics—coverage, exposure, remediation, and prevention—organized across multiple sections in the Analytics Overview tab.
+---
+
 # Overview tab
 
 Analytics provides executives, as well as Application Security (AppSec) leaders and practitioners, a view into the performance of their AppSec program. Snyk customers can understand at a glance the strengths and weaknesses of their program, identify where successful practices can be discerned, and uncover the largest opportunities for improvement that warrant investment.&#x20;

@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan Elixir open-source dependencies for vulnerabilities using the Snyk CLI and IDE integrations.
+---
+
 # Elixir
 
 {% hint style="info" %}
@@ -37,7 +42,7 @@ Mix is a build tool that compiles, tests, and creates Elixir projects. Mix manag
 
 Snyk builds a dependency tree for your Project by analyzing your `mix.exs` and `mix.lock` files. The `mix.lock` file must be present and in sync with the `mix.exs` file. After Snyk builds the tree, Snyk uses the [vulnerability database](https://snyk.io/vuln) to find vulnerabilities in the packages anywhere in the dependency tree.
 
-#### **Project naming**
+### **Project naming**
 
 Projects in the Snyk UI are named according to the `app` keyword from the `project/0` function exported by `Mix.Project` in the main `mix.exs` file.
 

@@ -1,3 +1,8 @@
+---
+description: >-
+  Use Snyk IaC cloud scans to find, view, and fix misconfigurations in deployed AWS, Azure, and Google Cloud resources.
+---
+
 # Getting started with cloud scans
 
 Use Snyk IaC cloud scans to find, view, and fix issues in deployed cloud resource configurations for AWS, Azure, and Google Cloud.

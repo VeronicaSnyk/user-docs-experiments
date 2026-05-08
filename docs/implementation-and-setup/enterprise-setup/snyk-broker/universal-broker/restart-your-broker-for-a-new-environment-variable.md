@@ -1,10 +1,14 @@
+---
+description: Restart your Universal Broker Docker container after adding or changing an environment variable to apply the new configuration.
+---
+
 # Restart your Broker for a new environment variable
 
 If you change an environment variable, you must restart your Broker, except in Kubernetes deployments.
 
 You must use `-e BROKER_SERVER_URL=https://broker.REGION.snyk.io \` for regional Snyk instances. For details, see [Broker URLs](../../../../snyk-data-and-governance/regional-hosting-and-data-residency.md#broker-server-urls).
 
-```
+```bash
 docker run --restart=always \
     -p 8000:8000 \
     -e ACCEPT_CODE=true \
@@ -18,7 +22,7 @@ snyk/broker:universal
 
 At this point, the Broker will display a message like the following:
 
-```
+```json
 {"name":"my github connection","hostname":"ae7d64e0edac","pid":1,"level":30,"id":"12345678-1234-1234-1234-123456789012","msg":"Connection (my github connection) not in use by any orgs. Will check periodically and create connection when in use.","time":"2024-06-18T20:21:24.382Z","v":0}
 ```
 

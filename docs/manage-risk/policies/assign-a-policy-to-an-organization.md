@@ -1,3 +1,7 @@
+---
+description: Apply a Snyk security or license policy to a specific Organization so it takes effect during snyk test and snyk monitor CLI commands.
+---
+
 # Assign a policy to an Organization
 
 When you create a policy, you can apply it to one Organization. You cannot directly apply an Organization to or remove an Organization from the default policy using the Policy Manager.

@@ -1,3 +1,7 @@
+---
+description: Understand when newly assigned or modified license policies take effect and how updated severity levels appear in the Snyk Web UI, IDE, and PR checks.
+---
+
 # License policy results
 
 A newly assigned policy, or modifications to a policy, will apply after the next scheduled test runs for all of the licenses in the Organization.

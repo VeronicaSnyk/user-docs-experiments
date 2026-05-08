@@ -1,3 +1,7 @@
+---
+description: Configure a Bitbucket Group-level integration in Snyk AppRisk to discover and track repositories across your workspaces.
+---
+
 # Bitbucket for Snyk Essentials
 
 The Integrations page shows all active integrations, including data from your existing Snyk Organizations that is automatically synced and provides access to the Integration Hub.
@@ -18,7 +22,7 @@ After manually setting up the languages in your Bitbucket project, Snyk can auto
 * Users
 * Repositories
 
-#### Prerequisites <a href="#azure-devops-integrate-using-snyk-apprisk" id="azure-devops-integrate-using-snyk-apprisk"></a>
+### Prerequisites <a href="#azure-devops-integrate-using-snyk-apprisk" id="azure-devops-integrate-using-snyk-apprisk"></a>
 
 To configure a Group-level integration, you must be a Group Admin or have a custom role that includes the `Edit Snyk Essentials` permissions under the [Group-level permissions](../../../snyk-platform-administration/user-roles/pre-defined-roles.md#group-level-permissions).
 

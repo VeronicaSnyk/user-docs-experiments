@@ -1,3 +1,8 @@
+---
+description: >-
+  Use Snyk Essentials to gain broad application visibility and manage security coverage across your organization at scale.
+---
+
 # Snyk Essentials
 
 Snyk Essentials helps AppSec teams better operationalize and scale use of Snyk with broad application visibility and security coverage management.

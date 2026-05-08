@@ -1,3 +1,7 @@
+---
+description: Provide your Snyk account team with the tenant admin email address to have your Snyk tenant provisioned and receive a welcome email granting access.
+---
+
 # Provision your account
 
 {% include "../../../../.gitbook/includes/pilot-guide-toc.md" %}

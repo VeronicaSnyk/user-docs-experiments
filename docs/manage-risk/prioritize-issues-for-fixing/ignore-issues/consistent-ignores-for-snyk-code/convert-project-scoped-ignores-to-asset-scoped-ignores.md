@@ -1,3 +1,7 @@
+---
+description: Convert existing Snyk Code Project-scoped ignores to asset-scoped ignores after enabling Consistent Ignores, with control over which ignores become the single source of truth.
+---
+
 # Convert Project-scoped ignores to asset-scoped ignores
 
 ## Conversion setup

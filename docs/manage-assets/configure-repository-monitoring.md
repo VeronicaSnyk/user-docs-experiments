@@ -1,3 +1,7 @@
+---
+description: Manage repository coverage and monitoring configurations centrally across your Snyk Group from the Inventory page, including bulk import and health status visibility.
+---
+
 # Configure repository monitoring
 
 {% hint style="info" %}

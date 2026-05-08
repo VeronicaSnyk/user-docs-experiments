@@ -1,3 +1,7 @@
+---
+description: Set up Group-level SSO and configure user roles to control who can access your Snyk Groups and Organizations.
+---
+
 # Authentication and access
 
 ## Set up SSO

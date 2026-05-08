@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning COBOL code in Early Access for Enterprise plans.
+---
+
 # COBOL rules
 
 {% hint style="info" %}

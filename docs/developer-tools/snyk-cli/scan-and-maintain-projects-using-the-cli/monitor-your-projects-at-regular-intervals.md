@@ -1,3 +1,7 @@
+---
+description: Set up recurring snyk monitor runs to keep your Projects continuously tracked in the Snyk Web UI.
+---
+
 # Monitor your Projects at regular intervals
 
 By using the `test` command and the `@snyk/protect` [package](https://github.com/snyk/snyk/tree/master/packages/snyk-protect) (replaced the snyk `protect` command), you are well set up to address known vulnerabilities. To address new vulnerabilities, which are constantly disclosed, use <kbd>snyk monitor</kbd>.

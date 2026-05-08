@@ -1,3 +1,8 @@
+---
+description: >-
+  Enable Snyk to automatically open fix pull requests when new vulnerabilities are found in your Projects.
+---
+
 # Enable automatic Fix PRs
 
 {% hint style="info" %}
@@ -39,7 +44,7 @@ Follow these steps to enable pull requests at the global integration level:
 
 **Apply changes to all overridden Projects** will update all of the individual Project settings for **Automatic fix PRs**. If a Project previously had its own settings for automatic fix pull requests, clicking the button will override the Project setting with the global setting.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-05-03 at 14.49.59.png" alt=""><figcaption><p>Configure Automatic Fix PRs</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/configure-automatic-fix-prs.png" alt=""><figcaption><p>Configure Automatic Fix PRs</p></figcaption></figure>
 
 If you select **Fix all vulnerabilities for the same dependency in a single PR**, this will add any PR opened to address an issue with any potential PR for upgrades which also fix the same issue. So, fixing an instance of the vulnerability may imply that other vulnerabilities will also be fixed implicitly.
 

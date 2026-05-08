@@ -1,3 +1,7 @@
+---
+description: Run a Snyk Code static analysis scan against your source code from the command line.
+---
+
 # Scan source code with Snyk Code using the CLI
 
 When you test your repository source code using the Snyk CLI, you can:
@@ -18,7 +22,7 @@ To exclude certain directories or files from the Snyk Code CLI test, you can use
 
 To test the repository folder, in the terminal, enter the following:
 
-```
+```bash
 snyk code test
 ```
 
@@ -28,7 +32,7 @@ Snyk Code tests the folder and displays the [test results](view-snyk-code-cli-re
 
 For example, to test the `snyk-goof` repository from its root folder, first change the directory to the root folder of the repository. Then enter:
 
-```
+```bash
 snyk code test
 ```
 
@@ -40,7 +44,7 @@ Snyk Code tests the `snyk-goof` repository, and displays the vulnerability issue
 
 To test a repository from another folder, in the terminal, enter the following:
 
-```
+```bash
 snyk code test <path/to/folder>
 ```
 
@@ -48,11 +52,11 @@ The `path/to/folder` is the full path of the repository you want to test using S
 
 For example, to test the `snyk-goof` repository from another directory, enter:
 
-```
+```bash
 snyk code test /Users/username/Documents/Repositories/snyk-goof
 ```
 
-<figure><img src="../../../../.gitbook/assets/snyk Code - CLI - snyk code test - Any folder - 2.png" alt="Example of Snyk Code CLI test results"><figcaption><p>Example of Snyk Code CLI test results</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/snyk Code - CLI - snyk code test - Any folder - okta-saml-application-creation.png" alt="Example of Snyk Code CLI test results"><figcaption><p>Example of Snyk Code CLI test results</p></figcaption></figure>
 
 * To explore the test results, see [View Snyk Code CLI results](view-snyk-code-cli-results.md).
 * To work with the test results, see [Displaying the CLI results in an HTML format using the Snyk-to-HTML feature](../cli-tools/snyk-to-html.md).
@@ -80,7 +84,7 @@ This allows using Snyk Code as a blocking CI/CD gate to test and block builds at
 
 In the terminal, enter the following command:
 
-```
+```bash
 snyk code test --report --project-name="<PROJECT_NAME>"
 ```
 
@@ -90,27 +94,27 @@ After using this option, log in to Snyk and view your Projects to see the snapsh
 
 Running the `snyk code test` command with the `--report` option, as shown, returns the results to the terminal window, along with a URL to the Snyk Code Project where the results have been published. Refer to the following screenshot.
 
-<figure><img src="../../../../.gitbook/assets/image (2) (6).png" alt=""><figcaption><p>Snyk code test results with --report option</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/snyk-code-test-results-report-option.png" alt=""><figcaption><p>Snyk code test results with --report option</p></figcaption></figure>
 
 If a Snyk Code Project created with the CLI does not yet exist for the provided value in the option, the Snyk CLI creates a new Project. If a Project created using the CLI already exists, a new snapshot is made under the same Project.
 
 To make the Project easier to interpret in Snyk Web UI, you can use additional commands to specify a target name and also target references, such as Git branches. The following command will create or upload an existing Project named `<PROJECT_NAME>` under a target named `<TARGET_NAME>`.
 
-```
+```bash
 snyk code test --report --project-name="<PROJECT_NAME>" --target-name="<TARGET_NAME>"
 ```
 
 The following command creates or uploads an existing Project named `<PROJECT_NAME>` under a target named `<TARGET_NAME>` and grouped by the "`$(git branch --show-current)"` branch name.
 
-```
+```bash
 snyk code test --report --project-name="<PROJECT_NAME>" --target-name="<TARGET_NAME>" --target-reference="$(git branch --show-current)"
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (4) (4).png" alt=""><figcaption><p>Code analysis Projects grouped by branch</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/code-analysis-projects-grouped-branch.png" alt=""><figcaption><p>Code analysis Projects grouped by branch</p></figcaption></figure>
 
 You can use the `--help` flag with the `snyk code test` command to view inline documentation directly in your terminal.
 
-```
+```bash
 snyk code test --help
 ```
 
@@ -140,13 +144,13 @@ This error indicates that the contents of the scanned Project exceed the limit. 
 
 You can ignore issues in Snyk Web UI. The ignores will be used to [publish CLI results to a Snyk Code Project](scan-source-code-with-snyk-code-using-the-cli.md#publish-cli-results-to-a-snyk-code-project).
 
-<figure><img src="../../../../.gitbook/assets/image (1) (7) (1).png" alt=""><figcaption><p>Ignoring issues in the Web UI</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/ignoring-issues-web-ui.png" alt=""><figcaption><p>Ignoring issues in the Web UI</p></figcaption></figure>
 
 [snyk-to-html](https://github.com/snyk/snyk-to-html) does not respect the ignored issues. Anything that is ignored in Snyk Web UI is not ignored in the report that `snyk-to-html` generates.
 
 For [publishing workflows](scan-source-code-with-snyk-code-using-the-cli.md#publish-cli-results-to-a-snyk-code-project), after the CLI results are published to a Snyk Code Project, issues that were ignored in the Web UI will be ignored in CLI tests when you use the following command:
 
-```
+```bash
 snyk code test --report --project-name="PROJECT_NAME"
 ```
 

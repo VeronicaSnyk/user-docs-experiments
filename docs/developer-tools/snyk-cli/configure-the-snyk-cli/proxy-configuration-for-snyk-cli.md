@@ -1,3 +1,7 @@
+---
+description: Configure proxy settings for the Snyk CLI using environment variables to route traffic through your corporate proxy.
+---
+
 # Proxy configuration for Snyk CLI
 
 ## General proxy configuration

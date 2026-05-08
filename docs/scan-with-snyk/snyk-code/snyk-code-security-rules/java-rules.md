@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Java code, including CWE references and OWASP categories.
+---
+
 # Java rules
 
 Each rule includes the following information.

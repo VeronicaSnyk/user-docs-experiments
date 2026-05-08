@@ -1,3 +1,7 @@
+---
+description: Track which vulnerabilities are actively trending on X (formerly Twitter) so you can prioritize issues gaining real-world attacker attention using Snyk Social Trends.
+---
+
 # Vulnerabilities with Social Trends
 
 Snyk Social Trends shows a **Trending** notification for issues that are being actively discussed on X (formerly known as Twitter).

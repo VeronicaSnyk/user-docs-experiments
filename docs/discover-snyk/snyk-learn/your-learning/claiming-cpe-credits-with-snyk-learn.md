@@ -25,9 +25,9 @@ The specific process for claiming CPE credits may vary depending on your certify
    2. Enter the recorded details and provide any required documentation, such as completion certificates (available for Learning Paths) or screenshots of the completed lesson in your Learning Progress dashboard or the lesson page, see examples below.
 4. Provide additional information if requested. You may be asked to supply further details or respond to inquiries from your certifying body to verify your CPE claim.
 
-### Examples
+## Examples
 
-#### Learning path certificate
+### Learning path certificate
 
 Navigate to the page for the Learning Path that you completed and click the **Download certificate** button.
 

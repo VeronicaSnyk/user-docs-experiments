@@ -1,3 +1,7 @@
+---
+description: Scan container images and Dockerfiles for vulnerabilities and base image issues using the Snyk CLI.
+---
+
 # Snyk CLI for Snyk Container
 
 {% hint style="info" %}

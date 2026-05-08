@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Dart and Flutter code in Early Access for Enterprise plans.
+---
+
 # Dart and Flutter rules
 
 {% hint style="info" %}

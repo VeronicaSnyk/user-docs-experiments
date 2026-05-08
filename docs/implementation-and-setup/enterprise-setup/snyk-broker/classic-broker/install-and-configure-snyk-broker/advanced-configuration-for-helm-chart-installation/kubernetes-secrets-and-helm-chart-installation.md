@@ -1,3 +1,7 @@
+---
+description: Use external Kubernetes secrets to supply sensitive configuration values to your Snyk Broker Helm Chart installation.
+---
+
 # Kubernetes secrets and Helm Chart installation
 
 Beginning with version `2.8.0` of the Snyk Broker Helm Chart, external secrets are supported.
@@ -6,7 +10,7 @@ To enable this functionality, set `useExternalSecrets` to `true` in `values.yaml
 
 To obtain a list of required secrets, perform a dry run of a Helm installation. This will not make any changes to your Kubernetes environment, but does require the following:
 
-```
+```bash
 helm install snyk-broker-chart \
   snyk-broker/snyk-broker \
   --set externalSecrets=true \
@@ -16,8 +20,8 @@ helm install snyk-broker-chart \
 
 A list of secrets with their expected names and values will be generated. The following example uses `scmType=nexus` :
 
-```
-### Secret Creation Disabled ###
+```text
+## Secret Creation Disabled ###
 
 Ensure secrets are present on your cluster in the default namespace:
 
@@ -44,7 +48,7 @@ Each of the following Helm values supports `name` and `key`, to allow the Snyk B
 
 For example, if your Kubernetes cluster has a secret with a Broker token in the following form:
 
-```
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -56,7 +60,7 @@ data:
 
 Set the following:
 
-```
+```yaml
 useExternalSecrets: true
 
 brokerTokenSecret:
@@ -75,7 +79,7 @@ When `useExternalSecrets` is true, the Broker Helm Chart will check whether a va
 
 By this means, some secrets may be controlled by the Broker Helm chart, and others controlled externally:
 
-```
+```yaml
 scmType: github-com
 brokerToken: <my-broker-token>
 useExternalSecrets: true
@@ -89,7 +93,7 @@ This set of values will:
 
 Performing a dry run of a Helm installation will provide the required secret names and keys:
 
-```
+```text
 ### Secret Creation Disabled ###
 
 Ensure secrets are present on your cluster in the default namespace:
@@ -104,7 +108,7 @@ Note the Broker token secret is excluded from this list as a value is directly p
 
 A single Kubernetes secret may contain all required credentials for the Snyk Broker to operate. Using a Broker of type `nexus` as an example, assume this secret is present in Kubernetes:
 
-```
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -119,7 +123,7 @@ data:
 
 To specify this secret for all required values for `scmType=nexus`, set:
 
-```
+```yaml
 brokerTokenSecret:
   name: snyk-broker-secrets
   

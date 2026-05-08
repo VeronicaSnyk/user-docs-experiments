@@ -1,3 +1,7 @@
+---
+description: Select the right OAuth2 scopes for your Snyk App to match the permissions it needs to perform its intended actions.
+---
+
 # Scopes to request
 
 Scopes define the permissions your Snyk App has to perform actions in a user’s account. When a user authorizes your Snyk App to access their Snyk account, they see the list of scopes the App is requesting and then decide whether or not they approve the connection.

@@ -1,4 +1,5 @@
 ---
+description: Adopt and expand your Snyk usage with bespoke marketing programs, personalized workshops, and curated training pathways tailored to your Organization's needs.
 hidden: true
 noIndex: true
 ---

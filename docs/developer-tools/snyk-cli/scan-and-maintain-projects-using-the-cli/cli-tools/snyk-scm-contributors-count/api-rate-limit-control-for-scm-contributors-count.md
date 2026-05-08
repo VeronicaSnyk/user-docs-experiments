@@ -1,3 +1,7 @@
+---
+description: Understand how snyk-scm-contributors-count manages API rate limits for Azure DevOps, Bitbucket, and other SCMs.
+---
+
 # API rate limit control for scm-contributors-count
 
 ## Azure DevOps

@@ -1,3 +1,7 @@
+---
+description: Prioritize and manage security risk across your Projects using risk scoring, reachability analysis, policies, and analytics dashboards.
+---
+
 # Overview
 
 Snyk helps you prioritize issues for fixing by distinguishing between insignificant alerts and actionable threats. Not all vulnerabilities pose the same level of danger.&#x20;

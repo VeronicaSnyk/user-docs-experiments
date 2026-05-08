@@ -1,3 +1,7 @@
+---
+description: Review prerequisites and steps to install and configure the Snyk Broker Client for your on-premise Jira deployment.
+---
+
 # Jira - prerequisites and steps to install and configure Broker
 
 Before installing, review the general instructions for the installation method you plan to use, [Helm](../../../../../../enterprise-setup/snyk-broker/classic-broker/install-and-configure-snyk-broker/install-and-configure-broker-using-helm.md) or [Docker](../../../../../../enterprise-setup/snyk-broker/classic-broker/install-and-configure-snyk-broker/install-and-configure-broker-using-docker.md).

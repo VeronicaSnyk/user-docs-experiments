@@ -1,3 +1,8 @@
+---
+description: >-
+  Manage and enforce IaC custom rules automatically by integrating the SDK into your CI/CD pipeline.
+---
+
 # IaC custom rules within a pipeline
 
 Using a CI/CD such as [GitHub Actions](https://github.com/features/actions) is ideal for managing, distributing, and enforcing your custom rules.
@@ -26,7 +31,7 @@ An example of a PR check can be seen in [https://github.com/snyk/custom-rules-ex
 To verify that this rule works as expected, unit tests were implemented. To run the unit tests as part of PR checks, a GitHub Action was configured previously under `.github/workflows` called `test.yml`:
 
 {% code title=".github/workflows/test.yml" %}
-```
+```yaml
 name: Test Custom Rules
 
 on:
@@ -70,7 +75,7 @@ Another way to test the rules is by testing the contract with the [Snyk CLI](../
 To do this, you will need a step for installing the Snyk CLI and a `SNYK_TOKEN`, which can be found in your Snyk Account Settings.
 
 {% code title=".github/workflows/test.yml" %}
-```
+```yaml
 jobs:
   contract_test:
     runs-on: ubuntu-latest
@@ -106,7 +111,7 @@ Once a PR passes its checks from the previous section and gets merged into the `
 For this, add another workflow under `.github/workflows` called `publish.yml`:
 
 {% code title=".github/workflows/publish.yml" %}
-```
+```yaml
 name: Publish Custom Rules
 
 on:
@@ -156,7 +161,7 @@ If you want to release an experimental version of the custom rules without affec
 Start trialing bundle `v2-beta` while still using `v1` in most of our services:
 
 {% code title=".github/workflows/publish.yml" %}
-```
+```yaml
       - name: Publish experimental rules
         run: snyk-iac-rules push --registry $OCI_REGISTRY_URL bundle.tar.gz
         env:
@@ -180,7 +185,7 @@ One way to do this is by using the API endpoint [Update the Infrastructure as Co
 
 This means configuring the GitHub Action above with another job for updating Snyk to use the configured custom rules bundle:
 
-```
+```bash
       - name: Update Snyk
         run: |
           curl --location --request PATCH 'https://api.snyk.io/rest/groups/<group id>/settings/iac/?version=2021-11-03~beta' \
@@ -208,7 +213,7 @@ To configure an Organization to use a different bundle, such as the `v2-beta` on
 
 In a different repository, authenticate with one of the Organizations underneath this Group and add the Snyk IaC GitHub Action to a workflow:
 
-```
+```yaml
 name: Snyk Infrastructure as Code Custom Rules
 
 on:
@@ -229,7 +234,7 @@ jobs:
 
 The result is that the GitHub action will fail until the generated misconfigurations have been resolved:
 
-```
+```text
 Testing example.tf...
 
 
@@ -249,7 +254,7 @@ You can use the Snyk IaC GitHub Action with the `SNYK_CFG_OCI_REGISTRY_URL`, `SN
 
 The GitHub Action reads these environment variables and pulls down the bundle pushed in the previous step to the configured OCI registry. The GitHub action looks like this:
 
-```
+```yaml
 name: Snyk Infrastructure as Code Custom Rules
 
 on:

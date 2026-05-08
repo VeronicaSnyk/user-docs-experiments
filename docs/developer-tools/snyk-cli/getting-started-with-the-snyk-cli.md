@@ -1,3 +1,7 @@
+---
+description: Get started with the Snyk CLI to scan and monitor your code, dependencies, containers, and IaC configurations.
+---
+
 # Getting started with the Snyk CLI
 
 ## Introduction to the Snyk CLI
@@ -67,7 +71,7 @@ Snyk can monitor your Open Source or Container integrated SCM Project periodical
 
 This creates a snapshot of your current dependencies so Snyk can regularly scan your code. Snyk can then alert you about newly disclosed vulnerabilities as they are introduced or when a previously unavailable patch or upgrade path is created. The following code shows an example of the output of the `snyk monitor` command.
 
-```
+```text
 > snyk monitor
 Monitoring /project (project-name)...
 

@@ -1,3 +1,8 @@
+---
+description: >-
+  Interpret PR checks results and understand the severity levels and issues detected in your pull requests.
+---
+
 # Analyze PR checks results
 
 ## PR checks results

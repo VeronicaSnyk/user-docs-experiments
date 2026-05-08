@@ -1,3 +1,8 @@
+---
+description: >-
+  Configure optional Snyk Controller installation steps to fit your Kubernetes environment when using Helm.
+---
+
 # Optional installation steps for the Snyk Controller with Helm
 
 The installation steps depend on how you want to configure the Snyk Controller to fit your environment. Follow the applicable steps that match your situation.
@@ -6,7 +11,7 @@ The installation steps depend on how you want to configure the Snyk Controller t
 
 If your registry is using self-signed or other additional certificates, you must make them available to Snyk monitor. To do this, first place the `.crt`, `.cert`, and `.key` files in a directory and create a ConfigMap:
 
-```
+```bash
 kubectl create configmap snyk-monitor-certs \
         -n snyk-monitor --from-file=<path_to_certs_folder>
 ```
@@ -15,7 +20,7 @@ kubectl create configmap snyk-monitor-certs \
 
 If you are using an insecure registry or your registry is using unqualified images, you can provide a `registries.conf` file.
 
-```
+```text
 [[registry]]
 location = "internal-registry-for-example.net/bar"
 insecure = true
@@ -23,7 +28,7 @@ insecure = true
 
 For information on the format and more examples, see the [GitHub container image documentation](https://github.com/containers/image/blob/master/docs/containers-registries.conf.5.md). After you create the file, you can use it to create the following ConfigMap:
 
-```
+```bash
 kubectl create configmap snyk-monitor-registries-conf \
         -n snyk-monitor \
         --from-file=<path_to_registries_conf_file>
@@ -39,7 +44,7 @@ If you are using a proxy for the outbound connection to Snyk, you must configure
 
 For example:
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set clusterName="Production cluster" \
@@ -54,7 +59,7 @@ The integration does not support CIDR address ranges or wildcards in the `no_pro
 
 You can change the logging verbosity. Valid levels are `INFO`, `WARN,` `ERROR` and `DEBUG`. Snyk defaults to `INFO`. To change the logging verbosity, use the following command:
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set clusterName="Production cluster" \
@@ -65,7 +70,7 @@ helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
 
 By default, the controller runs without a [Pod Security Policy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/). You can enable it by passing a setting:
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set clusterName="Production cluster" \
@@ -74,7 +79,7 @@ helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
 
 You can reuse an existing Pod Security Policy by specifying the name. If you do not specify a name, a new policy is created automatically.
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set clusterName="Production cluster" \
@@ -97,7 +102,7 @@ To control the PVC, use the following flags:
 
 For example, you can run the following command on installation to provision and create the PVC:
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set pvc.enabled=true \
@@ -107,7 +112,7 @@ helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
 
 On subsequent upgrades, you can remove the `pvc.create` flag because the PVC already exists:
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \             
              --namespace snyk-monitor \
              --set pvc.enabled=true \
@@ -122,7 +127,7 @@ You can change the default, as Snyk allows you to configure the excluded namespa
 
 When you add your own list of namespaces to exclude with the `excludedNamespaces` setting, Snyk overrides the default settings and uses the list of namespaces you provide.
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \ 
              --namespace snyk-monitor \
              --set excludedNamespaces="{kube-node-lease,local-path-storage,some_namespace}"
@@ -132,7 +137,7 @@ helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
 
 If more resources are required to deploy the controller, configure the Helm Chart default value for requests and limits with the `--set` flag.
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set requests."ephemeral-storage"="50Gi"
@@ -143,7 +148,7 @@ helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
 
 You can adjust the workers number (XX) with the`--set` flag.
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set workers.count="XX"
@@ -153,7 +158,7 @@ helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
 
 If more or less CPU is required in order to deploy the controller, configure the HelmChart default value for requests (X) and limits (Y) with the `--set` flag.
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set requests.cpu="X"
@@ -164,7 +169,7 @@ helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
 
 If you use a **PersistentVolumeClaim** (PVC), instead of the default **emptyDir** storage, then you must provision volume permissions. To do this, disable the [initContainer](https://github.com/snyk/kubernetes-monitor/blob/master/snyk-monitor/templates/deployment.yaml#L56)[s](https://github.com/snyk/kubernetes-monitor/blob/master/snyk-monitor/templates/deployment.yaml#L56) in the Helm Chart using the `--set` flag:
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set initContainers.enabled = false

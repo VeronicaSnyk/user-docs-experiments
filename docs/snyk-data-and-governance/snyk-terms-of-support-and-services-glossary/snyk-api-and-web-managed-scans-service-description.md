@@ -1,3 +1,7 @@
+---
+description: Offload API and web application security scanning management to Snyk experts, gaining comprehensive vulnerability identification and remediation guidance without in-house overhead.
+---
+
 # Snyk API & Web Managed Scans Service Description
 
 ## Overview

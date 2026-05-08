@@ -1,3 +1,7 @@
+---
+description: Scan Python 3.8 projects for vulnerabilities in GitHub Actions using the Snyk Python 3.8 action.
+---
+
 # Snyk Python-3.8 action
 
 This page provides examples of using the Snyk GitHub Action for [Python (3.8)](https://github.com/snyk/actions/tree/master/python-3.8). For instructions on using the action and further information, see [GitHub Actions for Snyk setup and checking for vulnerabilities](./).

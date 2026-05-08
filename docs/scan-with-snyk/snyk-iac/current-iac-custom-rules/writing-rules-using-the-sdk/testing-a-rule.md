@@ -1,3 +1,8 @@
+---
+description: >-
+  Test your custom Rego rules using the built-in testing functionality provided by the Snyk IaC SDK.
+---
+
 # Testing a rule
 
 If you have generated the rules using the `template` command, as shown in [Writing a rule](writing-a-rule.md), then you can also benefit from using the testing functionality that comes with the SDK and the generated rules.
@@ -15,7 +20,7 @@ The file can have any name, but pay close attention to the file extension. Be es
 {% endhint %}
 
 {% code title="rules/MY_RULE/fixtures/denied.tf" %}
-```
+```hcl
 resource "aws_redshift_cluster" "denied" {
   cluster_identifier = "tf-redshift-cluster"
   database_name      = "mydb"
@@ -28,7 +33,7 @@ resource "aws_redshift_cluster" "denied" {
 {% endcode %}
 
 {% code title="rules/MY_RULE/fixtures/allowed.tf" %}
-```
+```hcl
 resource "aws_redshift_cluster" "allowed" {
   cluster_identifier = "tf-redshift-cluster"
   database_name      = "mydb"
@@ -50,7 +55,7 @@ The `want_msgs` field should be an array containing hardcoded values correspondi
 {% endhint %}
 
 {% code title="rules/MY_RULE/main_test.rego" %}
-```
+```rego
 package rules
 
 import data.lib
@@ -75,32 +80,32 @@ test_MY_RULE {
 
 To run all tests, run the following command:
 
-```
+```bash
  snyk-iac-rules test
 ```
 
 If your tests pass successfully, you will see an output like the following, assuming you have three different rules in your `rules/` folder:
 
-```
+```text
 PASS: 3/3
 ```
 
 However, if any of them fail, you will see an output like this:
 
-```
+```text
 data.rules.test_MY_RULE: FAIL (1.12234ms)
 FAIL: 2/3
 ```
 
 If you have more than one rule in your `rule/`, folder you can target a specific test by running the following command:
 
-```
+```bash
 snyk-iac-rules test --run test_MY_RULE
 ```
 
 The output follows:
 
-```
+```text
 Executing Rego test cases...
 data.rules.test_MY_RULE: FAIL (1.040468ms)
 --------------------------------------------------------------------------------
@@ -109,7 +114,7 @@ FAIL: 1/1
 
 If you need more details about the output, add the `--explain notes` option:
 
-```
+```bash
  snyk-iac-rules test --run test_MY_RULE --explain notes
 ```
 

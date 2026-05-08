@@ -1,3 +1,7 @@
+---
+description: Control where Snyk hosts your data by selecting a supported region, ensuring compliance with data residency requirements for Enterprise plan customers.
+---
+
 # Regional hosting and data residency
 
 {% hint style="info" %}

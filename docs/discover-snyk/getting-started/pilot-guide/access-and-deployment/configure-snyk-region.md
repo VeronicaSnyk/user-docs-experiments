@@ -1,3 +1,7 @@
+---
+description: Confirm your Snyk account region and configure the Snyk Web UI login URL and CLI environment variable to connect to the correct regional API endpoint during your pilot.
+---
+
 # Configure Snyk region
 
 {% include "../../../../.gitbook/includes/pilot-guide-toc.md" %}
@@ -27,7 +31,7 @@ See [authenticating the CLI](../../../../developer-tools/snyk-cli/authenticate-t
 
 Ensure the correct base URL is being used for your region. You can use environment variables to set the Organization ID and the Snyk API token, and then make an API request like:
 
-```
+```bash
 curl --request GET \
     --url "https://api.us.snyk.io/rest/orgs/$ORG_ID/projects?version=2024-06-10" \
     --header "Content-Type: application/vnd.api+json" \ 

@@ -1,3 +1,7 @@
+---
+description: Use Snyk webhook APIs to receive real-time notifications of security events and integrate them with external systems.
+---
+
 # Webhooks APIs
 
 This section includes the following:

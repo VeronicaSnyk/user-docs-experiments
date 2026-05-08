@@ -1,3 +1,7 @@
+---
+description: Use this Organization-level role template to grant an AppSec engineer permissions to manage Projects, ignores, and PR check overrides.
+---
+
 # Application Security Engineer role template
 
 This Organization-level role can add, move, and remove Projects and ignores, and can mark PR checks as successful.

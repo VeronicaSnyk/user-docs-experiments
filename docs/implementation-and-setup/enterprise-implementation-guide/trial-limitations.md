@@ -1,3 +1,7 @@
+---
+description: Understand which Enterprise features are limited or unavailable during the 14-day Snyk trial.
+---
+
 # Trial limitations
 
 You can try out Snyk functionalities in several ways:

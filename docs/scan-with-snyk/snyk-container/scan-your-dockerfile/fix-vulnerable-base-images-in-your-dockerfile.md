@@ -1,3 +1,8 @@
+---
+description: >-
+  Fix vulnerable base images in your Dockerfile using Snyk automatic pull requests or manual upgrade recommendations.
+---
+
 # Fix vulnerable base images in your Dockerfile
 
 ## Automatic Pull Requests (PRs)

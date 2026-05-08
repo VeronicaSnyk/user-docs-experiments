@@ -1,3 +1,7 @@
+---
+description: Run Snyk Code security testing in your CI/CD pipeline using the Snyk CLI to detect vulnerabilities in your source code.
+---
+
 # Snyk Code in the CI/CD pipeline
 
 You can use CI/CD integration to test your code for vulnerabilities and ensure your changes do not introduce new vulnerabilities, keeping your applications secure.

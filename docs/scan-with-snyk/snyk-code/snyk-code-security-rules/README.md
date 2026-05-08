@@ -1,3 +1,8 @@
+---
+description: >-
+  Browse the security rules that Snyk Code applies when scanning your code for vulnerabilities across supported languages.
+---
+
 # Snyk Code security rules
 
 {% hint style="info" %}

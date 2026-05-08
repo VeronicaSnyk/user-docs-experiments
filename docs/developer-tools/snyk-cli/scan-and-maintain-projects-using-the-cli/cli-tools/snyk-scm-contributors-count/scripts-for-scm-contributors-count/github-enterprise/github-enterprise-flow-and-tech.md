@@ -1,3 +1,7 @@
+---
+description: Understand the flow and technical details of how snyk-scm-contributors-count fetches GitHub Enterprise contributor data.
+---
+
 # GitHub Enterprise - Flow and Tech
 
 ## Flow <a href="#flow" id="flow"></a>

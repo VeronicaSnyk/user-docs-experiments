@@ -1,3 +1,7 @@
+---
+description: Reference the required environment variables for configuring Snyk Broker with Bitbucket Server using Basic Auth credentials.
+---
+
 # Bitbucket Server/Data Center - environment variables for Snyk Broker Basic Auth
 
 The following environment variables are required to configure the Broker client:

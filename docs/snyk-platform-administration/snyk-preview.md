@@ -1,3 +1,7 @@
+---
+description: Enable early-access features for your Organization or Group using Snyk Preview in your admin settings.
+---
+
 # Snyk Preview
 
 {% hint style="info" %}

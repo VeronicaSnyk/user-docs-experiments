@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan .NET open-source dependencies for vulnerabilities using the Snyk CLI with solution and project file options.
+---
+
 # Snyk CLI for .NET
 
 To analyze Open Source libraries, install your dependencies, then run `snyk test` using one of the following options:
@@ -26,11 +31,11 @@ To scan a NuGet Project:
 You must run `dotnet restore` before `snyk test` to restore dependencies and ensure accurate scan results.
 {% endhint %}
 
-#### Support for project.json
+### Support for project.json
 
 Snyk supports `project.json` files, although Microsoft no longer recommends this format.
 
-#### Support for packages.config
+### Support for packages.config
 
 Snyk supports `packages.config` files. To scan these Projects:
 

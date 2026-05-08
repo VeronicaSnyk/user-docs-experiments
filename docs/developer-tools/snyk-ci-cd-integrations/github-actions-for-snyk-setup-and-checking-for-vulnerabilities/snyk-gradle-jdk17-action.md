@@ -1,3 +1,7 @@
+---
+description: Scan Gradle projects using JDK 17 for vulnerabilities in GitHub Actions with the Snyk Gradle jdk17 action.
+---
+
 # Snyk Gradle-jdk17 action
 
 This page provides examples of using the Snyk GitHub action for [Gradle (jdk17)](https://github.com/snyk/actions/tree/master/gradle-jdk17). For instructions on using the action and further information, see [GitHub Actions for Snyk setup and checking for vulnerabilities](./).

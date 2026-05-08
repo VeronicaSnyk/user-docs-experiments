@@ -1,3 +1,7 @@
+---
+description: Create a Snyk App interactively or with flags using the experimental snyk apps create CLI command.
+---
+
 # Create a Snyk App using the Snyk CLI
 
 {% hint style="warning" %}
@@ -15,7 +19,7 @@ The second is the interactive mode, which prompts you to enter all the values in
 
 `snyk apps create --experimental --interactive`
 
-```
+```bash
 snyk apps create --experimental --interactive
 
 ? Name of the Snyk App (visible to users when they install the Snyk App)? My Awesome Snyk App

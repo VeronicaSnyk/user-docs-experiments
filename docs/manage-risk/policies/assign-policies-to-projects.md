@@ -1,3 +1,7 @@
+---
+description: Link Snyk policies to Projects by applying them to Project attributes, so that policy rules automatically take precedence over Organization-level policies.
+---
+
 # Assign policies to Projects
 
 After you apply [Project attributes](../../snyk-platform-administration/snyk-projects/project-attributes.md) to your Projects, you can create policies that apply to those attributes. Projects and policies are linked based on the attributes that have the policy applied.

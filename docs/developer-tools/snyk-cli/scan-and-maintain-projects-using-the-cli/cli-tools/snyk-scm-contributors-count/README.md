@@ -1,3 +1,7 @@
+---
+description: Count and summarize the number of unique contributors across your SCM repositories over the last 90 days.
+---
+
 # snyk-scm-contributors-count
 
 ## What does this tool do?
@@ -44,7 +48,7 @@ Note that currently the tool **does not** count emails that end with "noreply.gi
 
 Run the following:
 
-```
+```bash
 npm i -g snyk-scm-contributors-count
 ```
 

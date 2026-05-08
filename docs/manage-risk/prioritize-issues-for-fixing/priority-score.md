@@ -1,3 +1,7 @@
+---
+description: Use the Snyk Priority Score—a single value from 0 to 1,000 based on CVSS, exploit availability, reachability, and trending data—to quickly identify the most important issues to fix.
+---
+
 # Priority Score
 
 The Snyk Priority Score is a single value assigned to an issue, to help you quickly and easily decide which issues are most important to fix. Scores range from 0 to 1,000; the higher the score, the more important it is to fix that issue.

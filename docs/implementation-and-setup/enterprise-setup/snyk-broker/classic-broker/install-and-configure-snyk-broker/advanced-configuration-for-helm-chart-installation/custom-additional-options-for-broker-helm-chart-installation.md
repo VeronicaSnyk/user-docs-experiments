@@ -1,10 +1,14 @@
+---
+description: Inject additional environment variables into your Snyk Broker Helm deployment using an override values file.
+---
+
 # Custom additional options for Broker Helm Chart installation
 
 If you need to inject additional option(s) using environment variables, use the `override.yaml` value file to add any additional environment variable(s) you may need.
 
 Adding the `--values override.yaml` will load those values into your deployment. For example:
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=github-com \
              --set brokerToken=<ENTER_BROKER_TOKEN> \
@@ -16,7 +20,7 @@ helm install snyk-broker-chart snyk-broker/snyk-broker \
 
 You can do the same inline without the override.yaml file if it is more convenient.
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=github-com \
              --set brokerToken=<ENTER_BROKER_TOKEN> \

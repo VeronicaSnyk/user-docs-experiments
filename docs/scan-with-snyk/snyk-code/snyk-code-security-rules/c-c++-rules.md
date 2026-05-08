@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning C++ code, including CWE references and OWASP categories.
+---
+
 # C++ rules
 
 Each rule includes the following information.

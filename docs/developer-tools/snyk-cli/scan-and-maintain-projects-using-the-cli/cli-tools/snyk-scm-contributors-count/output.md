@@ -8,8 +8,8 @@ description: The output result of running the SCM-Contributors-Count tool
 
 The Summary section appears at both the beginning and end of the output, for example:
 
-```
-#### Summary
+```text
+### Summary
 Private Repos Contributors Count:: 1
 Public Repos Contributors Count: 1
 Total Unique Contributors Count for Private and Public repositories: 1
@@ -29,7 +29,7 @@ Exclusion Count: 1
 
 ## Details
 
-```
+```text
 ### Details:
 ## Repository List
 
@@ -49,7 +49,7 @@ Next to each repository name, there is an indication of its visibility, either (
 
 ## Contributors details
 
-```
+```text
 ## Contributors details
 [
     [

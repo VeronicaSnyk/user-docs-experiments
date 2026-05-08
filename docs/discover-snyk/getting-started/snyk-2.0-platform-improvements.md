@@ -1,3 +1,7 @@
+---
+description: Track Snyk 2.0 platform improvements rolling out from April 2026, including unified navigation, dark mode, enhanced asset management, AI-powered issue triage, and a visual policy builder.
+---
+
 # Snyk 2.0 platform improvements
 
 ## What is Snyk 2.0?&#x20;

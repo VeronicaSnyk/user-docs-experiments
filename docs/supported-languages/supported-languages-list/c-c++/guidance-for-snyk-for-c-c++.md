@@ -1,3 +1,8 @@
+---
+description: >-
+  Apply Snyk effectively to C/C++ projects by understanding code analysis behavior and package manager considerations.
+---
+
 # Guidance for Snyk for C/C++
 
 This page reviews considerations about languages and package managers, to help you apply Snyk effectively in your technology stack.
@@ -41,7 +46,7 @@ Snyk does not rely on a build to perform analysis. Only the source code is requi
 
 Open the directory of the source code in the terminal and run the following command:
 
-```
+```bash
 snyk code test
 ```
 
@@ -55,7 +60,7 @@ For reporting, you can generate reports using the [snyk-to-html](../../../develo
 
 For C/C++ open source, use the `--unmanaged` option to analyze license compliance issues and known security issues associated with open source.
 
-```
+```bash
 snyk test --unmanaged
 ```
 
@@ -66,7 +71,7 @@ See [Snyk for C/C++](./) for details.
 
 Similarly, for monitoring and sharing reporting, use the following command:
 
-```
+```bash
 snyk monitor --unmanaged --org=<org-id>
 ```
 
@@ -83,7 +88,7 @@ Use `--print-deps` when performing open source scans to obtain a detailed list o
 
 In C/C++, this has the additional benefit of identifying the confidence level of a given match. If there is a significant drop (< 90% confidence), it is likely the file has been modified and may not be the original source. Consider investigating if that is the case.
 
-```
+```bash
 snyk test --unmanaged --print-deps
 ```
 

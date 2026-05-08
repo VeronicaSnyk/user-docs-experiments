@@ -1,3 +1,7 @@
+---
+description: Apply Snyk Code Consistent Ignores in the CLI by specifying the Organization where ignores reside and ensuring repository context is available during snyk code test runs.
+---
+
 # Consistent Ignores for Snyk Code CLI
 
 Ignores are taken into account in the Snyk CLI when `snyk code test` is run.

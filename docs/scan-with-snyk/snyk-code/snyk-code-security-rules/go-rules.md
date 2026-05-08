@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Go code, including CWE references and OWASP Top 10 categories.
+---
+
 # Go rules
 
 Each rule includes the following information.

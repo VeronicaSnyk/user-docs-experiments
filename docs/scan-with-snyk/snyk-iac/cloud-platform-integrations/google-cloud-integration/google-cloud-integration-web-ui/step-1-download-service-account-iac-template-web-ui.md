@@ -1,3 +1,8 @@
+---
+description: >-
+  Download the service account IaC template as the first step to onboarding a Google Cloud Project from the Snyk Web UI.
+---
+
 # Step 1: Download service account IaC template (Web UI)
 
 Before you can create a Cloud Environment, you must download an infrastructure as code (IaC) template declaring a tightly-scoped Google service account that gives Snyk permission to scan the configuration of resources in your Google Project.

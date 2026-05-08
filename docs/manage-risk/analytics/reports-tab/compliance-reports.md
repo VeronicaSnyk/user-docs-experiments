@@ -1,3 +1,7 @@
+---
+description: Track compliance with CWE Top 10 KEV, CWE Top 25, OWASP Top 10, and PCI-DSS v4.0.1 standards using Snyk compliance reports across your Organizations and Groups.
+---
+
 # Compliance reports
 
 The Compliance reports section includes the following reports:

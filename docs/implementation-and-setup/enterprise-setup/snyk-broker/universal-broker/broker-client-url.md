@@ -1,3 +1,7 @@
+---
+description: Understand how the Broker client URL enables webhooks to communicate code changes between your SCM and Snyk through the Broker.
+---
+
 # Broker client URL
 
 A webhook from an SCM to Snyk allows the SCM integration to communicate with Snyk. When code is updated, whether the update is to an open-source manifest file or to code files, and the developer creates a pull request, the SCM notifies Snyk through the webhook.

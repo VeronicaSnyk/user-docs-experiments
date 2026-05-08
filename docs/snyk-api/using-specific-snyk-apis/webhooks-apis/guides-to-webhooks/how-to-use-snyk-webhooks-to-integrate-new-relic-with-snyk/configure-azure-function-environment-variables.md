@@ -1,3 +1,7 @@
+---
+description: Configure the New Relic Security API URL and license key as Azure Function App environment variables.
+---
+
 # Configure Azure Function environment variables
 
 For more information about configuration of Azure Function environment variables, see the Microsoft Azure Functions documentation article [Manage your function app](https://learn.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal).

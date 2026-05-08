@@ -1,3 +1,8 @@
+---
+description: >-
+  Import a Git repository into Snyk to start scanning your code for vulnerabilities with Snyk Code.
+---
+
 # Import Project with Snyk Code
 
 Imported Projects are organized under Target folders on the Projects page, named after the Git repository account and specific repository. See [Import a Project to scan and identify issues](../../discover-snyk/getting-started/#import-a-project-to-scan-and-identify-issues).

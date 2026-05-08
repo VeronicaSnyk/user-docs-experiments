@@ -1,3 +1,7 @@
+---
+description: Review the permission requirements and access scopes needed for each Snyk SCM integration and connection method.
+---
+
 # User permissions and access scopes
 
 Snyk SCM integrations may require different permission requirements based on the connection method.
@@ -13,7 +17,7 @@ See the following for detailed permission requirements:
 * [Bitbucket](user-permissions-and-access-scopes.md#bitbucket-permission-requirements)
 * [Azure Repositories (TFS)](user-permissions-and-access-scopes.md#azure-repositories-tfs-permission-requirements)
 
-### GitHub for Snyk Essentials
+## GitHub for Snyk Essentials
 
 A PAT generated for the Group-level GitHub integration requires the following permissions:
 

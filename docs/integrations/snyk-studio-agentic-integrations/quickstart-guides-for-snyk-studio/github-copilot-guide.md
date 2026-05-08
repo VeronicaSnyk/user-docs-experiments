@@ -1,3 +1,7 @@
+---
+description: Access Snyk Studio in VS Code with GitHub Copilot using the Snyk Security plugin to scan AI-generated code for vulnerabilities.
+---
+
 # GitHub Copilot guide
 
 You can access Snyk Studio, including Snyk's MCP server, in VSCode to secure code generated with agentic workflows through Copilot. This can be achieved in several ways. For most users, we recommend accessing Snyk Studio using the Snyk Security plugin.
@@ -7,13 +11,13 @@ You can access Snyk Studio, including Snyk's MCP server, in VSCode to secure cod
 * Click [this link](cursor:extension/snyk-security.snyk-vulnerability-scanner) to open up the Snyk Security plugin directly
 * Click `Install`
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-10-13 at 2.19.30 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/install-snyk-security-plugin-visual-studio-code.png" alt="Snyk Security plugin page in VS Code marketplace with the Install button" width="375"><figcaption></figcaption></figure>
 
 ### Enable Secure At Inception
 
 Once installation completes, a modal window will appear prompting an opt-in to Snyk Studio's "Secure at Inception." This will automatically configure the necessary rules to scan any new AI generated code. Additional variations are available within the plugin's Settings page.
 
-<figure><img src="../../../.gitbook/assets/image (41) (2).png" alt="" width="215"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/secure-inception-opt-modal-window-vs-code-after-snyk-plugin.png" alt="Secure at Inception opt-in modal window in VS Code after Snyk plugin installation" width="215"><figcaption></figcaption></figure>
 
 Choosing yes will activate `Auto Configure Snyk Mcp Server` and set the `Secure at Inception: Execution Frequency` to "On Code Generation." These settings willl handle the configuration of the Snyk MCP and the creation of the snyk\_rules.mdc file within the directory.
 
@@ -21,7 +25,7 @@ Choosing yes will activate `Auto Configure Snyk Mcp Server` and set the `Secure 
 
 Users who previously installed the VS Code IDE extensions and did not enable Secure at Inception via the modal window can enable them after the fact via the IDE extension settings. Users can also update Secure at Inception settings or disable them by setting the `Execution Frequency` to "Manual."
 
-<figure><img src="../../../.gitbook/assets/image (65).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/snyk-plugin-settings-showing-auto-configure-snyk-mcp-server.png" alt="Snyk plugin settings showing Auto Configure Snyk MCP Server and Secure at Inception Execution Frequency options" width="375"><figcaption></figcaption></figure>
 
 ### Authenticate
 
@@ -75,7 +79,7 @@ Installing the extension using one of the following methods:
 * View the Snyk Security extension for VS Code from the [marketplace](https://marketplace.visualstudio.com/items?itemName=snyk-security.snyk-vulnerability-scanner) and install it.
 *   Open the **Extensions: Install Extensions** side-pane, search for Snyk Security and install it.\\
 
-    <figure><img src="../../../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/vs-code-extensions-pane-showing-snyk-security-extension.png" alt="VS Code Extensions pane showing Snyk Security extension search result"><figcaption></figcaption></figure>
 
 VS Code automatically detects the Snyk MCP Server, but it needs to be explicitly enabled.
 
@@ -84,10 +88,10 @@ Enable the Snyk MCP Server using one of the following methods:
 * Open the Command Palette by pressing **CMD + SHIFT + P** on macOS or **CTRL + SHIFT + P** on Windows, choose the **MCP: List Servers,** and then find Snyk MCP Server in the list and enable all tools.
 * In the GitHub Copilot chat box, click the **Tools** icon.
 
-![](<../../../.gitbook/assets/image (336).png>)\
+![GitHub Copilot Tools icon in the chat box for accessing MCP Servers](<../../../.gitbook/assets/github-copilot-tools-icon-chat-box-accessing-mcp-servers.png>)\
 \
 You can see a list of all MCP Servers and their tool. Locate Snyk from the list and enable all of its tools:\
-![](<../../../.gitbook/assets/image (337).png>)
+![MCP Servers list in GitHub Copilot showing Snyk MCP Server with tools enabled](<../../../.gitbook/assets/mcp-servers-list-github-copilot-showing-snyk-mcp-server.png>)
 
 #### Install with Node.js and `npx`
 
@@ -131,7 +135,7 @@ If the `snyk` command is not available, add it by following the instructions on 
 
 The following example shows a Snyk MCP Server that was successfully configured and started.
 
-<figure><img src="../../../.gitbook/assets/image (333).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vs-code-mcp-panel-showing-snyk-mcp-server-successfully.png" alt="VS Code MCP panel showing Snyk MCP Server successfully configured and started"><figcaption></figcaption></figure>
 
 For additional MCP configuration options on VS Code and troubleshooting, consult the official [VS Code MCP server documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
@@ -141,11 +145,11 @@ As a one-time setup, you may need to authenticate and trust the Project director
 
 These workflows are mostly automatically executed by the underlying model and the agentic code assistant, and you will need to approve them using a browser confirmation dialog. The process should look similar to this:
 
-<figure><img src="../../../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/browser-confirmation-dialog-authenticating-trusting-project.png" alt="Browser confirmation dialog for authenticating and trusting the project directory with Snyk MCP"><figcaption></figcaption></figure>
 
 If you need to authenticate and trust the current directory, then proceed and complete the process.
 
-<figure><img src="../../../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vs-code-prompt-authenticate-trust-current-directory-snyk-mcp.png" alt="VS Code prompt to authenticate and trust the current directory for Snyk MCP"><figcaption></figcaption></figure>
 
 ## Examples
 
@@ -161,11 +165,11 @@ Scan this directory for code security & dependency vulnerabilities and security 
 
 Copilot indicates that this request is related to security vulnerability scanning and calls the Snyk MCP Server for various scans.
 
-<figure><img src="../../../.gitbook/assets/image (338).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/github-copilot-chat-calling-snyk-mcp-server-security.png" alt="GitHub Copilot chat calling the Snyk MCP Server for a security vulnerability scan"><figcaption></figcaption></figure>
 
 Copilot is then able to gather all the security scanning results, both code (SAST) and dependencies (SCA), and based on recommendations and contextual information provided by the Snyk MCP Server, it is now able to provide code changes that address some or all of the security vulnerabilities that were found:
 
-<figure><img src="../../../.gitbook/assets/image (339).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/github-copilot-chat-showing-snyk-security-scan-results-code.png" alt="GitHub Copilot chat showing Snyk security scan results with code fix recommendations"><figcaption></figcaption></figure>
 
 ### "Secure at inception" rules
 
@@ -174,7 +178,7 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 The following is a suggested instruction for [GitHub Copilot custom instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions). Append the following contents to the rules file at `.github/copilot-instructions.md`:
 
 {% code title=".github/copilot-instructions.md" overflow="wrap" %}
-```
+```yaml
 ---
 alwaysApply: true
 always_on: true

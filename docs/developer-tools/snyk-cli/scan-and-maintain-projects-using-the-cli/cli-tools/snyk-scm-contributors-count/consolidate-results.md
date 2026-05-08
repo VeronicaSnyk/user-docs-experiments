@@ -16,7 +16,7 @@ This command allows you to take multiple (`json`) outputs of `snyk-scm-contribut
 
 The following options are available for the `consolidateResults` command:
 
-```
+```bash
   --version                 Show version number                        [boolean]
   --help                    Show help                                  [boolean]
   --folderPath              Path to a folder containing the json outputs        [required]
@@ -26,14 +26,14 @@ The following options are available for the `consolidateResults` command:
 
 * Run the `snyk-scm-contributors-count` command for each repo with the `--json` flag and send the output to a designated folder, for example:
 
-```
+```bash
 snyk-scm-contributors-count github --token TOKEN --json > PathToFolder/FileName
 snyk-scm-contributors-count github-enterprise --token TOKEN --json > PathToFolder/OtherFileName
 ```
 
 * Run the `consolidateResults` command and apply the `--folderPath` flag with the path to the designated, read/write accessible folder that contains the different output json files with the individual SCM results.
 
-```
+```bash
 snyk-scm-contributors-count consolidateResults --folderPath PathToFolder
 ```
 

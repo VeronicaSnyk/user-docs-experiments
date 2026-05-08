@@ -1,3 +1,7 @@
+---
+description: Create a phased rollout plan that introduces Snyk gradually, starting with a pilot team and expanding security controls over time.
+---
+
 # Create rollout plan
 
 Every business is different. If your teams have already used security tools and are in a heavily compliance-focused industry, controls may be turned on relatively more quickly. However, if security as part of development is new, rolling out tools and controls in phases is strongly suggested.

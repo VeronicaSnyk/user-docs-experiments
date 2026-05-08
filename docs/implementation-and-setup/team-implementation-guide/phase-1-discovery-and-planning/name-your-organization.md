@@ -1,3 +1,7 @@
+---
+description: Set the name for your Snyk Organization so it accurately represents your team or product in the Snyk Web UI.
+---
+
 # Name your Organization
 
 Organizations contain your scan, setup integrations, and view results.

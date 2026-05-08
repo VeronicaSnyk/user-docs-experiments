@@ -1,3 +1,7 @@
+---
+description: Use the Snyk REST API to create a GitHub connection with Universal Broker, walking through credential references, connections, and Organization integrations step by step.
+---
+
 # Using the API to set up a GitHub connection
 
 This page provides an example of using the API to set up a GitHub connection with the Universal Broker. Repeat connecting your Organization for as many integrations as needed.
@@ -8,7 +12,7 @@ Using the `snyk-broker-config` CLI tool is recommended for an easier experience.
 In any of the calls that follow, replace `api.snyk.io` with your regional equivalent if necessary, for example, `api.eu.snyk.io`. For a list of URLs, see [API URLs](../../../../snyk-data-and-governance/regional-hosting-and-data-residency.md#api-urls).
 {% endhint %}
 
-### Prerequisites
+## Prerequisites
 
 * You must be a **Snyk Tenant admin**.
 * You must use a **personal Snyk API token**. Service account tokens do not work.
@@ -64,7 +68,7 @@ The installation displays the `CLIENT_SECRET` only one time. You can rotate the 
 
 Use the following call to create your deployment.
 
-```
+```bash
 curl --location --request POST 'https://api.snyk.io/rest/tenants/TENANT_ID/brokers/installs/INSTALL_ID/deployments?version=2025-11-05' \
 --header 'Content-Type: application/vnd.api+json' \
 --header 'Authorization: token YOUR_SNYK_TOKEN' \

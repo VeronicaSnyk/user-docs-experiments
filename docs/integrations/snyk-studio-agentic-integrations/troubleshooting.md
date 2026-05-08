@@ -1,3 +1,7 @@
+---
+description: Resolve common issues with Snyk Studio and the Snyk MCP server, including CLI version, path, and permission problems.
+---
+
 # Troubleshooting
 
 If you encounter issues with Snyk Studio or the integration using Snyk's MCP server, try the troubleshooting steps provided here.

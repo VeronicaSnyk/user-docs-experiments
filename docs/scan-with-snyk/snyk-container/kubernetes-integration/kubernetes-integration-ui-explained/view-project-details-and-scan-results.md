@@ -1,3 +1,8 @@
+---
+description: >-
+  View and manage Kubernetes workload Projects and their vulnerability scan results in the Snyk Web UI.
+---
+
 # View Project details and scan results
 
 All workloads that you have imported for monitoring appear on the **Projects** page and are marked with a unique Kubernetes icon.

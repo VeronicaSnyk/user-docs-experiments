@@ -1,3 +1,8 @@
+---
+description: >-
+  Understand how the Snyk Controller processes and transmits data when scanning your Kubernetes cluster.
+---
+
 # How the Snyk Controller handles your data
 
 After you install the Snyk Controller in your Kubernetes cluster, it pulls images from your container registries:

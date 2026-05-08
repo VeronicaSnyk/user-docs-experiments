@@ -1,3 +1,7 @@
+---
+description: Enrich your repository assets with ownership, lifecycle, and metadata from internal developer portals and service catalogs.
+---
+
 # Application context for SCM integrations
 
 ## What is application context?

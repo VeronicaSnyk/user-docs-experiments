@@ -1,3 +1,7 @@
+---
+description: Understand the difference between V1 API issue IDs from the vulnerability database and REST API scan-specific issue IDs.
+---
+
 # Issue IDs in Snyk APIs
 
 The `issueid` in the V1 API is the issue identifier from the Snyk Vulnerability Database, for example, SNYK-JS-LODASH-6139239.

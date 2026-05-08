@@ -1,3 +1,7 @@
+---
+description: Interpret Snyk Container CLI output to understand detected vulnerabilities, base image recommendations, and fix options.
+---
+
 # Understand Snyk Container CLI results
 
 ## **Vulnerability information**

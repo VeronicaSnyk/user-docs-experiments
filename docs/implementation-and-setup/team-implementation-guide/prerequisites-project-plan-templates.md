@@ -1,3 +1,7 @@
+---
+description: Download project plan templates to manage your Snyk rollout timeline and track progress through each implementation phase.
+---
+
 # Prerequisites: project plan templates
 
 The templates provided below are the basis of the following sections of this guide. \

@@ -1,16 +1,20 @@
+---
+description: Exchange your OAuth2 authorization code for an access token by making a POST request to the token endpoint.
+---
+
 # Set up the authorization code exchange
 
 After you receive an authorization **code**, you must exchange it for an access token.
 
 To request an access token, make a POST request to the token endpoint:
 
-```
+```text
 https://api.snyk.io/oauth2/token
 ```
 
 with the following properties in a x-www-form-urlencoded formatted request body:
 
-```
+```text
 grant_type=authorization_code
 &code=(code from the previous step)
 &redirect_uri=(redirect URI from the previous step)

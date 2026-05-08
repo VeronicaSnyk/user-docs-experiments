@@ -1,3 +1,7 @@
+---
+description: Use Snyk holistic application intelligence to prioritize Container, Code, and Open Source issues based on risk and asset classification from the centralized Issues page.
+---
+
 # Prioritization for Snyk Essentials
 
 Snyk uses holistic application intelligence to help you better identify and prioritize your Container, Code, and Open Source issues based on the risk they pose to your application. You can also prioritize your issues based on asset classification as defined in asset-related policies.

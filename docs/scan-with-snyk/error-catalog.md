@@ -1534,7 +1534,7 @@ You can set up a connection to your private Nuget repository in your Snyk integr
 The `dotnet` tool was unable to locate the `.targets`, `.csproj` or `.props` file responsible for one or more MSBuild conditions in your project file.
 
 The tool encountered an error like 
-```
+```text
 /path/to/file/project.csproj(33,13): error MSB4100: Expected "$(SomeCondition)" to evaluate to a boolean instead of "", in condition "!$(SomeCondition)".
 ```
 

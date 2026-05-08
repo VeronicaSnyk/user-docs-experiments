@@ -1,3 +1,7 @@
+---
+description: Review example configurations for connecting the Snyk Language Server to editors such as Neovim and Emacs.
+---
+
 # Example configurations for Snyk Language Server
 
 ## Example configuration for Sublime Text
@@ -34,9 +38,9 @@
 
 After opening a supported file, the Language Server should be started by Sublime Text and findings will be highlighted.
 
-![Snyk Open Source findings displayed in Sublime Text](<../../../.gitbook/assets/image (109) (1).png>)
+![Snyk Open Source findings displayed in Sublime Text](<../../../.gitbook/assets/snyk-open-source-findings-displayed-sublime-text.png>)
 
-![Snyk Code findings displayed in Sublime Text](<../../../.gitbook/assets/image (56).png>)
+![Snyk Code findings displayed in Sublime Text](<../../../.gitbook/assets/snyk-code-findings-displayed-sublime-text.png>)
 
 ## Example configuration for Neovim
 
@@ -46,7 +50,7 @@ If the project root directory cannot be obtained from Git information, this scri
 
 The set up is as follows:
 
-```
+```bash
 mkdir -p ~/.config/nvim
 touch init.lua
 ```
@@ -155,4 +159,4 @@ else
 end
 ```
 
-![Snyk Code findings displayed in Neovim](<../../../.gitbook/assets/image (12).png>)
+![Snyk Code findings displayed in Neovim](<../../../.gitbook/assets/snyk-code-findings-displayed-neovim.png>)

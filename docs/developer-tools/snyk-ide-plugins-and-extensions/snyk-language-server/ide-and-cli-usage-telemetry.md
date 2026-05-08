@@ -1,3 +1,7 @@
+---
+description: Understand what usage telemetry Snyk IDE plugins and the CLI collect and how to control it.
+---
+
 # IDE and CLI usage telemetry
 
 Snyk Language Server collects usage telemetry after each successful test, through the Snyk proprietary Analytics service. Data does not pass through any third-party services.

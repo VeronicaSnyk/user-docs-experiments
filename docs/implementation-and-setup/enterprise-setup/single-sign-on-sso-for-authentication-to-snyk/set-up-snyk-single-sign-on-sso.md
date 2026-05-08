@@ -1,3 +1,7 @@
+---
+description: Gather the required IdP information and submit it to Snyk Support to establish a trusted SSO connection for your organization.
+---
+
 # Set up Snyk Single Sign-On (SSO)
 
 Set up Single Sign-On (SSO) to allow your developers and teams easy access to Snyk through your existing SSO provider.

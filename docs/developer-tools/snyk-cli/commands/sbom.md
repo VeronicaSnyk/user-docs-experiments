@@ -1,3 +1,7 @@
+---
+description: Generate a software bill of materials for your open-source project using the snyk sbom CLI command.
+---
+
 # SBOM
 
 ## Prerequisites

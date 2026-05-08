@@ -1,3 +1,7 @@
+---
+description: Add Snyk Open Source SCA scanning to your AWS CodePipeline using AWS CodeBuild and the Snyk CLI.
+---
+
 # AWS CodePipeline integration with CodeBuild
 
 This guide outlines the steps for setting up a [Snyk Open Source](https://snyk.io/product/open-source-security-management/) security scanning workflow for AWS CodePipeline using [AWS CodeBuild](https://aws.amazon.com/codebuild/). By using the Snyk CLI and the built-in capabilities of CodeBuild, you can build a configurable solution for running Snyk software composition analysis (SCA) scans in your CI/CD pipeline.
@@ -50,11 +54,11 @@ phases:
       - snyk monitor
 ```
 
-### Set up CodePipeline
+## Set up CodePipeline
 
 For some [Open Source](https://snyk.io/product/open-source-security-management/) Projects, you must build the Project before testing it with the Snyk CLI. Review the Snyk [documentation](../snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-cli-for-open-source/open-source-projects-that-must-be-built-before-testing-with-the-snyk-cli.md) to determine whether Snyk requires your Project to be built before running an Open Source scan; then follow the instructions in the corresponding section below:
 
-#### Snyk requires a built Project
+### Snyk requires a built Project
 
 * Edit your existing CodePipeline or create a new one.
 * Create a new stage to build your Project, or edit the existing build stage.
@@ -64,7 +68,7 @@ For some [Open Source](https://snyk.io/product/open-source-security-management/)
 The Snyk Open Source scan must be in the same CodeBuild action as the build process to ensure that Snyk has access to the full build workspace.
 {% endhint %}
 
-#### Snyk does not require a built Project
+### Snyk does not require a built Project
 
 * Edit your existing CodePipeline pipeline or create a new one.
 * Add a new build stage after your source code acquisition stage.

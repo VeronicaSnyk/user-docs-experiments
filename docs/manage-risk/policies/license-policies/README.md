@@ -1,3 +1,7 @@
+---
+description: Define license policies for your Group to control which open-source license types Snyk allows or disallows, starting from a default baseline policy administrators can customize.
+---
+
 # License policies
 
 Group administrators can set license policies to define Snyk behavior for handling license issues. For example, you can allow or disallow packages with certain license types to avoid using packages containing incompatible licenses.

@@ -1,3 +1,7 @@
+---
+description: Exclude specific files and directories from Snyk Code CLI scans to focus results on relevant code.
+---
+
 # Exclude directories and files from Snyk Code CLI tests
 
 When you test a Snyk Code repository using the CLI, you can exclude certain directories and files from the CLI test by using the `snyk ignore --file-path` command. When you run this command, the `.snyk` file is created automatically in your repository, containing the name of the directory or file you specified for exclusion.
@@ -18,7 +22,7 @@ The command `snyk ignore --file-path` applies only to the folder from which you 
 
 2\. In the terminal, enter the following:
 
-```
+```bash
 snyk ignore --file-path=<directory_or_file>
 ```
 
@@ -30,7 +34,7 @@ The `.snyk` file is created as a hidden file. If you do not see it in your root 
 
 3\. Optionally, to specify several directories or files for exclusion enter:
 
-```
+```bash
 snyk ignore --file-path=<directory1_or_file1> && snyk ignore --file-path=<directory2_or_file2> && snyk ignore --file-path=<directory3_or_file3>
 ```
 
@@ -42,11 +46,11 @@ To re-include in the test directories or files that were excluded from it, manua
 
 1\. In the `snyk-goof-master` folder, 12 issues were found in three different files: `app.js`, `db.js`, and `routes/index.js`:
 
-<figure><img src="../../../../.gitbook/assets/snyk Code - CLI - snyk code test - Exclusion - before -2.png" alt="Issues found by a CLI test"><figcaption><p>Issues found by a CLI test</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/snyk Code - CLI - snyk code test - Exclusion - before -okta-saml-application-creation.png" alt="Issues found by a CLI test"><figcaption><p>Issues found by a CLI test</p></figcaption></figure>
 
 2\. To exclude the `app.js` and `db.js` files, and display only issues that are discovered in the `routes/index.js` file, enter:
 
-```
+```bash
 snyk ignore --file-path=app.js && snyk ignore --file-path=db.js
 ```
 
@@ -62,4 +66,4 @@ This `.snyk` file contains the files specified for exclusion:
 
 4\. When the test runs again, the `app.js` and `db.js` files are excluded from the test, and the results show only the issues that were found in the `routes/index.js` file:
 
-<figure><img src="../../../../.gitbook/assets/snyk Code - CLI - snyk code test - Exclusion - after - 2.png" alt="Issues found after using the ignore command"><figcaption><p>Issues found after using the <code>ignore</code> command</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/snyk Code - CLI - snyk code test - Exclusion - after - okta-saml-application-creation.png" alt="Issues found after using the ignore command"><figcaption><p>Issues found after using the <code>ignore</code> command</p></figcaption></figure>

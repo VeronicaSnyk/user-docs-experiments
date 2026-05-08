@@ -1,3 +1,8 @@
+---
+description: >-
+  Create, update, and manage Snyk cloud environments to onboard and scan your cloud provider accounts.
+---
+
 # Manage cloud environments
 
 This section provides information on how to work with Snyk environments. Environments are used onboard cloud provider accounts, and contain resources for cloud accounts and IaC+ SCM repositories, CLI test report, and Terraform Cloud/Enterprise run task report.

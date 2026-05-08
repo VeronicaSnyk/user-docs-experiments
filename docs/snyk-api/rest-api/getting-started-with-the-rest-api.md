@@ -1,3 +1,7 @@
+---
+description: Make your first Snyk REST API call using curl to list Projects in your Organization.
+---
+
 # Getting started with the REST API
 
 Follow these steps to make a simple call to the REST API using `curl` in the command line.

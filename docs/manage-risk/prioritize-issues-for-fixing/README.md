@@ -1,3 +1,7 @@
+---
+description: Explore all Snyk prioritization approaches—Project-level, reporting-based, risk-based, and coverage-based—and combine them for targeted, high-impact issue remediation.
+---
+
 # Prioritize issues for fixing
 
 You can find prioritization within Snyk under several names and with different customizations depending on your Snyk plan. The following list presents an overview of all the places where you can find and use prioritization. The outputs can vary depending on the type of priority you choose to use.

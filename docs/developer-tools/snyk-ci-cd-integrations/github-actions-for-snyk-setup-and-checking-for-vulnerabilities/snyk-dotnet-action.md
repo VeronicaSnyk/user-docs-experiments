@@ -1,3 +1,7 @@
+---
+description: Scan .NET projects for open-source vulnerabilities in GitHub Actions using the Snyk dotNET action.
+---
+
 # Snyk dotNET action
 
 This page provides examples of using the Snyk GitHub Action for [dotNET](https://github.com/snyk/actions/tree/master/dotnet). For instructions on using the action and further information, see [GitHub Actions for Snyk setup and checking for vulnerabilities](./).

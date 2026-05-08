@@ -1,3 +1,7 @@
+---
+description: Configure pre-defined and custom user roles at the Organization level to match your team structure and access requirements.
+---
+
 # Authentication and access
 
 ## Set pre-defined user roles

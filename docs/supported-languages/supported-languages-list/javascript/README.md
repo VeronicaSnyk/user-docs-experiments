@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan JavaScript projects for open-source vulnerabilities and code security issues using Snyk.
+---
+
 # JavaScript
 
 {% hint style="info" %}

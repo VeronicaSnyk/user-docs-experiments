@@ -1,3 +1,7 @@
+---
+description: Access Snyk Studio in Windsurf using the Snyk Security plugin to scan AI-generated code for security vulnerabilities.
+---
+
 # Windsurf guide
 
 Access [Snyk Studio](../../../discover-snyk/getting-started/glossary.md#snyk-studio), including Snyk's MCP server, in Windsurf to secure code generated with agentic workflows through an LLM. This can be achieved by using the Snyk Security plugin or installing Snyk Studio directly. For most users, we recommend accessing Snyk Studio using the Snyk Security plugin.
@@ -7,13 +11,13 @@ Access [Snyk Studio](../../../discover-snyk/getting-started/glossary.md#snyk-stu
 1. Open the Snyk Security plugin in Windsurf
 2. Click `Install`
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-10-13 at 2.19.30 PM.png" alt="Install the Snyk Security plugin in Visual Studio Code"><figcaption><p>Install the Snyk Security plugin in Visual Studio Code</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/install-snyk-security-plugin-visual-studio-code.png" alt="Install the Snyk Security plugin in Visual Studio Code"><figcaption><p>Install the Snyk Security plugin in Visual Studio Code</p></figcaption></figure>
 
 ### Enable "Secure At Inception"
 
 Once installation completes, a modal will appear prompting you to opt-in to Snyk Studio's "[Secure at Inception](../../../discover-snyk/getting-started/glossary.md#secure-at-inception)." This will automatically configure the necessary rules to scan any new AI generated code. Additional variations are available within the plugin's **Settings** page.
 
-<figure><img src="../../../.gitbook/assets/image (41) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/secure-inception-opt-modal-window-vs-code-after-snyk-plugin.png" alt=""><figcaption></figcaption></figure>
 
 Choosing yes will activate `Auto Configure Snyk Mcp Server` and set the `Secure at Inception: Execution Frequency` to "On Code Generation." These settings willl handle the configuration of the Snyk MCP and the creation of the snyk\_rules.mdc file within the directory.
 
@@ -21,7 +25,7 @@ Choosing yes will activate `Auto Configure Snyk Mcp Server` and set the `Secure 
 
 Users who previously installed the VS Code IDE extensions and did not enable Secure at Inception via the modal window can enable them after the fact via the IDE extension settings. Users can also update Secure at Inception settings or disable them by setting the `Execution Frequency` to "Manual."
 
-<figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/updating-secure-inception-settings.png" alt=""><figcaption></figcaption></figure>
 
 ### Authenticate
 
@@ -66,7 +70,7 @@ Install Windsurf to your local machine from the [Windsurf website](https://winds
 
 Install the official Snyk MCP Server using the Windsurf MCP Marketplace.
 
-<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/install-snyk-mcp-server-windsurf.png" alt=""><figcaption></figcaption></figure>
 
 ## Setting up the Snyk MCP Server
 
@@ -88,7 +92,7 @@ Scan this directory for code security & dependency vulnerabilities and security 
 
 Windsurf indicates that this request is related to security vulnerability scanning and calls the Snyk MCP Server for various scans.
 
-<figure><img src="../../../.gitbook/assets/image (394).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/scanning-security-vulnerabilities-7.png" alt=""><figcaption></figcaption></figure>
 
 Windsurf is then able to gather all the security scanning results, both code (SAST) and dependencies (SCA), and based on recommendations and contextual information provided by the Snyk MCP Server, it is now able to provide code changes that address some or all of the security vulnerabilities that were found.
 
@@ -99,7 +103,7 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 The following is a suggested instruction for [Windsurf rules](https://docs.windsurf.com/windsurf/cascade/memories#rules). Append the following contents to the rules file at `global_rules.md`:
 
 {% code title="global_rules.md" overflow="wrap" %}
-```
+```yaml
 ---
 alwaysApply: true
 always_on: true
@@ -117,11 +121,11 @@ description: Snyk Security At Inception
 ```
 {% endcode %}
 
-#### Troubleshooting - Install Snyk MCP Server
+## Troubleshooting - Install Snyk MCP Server
 
 The Snyk MCP Server should be installed using the IDE Extension or Windsurf MCP Marketplace. If you need to install the Snyk MCP Server manually then follow one of the options below.
 
-#### Install with Node.js and `npx`
+### Install with Node.js and `npx`
 
 Create or edit the MCP configuration file `mcp_config.json` . This file can be accessed by navigating to the Windsurf Settings > Manage MCPs > View raw config.
 
@@ -141,7 +145,7 @@ If you have the Node.js `npx` executable installed in your environment, add the 
 
 <figure><img src="../../../.gitbook/assets/image (407) (1).png" alt=""><figcaption></figcaption></figure>
 
-#### Install with pre-installed Snyk CLI
+### Install with pre-installed Snyk CLI
 
 If you have the Snyk CLI installed and accessible on your system path, include the following JSON snippet in `mcp_config.json`. Specify the full path to the Snyk executable CLI:
 

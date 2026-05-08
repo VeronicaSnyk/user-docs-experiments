@@ -1,3 +1,7 @@
+---
+description: Connect Snyk to Bitbucket Cloud using an API token to scan repositories and detect open-source vulnerabilities.
+---
+
 # Bitbucket Cloud
 
 {% hint style="info" %}
@@ -10,7 +14,7 @@ The Bitbucket Cloud API token integration lets you:
 * Detect vulnerabilities in your open-source components
 * Provide automated fixes and upgrades
 
-### How to set up the Bitbucket Cloud Integration
+## How to set up the Bitbucket Cloud Integration
 
 {% hint style="info" %}
 Admin permissions are required; however, Snyk's access is ultimately limited by the [permissions assigned to the API Token](https://support.atlassian.com/bitbucket-cloud/docs/create-an-api-token/).\
@@ -61,7 +65,7 @@ Snyk produces advanced [remediation reports](../../../manage-risk/analytics/repo
 
 The example that follows shows a Project-level security report.
 
-<figure><img src="../../../.gitbook/assets/bbc_project-sec-rpt_21sept2022.png" alt="An example of a Project-level security report"><figcaption><p>An example of a Project-level security report</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bbc_project-sec-rpt_21sept202okta-saml-application-creation.png" alt="An example of a Project-level security report"><figcaption><p>An example of a Project-level security report</p></figcaption></figure>
 
 #### Project monitoring and automatic fix Pull Requests
 
@@ -69,14 +73,14 @@ Snyk scans your Projects on either a daily or a weekly basis. When new vulnerabi
 
 The example that follows shows a fix Pull Request opened by Snyk.
 
-<figure><img src="../../../.gitbook/assets/666.png" alt="Example of an automatic fix Pull Request opened by Snyk"><figcaption><p>Example of an automatic fix Pull Request opened by Snyk</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/example-automatic-fix-pull-request-opened-snyk.png" alt="Example of an automatic fix Pull Request opened by Snyk"><figcaption><p>Example of an automatic fix Pull Request opened by Snyk</p></figcaption></figure>
 
 To review and adjust the automatic fix pull request settings:
 
 1. In Snyk, go to **Organization settings** > **Integrations** > **Source control** > **Bitbucket Cloud**, and click **Edit Settings**.
 2. Scroll to the **Automatic fix PRs** section and configure the relevant options.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-05-03 at 14.49.59.png" alt="Configure Automatic fix PRs"><figcaption><p>Configure Automatic fix PRs</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/configure-automatic-fix-prs.png" alt="Configure Automatic fix PRs"><figcaption><p>Configure Automatic fix PRs</p></figcaption></figure>
 
 {% hint style="info" %}
 Unlike manual pull requests opened from the Bitbucket interface, Snyk pull requests are _not_ automatically assigned to the default reviewer set in your Bitbucket Cloud account.
@@ -90,14 +94,14 @@ Snyk tests any newly-created pull request in your repositories for security vuln
 
 The example that follows shows a Snyk pull request build check on the Bitbucket Cloud **Pull Request** page.
 
-<figure><img src="../../../.gitbook/assets/888.png" alt="Example of a Snyk pull request build check on the Bitbucket Cloud Pull Request page"><figcaption><p>Example of a Snyk pull request build check on the Bitbucket Cloud <strong>Pull Request</strong> page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/88enter-details-snyk-google.png" alt="Example of a Snyk pull request build check on the Bitbucket Cloud Pull Request page"><figcaption><p>Example of a Snyk pull request build check on the Bitbucket Cloud <strong>Pull Request</strong> page</p></figcaption></figure>
 
 To review and adjust the pull request tests settings:
 
 1. In Snyk, go to **Organization settings** > **Integrations > Source control** > **Bitbucket Cloud**, and click **Edit Settings**.
 2. Scroll to **Default Snyk test for pull requests** > **Open Source Security & Licenses**, and configure the relevant options.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2022-03-16 at 10.07.50.png" alt="Configuring the options for pull request Open Source Security &#x26; Licenses"><figcaption><p>Configuring the options for pull request Open Source Security &#x26; Licenses</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/configuring-options-pull-request-open-source-security-x26.png" alt="Configuring the options for pull request Open Source Security &#x26; Licenses"><figcaption><p>Configuring the options for pull request Open Source Security &#x26; Licenses</p></figcaption></figure>
 
 ### Required permission scope for the Bitbucket Cloud integration
 
@@ -153,9 +157,9 @@ The migration process includes the following steps:
 
 Delete all the existing Projects in Snyk that were previously imported from the Legacy integration. To use the bulk delete action on the Projects page, change the grouping filter to **Group by none**. You can now select multiple Projects in the list individually or by selecting the checkbox at the top to **Select all visible projects**. To delete a Project, select the trash icon, **Delete selected projects**.
 
-<figure><img src="../../../.gitbook/assets/2023-11-20_14-29-35.png" alt="Change the Projects filter to Group by none"><figcaption><p>Change the Projects filter to <strong>Group by none</strong></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/change-projects-filter-group-none.png" alt="Change the Projects filter to Group by none"><figcaption><p>Change the Projects filter to <strong>Group by none</strong></p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/2023-11-20_14-41-16.png" alt="Bulk delete the selected Projects" width="375"><figcaption><p>Bulk delete the selected Projects</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bulk-delete-selected-projects.png" alt="Bulk delete the selected Projects" width="375"><figcaption><p>Bulk delete the selected Projects</p></figcaption></figure>
 
 #### Disconnect the PAT integration
 
@@ -172,7 +176,7 @@ This functionality is supported out-of-the-box in the Snyk App integration.\
 \
 Go to your **Workspace settings** page in **Bitbucket.org** > **Manage installed apps**, expand the **Snyk Security for Bitbucket Cloud** app, and click **Remove.**
 
-<figure><img src="../../../.gitbook/assets/remove_snyk-security-bbc_11oct2022.png" alt="Remove the first-party Snyk Legacy interface app in Bitbucket"><figcaption><p>Remove the first-party Snyk Legacy interface app in Bitbucket</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/remove_snyk-security-bbc_11oct202okta-saml-application-creation.png" alt="Remove the first-party Snyk Legacy interface app in Bitbucket"><figcaption><p>Remove the first-party Snyk Legacy interface app in Bitbucket</p></figcaption></figure>
 
 #### Set up the Bitbucket Cloud App integration
 

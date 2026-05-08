@@ -1,3 +1,7 @@
+---
+description: Scan container images for vulnerabilities and monitor them continuously using the Snyk CLI.
+---
+
 # Scan and monitor images
 
 It is common to use both `test` and `monitor` commands with Snyk Container. You can use the `snyk container test` command for quick checks. You can use the `snyk container monitor` command for ongoing assurance and to easily share results.
@@ -6,7 +10,7 @@ It is common to use both `test` and `monitor` commands with Snyk Container. You 
 
 To scan an image, run the `container test` command. For example:
 
-```
+```bash
 snyk container test debian
 ```
 
@@ -19,13 +23,13 @@ The command:
 
 You can use Snyk to test any image you can pull from a remote registry or any image you have built locally and made available in your local Docker daemon:
 
-```
+```bash
 snyk container test <repository>:<tag>
 ```
 
 If you use a Dockerfile to build your image, you can specify this when running `snyk container test`:
 
-```
+```bash
 snyk container test <repository>:<tag> --file=Dockerfile
 ```
 
@@ -47,7 +51,7 @@ Users on [paid plans](https://snyk.io/plans) can also access aggregate reports o
 
 To monitor an image, run the `container monitor` command:
 
-```
+```bash
 snyk container monitor <repository>:<tag>
 ```
 

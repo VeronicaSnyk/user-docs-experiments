@@ -1,3 +1,7 @@
+---
+description: Find a concise reference of all Snyk CLI commands and their available options in a single summary.
+---
+
 # CLI commands and options summary
 
 {% hint style="info" %}

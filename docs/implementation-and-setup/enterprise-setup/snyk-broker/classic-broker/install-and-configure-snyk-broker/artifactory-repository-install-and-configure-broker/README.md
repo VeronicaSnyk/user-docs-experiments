@@ -1,3 +1,7 @@
+---
+description: Review prerequisites and choose between Helm or Docker installation to configure Snyk Broker for Artifactory Repository.
+---
+
 # Artifactory Repository - prerequisites and steps to install and configure Broker
 
 {% hint style="info" %}
@@ -23,7 +27,7 @@ For convenience, instructions to obtain or generate the Broker token follow. Whe
 3. Enter your username and password.
 4. Select **Save**.
 
-<figure><img src="../../../../../../.gitbook/assets/screenshot_2020-04-17_at_14.38.12.png" alt="Artifactory integration setup"><figcaption><p>Artifactoryrepository setup</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/screenshot_2020-04-17_at_14.38.adding-example-group.png" alt="Artifactory integration setup"><figcaption><p>Artifactoryrepository setup</p></figcaption></figure>
 
 {% hint style="info" %}
 If you do not see the Snyk Broker on/off switch, you do not have the necessary permissions and can only add a publicly accessible instance.

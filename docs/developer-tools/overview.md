@@ -1,3 +1,7 @@
+---
+description: Choose the right Snyk integration for your workflow, from SCM and CI/CD pipelines to the CLI and IDE plugins.
+---
+
 # Overview
 
 You can run Snyk locally, in repositories, and in pipelines to scan your code. Select the integration that matches your workflow and permissions.

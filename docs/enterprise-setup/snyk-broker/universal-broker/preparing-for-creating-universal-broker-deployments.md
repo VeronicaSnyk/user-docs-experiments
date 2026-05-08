@@ -1,3 +1,7 @@
+---
+description: Configure your hosts and network before creating Universal Broker deployments, ensuring the Broker client can establish inbound and outbound connections correctly.
+---
+
 # Preparing for creating Universal Broker deployments
 
 Before creating deployments, ensure you have met the [prerequisites](../../../implementation-and-setup/enterprise-setup/snyk-broker/universal-broker/prerequisites-for-universal-broker.md).

@@ -1,3 +1,7 @@
+---
+description: Configure the Snyk CLI using environment variables, proxy settings, and API endpoint configuration.
+---
+
 # Configure the Snyk CLI
 
 You can use [environment variables](environment-variables-for-snyk-cli.md) to configure the Snyk CLI.

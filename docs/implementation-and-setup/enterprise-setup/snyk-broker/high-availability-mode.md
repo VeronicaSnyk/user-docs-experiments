@@ -1,3 +1,7 @@
+---
+description: Deploy multiple Snyk Broker Client replicas in high availability mode to distribute load and eliminate single points of failure.
+---
+
 # High availability mode
 
 Snyk Broker can bring high availability capabilities to both servers and clients, thus increasing the scalability of the current Broker, initially to support the addition of the “git-clone-through-broker” flow for Snyk Code.
@@ -14,13 +18,13 @@ A maximum of four Broker Clients running concurrently in high availability mode 
 
 High availability mode is disabled by default. To activate it, set the following environment variables as shown either in your container or deployment:
 
-```
+```bash
 BROKER_HA_MODE_ENABLED=true
 ```
 
 Helm chart deployments can set these values by enabling the mode using set arguments. Helm chart version 1.7.0 or later is required.
 
-```
+```bash
 --set highAvailabilityMode.enabled=true
 ```
 
@@ -32,7 +36,7 @@ The Dispatcher Base Url should be specific to your region if you are using a reg
 
 If you are using app.snyk.io, the following is not required. It is applicable only to regional Snyk platforms.
 
-```
+```bash
 BROKER_DISPATCHER_BASE_URL=https://api.snyk.io
 ```
 

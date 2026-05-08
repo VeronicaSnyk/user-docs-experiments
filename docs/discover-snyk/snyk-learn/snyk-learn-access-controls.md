@@ -18,7 +18,7 @@ Assignment permissions are available in the Snyk Learning Management add-on offe
 Group and Organization Admins have access to Snyk Learn Reports and Assignments by default without extra permissions.
 {% endhint %}
 
-#### Assignments
+## Assignments
 
 To grant permissions for access to Assignments beyond the default Organization and Group Admin roles, you must create a [custom role](../../snyk-platform-administration/user-roles/custom-role-templates/snyk-learn-learning-admin.md) with a set of permissions for assignments. The custom role must have the View Users permission in order for managing assignments to work. The following lists the permissions for managing assignments:
 
@@ -31,7 +31,7 @@ After the role is created, a Group or Organization administrator can give this r
 
 For more information, see [Snyk Learn Assignments](snyk-learn-assignments.md).
 
-#### Reports
+## Reports
 
 To grant permissions for access to Reports beyond the default Organization and Group Admin roles, you must create a [custom role](../../snyk-platform-administration/user-roles/custom-role-templates/snyk-learn-learning-admin.md) with a set of permissions for reports. The custom role must have the View Reports permission for viewing and exporting reports to work. The following lists the permissions for viewing and exporting reports:
 

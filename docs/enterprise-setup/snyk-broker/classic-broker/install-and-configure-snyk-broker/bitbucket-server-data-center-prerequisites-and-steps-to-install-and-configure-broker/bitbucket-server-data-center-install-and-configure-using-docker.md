@@ -1,3 +1,7 @@
+---
+description: Configure Snyk Broker for Bitbucket Server or Data Center using Docker with either Basic Auth or API token authentication to secure your on-premise connection.
+---
+
 # Bitbucket Server/Data Center - install and configure using Docker
 
 Before installing, review the [prerequisites](./) and the general instructions for installation using [Docker](../install-and-configure-broker-using-docker.md).

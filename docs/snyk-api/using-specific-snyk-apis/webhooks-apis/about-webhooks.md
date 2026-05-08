@@ -1,3 +1,7 @@
+---
+description: Understand how Snyk webhooks notify your systems of recurring scan events via HTTP POST requests.
+---
+
 # About webhooks
 
 {% hint style="warning" %}

@@ -1,3 +1,7 @@
+---
+description: Install and configure the Snyk IDE extension in VS Code or another supported IDE, authenticate with your account, and start scanning your codebase for security vulnerabilities.
+---
+
 # Local scanning with the IDE
 
 {% include "../../../../.gitbook/includes/pilot-guide-toc.md" %}
@@ -9,7 +13,7 @@ To start scanning code in the IDE, navigate to your IDE plugin or extension mark
 * Open VS Code, Extensions and search for Snyk.
 * Install the Snyk extension.
 
-<figure><img src="../../../../.gitbook/assets/image (313).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/configure-snyk-ide.png" alt=""><figcaption></figcaption></figure>
 
 * Select **Connect & Trust Workspace** to let Snyk scan your code.
 

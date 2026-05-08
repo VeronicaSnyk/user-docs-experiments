@@ -1,3 +1,7 @@
+---
+description: Follow the basic steps to set up a Snyk App using the OAuth2 authorization code flow with PKCE.
+---
+
 # Quick setup
 
 Snyk Apps uses the Authorization code with the Proof Key for Code Exchange (PKCE) OAuth2 flow. The key endpoints are:

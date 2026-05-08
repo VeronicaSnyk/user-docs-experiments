@@ -1,3 +1,8 @@
+---
+description: >-
+  Explore Snyk Tools that address specific workflows not covered by core Snyk product functionality.
+---
+
 # Snyk Tools
 
 ## Scope of Snyk Tools

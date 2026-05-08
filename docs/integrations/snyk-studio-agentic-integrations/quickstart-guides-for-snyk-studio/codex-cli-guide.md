@@ -1,3 +1,7 @@
+---
+description: Install Snyk Studio in Codex CLI to secure AI-generated code with Snyk vulnerability scanning via the MCP server.
+---
+
 # Codex CLI guide
 
 You can access Snyk Studio, including Snyk's MCP server, in Codex CLI to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server will ask for trust and trigger authentication if necessary.
@@ -21,7 +25,7 @@ To install the Snyk MCP Server using Codex's own `.codex/config.toml` file, proc
 * Create or edit the `.codex/config.toml` file
 *   Insert the following `mcp_servers` configuration block to the file:\\
 
-    ```
+    ```json
     [mcp_servers.snyk-security]
     command = "npx"
     args = ["-y", "snyk@latest", "mcp", "-t", "stdio"]
@@ -37,7 +41,7 @@ To install the Snyk MCP Server using the `.codex/config.toml` Codex file, follow
 * Create or edit the `.codex/config.toml` file
 *   Insert the following `mcpServers` configuration block to the file:\\
 
-    ```
+    ```json
     [mcp_servers.snyk-security]
     command = "/absolute/path/to/snyk"
     args = ["mcp", "-t", "stdio"]
@@ -55,7 +59,7 @@ As a one-time setup, you may need to authenticate and trust the current Project 
 
 These workflows are mostly automatically executed by the underlying model and the agentic code assistant, and you will need to approve them using a browser confirmation dialog. The process should look similar to this:
 
-<figure><img src="../../../.gitbook/assets/image (347).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setting-snyk-mcp-server-4.png" alt=""><figcaption></figcaption></figure>
 
 You can explicitly prompt to authenticate your account as follows:
 
@@ -63,11 +67,11 @@ You can explicitly prompt to authenticate your account as follows:
 Authenticate my Snyk account
 ```
 
-<figure><img src="../../../.gitbook/assets/image (350).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setting-snyk-mcp-server-5.png" alt=""><figcaption></figcaption></figure>
 
 If you are not authenticated, this prompt opens a browser for you to authenticate to the Snyk Web UI, and then you can continue with the agent.
 
-<figure><img src="../../../.gitbook/assets/image (348).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/authenticated-prompt-opens-browser-authenticate-snyk-web-ui.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Examples
 
@@ -83,7 +87,7 @@ Scan this directory for code security & dependency vulnerabilities and security 
 
 Codex CLI will invoke Snyk scanning, provide output and insights based on the results that Snyk returned:
 
-<figure><img src="../../../.gitbook/assets/image (351).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/scanning-security-vulnerabilities-3.png" alt=""><figcaption></figcaption></figure>
 
 ### "Secure at inception" rules
 
@@ -92,7 +96,7 @@ To practice s[#secure-at-inception](../../../discover-snyk/getting-started/gloss
 The following is a suggested instruction for [Codex CLI's AGENTS.md context file](https://github.com/openai/codex?tab=readme-ov-file#memory--project-docs). Add the following contents to the `AGENTS.md` file in your root directory of your Project:
 
 {% code title="AGENTS.md" overflow="wrap" %}
-```
+```text
 # Project security best practices
 
 - Always run **snyk_code_scan** tool for new first party code that is generated in a Snyk-supported language.

@@ -1,3 +1,7 @@
+---
+description: Reference the required environment variables for configuring the Snyk Broker Client to connect to Azure Repos.
+---
+
 # Azure Repos - environment variables for Snyk Broker
 
 The following environment variables are required to configure the Broker Client for Azure Repos:

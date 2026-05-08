@@ -1,3 +1,7 @@
+---
+description: Use Organizations to manage Projects, users, and scan settings for a specific team, product, or environment.
+---
+
 # Organizations
 
 Organizations represent business areas such as teams, products, or environments. An Organization contains [Snyk Projects](../../snyk-projects/) that contain the code team members are scanning.

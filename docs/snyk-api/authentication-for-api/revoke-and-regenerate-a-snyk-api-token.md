@@ -1,3 +1,7 @@
+---
+description: Revoke a compromised Snyk API token and generate a replacement to prevent unauthorized access to your account.
+---
+
 # Revoke and regenerate a Snyk API token
 
 {% hint style="warning" %}

@@ -1,3 +1,7 @@
+---
+description: Run a Snyk vulnerability scan on your Visual Studio solution and review results in the extension panel.
+---
+
 # Run an analysis with Visual Studio extension
 
 Open your solution and click **Run scan**. Depending on the size of your solution and the time needed to build a dependency graph, it takes less than one or two minutes to get the vulnerabilities.
@@ -28,4 +32,3 @@ The suggestions from Snyk include the recommendation of the Snyk engine using, f
 * Links to external resources that explain the bug pattern in more detail.
 * Tags that were assigned by Snyk, such as Security (the issue found is a security issue), Database (the issue is related to database interaction), or In Test (the issue is within the test code).
 * Code from open-source repositories that can be of help to see how others have fixed the issue.
-

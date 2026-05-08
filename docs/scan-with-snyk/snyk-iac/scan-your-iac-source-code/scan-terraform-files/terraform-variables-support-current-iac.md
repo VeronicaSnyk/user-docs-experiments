@@ -1,3 +1,8 @@
+---
+description: >-
+  Understand how Snyk IaC handles Terraform input variables and local values in the CLI.
+---
+
 # Terraform variables support
 
 Support for Terraform (TF) variables is currently available only in the CLI. Snyk supports:

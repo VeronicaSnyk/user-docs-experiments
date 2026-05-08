@@ -1,3 +1,7 @@
+---
+description: Use the .snyk file to control issue ignores, exclude files from scanning, set the Python version at the Project level, and specify patches for CLI and CI/CD plugins.
+---
+
 # The .snyk file
 
 The `.snyk` file is a capability of Snyk that all users can employ locally or as part of their workflow to control Snyk ignores of issues, to exclude files from scanning, to set the Python version at the Project level, and to specify patches for the CLI and CI/CD plugins.
@@ -43,7 +47,7 @@ When you select the **Fix a vulnerability** button on a Git repository Open Sour
 
 The following example shows how to create a `.snyk` file to generate a patch rule using a vulnerability fix PR:
 
-```
+```yaml
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.25.0
 ignore: {}
@@ -101,7 +105,7 @@ For more information about using the `.snyk` file with Open Source Projects, see
 
 Manually modify the `.snyk` file to set `language-settings:` for the Project to Python 3.7:
 
-```
+```yaml
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.25.0
 language-settings: 
@@ -110,7 +114,7 @@ language-settings:
 
 For more information, see [Setting Python version in Git Projects](../../supported-languages/supported-languages-list/python/scm-integrations-and-python.md#set-the-python-version-in-git-projects).
 
-#### Set vulnerability ignore rules
+## Set vulnerability ignore rules
 
 {% hint style="warning" %}
 The `expires` field is optional. If you need a permanent ignore, omit the field.
@@ -129,7 +133,7 @@ Ignore a specific vulnerability for a given path:
 
 Ignore a vulnerability for all paths:
 
-```
+```yaml
 ignore:
   SNYK-JS-BSON-561052:
     - '*':
@@ -149,7 +153,7 @@ Ignore a specific vulnerability on multiple paths:
         expires: '2020-06-19T20:36:54.553Z'
 </code></pre>
 
-#### Set license ignore rules
+### Set license ignore rules
 
 To ignore the license issue for a package, find the ID for the license in the output of the `snyk test` command.
 
@@ -165,13 +169,13 @@ The `snyk policy` command displays the `.snyk` policy for a package.
 
 The `snyk ignore` command modifies the `.snyk` file to ignore a stated issue.
 
-```
+```bash
 snyk ignore --id='vulnerabilityID' --expiry='date-string' --reason='text string'
 ```
 
 The following example shows using the `snyk ignore` command to generate a rule for ignoring the `SNYK-JS-BSON-561052` vulnerability for all paths that lead to that library on disk.
 
-```
+```bash
 snyk ignore --id='SNYK-JS-BSON-561052' --expiry='2018-04-01' --reason='testing'
 ```
 
@@ -211,7 +215,7 @@ The `language-settings:` value is the Python version you are using. See the exam
 
 The `ignore:` is an ignore rule in the form of:
 
-```
+```yaml
 ignore:
   snyk-vulnid:
     - path to library using > separator :
@@ -225,7 +229,7 @@ Note that a double indent is required for the `reason` and `expires` fields.
 
 The`expires` field is optional. If you need a permanent ignore, omit this field as shown in the following example:
 
-```
+```yaml
 ignore:
   snyk-vulnid:
     - path to library using > separator :
@@ -234,7 +238,7 @@ ignore:
 
 The `patch`: is in the form of:
 
-```
+```yaml
 'npm:library:yyyymmdd’ :
   - path to library using > separator:
     patched: 'datetime string'

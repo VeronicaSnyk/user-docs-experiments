@@ -1,8 +1,13 @@
+---
+description: >-
+  Push your custom IaC rules bundle to an OCI registry for distribution using the SDK push command.
+---
+
 # Pushing a bundle
 
 Optionally, once you have generated your custom rules bundle, you can distribute it automatically to one of our supported OCI registries by using the `push` command:
 
-```
+```bash
 snyk-iac-rules push -r docker.io/example/test bundle.tar.gz
 ```
 
@@ -28,7 +33,7 @@ After you have run the command, your custom rules bundle will be pushed to your 
 
 You can also provide your own tag if you want to version the bundle:
 
-```
+```bash
 snyk-iac-rules push -r docker.io/example/test:v0.0.1 bundle.tar.gz
 ```
 

@@ -1,3 +1,8 @@
+---
+description: >-
+  Install the Snyk Controller on OpenShift 4 using OperatorHub to enable Kubernetes vulnerability scanning.
+---
+
 # Install the Snyk Controller with OpenShift 4 and OperatorHub
 
 The Snyk Controller V2 is currently not available in the OpenShift Marketplace nor available as a community version.

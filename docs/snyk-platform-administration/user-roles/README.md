@@ -1,3 +1,7 @@
+---
+description: Understand and manage Snyk user roles, including pre-defined roles and custom roles on Enterprise plans.
+---
+
 # User roles
 
 {% hint style="info" %}

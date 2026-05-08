@@ -1,3 +1,8 @@
+---
+description: >-
+  Use custom Rego built-in functions provided by the Snyk IaC SDK to simplify your rule testing.
+---
+
 # Custom Rego Builtins
 
 The SDK also registers some helper Rego functions that can be used while testing.

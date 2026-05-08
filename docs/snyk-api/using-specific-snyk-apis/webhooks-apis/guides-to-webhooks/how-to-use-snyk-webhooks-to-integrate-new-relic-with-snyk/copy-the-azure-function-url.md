@@ -1,3 +1,7 @@
+---
+description: Copy the Azure Function URL to use as the webhook target when creating your Snyk webhook.
+---
+
 # Copy the Azure Function URL
 
 Select the appropriate Azure Function and copy the Function URL. You need this URL in the next step, in order to [Create a Snyk Webhook](create-a-snyk-webhook.md).

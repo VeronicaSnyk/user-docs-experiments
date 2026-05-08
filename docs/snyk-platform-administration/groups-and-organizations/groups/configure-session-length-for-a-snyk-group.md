@@ -1,3 +1,7 @@
+---
+description: Set a custom session timeout between five minutes and 30 days for inactive users in your Snyk Group.
+---
+
 # Configure session length for a Snyk Group
 
 By default, inactive logged-in users are automatically logged out after 24 hours to protect any account from being exposed inadvertently through user inactivity.

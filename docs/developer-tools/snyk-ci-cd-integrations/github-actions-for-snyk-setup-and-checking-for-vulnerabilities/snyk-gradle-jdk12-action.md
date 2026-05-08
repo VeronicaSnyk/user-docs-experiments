@@ -1,3 +1,7 @@
+---
+description: Scan Gradle projects using JDK 12 for vulnerabilities in GitHub Actions with the Snyk Gradle jdk12 action.
+---
+
 # Snyk Gradle-jdk12 action
 
 This page provides examples of using the Snyk GitHub action for [Gradle (jdk12)](https://github.com/snyk/actions/tree/master/gradle-jdk12). For instructions on using the action and further information, see [GitHub Actions for Snyk setup and checking for vulnerabilities](./).

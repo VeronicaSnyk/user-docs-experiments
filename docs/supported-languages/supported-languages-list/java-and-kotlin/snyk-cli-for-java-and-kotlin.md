@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan Java and Kotlin Maven and Gradle projects for vulnerabilities using the Snyk CLI.
+---
+
 # Snyk CLI for Java and Kotlin
 
 To test Maven and Gradle Projects, use the `snyk test` command as follows:
@@ -18,13 +23,13 @@ A Maven aggregate Project is one that uses modules and inheritance. When scannin
 
 To scan aggregate Projects, use the `--maven-aggregate-project` option:
 
-```
+```bash
 snyk test --maven-aggregate-project
 ```
 
 To scan non-aggregate Projects, use the `--all-projects` option:
 
-```
+```bash
 snyk test --all-projects
 ```
 
@@ -34,19 +39,19 @@ The following example outlines how Maven-specific options are used with the Snyk
 
 1. Test a specific Maven profile called “prod”.
 
-```
+```bash
 snyk test -- -prod
 ```
 
 2. Add a system property from your pom.xml file, for example, the package version that appears in your pom.xml:
 
-```
+```text
 ${pkg_version}
 ```
 
 3. Define the system property:
 
-```
+```bash
 snyk test -- -Dpkg_version=1.4
 ```
 
@@ -58,7 +63,7 @@ By default, Snyk CLI scans only the current Project, the Project in the root of 
 
 To scan all Projects at once (recommended), use the `--all-sub-projects` option:
 
-```
+```bash
 snyk test --all-sub-projects
 ```
 
@@ -66,7 +71,7 @@ Each of the individual sub-projects appears as a separate Snyk Project in the eb
 
 To scan a specific Project (for example, "myapp"), use the following command:
 
-```
+```bash
 snyk test --sub-project=myapp
 ```
 
@@ -111,12 +116,12 @@ To avoid such conflicts:
 *   Use a specific configuration(s): if you know of a build configuration that has all the required attributes and the configuration is identical across all sub-projects included in the test, specify that configuration.\
     For example:
 
-    ```
+    ```bash
     --configuration-matching=prodReleaseRuntimeClasspath
     ```
 *   Explicitly specify the dependency configuration: modify intra-project dependencies in your build.gradle file(s) to use a specific configuration
 
-    ```
+    ```text
       dependencies {
           implementation project(path: ':mymodulewithvariants', configuration: 'default')
       }
@@ -124,7 +129,7 @@ To avoid such conflicts:
 *   Suggest configuration attributes: if you receive an error when running the command, the error can indicate which attribute values are available, while the error details from Gradle also indicate which dependency variants match which attributes. Using these details, add the attribute filter option.\
     For example:
 
-    ```
+    ```bash
     snyk test --configuration-attributes=buildtype:release,usage:java-runtime,mode:demo
     ```
 
@@ -143,7 +148,7 @@ For tips on disabling the daemon,  the [Gradle documentation](https://docs.gradl
 If your Gradle Project uses a single `gradle.lockfile` or multiple `*.lockfile` per configuration, the following issue can appear:
 
 {% code overflow="wrap" %}
-```
+```text
 Gradle Error (short): > Could not resolve all dependencies for configuration ':compileOnly'. > Locking strict mode: Configuration ':compileOnly' is locked but does not have lock state.
 ```
 {% endcode %}
@@ -152,7 +157,7 @@ The **compileOnly** configuration has been deprecate&#x64;**,** and even if your
 
 Only resolvable configurations compute a dependency graph. To solve this issue, Snyk suggests you update your `build.gradle` containing `dependencyLocking` logic with the following instructio&#x6E;**:**
 
-```
+```text
 compileOnly {resolutionStrategy.deactivateDependencyLocking() }
 ```
 
@@ -205,14 +210,14 @@ To let Snyk know about the dependency tree, you must first convert to the Maven 
 
 With this, you can now run the following commands:
 
-```
+```bash
 ant makepom
 snyk test --file=pom.xml
 ```
 
 The `pom.xml` file does not need to be checked in and can be deleted after a test is done using `snyk`. Additionally, the dependency tree can be monitored using:
 
-```
+```bash
 snyk monitor --file=pom.xml
 ```
 

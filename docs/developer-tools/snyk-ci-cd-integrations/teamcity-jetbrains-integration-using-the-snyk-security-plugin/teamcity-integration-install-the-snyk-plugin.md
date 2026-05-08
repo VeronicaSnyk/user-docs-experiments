@@ -1,3 +1,7 @@
+---
+description: Install or upgrade the Snyk Security plugin in your TeamCity instance to add vulnerability scanning to your builds.
+---
+
 # TeamCity integration: install the Snyk plugin
 
 Follow these steps to install or upgrade the Snyk Security plugin. When the installation is complete, you can add a Snyk step to your Projects.

@@ -1,3 +1,8 @@
+---
+description: >-
+  Configure authentication for your cloud provider to enable unmanaged resource detection with Snyk IaC.
+---
+
 # Configure cloud providers
 
 To use the unmanaged resource detection feature in Snyk IaC, you need authentication for your cloud provider.

@@ -1,3 +1,7 @@
+---
+description: Understand the security architecture, data flows, and trust model of the Snyk CLI.
+---
+
 # Security concept of operations for Snyk
 
 A security concept of operations can be defined as providing a security-focused description of an information system. For details, see the definition in the [NIST computer security glossary](https://csrc.nist.gov/glossary/term/security_concept_of_operations).

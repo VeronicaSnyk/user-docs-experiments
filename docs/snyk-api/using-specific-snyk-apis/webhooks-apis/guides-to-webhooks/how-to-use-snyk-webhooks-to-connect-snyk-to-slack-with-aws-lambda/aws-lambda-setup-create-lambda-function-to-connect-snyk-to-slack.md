@@ -1,3 +1,7 @@
+---
+description: Create an AWS Lambda function that receives Snyk vulnerability data and forwards it to Slack.
+---
+
 # AWS Lambda setup: create Lambda function to connect Snyk to Slack
 
 AWS Lambda functions are used to connect Snyk to Slack because these functions are an inexpensive and efficient way of running code triggered by events, for example when there is a new Snyk vulnerability.

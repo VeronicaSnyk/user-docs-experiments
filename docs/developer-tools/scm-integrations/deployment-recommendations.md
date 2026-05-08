@@ -1,3 +1,7 @@
+---
+description: Follow a phased rollout plan to deploy Snyk SCM integrations without disrupting your development lifecycle.
+---
+
 # Deployment recommendations
 
 If you try to implement all the SCM integration features at the same time, you risk causing friction in your software development life cycle ([SDLC](https://snyk.io/learn/secure-sdlc/)), which in turn leads to a poor developer experience.
@@ -109,7 +113,7 @@ Snyk scans your Projects on either a daily or a weekly basis. When new vulnerabi
 
 To configure the automatic fix PR settings for all Projects in an Organization, select the relevant Organization and navigate to Organization **Settings** > **Integrations > Edit Settings.**
 
-<div align="center"><figure><img src="../../.gitbook/assets/image (101).png" alt="Automatic fix pull request settings" width="563"><figcaption><p>Automatic fix pull request settings</p></figcaption></figure></div>
+<div align="center"><figure><img src="../../.gitbook/assets/automatic-fix-pull-request-settings.png" alt="Automatic fix pull request settings" width="563"><figcaption><p>Automatic fix pull request settings</p></figcaption></figure></div>
 
 {% hint style="info" %}
 Settings can also be configured per Project by selecting the specific Project in your Organization and navigating to the **Settings** tab. For more information, see [View and edit Project settings](../../snyk-platform-administration/snyk-projects/view-and-edit-project-settings.md).

@@ -1,3 +1,7 @@
+---
+description: Create Broker Contexts to override connection parameters for Organizations that share a connection but need different endpoints or credentials.
+---
+
 # Configuring Broker Contexts
 
 Use a Broker Context to override the configuration of a Broker Connection. When you apply a Context to a Broker Integration, the Integration uses the override parameters instead of the default values.

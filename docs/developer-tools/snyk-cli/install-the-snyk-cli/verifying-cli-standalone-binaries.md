@@ -1,3 +1,7 @@
+---
+description: Verify the integrity of downloaded Snyk CLI standalone binaries using SHA256 checksums and GPG signatures.
+---
+
 # Verifying CLI standalone binaries
 
 You can verify both the shasum of downloaded binaries and their GPG signatures.
@@ -6,13 +10,13 @@ The download location on `downloads.snyk.io` contains a file called `sha256sums.
 
 To check that a downloaded file matches the checksum, use a `sha256sum` command, for example:
 
-```
+```bash
 grep snyk-macos sha256sums.txt.asc | sha256sum -c -
 ```
 
 If you want to verify Snyk CLI standalone binaries against the [Snyk CLI GPG key](https://github.com/snyk/cli/blob/master/help/_about-this-project/snyk-code-signing-public.pgp), first import the GPG key:
 
-```
+```text
 # 467717A30B2B4658415975629691DA64D0025194 is the key belonging to code-signing@snyk.io
 # Copy of this public key is also in this repository /help/_about-this-project/snyk-code-signing-public.pgp
 gpg --keyserver hkps://keys.openpgp.org --recv-keys 467717A30B2B4658415975629691DA64D0025194
@@ -20,13 +24,13 @@ gpg --keyserver hkps://keys.openpgp.org --recv-keys 467717A30B2B4658415975629691
 
 Then verify the file is signed with:
 
-```
+```bash
 gpg --verify sha256sums.txt.asc
 ```
 
 The command output should look like the following:
 
-```
+```yaml
 gpg: Signature made So  8 Jan 14:11:44 2025 CET
 gpg:                using EDDSA key 467717A30B2B4658415975629691DA64D0025194
 gpg: Good signature from "Snyk Limited <code-signing@snyk.io>" [unknown]

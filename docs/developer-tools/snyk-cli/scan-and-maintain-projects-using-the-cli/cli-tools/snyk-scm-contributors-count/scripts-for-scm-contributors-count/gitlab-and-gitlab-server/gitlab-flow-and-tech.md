@@ -1,3 +1,7 @@
+---
+description: Understand the flow and technical details of how snyk-scm-contributors-count fetches GitLab contributor data.
+---
+
 # GitLab - Flow and Tech
 
 ## Flow <a href="#flow" id="flow"></a>

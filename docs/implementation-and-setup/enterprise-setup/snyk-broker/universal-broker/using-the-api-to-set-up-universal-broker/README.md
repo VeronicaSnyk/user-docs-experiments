@@ -1,3 +1,7 @@
+---
+description: Use the Snyk REST API to automate Universal Broker setup workflows for deployments, connections, credentials, and integrations.
+---
+
 # Using the API to set up Universal Broker
 
 All flows available in the `snyk-broker-config` CLI tool are built on top of the public REST API. The workflows in the CLI tool implement particular flows to provide for ease of setup and use. The same workflows can be accomplished using the API, allowing for automation.

@@ -1,3 +1,7 @@
+---
+description: Follow the team implementation guide to roll out Snyk for teams of up to ten members, from discovery through active prevention.
+---
+
 # Team implementation guide
 
 Accelerate your team performance by using Snyk. This guide aims to help you implement Snyk for your team. The team plan applies to teams of up to 10 members.&#x20;

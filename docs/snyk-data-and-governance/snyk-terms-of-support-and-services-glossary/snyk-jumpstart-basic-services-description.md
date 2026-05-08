@@ -1,3 +1,7 @@
+---
+description: Accelerate your Snyk product setup with a consultant-led Jumpstart Basic engagement covering assisted account configuration and knowledge transfer for your team.
+---
+
 # Snyk Jumpstart Basic Services Description
 
 A Snyk Consultant will provide services to help the Customer accelerate its setup of Snyk products through assisted account configuration (the “Jumpstart Basic Services”). The engagement will consist of knowledge transfer, paired with configuration guidance for your team.
@@ -28,15 +32,15 @@ Review the [prerequisites](https://docs.snyk.io/snyk-data-and-governance/snyk-te
 
 ## Snyk Platform configuration
 
-#### **Base SSO configuration**
+### **Base SSO configuration**
 
 A Snyk Consultant configures SSO using SAML to give users access to the Snyk Group as Org collaborators or Group members.
 
-#### **Template Organization configuration**
+### **Template Organization configuration**
 
 A Snyk Consultant helps you configure notification settings, Snyk Open Source settings, Snyk Code settings, and your Snyk account structure. The Consultant reviews these details with you, ensuring you understand and maintain them.
 
-#### **Coverage and visibility configuration**
+### **Coverage and visibility configuration**
 
 A Snyk Consultant configures your Asset Inventory. This includes:
 
@@ -46,15 +50,15 @@ A Snyk Consultant configures your Asset Inventory. This includes:
   * Identifying coverage gaps based on purchased Snyk products.
   * Sending email notifications when criteria are met (for example, coverage gaps or new repositories).
 
-#### **Walkthrough of coverage and visibility use cases**&#x20;
+### **Walkthrough of coverage and visibility use cases**&#x20;
 
 A Snyk Consultant shows you how to identify assets Snyk does not scan and how to group assets and issues using asset classification.
 
-#### **Walkthrough of prioritized issues**
+### **Walkthrough of prioritized issues**
 
 A Snyk Consultant educates customers on filtering and prioritizing issues in the Asset Dashboard.
 
-#### Delivery approach
+### Delivery approach
 
 The Snyk delivery method helps you achieve value quickly. Snyk guides you to set up a foundational configuration and equips you to expand it to other applications and integrations. An initial, correct Snyk setup improves developer adoption and supports long-term success.
 
@@ -64,19 +68,19 @@ The Snyk delivery method helps you achieve value quickly. Snyk guides you to set
 
 ## Snyk Open Source configuration
 
-#### **Repository import**
+### **Repository import**
 
 Snyk consultants work with you to import your repositories (up to 50 targets) into Snyk using the Snyk UI or Snyk CLI.
 
-#### **SCM integration settings**
+### **SCM integration settings**
 
 A Snyk consultant helps you configure SCM integration settings using your chosen gating strategy.
 
-#### **Single pipeline configuration (direct Integration or CLI)**
+### **Single pipeline configuration (direct Integration or CLI)**
 
 A Snyk consultant works with you to configure a single pipeline to run the `snyk test` and `snyk monitor` commands, providing you with an understanding of how to configure additional pipeline scans.
 
-#### **Interpreting and actioning Open Source results**
+### **Interpreting and actioning Open Source results**
 
 A Snyk consultant educates you on understanding Snyk Open Source results through the CLI and Snyk Web UI, and how to manage Snyk Open Source results using the Reports option.
 
@@ -86,15 +90,15 @@ A Snyk consultant educates you on understanding Snyk Open Source results through
 
 ## Snyk Code configuration
 
-#### **Repository import**
+### **Repository import**
 
 A Snyk consultant helps you to import your repositories into Snyk (up to 50 targets) either through the Snyk Web UI import functionality or the Snyk CLI.
 
-#### **SCM integration settings**
+### **SCM integration settings**
 
 A Snyk consultant works with you to configure SCM integration settings based on your desired gating strategy.
 
-#### **Interpreting and actioning Code results**
+### **Interpreting and actioning Code results**
 
 A Snyk consultant helps you understand the Snyk Code results through the CLI and Snyk Web UI and how to manage Snyk Code results using the Reports option.
 
@@ -104,15 +108,15 @@ A Snyk consultant helps you understand the Snyk Code results through the CLI and
 
 ## Snyk Container configuration
 
-#### **Container Registry import**
+### **Container Registry import**
 
 A Snyk Consultant helps you to import your container images into Snyk (up to 50 targets) through the Snyk Web UI import functionality or Snyk CLI.
 
-#### **Single CI/CD CLI configuration**
+### **Single CI/CD CLI configuration**
 
 A Snyk Consultant works with you to configure a single pipeline to run the `snyk container test` and `snyk container monitor` commands to provide you with an understanding of how to configure additional pipeline scans.
 
-#### **Interpreting and actioning Snyk Container results**
+### **Interpreting and actioning Snyk Container results**
 
 A Snyk Consultant helps you understand the Snyk Container results through the CLI and Snyk Web UI, and how to manage Snyk Container results using the Reports option.
 
@@ -122,19 +126,19 @@ A Snyk Consultant helps you understand the Snyk Container results through the CL
 
 ## Snyk IaC Configuration
 
-#### **Repository import**
+### **Repository import**
 
 A Snyk Consultant helps you to import your repositories into Snyk (up to 50 targets) through the Snyk Web UI import functionality or the Snyk CLI.
 
-#### **IaC Settings**
+### **IaC Settings**
 
 A Snyk Consultant helps you to configure IaC settings.
 
-#### **Single Pipeline CI/CD CLI configuration**
+### **Single Pipeline CI/CD CLI configuration**
 
 A Snyk Consultant helps you to configure a single pipeline to run the `snyk iac test` and `snyk iac test --report` commands to provide the Customer with an understanding of how to configure additional pipeline scans and fix misconfigurations.
 
-#### **Interpreting and actioning IaC results**
+### **Interpreting and actioning IaC results**
 
 The Snyk Consultant will educate the Customer on understanding Snyk IaC results through the CLI and Snyk UI and how to manage Snyk IaC results using Snyk Reporting.
 

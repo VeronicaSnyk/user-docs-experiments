@@ -1,3 +1,8 @@
+---
+description: >-
+  Import and scan .NET repositories from supported SCM integrations using Snyk Open Source.
+---
+
 # SCM integrations for .NET
 
 {% hint style="info" %}

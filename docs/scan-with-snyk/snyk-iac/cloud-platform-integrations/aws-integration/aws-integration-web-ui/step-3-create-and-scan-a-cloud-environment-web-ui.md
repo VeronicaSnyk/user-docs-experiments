@@ -1,3 +1,8 @@
+---
+description: >-
+  Create and scan an AWS Cloud Environment in Snyk from the Snyk Web UI to detect infrastructure misconfigurations.
+---
+
 # Step 3: Create and scan a Cloud Environment (Web UI)
 
 {% hint style="info" %}
@@ -11,7 +16,7 @@ To create and scan a Cloud Environment, you must provide the role’s Amazon Res
 
 The role ARN should follow this format unless you [changed the name of the role](step-1-download-iam-role-iac-template-web-ui.md) in the Terraform or CloudFormation template:
 
-```
+```text
 arn:aws:iam::YOUR-ACCOUNT-ID:role/snyk-cloud-role
 ```
 
@@ -21,7 +26,7 @@ If you do not know your Amazon Web Services (AWS) account ID, or if you changed 
 
 To find the ARN of the Snyk Cloud IAM role using the AWS CLI, retrieve the role details, replacing `snyk-cloud-role` with the name of your role if you changed it:
 
-```
+```bash
 aws iam get-role \
   --role-name snyk-cloud-role \
   --query 'Role.Arn' --output text
@@ -29,7 +34,7 @@ aws iam get-role \
 
 The output looks like this:
 
-```
+```text
 arn:aws:iam::123412341234:role/snyk-cloud-role
 ```
 

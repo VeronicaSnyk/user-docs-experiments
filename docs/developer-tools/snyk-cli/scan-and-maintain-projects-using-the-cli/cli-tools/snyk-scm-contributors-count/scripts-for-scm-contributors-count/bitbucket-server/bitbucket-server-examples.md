@@ -6,7 +6,7 @@ description: The list of options and some examples for Bitbucket Server
 
 The following options are available for the `snyk-scm-contributors-count bitbucket-server` command:
 
-```
+```bash
   --version                 Show version number                        [boolean]
   --help                    Show help                                  [boolean]
   --token                   Bitbucket server token                     [required]
@@ -27,7 +27,7 @@ The following options are available for the `snyk-scm-contributors-count bitbuck
    * Copy the token value.
    *   Export the token in your environment:
 
-       ```
+       ```bash
        export SNYK_TOKEN=<YOUR-SNYK-TOKEN>
        ```
 2. Get your Bitbucket Server token and URL:
@@ -44,17 +44,17 @@ Consider the following levels of usage and options:
 
 *   To get commits for all projects and their repos in Bitbucket Server, provide the Bitbucket Server token and url:
 
-    ```
+```bash
     snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL
     ```
 *   To get commits for some projects and their repos in Bitbucket Server, provide the Bitbucket Server token, Bitbucket Server url ,and the projects, separated by a comma:
 
-    ```
+```bash
     snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL --projectKeys Key1,Key2...
     ```
 *   To get commits for a specific repo in Bitbucket Serve, provide your Bitbucket Server token, Bitbucket Server url, a project, and a repo name:
 
-    ```
+```bash
     snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL --projectKeys Key1 --repo Repo1
     ```
 
@@ -63,28 +63,28 @@ Consider the following levels of usage and options:
 *   To get all the commits from Bitbucket Server regardless of the repos that are already monitored by Snyk, add the `--skipSnykMonitoredRepos` flag.\
     You might have repos in Bitbucket Server that are not monitored in Snyk,. Use this flag to skip checking for Snyk monitored repos and go directly to Bitbucket Server to fetch the commits.
 
-    ```
+```bash
     snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL --skipSnykMonitoredRepos
     ```
 *   To exclude some contributors from being counted in the commits, add an exclusion file with the emails to ignore(separated by a new line) and apply the `--exclusionFilePath` with the path to that file:
 
-    ```
+```bash
     snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL --projectKeys Key1,Key2 --exclusionFilePath PATH_TO_FILE
     ```
 *   To set the output to json format: add the `--json` flag:
 
-    ```
+```bash
     snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL --projectKeys Key1 --repo Repo1 --json
     ```
 *   To create an import file for me with my unmonitored repos, add the `--importConfDir` flag with a valid (writable) path to a folder in which the import files will be stored and add the `--importFileRepoType` flag (optional) with the repo types to add to the file (`all`/`private`/`public`, defaults to `all`). Note that these flags **can not** be set with the `--repo` flag.
 
-    ```
+```bash
     snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL --importConfDir ValidPathToFolder --importFileRepoType private/public/all
     ```
 
     For more information about these flag, refer to [Creating and using the import file](../../creating-and-using-the-import-file.md).
 *   To run in debug mode for verbose output, add `DEBUG=snyk*` to the beginning of the command:
 
-    ```
+```bash
     DEBUG=snyk* snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL --projectKeys Key1 --repo Repo1 --exclusionFilePath PATH_TO_FILE --skipSnykMonitoredRepos --json
     ```

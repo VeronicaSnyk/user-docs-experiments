@@ -1,3 +1,7 @@
+---
+description: Convert Snyk CLI JSON or SARIF output into a readable HTML report to view vulnerability details in a browser.
+---
+
 # snyk-to-html
 
 The CLI provides a direct or automated way to fail the build and, by default, provides only summary information unless you use the `--json` or `--sarif` format. You can direct this output to a file; these files include the issues discovered. The formats are not human-readable.
@@ -19,13 +23,13 @@ To install `snyk-to-html`, you must have the required permissions on your machin
 
 You can install `snyk-to-html`using npm:
 
-```
+```bash
 npm install snyk-to-html -g
 ```
 
 To install the `snyk-to-html` plugin locally, [clone the `snyk-to-html` GitHub repository](https://github.com/snyk/snyk-to-html) and use the script:
 
-```
+```bash
 npm install
 npm run build
 node ./dist/index.js
@@ -149,7 +153,7 @@ To view the HTML file, locate the output file in your repository and double-clic
 
 The test results report opens in the browser. The following example shows `snyk code test` results. You can view the **Data Flow** and **Fix Analysis** information for the issues discovered by clicking the corresponding buttons for each issue.
 
-<figure><img src="../../../../.gitbook/assets/Snyk-to-HTML - Example - HTML Report - Fix Analysis tab - 2.png" alt="Snyk Code Report highligghting Data Flow and Fix Analysis buttons for an issue"><figcaption><p>Snyk Code Report highlighting Data Flow and Fix Analysis buttons for an issue</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Snyk-to-HTML - Example - HTML Report - Fix Analysis tab - okta-saml-application-creation.png" alt="Snyk Code Report highligghting Data Flow and Fix Analysis buttons for an issue"><figcaption><p>Snyk Code Report highlighting Data Flow and Fix Analysis buttons for an issue</p></figcaption></figure>
 
 ## License
 

@@ -1,3 +1,8 @@
+---
+description: >-
+  Build filter rules to include or exclude specific resources from Snyk IaC unmanaged resource detection.
+---
+
 # Filter rules
 
 You can use filter rules to describe resources and ignore resources. You can use both inclusion and exclusion logic.
@@ -11,7 +16,7 @@ Filters are applied on a normalized `struct` that contains the following fields:
 
 ​Examples of filter rules follow.
 
-```
+```bash
 # Will include only S3 bucket in the search
 $ snyk iac describe --filter="Type=='aws_s3_bucket'"
 # OR (beware of escape your shell special chars between double quotes)

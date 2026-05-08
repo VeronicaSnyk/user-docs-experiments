@@ -1,3 +1,8 @@
+---
+description: >-
+  Troubleshoot custom PR template errors and understand supported variables, syntax, and current limitations.
+---
+
 # Troubleshooting and limitations for custom PR templates
 
 ## Troubleshooting custom PR templates

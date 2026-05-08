@@ -1,3 +1,8 @@
+---
+description: >-
+  Understand how Snyk Container analyzes container images, base images, and application dependencies for vulnerabilities.
+---
+
 # How Snyk Container works
 
 ## Container images

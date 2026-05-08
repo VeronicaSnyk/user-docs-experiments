@@ -1,3 +1,7 @@
+---
+description: Migrate from your current identity provider to a new one by submitting updated metadata to Snyk without disrupting user access.
+---
+
 # Identity Provider (IdP) migration
 
 When migrating from a legacy IdP to a new IdP, you must submit new IdP metadata information to Snyk.

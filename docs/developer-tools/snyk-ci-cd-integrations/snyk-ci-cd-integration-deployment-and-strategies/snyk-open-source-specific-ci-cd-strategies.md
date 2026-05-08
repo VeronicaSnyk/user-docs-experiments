@@ -1,3 +1,7 @@
+---
+description: Apply Snyk Open Source-specific CI/CD strategies to customize build failure behavior and handle multi-project configurations.
+---
+
 # Snyk Open Source-specific CI/CD strategies
 
 These strategies are useful to teams using the Snyk SCA ([Software Composition Analysis](https://snyk.io/blog/what-is-software-composition-analysis-sca-and-does-my-company-need-it/)) testing features.
@@ -20,7 +24,7 @@ Use CLI options like `--fail-on` and `--severity-threshold` to customize the fai
 
 If you use a `.sln` file, you can specify the path to the file, and Snyk scans all the sub-projects that are part of the repository, for example:
 
-```
+```bash
 snyk test --file=sln/.sln
 ```
 
@@ -34,13 +38,13 @@ Support for Yarn workspaces is available for the `snyk test` and `snyk monitor` 
 
 An example command follows to scan only the packages that belong to any discovered workspaces in the current directory and five sub-directories deep.
 
-```
+```bash
 snyk test --yarn-workspaces --detection-depth=6
 ```
 
 You can use a common [`.snyk` policy file](../../../manage-risk/policies/the-.snyk-file.md) if you maintain ignores and patches in one place to be applied for all detected workspaces by providing the policy path as follows:
 
-```
+```bash
 snyk test --yarn-workspaces --policy-path=src/.snyk
 ```
 
@@ -50,7 +54,7 @@ Some customers have complex Projects, with multiple languages, package managers,
 
 *   As you build each Project and language, add a directive to run `snyk test` and target a specific Project file, for example:
 
-    ```
+    ```bash
     snyk test --file=package.json
     ```
 * After you install the dependencies of each Project, make a similar call pointing to the specific artifact, such as `pom.xml`. This is fast and efficient, but can be difficult to scale, especially if you are not familiar with the Project.

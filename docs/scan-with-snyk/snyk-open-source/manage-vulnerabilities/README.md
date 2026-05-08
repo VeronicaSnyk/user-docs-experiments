@@ -1,3 +1,8 @@
+---
+description: >-
+  Fix and manage open-source vulnerabilities and license issues in your Projects using multiple remediation methods.
+---
+
 # Manage vulnerabilities
 
 The documentation in this section explains how to fix vulnerabilities and license issues in your Projects.

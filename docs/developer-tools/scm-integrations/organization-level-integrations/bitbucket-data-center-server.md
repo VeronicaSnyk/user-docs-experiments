@@ -1,10 +1,14 @@
+---
+description: Connect Snyk to Bitbucket Data Center or Server to continuously scan repositories and provide automated security fixes.
+---
+
 # Bitbucket Data Center/Server
 
 The Bitbucket Data Center/Server integration allows you to continuously perform security scanning across all the integrated repositories, detect vulnerabilities in your open-source components, and use automated fixing. This integration supports Bitbucket Data Center/Server versions 4.0 and above.
 
 For a quick reference, see the [Snyk and Bitbucket best practices cheat sheet](https://snyk.io/blog/snyk-bitbucket-best-practices-cheat-sheet/) on the Snyk blog.
 
-### How to set up a Bitbucket DC/Server Integration
+## How to set up a Bitbucket DC/Server Integration
 
 1. To give Snyk access to your Bitbucket DC/Server account, set up a dedicated service account in Bitbucket DC/Server with admin permissions.\
    Visit [Bitbucket Server documentation ](https://confluence.atlassian.com/bitbucketserver/users-and-groups-776640439.html#Usersandgroups-Creatingauser)to learn more about creating users.\
@@ -42,7 +46,7 @@ Snyk produces advanced [remediation reports](../../../manage-risk/analytics/repo
 
 The example that follows shows a Project-level security report.
 
-<figure><img src="../../../.gitbook/assets/project_lvl_security_rpt-18july2022.png" alt="Project-level security report"><figcaption><p>Project-level security report</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/project_lvl_security_rpt-18july202okta-saml-application-creation.png" alt="Project-level security report"><figcaption><p>Project-level security report</p></figcaption></figure>
 
 #### Project monitoring and automatic fix pull requests
 
@@ -50,7 +54,7 @@ Snyk scans your Projects on either a daily or a weekly basis. When new vulnerabi
 
 The example that follows shows a fix pull request opened by Snyk.
 
-<figure><img src="../../../.gitbook/assets/666.png" alt="Pull request opened by Snyk"><figcaption><p>Pull request opened by Snyk</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/example-automatic-fix-pull-request-opened-snyk.png" alt="Pull request opened by Snyk"><figcaption><p>Pull request opened by Snyk</p></figcaption></figure>
 
 To review and adjust the automatic fix pull request settings:
 
@@ -77,14 +81,14 @@ Snyk tests any newly created pull request in your repositories for security vuln
 
 The example that follows shows a Snyk pull request build check on the Bitbucket DC/Server **Pull Request** page.
 
-![BitBucket DC/Server Pull Request page showing new vulnerability](../../../.gitbook/assets/888.png)
+![BitBucket DC/Server Pull Request page showing new vulnerability](../../../.gitbook/assets/88enter-details-snyk-google.png)
 
 To review and adjust the pull request tests settings:
 
 1. In Snyk, navigate to **Organization settings** > **Integrations** > **Source control** > **Bitbucket Server** and click **Edit Settings**.
 2. Scroll to **Default Snyk test for pull requests** > **Open Source Security & Licenses**, and configure the relevant options.
 
-<div align="left"><figure><img src="../../../.gitbook/assets/Screenshot 2023-05-02 at 11.21.53.png" alt="Configure PR Checks for your integration"><figcaption><p>Configure PR Checks for your integration</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/configure-pr-checks-integration.png" alt="Configure PR Checks for your integration"><figcaption><p>Configure PR Checks for your integration</p></figcaption></figure></div>
 
 #### Required Builds
 

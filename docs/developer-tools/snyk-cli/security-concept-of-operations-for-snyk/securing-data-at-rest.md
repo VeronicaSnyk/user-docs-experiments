@@ -1,3 +1,7 @@
+---
+description: Learn how the Snyk CLI protects data stored locally, including credentials and scan results.
+---
+
 # Securing data at rest
 
 The Snyk CLI stores its configuration in a JSON file in the local file system in a user-related path. Because the configuration file might include secrets like tokens, it is recommended that you secure the stored file.

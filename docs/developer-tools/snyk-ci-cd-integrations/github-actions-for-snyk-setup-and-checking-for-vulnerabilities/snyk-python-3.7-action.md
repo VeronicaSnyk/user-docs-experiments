@@ -1,3 +1,7 @@
+---
+description: Review examples for the now-removed Snyk Python 3.7 GitHub Action and migrate to a supported alternative.
+---
+
 # Snyk Python-3.7 action
 
 {% hint style="warning" %}

@@ -1,3 +1,8 @@
+---
+description: >-
+  Add Artifactory container images to Snyk to enable continuous vulnerability testing and monitoring.
+---
+
 # Add Artifactory images to Snyk
 
 Snyk tests and monitors your Artifactory container images by evaluating the tags in your repositories.

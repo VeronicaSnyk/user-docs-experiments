@@ -1,3 +1,7 @@
+---
+description: View a bill of materials for all dependencies across your Projects, including package versions, vulnerability counts, license types, and dependency health details.
+---
+
 # View dependencies
 
 The **Dependencies** tab acts as a Bill Of Materials (BOM) for all dependencies in all Projects in the selected Organization. This allows you to quickly and easily identify which Projects have a specific version of a dependency.

@@ -1,3 +1,8 @@
+---
+description: >-
+  Create Snyk Organizations at scale using the snyk-api-import tool with GitHub, GitLab, or Bitbucket data.
+---
+
 # Creating Organizations in Snyk
 
 This page has instructions for creating Organizations (Orgs) in Snyk:
@@ -23,7 +28,7 @@ This utility helps generate data needed to mirror the GitHub.com, GitHub Enterpr
 
 ### Options
 
-```
+```bash
   --source             The source of the targets to be imported
                        (for example, Github, Github Enterprise, Gitlab,
                        Bitbucket Server) [required].
@@ -86,7 +91,7 @@ This creates the organization data in a file `group-<snyk_group_id>-bitbucket-cl
 
 For Azure, this step must be done manually. Since Azure has no API call for getting the Azure Organizations, the Orgs file must be created manually for the next commands to run. The file should be formatted this way:
 
-```
+```json
 {
    "orgs":[
       {
@@ -122,7 +127,7 @@ Use the generated data to feed into the endpoint [Create a new Organization](../
 
 The file format required for this command is as follows:
 
-```
+```text
 "orgs": [
   {
     "groupId": "<public_snyk_group_id>",

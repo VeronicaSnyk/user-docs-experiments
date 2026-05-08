@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan JavaScript open-source dependencies and generate vulnerability reports using the Snyk CLI.
+---
+
 # Snyk CLI for JavaScript
 
 To help generate reports locally or at build time, see the [snyk-to-html plugin](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/cli-tools/snyk-to-html.md).&#x20;

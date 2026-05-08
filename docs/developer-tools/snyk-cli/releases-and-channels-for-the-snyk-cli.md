@@ -1,3 +1,7 @@
+---
+description: Understand Snyk CLI versioning, release cadence, and how to opt in to preview, rc, or stable release channels.
+---
+
 # Releases and channels for the Snyk CLI
 
 This page describes Snyk CLI releases and support policy, and also explains how to opt in to different channels and the purpose of each channel.

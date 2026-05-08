@@ -1,3 +1,7 @@
+---
+description: Access Snyk curated security datasets directly in your Snowflake account to build custom analytics, dashboards, and BI integrations using tools like PowerBI, Tableau, and Looker.
+---
+
 # Reporting and BI integrations: Snowflake Data Share
 
 With the new Snowflake Data Share integration, your data science, BI and AppSec teams can securely access the underlying curated datasets available in Snyk Reporting within your own Snowflake account, unlocking powerful new analytical tools to better understand and visualize Snyk data.

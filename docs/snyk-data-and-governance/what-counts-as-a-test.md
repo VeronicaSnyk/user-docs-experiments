@@ -1,3 +1,7 @@
+---
+description: Identify what constitutes a test in Snyk Open Source, Snyk Code, Snyk IaC, and Snyk Container so you can measure your usage against your subscription allocation.
+---
+
 # What counts as a test?
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+description: Generate a software bill of materials for a container image using the snyk container sbom CLI command.
+---
+
 # Container SBOM
 
 ## Prerequisites

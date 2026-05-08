@@ -1,3 +1,7 @@
+---
+description: Import your repositories into Snyk to scan for vulnerabilities and create Projects for all supported file types.
+---
+
 # Phase 3: Gain visibility
 
 After the [Account configuration](../phase-2-configure-your-organization/) phase is complete, you can import your repositories to scan your applications.

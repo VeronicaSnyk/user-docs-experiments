@@ -1,3 +1,7 @@
+---
+description: Configure a GitLab Group-level integration in Snyk AppRisk to discover and track repositories across your GitLab groups.
+---
+
 # GitLab for Snyk Essentials
 
 The Integrations page shows all active integrations, including data from your existing Snyk Organizations that is automatically synced and provides access to the Integration Hub.
@@ -7,7 +11,7 @@ The Integrations page shows all active integrations, including data from your ex
 * Users
 * Repositories
 
-#### Prerequisites <a href="#gitlab-integrate-using-snyk-apprisk" id="gitlab-integrate-using-snyk-apprisk"></a>
+### Prerequisites <a href="#gitlab-integrate-using-snyk-apprisk" id="gitlab-integrate-using-snyk-apprisk"></a>
 
 To configure a Group-level integration, you must be a Group Admin or have a custom role that includes the `Edit Snyk Essentials` permissions under the [Group-level permissions](../../../snyk-platform-administration/user-roles/pre-defined-roles.md#group-level-permissions).
 

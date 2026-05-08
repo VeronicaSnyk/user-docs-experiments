@@ -1,3 +1,7 @@
+---
+description: Understand the specific conditions—such as user interaction, open ports, or CPU architecture—that must be met for a vulnerability to be exploitable in your application.
+---
+
 # Vulnerable conditions
 
 Vulnerabilities that are not exploitable are unlikely to pose a security threat to your application and can therefore be de-prioritized for fixing.

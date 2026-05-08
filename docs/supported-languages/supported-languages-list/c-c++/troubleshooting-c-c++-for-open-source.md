@@ -1,3 +1,8 @@
+---
+description: >-
+  Resolve common questions and issues when scanning C/C++ open-source dependencies with Snyk.
+---
+
 # Troubleshooting C/C++ for open source
 
 ## **Is my Snyk Open Source code sent to Snyk servers?**

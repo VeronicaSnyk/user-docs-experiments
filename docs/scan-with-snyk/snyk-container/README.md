@@ -1,3 +1,8 @@
+---
+description: >-
+  Detect and fix vulnerabilities in container images, Dockerfiles, and Kubernetes workloads using Snyk Container.
+---
+
 # Snyk Container
 
 {% hint style="info" %}

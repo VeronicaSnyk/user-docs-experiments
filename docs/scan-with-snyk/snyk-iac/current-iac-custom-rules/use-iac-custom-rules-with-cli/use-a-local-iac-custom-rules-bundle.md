@@ -1,3 +1,8 @@
+---
+description: >-
+  Use a local custom rules bundle with the Snyk CLI to apply your organization's IaC policies during scans.
+---
+
 # Use a local IaC custom rules bundle
 
 {% hint style="info" %}
@@ -6,7 +11,7 @@ Where the examples show `bundle.tar.gz`, you can replace this with your bundle n
 
 In your Project folder, run the following command:
 
-```
+```bash
 snyk iac test --rules=bundle.tar.gz
 ```
 
@@ -14,7 +19,7 @@ The configuration scan results now include issues from both the default Snyk rul
 
 To troubleshoot a local custom rules bundle, enable debug logs by running the command with the `--d` options:
 
-```
+```bash
 snyk iac test --rules=bundle.tar.gz -d
 ```
 
@@ -22,13 +27,13 @@ Some possible problems include:
 
 * Providing an incorrect path to the bundle or a path to a non-existent bundle. Ensure the path passed to the `--rules` option can be accessed from the current location. The error is
 
-```
+```text
 We were unable to extract the rules provided at: ./invalid/location/bundle.tar.gz
 ```
 
 * Providing a corrupted or invalid bundle. Ensure you have generated your bundle by following the instructions in [Getting Started with the SDK](../writing-rules-using-the-sdk/). The error is
 
-```
+```text
 We were unable run the test. Please run the command again with the `-d` flag and contact support@snyk.io with the contents of the output.
 ```
 

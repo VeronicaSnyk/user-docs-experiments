@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Google Cloud resource types supported by Snyk cloud context for configuration scanning.
+---
+
 # Supported Google resources for cloud context
 
 Snyk cloud context works with the following Google Cloud resource types:

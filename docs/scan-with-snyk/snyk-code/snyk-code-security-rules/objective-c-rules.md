@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Objective-C code in Early Access for Enterprise plans.
+---
+
 # Objective-C rules
 
 {% hint style="info" %}

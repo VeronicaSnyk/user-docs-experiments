@@ -1,3 +1,7 @@
+---
+description: Migrate your Bitbucket Pipelines configuration away from deprecated Snyk CLI images to supported alternatives.
+---
+
 # BitBucket Pipelines migration
 
 ## For users of `snyk/snyk-scan` < v1.0.0 <a href="#users-using-snyk-snyk-scan-less-than-v1.0.0" id="users-using-snyk-snyk-scan-less-than-v1.0.0"></a>

@@ -1,3 +1,8 @@
+---
+description: >-
+  Review the complete SDK reference for the snyk-iac-rules tool, including commands, options, and descriptions.
+---
+
 # SDK reference
 
 ## NAME
@@ -163,19 +168,19 @@ Prints a help text. You may specify a COMMAND to get more details.
 
 Generate a new rule with the name `CUSTOM_RULE`:
 
-```
+```bash
 $ snyk-iac-rules template --rule CUSTOM_RULE
 ```
 
 Test the rule:
 
-```
+```bash
 $ snyk-iac-rules test --run CUSTOM_RULE
 ```
 
 Generate the custom rules bundle:
 
-```
+```bash
 $ snyk-iac-rules build --output bundle-v1.0.0.tar.gz
 ```
 

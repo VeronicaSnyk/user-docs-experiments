@@ -1,3 +1,7 @@
+---
+description: Configure Snyk CLI to fail builds when vulnerabilities exceed your defined severity threshold.
+---
+
 # Failing of builds in Snyk CLI
 
 The `snyk test` command has the following options for failing your builds:

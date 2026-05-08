@@ -1,3 +1,7 @@
+---
+description: Invite team members to your Snyk Organization and assign them the roles you determined during the planning phase.
+---
+
 # Invite Users
 
 Click **Members** and invite your team members, applying the role alignments decided in Phase 1 for each member.&#x20;

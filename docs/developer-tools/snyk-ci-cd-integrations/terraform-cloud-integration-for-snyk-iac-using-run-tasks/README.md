@@ -1,3 +1,7 @@
+---
+description: Connect Snyk to Terraform Cloud run tasks to scan Terraform plans for infrastructure misconfigurations before apply.
+---
+
 # Terraform Cloud integration for Snyk IaC using Run Tasks
 
 {% hint style="info" %}

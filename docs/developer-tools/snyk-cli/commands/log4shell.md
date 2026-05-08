@@ -1,3 +1,7 @@
+---
+description: Detect Log4J library instances affected by the Log4Shell vulnerability in your built project and third-party dependencies.
+---
+
 # Log4shell
 
 ## Usage

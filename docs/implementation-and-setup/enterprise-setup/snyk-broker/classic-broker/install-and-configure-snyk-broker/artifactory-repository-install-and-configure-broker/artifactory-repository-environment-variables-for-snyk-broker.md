@@ -1,3 +1,7 @@
+---
+description: Reference the required environment variables for configuring the Snyk Broker Client to connect to your Artifactory Repository.
+---
+
 # Artifactory Repository - environment variables for Snyk Broker
 
 The following environment variables are needed to customize the Broker Client for Artifactory Repository:

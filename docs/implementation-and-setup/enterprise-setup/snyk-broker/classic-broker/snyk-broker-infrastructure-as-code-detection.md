@@ -1,3 +1,7 @@
+---
+description: Understand how Snyk Broker detects Infrastructure as Code files including Terraform, CloudFormation, and Kubernetes configurations.
+---
+
 # Snyk Broker - Infrastructure as Code detection
 
 Beginning with Snyk Broker v4.205.2, the Infrastructure-as-Code (IaC) detection is enabled by default.

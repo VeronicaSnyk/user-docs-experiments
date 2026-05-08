@@ -1,3 +1,8 @@
+---
+description: >-
+  Detect application dependency vulnerabilities inside container images alongside operating system vulnerabilities.
+---
+
 # Detect application vulnerabilities in container images
 
 In one scan, Snyk can detect the vulnerabilities in your application dependencies from container images, as well as from the operating system.

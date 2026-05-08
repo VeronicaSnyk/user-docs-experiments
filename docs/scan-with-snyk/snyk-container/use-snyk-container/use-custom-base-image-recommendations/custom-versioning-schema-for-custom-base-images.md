@@ -1,3 +1,8 @@
+---
+description: >-
+  Define a Custom Versioning Schema to help Snyk understand your internal container image tagging convention.
+---
+
 # Custom versioning schema for custom base images
 
 The Custom Versioning Schema (CVS) is a way for Snyk to understand your company’s container image tag versioning schema. It enables Snyk to give more accurate base image upgrade recommendations.
@@ -18,7 +23,7 @@ CVS is essentially a regular expression that groups the different parts of an im
 
 As an example, consider the following image tags:
 
-```
+```text
 snyk/example:1.2_V3
 snyk/example:1.2_V4
 snyk/example:1.3_V1
@@ -59,7 +64,7 @@ Snyk can then use this ordered set to give better recommendations.
 
 The example below expands on the repository in the previous example and includes a small modification to add a slim version of each image.
 
-```
+```text
 snyk/example:1.2_V3-full
 snyk/example:1.2_V3-slim
 snyk/example:1.2_V4-full
@@ -87,7 +92,7 @@ For example, recommendations for `snyk/example:1.2_V3-slim` do not include image
 
 The example below shows how to develop the expression for this registry.
 
-```
+```text
 snyk/example:1.2.5_deb9_2023061209
 snyk/example:1.2.5_deb9_2023090208
 snyk/example:1.2.5_deb10_2023110208
@@ -152,7 +157,7 @@ The complete custom versioning schema expression looks like this:&#x20;
 
 In cases where a repository does not have a consistent tagging format, you can use non-capture groups.
 
-```
+```text
 snyk/example:1.1
 snyk/example:1.1.2
 snyk/example:1.2
@@ -206,13 +211,13 @@ The maximum length of the expression is 1,000 characters, with up to 100 COMPARE
 
 `Use of unsupported or invalid regex syntax`
 
-#### Why does it occur?
+### Why does it occur?
 
 This error can happen if an expression that does not conform to ECMAScript syntax is passed.
 
 An example is using Python’s named capture group syntax `(?P<C0>.*)`.
 
-#### How to fix it
+### How to fix it
 
 In the example, change the capture group syntax from `(?P<C0>.*)` to `(?<C0>.*)`.
 

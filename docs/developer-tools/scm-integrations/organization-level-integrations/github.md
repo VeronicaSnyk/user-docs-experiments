@@ -1,6 +1,10 @@
+---
+description: Connect Snyk to GitHub to scan repositories, run pull request checks, and receive automated fix pull requests.
+---
+
 # GitHub
 
-### Prerequisites for GitHub integration
+## Prerequisites for GitHub integration
 
 * Internet-accessible repositories.\
   If your repositories are not internet-accessible, you must use [Snyk Broker](../../../implementation-and-setup/enterprise-setup/snyk-broker/).
@@ -81,7 +85,7 @@ Snyk produces advanced [remediation reports](../../../manage-risk/analytics/repo
 
 This example shows a Project-level security report.
 
-<figure><img src="../../../.gitbook/assets/project_lvl_security_rpt-18july2022.png" alt="Project-level security report"><figcaption><p>Project-level security report</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/project_lvl_security_rpt-18july202okta-saml-application-creation.png" alt="Project-level security report"><figcaption><p>Project-level security report</p></figcaption></figure>
 
 #### Project monitoring and automatic fix pull requests
 
@@ -89,7 +93,7 @@ Snyk scans your Projects on either a daily or a weekly basis. When new vulnerabi
 
 The example that follows shows a fix pull request opened by Snyk.
 
-<figure><img src="../../../.gitbook/assets/github_fix_pr_cropped-14july2022.png" alt="Fix pull request opened by Snyk"><figcaption><p>Fix pull request opened by Snyk</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/github_fix_pr_cropped-14july202okta-saml-application-creation.png" alt="Fix pull request opened by Snyk"><figcaption><p>Fix pull request opened by Snyk</p></figcaption></figure>
 
 To review and adjust the automatic fix pull request settings in the Snyk GitHub Integration settings page, navigate to Organization **Settings** > **Integrations** > **Source control** > **GitHub**.
 
@@ -113,7 +117,7 @@ The Snyk [PR Checks](../../../scan-with-snyk/pull-requests/pull-request-checks/)
 
 This example shows how Snyk PR checks appear on the GitHub pull request page.
 
-<figure><img src="../../../.gitbook/assets/pr_testing-14july2022.png" alt="Snyk pull request checks on GitHub pull request page"><figcaption><p>Snyk pull request checks on GitHub pull request page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pr_testing-14july202okta-saml-application-creation.png" alt="Snyk pull request checks on GitHub pull request page"><figcaption><p>Snyk pull request checks on GitHub pull request page</p></figcaption></figure>
 
 You can review and adjust the pull request test settings using the Snyk GitHub Integration settings page in Organization **Settings** > **Integrations** > **Source control** > **GitHub**.
 
@@ -178,7 +182,7 @@ To configure the Auto-assign settings for all the Projects from an imported priv
 
 You can then choose to assign PRs to the last user to change the manifest file or specified contributors.
 
-<div align="left"><figure><img src="../../../.gitbook/assets/image (53).png" alt="Auto-assign PRs in private repos"><figcaption><p>Auto-assign PRs in private repos</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/auto-assign-prs-private-repos.png" alt="Auto-assign PRs in private repos"><figcaption><p>Auto-assign PRs in private repos</p></figcaption></figure></div>
 
 {% hint style="info" %}
 For pull request assignees, the option **The last user to change the manifest file** is based on blame data, not Git commits.
@@ -195,7 +199,7 @@ To configure the Auto-assign settings for a specific Project from an imported pr
 4. Ensure **Auto-assign PRs for this private Project** is enabled.
 5. Choose to assign PRs to the last user to change the manifest file or named contributors.
 
-<div align="center"><figure><img src="../../../.gitbook/assets/image (44).png" alt="Auto-assign PRs for this private Project" width="375"><figcaption><p>Auto-assign PRs for this private Project</p></figcaption></figure></div>
+<div align="center"><figure><img src="../../../.gitbook/assets/auto-assign-prs-private-project.png" alt="Auto-assign PRs for this private Project" width="375"><figcaption><p>Auto-assign PRs for this private Project</p></figcaption></figure></div>
 
 ### How to disable the GitHub integration
 
@@ -207,7 +211,7 @@ The GitHub SCM integration leverages the OAuth app integration. If you integrate
    You can also reach the [Authorized OAuth Apps tab directly](https://github.com/settings/applications).
 4. Find the **Snyk** entry, click the three (3) dots on the right, and select **Revoke**.
 
-<figure><img src="../../../.gitbook/assets/disconnect_github_3-july-2022.png" alt="Revoke OAuth authorization"><figcaption><p>Revoke OAuth authorization</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/disconnect_github_3-july-202okta-saml-application-creation.png" alt="Revoke OAuth authorization"><figcaption><p>Revoke OAuth authorization</p></figcaption></figure>
 
 Revoking this access effectively disconnects Snyk’s access to that GitHub account.
 

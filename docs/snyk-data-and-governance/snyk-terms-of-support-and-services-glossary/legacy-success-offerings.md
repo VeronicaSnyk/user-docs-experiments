@@ -1,12 +1,16 @@
+---
+description: Review the terms for legacy Snyk support and success offerings that reached end-of-sale and are no longer available for new purchases or expansions.
+---
+
 # Legacy Success Offerings
 
 The following terms apply to legacy support and success offerings that have reached their end-of-sale date and are no longer available for new purchases or service expansions. For existing customers with an active contract for a legacy offering, the applicable terms remain in full effect for the duration of the agreement.&#x20;
 
 For information on currently available support and success offerings, see [Snyk terms of support and services glossary](https://docs.snyk.io/snyk-data-and-governance/snyk-terms-of-support-and-services-glossary).
 
-### **Silver Success offering**
+## **Silver Success offering**
 
-#### **Summary**&#x20;
+### **Summary**&#x20;
 
 | Offering                                                                                                                  | Silver Success                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -24,7 +28,7 @@ For information on currently available support and success offerings, see [Snyk 
 | Live training sessions                                                                                                    | Public trainings on snyk.io/events                                                                            |
 | Private Slack channel                                                                                                     | ✔                                                                                                             |
 
-#### **Silver Success offering description**&#x20;
+### **Silver Success offering description**&#x20;
 
 **Technical Success Manager:** Named Technical Resource assigned to your account to guide your onboarding and support your Snyk implementation as it grows and evolves.
 
@@ -48,7 +52,7 @@ Customer onboarding needs vary depending on the solutions purchased.
 
 **Private Slack channel:** Direct engagement over Slack with your Technical Account team to encourage collaboration.
 
-#### **Silver Support**&#x20;
+### **Silver Support**&#x20;
 
 The Silver Success Plan includes Silver Support.&#x20;
 

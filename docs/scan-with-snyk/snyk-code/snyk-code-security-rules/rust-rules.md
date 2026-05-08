@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Rust code in Early Access for Enterprise plans.
+---
+
 # Rust rules
 
 {% hint style="info" %}

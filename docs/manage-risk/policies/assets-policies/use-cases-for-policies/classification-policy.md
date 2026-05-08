@@ -1,3 +1,7 @@
+---
+description: Classify assets by business importance using the Set Asset Class policy action, assigning classes A through D based on repository name or asset labels.
+---
+
 # Classification policy
 
 You can use the **Set Asset Class** action from the Policies view to classify the assets based on importance, where class A is the most important and class D is the least important.

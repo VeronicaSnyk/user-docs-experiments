@@ -1,3 +1,7 @@
+---
+description: Configure Snyk Insights to enable risk factor prioritization—Deployed, OS Condition, and Public Facing—by scanning container images and connecting your Kubernetes cluster.
+---
+
 # Set up Insights
 
 ## Prerequisites

@@ -1,3 +1,7 @@
+---
+description: Detect unmanaged infrastructure resources by comparing your Terraform state with your actual cloud environment.
+---
+
 # IaC describe
 
 ## Usage
@@ -155,36 +159,36 @@ For more examples, see [IaC describe command examples](https://docs.snyk.io/scan
 
 ### Detect unmanaged resources on AWS with a single local Terraform state
 
-```
+```bash
 $ snyk iac describe --from="tfstate://terraform.tfstate"
 ```
 
 ### Specify AWS credentials
 
-```
+```bash
 $ AWS_ACCESS_KEY_ID=XXX AWS_SECRET_ACCESS_KEY=XXX snyk iac describe
 ```
 
 ### Use an AWS named profile
 
-```
+```bash
 $ AWS_PROFILE=profile_name snyk iac describe
 ```
 
 ### Use a single Terraform state stored on an S3 backend
 
-```
+```bash
 $ snyk iac describe --from="tfstate+s3://my-bucket/path/to/state.tfstate"
 ```
 
 ### Aggregate multiple Terraform states
 
-```
+```bash
 $ snyk iac describe --from="tfstate://terraform_S3.tfstate,tfstate://terraform_VPC.tfstate"
 ```
 
 ### Aggregate many Terraform states using glob pattern
 
-```
+```bash
 $ snyk iac describe --from="tfstate://path/to/**/*.tfstate"
 ```

@@ -1,3 +1,7 @@
+---
+description: Connect private container registries to Snyk using the Container Registry Agent to scan images without exposing credentials.
+---
+
 # Snyk Broker - Container Registry Agent
 
 {% hint style="info" %}
@@ -26,7 +30,7 @@ The following components are needed with network-restricted container registries
 
 The Broker Client provides the Container Registry Agent with the connection details. The Agent uses these details to connect to the container registry, scan the images, and send the scan results through the brokered communication using callbacks. The brokered communication happens when a Broker Client connects, using your Broker ID, to a Broker Server which runs in the Snyk environment. See the [Snyk Broker](../) introductory information for more details.
 
-<figure><img src="../../../../.gitbook/assets/mceclip0-8-.png" alt="Highlevel architecture of the Snyk Broker Container Registry Agent"><figcaption><p>High-level architecture of the Snyk Broker Container Registry Agent</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/high-level-architecture-snyk-broker-container-registry-agent.png" alt="Highlevel architecture of the Snyk Broker Container Registry Agent"><figcaption><p>High-level architecture of the Snyk Broker Container Registry Agent</p></figcaption></figure>
 
 ## Supported container registries
 
@@ -88,7 +92,7 @@ To configure the Container Registry Agent, the following environment variables a
 
 Run the Container Registry Agent container with the relevant configuration:
 
-```
+```bash
 docker run --restart=always \
        -p 8081:8081 \
        -e SNYK_PORT=8081 \
@@ -137,7 +141,7 @@ The following environment variables are required to configure the Broker Client.
 
 Run the Broker Client container with the relevant configuration:
 
-```
+```bash
 docker run --restart=always \
        -p 8000:8000 \
        -e BROKER_TOKEN="<secret-broker-token>" \
@@ -175,7 +179,7 @@ See [Configuring your JFrog Artifactory container registry integration](../../..
 
 In Elastic Container Registries and other container registries, the communication is the same. The Agent makes synchronous calls to the container registries to list and pull the image. Then the Agent scans the images and sends the results to the Broker Client using callbacks. ECR has a special authentication mechanism that requires setting up an IAM Role or User in the Agent.
 
-<figure><img src="../../../../.gitbook/assets/image (69).png" alt="High-level architecture of the brokered ECR integration"><figcaption><p>High-level architecture of the brokered ECR integration</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/high-level-architecture-brokered-ecr-integration.png" alt="High-level architecture of the brokered ECR integration"><figcaption><p>High-level architecture of the brokered ECR integration</p></figcaption></figure>
 
 #### **Required AWS Resource with ECR**
 
@@ -185,7 +189,7 @@ ECR setup requires that the following kinds of IAM resources be created:
 *   Snyk ECR Service Role: an IAM Role with access to ECR which is assumed by the Container Registry Agent IAM Role or IAM User to gain read-only access to ECR.\
     The ECR Service Role should have the following permissions:
 
-    ```
+    ```json
     [
       "ecr:GetLifecyclePolicyPreview",
       "ecr:GetDownloadUrlForLayer",

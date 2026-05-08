@@ -6,7 +6,7 @@ description: SCM-Contributors-Count Modes and Levels
 
 ## General command
 
-```
+```bash
 snyk-scm-contributors-count <command> <command-options>
 ```
 
@@ -30,7 +30,7 @@ This mode works only with Bitbucket and Azure.
 
 Apply the `skipSnykMonitoredRepos` flag, for example:
 
-```
+```bash
 snyk-scm-contributors-count bitbucket-cloud --user USERNAME --password PASSWORD --skipSnykMonitoredRepos
 ```
 
@@ -40,7 +40,7 @@ This mode works only with Bitbucket and Azure.
 
 Make sure to export your `SNYK_TOKEN`, for example:
 
-```
+```bash
 export SNYK_TOKEN=<YOUR-SNYK-TOKEN>
 snyk-scm-contributors-count bitbucket-cloud --user USERNAME --password PASSWORD
 ```
@@ -53,7 +53,7 @@ In this level of usage, the tool starts from the top of the SCM to get the Orgs/
 
 To use this level, provide the credentials (and host/url where applicable), and the tool will get the contributors count for all your orgs/groups and all their repos, for example:
 
-```
+```bash
 snyk-scm-contributors-count github --token TOKEN
 ```
 
@@ -63,7 +63,7 @@ In this level of usage, the tool starts from the Orgs/Groups that the user provi
 
 To use this level, provide the credentials and a comma-separated list of groups or orgs for which you'd like to fetch the repos and their contributors count, for example:
 
-```
+```bash
 snyk-scm-contributors-count gitlab --token TOKEN --groups GROUP1,GROUP2
 ```
 
@@ -73,7 +73,7 @@ In this level of usage, the tool focuses on only one repo for which to get the c
 
 To use this level, provide the credentials (host/url where applicable), one org/group, and one repo, for example:
 
-```
+```bash
 snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL --orgs ORG --repo REPO
 ```
 
@@ -81,7 +81,7 @@ snyk-scm-contributors-count github-enterprise --token TOKEN --url HOST_URL --org
 
 Add `DEBUG=snyk*` to the beginning of the command, for example:
 
-```
+```bash
 DEBUG=snyk* snyk-scm-contributors-count bitbucket-server --token BITBUCKET-TOKEN --url BITBUCKET-URL --projectKeys Key1 --repo Repo1 --exclusionFilePath PATH_TO_FILE --skipSnykMonitoredRepos --json
 ```
 

@@ -1,3 +1,7 @@
+---
+description: Test any public npm package for vulnerabilities from the CLI before adding it to your project.
+---
+
 # Test public npm packages before use
 
 You can use `snyk test` to **scrutinize a public package before installing it**, to see if it has known vulnerabilities or not. Use the package name to test the latest version of the package.

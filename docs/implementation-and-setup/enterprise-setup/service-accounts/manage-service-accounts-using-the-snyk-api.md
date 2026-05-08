@@ -1,3 +1,7 @@
+---
+description: Use the Snyk REST API to create, update, and delete service accounts for your Groups and Organizations.
+---
+
 # Manage service accounts using the Snyk API
 
 You can manage service accounts using the [Snyk REST API](../../../snyk-api/reference/serviceaccounts.md).

@@ -1,3 +1,7 @@
+---
+description: Use pre-built custom role templates to create roles for common developer and security functions in Snyk.
+---
+
 # Custom role templates
 
 This section provides templates for custom roles, with their titles and corresponding permissions reflecting the key responsibilities of users throughout the development lifecycle while using Snyk.

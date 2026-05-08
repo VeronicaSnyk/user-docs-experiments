@@ -1,3 +1,7 @@
+---
+description: Review key Snyk reports during your pilot—including Issues Detail, SLA Management, and Developer Usage—to prioritize vulnerabilities and measure team adoption.
+---
+
 # Review reporting
 
 {% include "../../../../.gitbook/includes/pilot-guide-toc.md" %}
@@ -24,10 +28,10 @@ The SLA Management report allows you to stay on top of any SLAs your company is 
 * Preventable issues are known issues that could have been identified earlier on in the SDLC. In other words, the issue could have been caught by a Snyk PR check.
 * Non-preventable issues are the result of an external factor, such as a new vulnerability being published or a new security rule being created, in contrast to developers not shifting left. for example, a new zero-day vulnerability is identified.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXco8q4gfqWC3QdLqOY8N15kchfGb9_FKm28rXonSWmSbOnrTDIQpvQMluxOoiOBWQStylL_LKasaU7VhjbjkRzv0UIQ60UqKtX3yTwTO-XO1gz7tgiWQc2COU-frmYkUXl5FQAM?key=i_CNrr-DvB8PGUAzq09BT3pc" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXco8q4gfqWC3QdLqOY8N15kchfGb9_FKm28rXonSWmSbOnrTDIQpvQMluxOoiOBWQStylL_LKasaU7VhjbjkRzv0UIQ60UqKtX3yTwTO-XO1gz7tgiWQc2COU-frmYkUXl5FQAM?key=i_CNrr-DvB8PGUAzq09BT3pc" alt="Snyk Analytics dashboard showing baseline, preventable, and non-preventable issue breakdown at Group level"><figcaption></figcaption></figure>
 
 This is a small taste of what reporting has to offer. Check out more of the Snyk reports, available at both the Organization and Group levels by clicking “Change Report”:\
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfS5UzFsGMM5_N5fK6iFLN16rFFfSmj3W9BXkmDnZOvvOBoUjCIQD6j1afOaN9PySsB-MI4TNLtKdgFbVk1OMe5u1uCYDSKv1pjhkaUSqhGspmGqOggsPx5XCK7IZGVv7QQmN5NqQ?key=i_CNrr-DvB8PGUAzq09BT3pc)
+![Change Report menu in Snyk Reports showing available report types at Organization and Group levels](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfS5UzFsGMM5_N5fK6iFLN16rFFfSmj3W9BXkmDnZOvvOBoUjCIQD6j1afOaN9PySsB-MI4TNLtKdgFbVk1OMe5u1uCYDSKv1pjhkaUSqhGspmGqOggsPx5XCK7IZGVv7QQmN5NqQ?key=i_CNrr-DvB8PGUAzq09BT3pc)
 
 {% hint style="info" %}
 Additional Resources

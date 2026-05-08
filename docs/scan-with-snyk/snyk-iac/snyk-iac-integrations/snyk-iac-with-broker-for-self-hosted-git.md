@@ -1,3 +1,8 @@
+---
+description: >-
+  Use Snyk Broker to connect Snyk IaC with a self-hosted Git server that is not internet-reachable.
+---
+
 # Snyk IaC with Broker for self-hosted Git
 
 Snyk Broker enables you to connect your local Git server to Snyk if the Git server is not internet-reachable.

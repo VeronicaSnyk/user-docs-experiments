@@ -1,3 +1,7 @@
+---
+description: Access the full CLI help text for all Snyk commands and subcommands, identical to what appears in your terminal.
+---
+
 # CLI help
 
 Snyk CLI scans and monitors your projects for security vulnerabilities and license issues.

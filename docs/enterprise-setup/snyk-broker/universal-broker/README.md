@@ -1,3 +1,7 @@
+---
+description: Manage multiple SCM, registry, and tool connections from a single Broker deployment, keeping credentials within your network while Snyk uses credential references to authenticate.
+---
+
 # Universal Broker
 
 The Universal Broker improves the management of Broker deployments and connections by supporting many connections of any type with a single running client (container) or with multiple client replicas. Credentials remain within your network and are never stored by or transmitted to Snyk. The Snyk platform uses credentials references to instruct the Universal Broker how to authenticate with your private resources.
@@ -6,7 +10,7 @@ Each client or set of client replicas is called a Broker deployment. The diagram
 
 A deployment can support multiple connections of any type, as shown in the diagram examples: GitHub, GitLab, Artifactory, Jira, and Container Registry Agent. Connections are configured to communicate with specific private resources: SCMs, JIRA, and others.
 
-<figure><img src="../../../.gitbook/assets/image 5 (6).png" alt=""><figcaption><p>Universal Broker deployment example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image copy-single-signon-service-details.png" alt=""><figcaption><p>Universal Broker deployment example</p></figcaption></figure>
 
 Connections are integrated with Organizations to provide access to your private resources for the appropriate Snyk Organization(s). These Organizations can be in the same or different Snyk Groups.
 

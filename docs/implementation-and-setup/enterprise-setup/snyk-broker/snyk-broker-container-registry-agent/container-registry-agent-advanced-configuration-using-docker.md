@@ -1,3 +1,7 @@
+---
+description: Configure HTTPS and other advanced settings for the Snyk Broker Container Registry Agent using Docker.
+---
+
 # Container Registry Agent advanced configuration using Docker
 
 For instructions on installation of the Broker Container Registry Agent using Docker, see [Snyk Broker - Container Registry Agent](./). See [Install Broker for Container Registry using Helm](install-broker-for-container-registry-agent-using-helm.md) for instructions on the Helm method.
@@ -8,7 +12,7 @@ The Container Registry Agent (CRA) runs an HTTP server by default. CRA can be co
 
 For example, if your certificate files are found locally at `./private/container-registry-agent.crt` and `./private/container-registry-agent.key`, provide these files to the Docker container by mounting the folder and using the `HTTPS_CERT` and `HTTPS_KEY` environment variables:
 
-```
+```bash
 docker run --restart=always \
        -p 8081:8081 \
        -e SNYK_PORT=8081 \

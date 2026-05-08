@@ -1,3 +1,8 @@
+---
+description: >-
+  Create the Google service account that grants Snyk read-only access to your Google Cloud Project via the API.
+---
+
 # Step 2: Create the Google service account (API)
 
 {% hint style="info" %}

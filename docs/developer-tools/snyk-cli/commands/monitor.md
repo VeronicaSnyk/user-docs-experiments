@@ -1,3 +1,7 @@
+---
+description: Create a continuously monitored project snapshot in Snyk to receive alerts about newly disclosed vulnerabilities.
+---
+
 # Monitor
 
 ## Usage
@@ -251,7 +255,7 @@ Some projects include a Maven wrapper but users may prefer (or be required by th
 
 To monitor individual JAR, WAR, and AAR files, use the following:
 
-```
+```bash
 --scan-unmanaged --file=<JAR_FILE_NAME>
 ```
 
@@ -259,7 +263,7 @@ To monitor individual JAR, WAR, and AAR files, use the following:
 
 Auto-detect Maven, JAR, WAR, and AAR files recursively from the current folder.
 
-```
+```bash
 --scan-all-unmanaged 
 ```
 

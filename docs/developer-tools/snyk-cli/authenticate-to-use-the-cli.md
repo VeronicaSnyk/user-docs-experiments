@@ -1,3 +1,7 @@
+---
+description: Authenticate the Snyk CLI with your account using OAuth 2.0, a Personal Access Token, or an API token.
+---
+
 # Authenticate to use the CLI
 
 Once you have [installed the Snyk CLI](install-the-snyk-cli/) using your chosen tool or operating system (OS), you need to authenticate with your Snyk account.

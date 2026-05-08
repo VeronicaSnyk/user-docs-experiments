@@ -1,3 +1,7 @@
+---
+description: Interpret the vulnerabilities, severity levels, and fix advice displayed in your Snyk CLI test results.
+---
+
 # CLI test results
 
 After you run `snyk test,` a list of vulnerabilities and license issues is displayed directly from the CLI. The list includes:

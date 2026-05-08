@@ -1,3 +1,8 @@
+---
+description: >-
+  Configure Snyk to access private RubyGems sources for scanning Ruby gem dependencies.
+---
+
 # Private gem sources for Ruby configuration
 
 {% hint style="info" %}

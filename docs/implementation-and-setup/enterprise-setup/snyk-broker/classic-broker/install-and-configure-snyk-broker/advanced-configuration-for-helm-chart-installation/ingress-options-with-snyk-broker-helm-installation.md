@@ -1,3 +1,7 @@
+---
+description: Configure Kubernetes ingress to route inbound traffic from SCMs and container registries to your Snyk Broker Helm deployment.
+---
+
 # Ingress options with Snyk Broker Helm installation
 
 When you are setting up the Broker using Helm, you may need to configure the `brokerClientUrl` parameter. This parameter enables PR Checks if you are connecting to an SCM and enables connecting to Container Registries.
@@ -12,7 +16,7 @@ To enable a load balancer, add the `--set service.<service-type>=LoadBalancer`. 
 
 Example for Github:
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=github-com \
              --set brokerToken=<ENTER_BROKER_TOKEN> \

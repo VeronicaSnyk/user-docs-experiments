@@ -1,3 +1,7 @@
+---
+description: Test and monitor open-source dependencies for vulnerabilities using the Snyk CLI.
+---
+
 # Snyk CLI for Open Source
 
 Snyk Open Source scans your manifest files. Based on the scan, Snyk creates a hierarchical tree of the structure represented in the manifest file: both its direct and indirect (transitive) dependencies and the points at which the different packages are introduced.

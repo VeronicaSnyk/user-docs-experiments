@@ -1,3 +1,7 @@
+---
+description: Use this Organization-level role template to allow CLI testing with snyk test while blocking the use of snyk monitor.
+---
+
 # Read-only CLI Tester role template
 
 This Organization-level role blocks the use of `snyk monitor`.

@@ -1,4 +1,5 @@
 ---
+description: Track the latest updates to Snyk user documentation, including new features, removed capabilities, structural changes, and improvements to the knowledge base.
 cover: .gitbook/assets/docs-banner-nov25.webp
 coverY: 0
 ---

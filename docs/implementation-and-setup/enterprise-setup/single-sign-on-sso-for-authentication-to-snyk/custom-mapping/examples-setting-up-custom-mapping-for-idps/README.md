@@ -1,3 +1,7 @@
+---
+description: Access step-by-step examples of custom role mapping configuration for Okta, Entra ID, Ping Identity, Google Workspace, and OneLogin.
+---
+
 # Examples: setting up custom mapping for IdPs
 
 The following examples of how to set up a custom mapping for various identify providers are available here:

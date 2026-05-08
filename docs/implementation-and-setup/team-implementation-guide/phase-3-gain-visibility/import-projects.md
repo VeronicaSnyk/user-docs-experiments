@@ -1,3 +1,7 @@
+---
+description: Import Projects into Snyk through Git or CLI integrations to scan your code, dependencies, containers, and infrastructure.
+---
+
 # Import Projects
 
 Depending on the integrations you have configured, and the language / package managers in your tech stack, you can import Projects into Snyk using:

@@ -1,3 +1,7 @@
+---
+description: Install and configure Snyk Broker for Bitbucket Server or Data Center using the Snyk Broker Helm Chart with Basic Auth or Personal Access Token authentication.
+---
+
 # Bitbucket Server/Data Center - install and configure using Helm
 
 Before installing, review the [prerequisites](./) and the general instructions for installation using [Helm](../install-and-configure-broker-using-helm.md).
@@ -19,7 +23,7 @@ When installing, you must add a command in your script to set the `brokerServerU
 
 Use the following command to configure Broker to be used with Bitbucket Server using Basic Auth:
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=bitbucket-server \
              --set brokerToken=<ENTER_BROKER_TOKEN> \
@@ -35,7 +39,7 @@ helm install snyk-broker-chart snyk-broker/snyk-broker \
 
 Use the following command to configure Broker to be used with Bitbucket Server using Bearer Auth (Personal Access Token):
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=bitbucket-server-bearer-auth \
              --set brokerToken=<ENTER_BROKER_TOKEN> \

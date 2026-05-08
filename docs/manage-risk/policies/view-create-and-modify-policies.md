@@ -1,3 +1,7 @@
+---
+description: View, create, and modify Group-level license and security policies in the Snyk Policy Manager, where Group administrators manage all policy categories and defaults.
+---
+
 # View, create, and modify policies
 
 ## View policies

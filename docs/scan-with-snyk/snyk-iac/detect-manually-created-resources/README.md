@@ -1,3 +1,8 @@
+---
+description: >-
+  Detect cloud resources created outside Terraform using Snyk IaC unmanaged resource detection.
+---
+
 # Detect manually created resources
 
 Snyk IaC can report unmanaged resources. Unmanaged resources are resources that are present on your cloud provider but not on your Terraform state. You can import these resources into Terraform or delete them from your IaaS account.

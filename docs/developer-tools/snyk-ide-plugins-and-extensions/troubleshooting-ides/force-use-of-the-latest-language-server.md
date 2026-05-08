@@ -1,3 +1,7 @@
+---
+description: Force your Snyk IDE plugin to use the latest Language Server version to access new features and fixes.
+---
+
 # Force use of the latest language server
 
 Follow these steps to force the use of the latest Snyk Language Server:

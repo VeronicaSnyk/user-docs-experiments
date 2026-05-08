@@ -1,3 +1,8 @@
+---
+description: >-
+  Understand how Snyk determines severity levels for Linux vulnerabilities detected in container images.
+---
+
 # Severity levels of detected Linux vulnerabilities
 
 When determining the [severity level](../../../manage-risk/prioritize-issues-for-fixing/severity-levels.md) of a Linux vulnerability (Low, Medium, High, Critical), Snyk Container considers multiple factors:

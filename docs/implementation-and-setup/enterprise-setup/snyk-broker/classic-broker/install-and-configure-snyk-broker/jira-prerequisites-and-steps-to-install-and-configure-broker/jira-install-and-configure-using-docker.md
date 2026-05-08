@@ -1,3 +1,7 @@
+---
+description: Install and configure the Snyk Broker Client for Jira using Docker to enable a secure connection with your on-premise Jira instance.
+---
+
 # Jira - install and configure using Docker
 
 Before installing, review the [prerequisites](./) and the general instructions for installation using [Docker](../../../../../../enterprise-setup/snyk-broker/classic-broker/install-and-configure-snyk-broker/install-and-configure-broker-using-docker.md).
@@ -38,7 +42,7 @@ When SSO is enabled, JIRA usually prohibits the use of a username and password a
 
 When SSO is enabled, you must use a specific Jira version that will instead use the authorization header with the bearer token. To use this version, provide the following configuration:
 
-```
+```bash
 docker run --restart=always \
            -p 8000:8000 \
            -e BROKER_TOKEN=secret-broker-token \

@@ -1,3 +1,7 @@
+---
+description: Specify which Snyk Organization the CLI uses when running tests or monitoring Projects.
+---
+
 # How to select the Organization to use in the CLI
 
 When you run commands with the CLI such as `snyk monitor` and `snyk test`, Snyk uses your `Preferred Organization`, which can be configured in your account. If you want commands to run against a different Organization, you can specify that Organization either globally or individually.

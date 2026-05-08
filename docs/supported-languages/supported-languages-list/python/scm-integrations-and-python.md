@@ -1,3 +1,8 @@
+---
+description: >-
+  Import Python repositories from supported SCM integrations and understand scan behavior and limitations.
+---
+
 # SCM integration support for Python
 
 {% hint style="warning" %}
@@ -98,7 +103,7 @@ Poetry dev dependencies are not included in scans by default. To change this, mo
 3. Select **Edit settings** for **Python**.
 4. Enable or disable the **Scan Poetry dev dependencies** option under the **Poetry dev dependencies** settings.
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt="Poetry dev dependency settings"><figcaption><p>Poetry dev dependency settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/poetry-dev-dependency-settings.png" alt="Poetry dev dependency settings"><figcaption><p>Poetry dev dependency settings</p></figcaption></figure>
 
 A known limitation for Poetry is mixed `include` entries in `pyproject.toml`
 
@@ -110,7 +115,7 @@ Snyk’s Poetry analysis parses `pyproject.toml` with a TOML implementation that
 
 Example of a failing configuration:
 
-```
+```text
 include = [
   "py.typed",
   { path = "src/my_package/templates/**/*", format = ["sdist", "wheel"] },
@@ -119,7 +124,7 @@ include = [
 
 To fix this issue, use only one shape for every entry. For example, use only inline tables:
 
-```
+```text
 include = [
   { path = "py.typed" },
   { path = "src/my_package/templates/**/*", format = ["sdist", "wheel"] },
@@ -149,4 +154,4 @@ Pipenv dev dependencies are not included in scans by default. To change this, mo
 3. Select **Edit settings** for **Python**.
 4. Enable or disable the **Scan Pipenv dev dependencies** option under the **Pipenv** settings.
 
-<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt="Pipenv dev dependency settings"><figcaption><p>Pipenv dev dependency settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pipenv-dev-dependency-settings.png" alt="Pipenv dev dependency settings"><figcaption><p>Pipenv dev dependency settings</p></figcaption></figure>

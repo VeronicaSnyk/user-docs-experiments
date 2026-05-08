@@ -1,3 +1,8 @@
+---
+description: >-
+  Install the Snyk IaC SDK using npm or prebuilt binaries to start writing custom security rules.
+---
+
 # Install the SDK
 
 ​Install the SDK using one of these options:
@@ -26,13 +31,13 @@ Ensure you have installed the latest version of npm in your local environment, u
 
 Run this command to install the SDK for local use:
 
-```
+```bash
 npm install -g snyk-iac-rules
 ```
 
 After installation, you are ready to use the SDK. Run the following command to verify that the SDK works:
 
-```
+```bash
 snyk-iac-rules --help
 ```
 
@@ -40,18 +45,18 @@ snyk-iac-rules --help
 
 You can download and use the SDK's prebuilt binaries. To download the prebuilt binary, visit the [**Releases tab**](https://github.com/snyk/snyk-iac-rules/releases) on the SDK repository page in GitHub:
 
-<figure><img src="../../../.gitbook/assets/screenshot-2021-09-24-at-13.44.36.png" alt="Releases tab on the SDK repository page"><figcaption><p>Releases tab on the SDK repository page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/releases-tab-sdk-repository-page.png" alt="Releases tab on the SDK repository page"><figcaption><p>Releases tab on the SDK repository page</p></figcaption></figure>
 
 After you have downloaded the desired binary archive, open a terminal and run the following commands. Note that these commands assume you are running on an Intel-based macOS and downloading version `0.0.5` of the SDK.
 
-```
+```bash
 $ tar xzf snyk-iac-rules_0.0.5_Darwin_x86_64.tar.gz 
 $ sudo mv snyk-iac-rules /usr/local/bin
 ```
 
 To verify that you can use the SDK, run:
 
-```
+```bash
 snyk-iac-rules --help
 ```
 
@@ -64,7 +69,7 @@ From macOS and Linux environments, you can use Homebrew to install the Snyk SDK.
 * You must have a macOS or Linux environment.
 *   Ensure [Homebrew](https://brew.sh/index_he) has already been installed:
 
-    ```
+    ```bash
     brew tap snyk/tap
     ```
 
@@ -72,7 +77,7 @@ From macOS and Linux environments, you can use Homebrew to install the Snyk SDK.
 
 Install the SDK as follows:
 
-```
+```bash
 brew install snyk-iac-rules
 ```
 
@@ -85,7 +90,7 @@ From Windows environments, you can use Scoop to install the  `snyk-iac-rules` SD
 * You must have a Windows environment.
 *   Ensure [Scoop](https://scoop.sh) has already been installed:
 
-    ```
+    ```bash
     scoop bucket add snyk https://github.com/snyk/scoop-snyk
     ```
 
@@ -93,7 +98,7 @@ From Windows environments, you can use Scoop to install the  `snyk-iac-rules` SD
 
 Install the SDK as follows:
 
-```
+```bash
 scoop install snyk-iac-rules
 ```
 
@@ -110,19 +115,19 @@ You can use Docker to install and run the `snyk-iac-rules` SDK while writing you
 
 Pull the Docker image as follows:
 
-```
+```bash
 docker pull snyk/snyk-iac-rules
 ```
 
 Run the SDK by using the following command:
 
-```
+```bash
 docker run --rm -v $(pwd):/app snyk/snyk-iac-rules {SDK command}
 ```
 
 For example, to generate a custom rules template, you can run the following:
 
-```
+```bash
 docker run --rm -v $(pwd):/app snyk/snyk-iac-rules template -r {rule_name}
 ```
 

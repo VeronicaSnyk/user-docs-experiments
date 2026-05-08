@@ -1,3 +1,7 @@
+---
+description: Register your TypeScript project as a Snyk App via the API and implement the OAuth2 authorization flow.
+---
+
 # Register the App and configure user authorization
 
 In the previous sections of this tutorial, we set up our TypeScript project, added an Express server, and configured some basic routing. We'll be building on top of the project we created in the previous sections. It is highly recommended that you complete the previous portions of this tutorial before continuing if you have not done so already.
@@ -16,7 +20,7 @@ We've made some good progress with our TypeScript application so far, but at the
 
 There are two methods for retrieving an `orgid`. The first is to log in to your Snyk account and visit the Organization settings page of the Organization for which you wish to retrieve the ID. The path to the Organization settings page is:
 
-```
+```text
 https://app.snyk.io/org/{your-org-name}/manage/settings
 ```
 
@@ -73,7 +77,7 @@ After access has been provisioned, the user will be kicked back to our app's reg
 
 Essentially, our app needs to generate a link like the following and then send the user to it when it's time to authorize:
 
-```
+```text
 https://app.snyk.io/oauth2/authorize?response_type=code&client_id={clientId}&redirect_uri={redirectURI}&state={state}&code_challenge={codeChallenge}&code_challenge_method=S256
 ```
 

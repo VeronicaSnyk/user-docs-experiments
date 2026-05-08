@@ -1,3 +1,7 @@
+---
+description: Use advanced Snyk Container CLI options to control image scanning, output format, and platform targeting.
+---
+
 # Advanced use of Snyk Container CLI
 
 ## Scan archives
@@ -21,7 +25,7 @@ This update maintains full support for the current CLI scanning features and ens
 
 Examples:
 
-```
+```bash
 snyk container test docker-archive:archive.tar
 snyk container test oci-archive:archive.tar
 snyk container test kaniko-archive:archive.tar
@@ -36,7 +40,7 @@ For`Crane`, Snyk supports only the formats `--format=oci` and`--format=legacy`.
 
 Some repositories represent multi-manifests, pointing to several different images depending on the operating system and the architecture required. To explicitly scan an image for a specific platform, you can use the Snyk CLI `container test` command, for example:
 
-```
+```bash
 snyk container test --platform=linux/arm64 debian
 ```
 
@@ -58,7 +62,7 @@ When Docker is installed, the Snyk CLI `container` commands use any pre-configur
 * Use the following environment variables: `SNYK_REGISTRY_USERNAME` and `SNYK_REGISTRY_PASSWORD`
 * Pass the username and password:
 
-```
+```bash
 snyk container test <repository>:<tag> --username= --password=
 ```
 
@@ -84,6 +88,6 @@ Frequently used CLI options include:
 
 For more details and CLI options, see the [Snyk CLI container help ](../../commands/container.md)or display the help by running:
 
-```
+```bash
 snyk container --help
 ```

@@ -1,3 +1,7 @@
+---
+description: Understand how Snyk applies ignores differently depending on import method, scanning product, and ignore source—policy, UI, API, or .snyk file—for SCM and CLI Projects.
+---
+
 # How ignores work for Projects imported using an SCM and the CLI
 
 When you ignore an issue, you must consider the following factors:

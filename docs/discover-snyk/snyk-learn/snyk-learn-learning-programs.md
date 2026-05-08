@@ -1,3 +1,7 @@
+---
+description: Create and manage security education programs in Snyk Learn to curate lesson paths, assign them to developer groups, and automate security onboarding and compliance training.
+---
+
 # Snyk Learn learning programs
 
 {% hint style="info" %}

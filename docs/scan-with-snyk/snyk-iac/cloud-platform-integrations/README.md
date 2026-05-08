@@ -1,3 +1,8 @@
+---
+description: >-
+  Connect Snyk to your cloud platform accounts to scan deployed infrastructure configurations for security issues.
+---
+
 # Cloud platform integrations
 
 The following pages provide information and instructions for cloud platform integrations:

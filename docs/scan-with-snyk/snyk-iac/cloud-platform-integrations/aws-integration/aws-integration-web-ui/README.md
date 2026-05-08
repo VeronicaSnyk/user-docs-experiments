@@ -1,3 +1,8 @@
+---
+description: >-
+  Onboard your AWS account to Snyk using the Snyk Web UI to begin scanning cloud configurations.
+---
+
 # AWS Integration: Web UI
 
 Before you can onboard an AWS account via the Web UI, you need access to the AWS account and associated credentials with permissions to create a read-only Identity and Access Management (IAM) role. See the prerequisites on the [AWS integration](../) page.

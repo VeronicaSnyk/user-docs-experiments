@@ -1,3 +1,8 @@
+---
+description: >-
+  Contribute to the snyk-api-import open-source tool by signing the contributor agreement and submitting pull requests.
+---
+
 # Contributing to snyk-api-import
 
 ## Contributor Agreement
@@ -10,7 +15,7 @@ A pull-request will only be considered for merging into the upstream codebase af
 
 Commit messages must follow the [Angular-style](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit-message-format) commit format (but excluding the scope):
 
-```
+```text
 fix: minified scripts being removed
 
 Also includes tests

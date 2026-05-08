@@ -1,3 +1,7 @@
+---
+description: Send Snyk CLI IaC scan results to the Snyk Web UI to monitor infrastructure misconfigurations over time.
+---
+
 # Share CLI results with the Snyk Web UI
 
 You can use the [CLI](../../) `snyk iac test` command to address known configuration issues.
@@ -14,7 +18,7 @@ Snyk does not share any file contents over the network, only the required metada
 
 ## `snyk iac test --report` example output
 
-```
+```text
 > snyk iac test myproject --report
 
 Testing arm-file.tf...
@@ -43,11 +47,11 @@ This sends a snapshot of your current configuration issues to your Snyk dashboar
 
 Log in to the Snyk Web UI and navigate to your Organization Project page to see the most recent snapshot of your scanned Project.
 
-<figure><img src="../../../../.gitbook/assets/image (22).png" alt="Newly scanned Project listed on the Projects page"><figcaption><p>Newly scanned Project listed on the Projects page</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/newly-scanned-project-listed-projects-page.png" alt="Newly scanned Project listed on the Projects page"><figcaption><p>Newly scanned Project listed on the Projects page</p></figcaption></figure>
 
 You can also open the Project itself and see the Project details:
 
-<figure><img src="../../../../.gitbook/assets/image (395).png" alt="Project details for a Project"><figcaption><p>Project details for a Project</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/project-details-project.png" alt="Project details for a Project"><figcaption><p>Project details for a Project</p></figcaption></figure>
 
 ## **Ignores**
 
@@ -63,7 +67,7 @@ You can attach tags to the scanned Projects using the `--project-tags` option. T
 
 The following example attaches the tags `department` and `team` to the scanned Projects, with values `platform` and `persistence`, respectively.
 
-```
+```bash
 > snyk iac test myproject --report \
     --project-tags=department=platform,team=persistence
 ```
@@ -78,7 +82,7 @@ You can set attributes for the scanned Projects using the `--project-business-cr
 
 The following example sets the business criticality to `high`, the environment to the values `frontend` and `internal`, and the lifecycle to `development` for each scanned Project.
 
-```
+```bash
 > snyk iac test myproject --report \
     --project-business-criticality=high \
     --project-environment=frontend,internal \
@@ -91,7 +95,7 @@ You can set the target reference for the scanned Projects using the `--target-re
 
 The following example sets the target reference for the scanned Projects to the name of the current Git branch.
 
-```
+```bash
 snyk iac test myproject --report \
     --target-reference="$(git branch --show-current)"
 ```

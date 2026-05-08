@@ -1,3 +1,7 @@
+---
+description: Review prerequisites and choose between Helm or Docker to configure Snyk Broker for Azure Repos integration.
+---
+
 # Azure Repos - prerequisites and steps to install and configure Broker
 
 {% hint style="info" %}

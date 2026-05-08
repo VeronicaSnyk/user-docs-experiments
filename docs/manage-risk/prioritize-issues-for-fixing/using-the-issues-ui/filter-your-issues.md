@@ -1,3 +1,7 @@
+---
+description: Filter Snyk Issues at the Group level using the funnel view risk factor filters and table view criteria to focus on the most relevant issues across your Organizations.
+---
+
 # Filter your issues
 
 Snyk Issues operates at the Group level and provides a holistic view of all the issues within that Group. Those issues are also tied to specific Organizations. Use the top-level filter to choose which Organizations are relevant to you and see only the issues in those Organizations.

@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning JavaScript and TypeScript code, with CWE and OWASP mappings.
+---
+
 # JavaScript and TypeScript rules
 
 Each rule includes the following information.

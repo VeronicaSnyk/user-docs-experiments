@@ -1,3 +1,7 @@
+---
+description: Review the prerequisites and configure a GitHub service account token before installing Snyk Broker for GitHub using Docker or Helm.
+---
+
 # GitHub - prerequisites and steps to install and configure Broker
 
 Before installing, review the general instructions for the installation method you plan to use, [Helm](../install-and-configure-broker-using-helm.md) or [Docker](../install-and-configure-broker-using-docker.md).

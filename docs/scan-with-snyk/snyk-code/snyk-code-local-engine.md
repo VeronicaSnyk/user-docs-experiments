@@ -1,3 +1,8 @@
+---
+description: >-
+  Run Snyk Code scans entirely within your environment without uploading code to the internet using the Local Engine.
+---
+
 # Snyk Code Local Engine
 
 {% include "../../.gitbook/includes/release-status-snyk-code-local-engine.md" %}
@@ -6,7 +11,7 @@ Snyk Code Local Engine (SCLE) is a fully contained version of the Snyk Code Engi
 
 This high-level architecture diagram shows the components and their interactions. Snyk scans a request for a Git repository through the Snyk Code Local Engine, which returns the results to Snyk.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2021-11-11 at 2.36.41 PM.png" alt="Snyk Code Local Engine high-level architecture"><figcaption><p>Snyk Code Local Engine high-level architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/snyk-code-local-engine-high-level-architecture.png" alt="Snyk Code Local Engine high-level architecture"><figcaption><p>Snyk Code Local Engine high-level architecture</p></figcaption></figure>
 
 ## System requirements for Snyk Code Local Engine
 

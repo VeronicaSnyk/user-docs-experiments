@@ -1,3 +1,8 @@
+---
+description: >-
+  Integrate Snyk with Kubernetes to monitor workloads and detect vulnerabilities in your cluster configurations.
+---
+
 # Kubernetes integration
 
 This section provides information on how to integrate Snyk with Kubernetes and how to use Snyk capabilities after the integration. See:

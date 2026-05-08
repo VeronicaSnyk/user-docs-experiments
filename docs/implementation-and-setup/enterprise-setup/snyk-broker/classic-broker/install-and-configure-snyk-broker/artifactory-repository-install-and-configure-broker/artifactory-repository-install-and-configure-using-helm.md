@@ -1,3 +1,7 @@
+---
+description: Install and configure the Snyk Broker Client for Artifactory Repository using the Helm chart with the required environment variables.
+---
+
 # Artifactory Repository - install and configure using Helm
 
 {% hint style="info" %}
@@ -23,7 +27,7 @@ For `artifactoryUrl` values do not include `https://`
 When installing, you must add a command in your script to set the `brokerServerUrl`. This is the URL of the Broker server for the region where your data is hosted. For the commands and URLs to use, see [Broker URLs](../../../../../../snyk-data-and-governance/regional-hosting-and-data-residency.md#broker-server-urls).
 {% endhint %}
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=artifactory \
              --set brokerToken=<ENTER_BROKER_TOKEN> \

@@ -1,3 +1,7 @@
+---
+description: Configure advanced Helm Chart parameters for Snyk Broker, including ingress, proxy, multi-tenant settings, and Kubernetes secrets.
+---
+
 # Advanced configuration for Helm Chart installation
 
 {% hint style="info" %}

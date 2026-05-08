@@ -1,3 +1,8 @@
+---
+description: >-
+  Configure Snyk to use Artifactory as a NuGet proxy repository for scanning private .NET dependencies.
+---
+
 # Artifactory repository manager for NuGet
 
 {% hint style="info" %}

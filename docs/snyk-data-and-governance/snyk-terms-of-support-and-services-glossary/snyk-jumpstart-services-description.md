@@ -1,3 +1,7 @@
+---
+description: Accelerate your Snyk product setup with a 60-day consultant-led Jumpstart Standard engagement covering configuration, Broker setup, training, and DAST.
+---
+
 # Snyk Jumpstart Standard Services Description
 
 ## Overview of Snyk Jumpstart Standard

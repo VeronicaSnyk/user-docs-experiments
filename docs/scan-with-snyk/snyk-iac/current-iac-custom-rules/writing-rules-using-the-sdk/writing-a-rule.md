@@ -1,3 +1,8 @@
+---
+description: >-
+  Write custom IaC security rules in Rego using the Snyk IaC SDK to enforce your organization's policies.
+---
+
 # Writing a rule
 
 ## Rules in Rego
@@ -19,7 +24,7 @@ There are two options to get started:
 
 1.  Use the `template` command to generate the required files for writing a rule:
 
-    ```
+    ```bash
     snyk-iac-rules template --rule <RULE-NAME> --format <hcl2|json|yaml|tf-plan>
     ```
 
@@ -46,7 +51,7 @@ If the **`template`** command was used to generate the rules, then the default e
 This is what a generated skeleton of a deny rule looks like when you run `snyk-iac-rules template --rule NEW-RULE --format hcl2`:
 
 {% code title="rules/NEW-RULE/main.rego" %}
-```
+```rego
 package rules
 
 deny[msg] {
@@ -88,7 +93,7 @@ The following attributes are optional but can be used to enhance the scan result
 
 The generated test for the rule uses two generated Terraform files to verify if the correct `msg` field is returned by the rule for allowed and denied fixtures:
 
-```
+```rego
 package rules
 
 import data.lib
@@ -121,7 +126,7 @@ For more examples, see[ Custom Rules Examples](examples-of-iac-custom-rules.md).
 For this example, the templated rule was modified to assign a `msg` when a resource does not have an `owner` tag:
 
 {% code title="rules/MY_RULE/main.rego" %}
-```
+```rego
 package rules
 
 deny[msg] {
@@ -147,7 +152,7 @@ deny[msg] {
 * As Snyk compiles Rego policies into Wasm modules, you can only use built-in functions that support Wasm. There is a table at the bottom of the [Policy Reference Documentation](https://www.openpolicyagent.org/docs/latest/policy-reference/) that can help you identify those.
 * A rule may be defined multiple times with the same name, either in a file or in separate files under the same package, for example,
 
-```
+```rego
 packages rules
 
 deny[msg] {

@@ -1,3 +1,7 @@
+---
+description: Apply advanced Docker configuration to your Snyk Broker installation, including certificates, proxies, and credential pooling.
+---
+
 # Advanced configuration for Snyk Broker Docker installation
 
 {% hint style="info" %}

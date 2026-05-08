@@ -1,3 +1,7 @@
+---
+description: Use the Snyk OAuth2 API to authorize Snyk Apps using the authorization code flow with PKCE.
+---
+
 # OAuth2 API
 
 Snyk provides an OAuth2 API, primarily for use with [Snyk Apps](using-specific-snyk-apis/snyk-apps-apis/). It complies with RFC 6749.

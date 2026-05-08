@@ -1,3 +1,7 @@
+---
+description: Identify the right Org Admin and Org Collaborator roles for each team member based on their responsibilities in Snyk.
+---
+
 # Determine user roles
 
 ## Default  roles

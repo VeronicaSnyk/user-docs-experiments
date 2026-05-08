@@ -1,3 +1,7 @@
+---
+description: Scan PHP projects for open-source vulnerabilities in GitHub Actions using the Snyk PHP action.
+---
+
 # Snyk PHP action
 
 This page provides examples of using the Snyk GitHub action for [PHP](https://github.com/snyk/actions/tree/master/php). For instructions on using the action and further information, see [GitHub Actions for Snyk setup and checking for vulnerabilities](./).

@@ -1,3 +1,8 @@
+---
+description: >-
+  Integrate Snyk with private package repositories such as Artifactory and Nexus to scan dependencies.
+---
+
 # Package repository integrations
 
 This section provides documentation for the following integrations:

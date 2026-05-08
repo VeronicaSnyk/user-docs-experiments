@@ -1,3 +1,7 @@
+---
+description: View issue details in context—including risk factors, exploit maturity, asset source, target, Project, Organization, and scan method—directly from the Snyk Issues table view.
+---
+
 # Understand your issues
 
 Snyk Issues works by understanding your vulnerabilities within the context of your application. You can see all the gathered context in the list view of your issues. In the table view, you can see the following details:

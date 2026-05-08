@@ -1,3 +1,7 @@
+---
+description: Scan Maven projects using JDK 11 for vulnerabilities in GitHub Actions with the Snyk Maven 3 jdk-11 action.
+---
+
 # Snyk Maven-3-jdk-11 action
 
 This page provides examples of using the Snyk GitHub action for [Maven (3-jdk-11)](https://github.com/snyk/actions/tree/master/maven-3-jdk-11). For instructions on using the action and further information, see [GitHub Actions for Snyk setup and checking for vulnerabilities](./).

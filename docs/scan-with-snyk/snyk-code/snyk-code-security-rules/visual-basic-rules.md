@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Visual Basic code, with CWE and OWASP category mappings.
+---
+
 # Visual Basic rules
 
 Each rule includes the following information.

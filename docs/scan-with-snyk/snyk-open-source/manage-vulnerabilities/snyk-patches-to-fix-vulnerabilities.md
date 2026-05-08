@@ -1,3 +1,8 @@
+---
+description: >-
+  Apply Snyk patches to fix vulnerabilities when no compatible upgrade path is available for a dependency.
+---
+
 # Snyk patches to fix vulnerabilities
 
 ## Introduction to patches
@@ -52,7 +57,7 @@ When you choose to use a patch to fix a vulnerability, `snyk` is added as a depe
 
 The `.snyk` file contains the details of the patch for each individual path to the dependency, as it may appear in multiple locations in the `node_modules`, for example:
 
-```
+```yaml
 'npm:negotiator:20160616':
     - errorhandler > accepts > negotiator:
        patched: '2017-05-05T12:39:16.961Z'

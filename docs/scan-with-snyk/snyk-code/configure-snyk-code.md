@@ -1,3 +1,8 @@
+---
+description: >-
+  Enable and configure Snyk Code for use in your IDE, CLI, and API by completing the required setup steps.
+---
+
 # Configure Snyk Code
 
 ## Conditions

@@ -1,3 +1,7 @@
+---
+description: Add key-value tags to your Snyk Projects to enable filtering, grouping, and reporting across your Organizations.
+---
+
 # Project tags
 
 {% hint style="info" %}
@@ -80,4 +84,4 @@ When **Group by none** (ungrouped) is applied to the Projects listing page, you 
 
 There is a filter by tag autocomplete. This is intentionally limited to a small number of results. If your tag is not displayed, enter more characters for the tag until it rises to the top of the results.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-01-24 at 08.23.14.png" alt="Filter by tag option"><figcaption><p>Filter by tag option</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-01-24 at 08.23.enter-certificate-domains-supported-set-connection.png" alt="Filter by tag option"><figcaption><p>Filter by tag option</p></figcaption></figure>

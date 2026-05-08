@@ -1,3 +1,7 @@
+---
+description: Update your GitHub Actions workflows to replace deprecated Snyk language actions with supported alternatives.
+---
+
 # GitHub actions migration
 
 This page explains how to transition away from affected GitHub actions

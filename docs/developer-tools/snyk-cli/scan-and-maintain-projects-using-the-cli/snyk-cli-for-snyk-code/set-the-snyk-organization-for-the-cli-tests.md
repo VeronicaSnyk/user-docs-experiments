@@ -1,3 +1,7 @@
+---
+description: Configure the Snyk Organization used for Snyk Code CLI tests to ensure results appear in the correct workspace.
+---
+
 # Set the Snyk Organization for CLI tests
 
 If you have several Organizations in your Snyk account, before you test your code using the CLI, specify which Snyk Organization will be used for the test count.
@@ -47,13 +51,13 @@ Regardless of the Organization you set as a global default, you can [run specifi
 
 To set a default Organization for all CLI tests, In the terminal, enter
 
-```
+```bash
 snyk config set org=<ORG_ID_or_ORG_INTERNAL_NAME>
 ```
 
 You receive the following confirmation:
 
-```
+```text
 org updated
 ```
 
@@ -61,7 +65,7 @@ From now on, all your CLI tests will run under the specified Organization.
 
 For example, to set the Snyk Demo Org as the default Organization for the CLI tests, use the Organization ID and enter:
 
-```
+```bash
 snyk config set org=a7708807-3881-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
@@ -69,7 +73,7 @@ snyk config set org=a7708807-3881-xxxx-xxxx-xxxxxxxxxxxx
 
 From now on, all the CLI tests will run by default under the Snyk Demo Org Organization, and the Snyk Demo Org ID will appear in the test results:
 
-<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - Organization - Global Settings - Results - 2.png" alt="Snyk Demo Org ID in test results"><figcaption><p>Snyk Demo Org ID in test results</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - Organization - Global Settings - Results - okta-saml-application-creation.png" alt="Snyk Demo Org ID in test results"><figcaption><p>Snyk Demo Org ID in test results</p></figcaption></figure>
 
 ## Set an Organization locally for a specific CLI test
 
@@ -77,16 +81,16 @@ You can run a specific CLI test under a different Organization from the default.
 
 To set an Organization for a specific CLI test in the terminal, after the `test` command enter:
 
-```
+```bash
 --org=<ORG_ID_or_ORG_INTERNAL_NAME>
 ```
 
 For example, to set the Snyk Test Org as the Organization for a specific CLI test, we use the Organization internal name and enter:
 
-```
+```bash
 snyk code test --org=snyk-xxxx-xxx 
 ```
 
 The internal name of the Snyk Test Org Organization appears in the results of this test:
 
-![Organization internal name in test results](<../../../../.gitbook/assets/Snyk Code - CLI - Organization - Specific test Settings - Results - 2.png>)
+![Organization internal name in test results](<../../../../.gitbook/assets/Snyk Code - CLI - Organization - Specific test Settings - Results - okta-saml-application-creation.png>)

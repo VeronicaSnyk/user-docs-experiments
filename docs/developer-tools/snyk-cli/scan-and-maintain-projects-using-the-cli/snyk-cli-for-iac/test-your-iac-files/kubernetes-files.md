@@ -1,3 +1,7 @@
+---
+description: Test Kubernetes manifest files for security misconfigurations using the Snyk CLI.
+---
+
 # Kubernetes files
 
 With Snyk Infrastructure as Code, you can test your configuration files with the CLI. Snyk Infrastructure as Code for Kubernetes supports the following:
@@ -7,19 +11,19 @@ With Snyk Infrastructure as Code, you can test your configuration files with the
 
 Use the following Snyk CLI command to test for an issue on specified files:
 
-```
+```bash
 snyk iac test
 ```
 
 Example:
 
-```
+```bash
 snyk iac test deploy.yaml
 ```
 
 You can also specify multiple files by appending the file names after each other, for example:
 
-```
+```bash
 snyk iac test file-1.yaml file-2.yaml
 ```
 

@@ -1,3 +1,7 @@
+---
+description: Add Snyk Studio to the Continue extension to scan code generated with agentic workflows for vulnerabilities.
+---
+
 # Continue guide
 
 You can access Snyk Studio, including Snyk's MCP server, in Continue to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server asks for trust and trigger authentication if necessary.
@@ -20,7 +24,7 @@ Install the Snyk MCP Server using the method that best suits your operating syst
 
 Create or edit the MCP configuration file `~/.continue/mcpServers/new-mcp-server.yaml` .
 
-```
+```yaml
 name: MCP Server
 version: 0.0.1
 schema: v1
@@ -40,7 +44,7 @@ If the `snyk` command is not available, add it by following the instructions on 
 
 Create or edit the MCP configuration file `~/.continue/mcpServers/new-mcp-server.yaml` .
 
-```
+```yaml
 name: MCP Server
 version: 0.0.1
 schema: v1
@@ -62,7 +66,7 @@ The following example shows a Snyk MCP Server that was successfully configured a
 
 The MCP Server attempts to start automatically. The following example shows a Snyk MCP Server that was successfully configured and started.
 
-<figure><img src="../../../.gitbook/assets/image (368).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setting-snyk-mcp-server-href-setting-snyk-mcp-server-id.png" alt=""><figcaption></figcaption></figure>
 
 As a one-time setup, authenticate and trust the current Project directory. If required, the agentic workflow will likely manage this automatically.
 
@@ -82,11 +86,11 @@ Scan this directory for code security & dependency vulnerabilities and security 
 
 Continue indicates that this request is related to security vulnerability scanning and calls the Snyk MCP Server for various scans.
 
-<figure><img src="../../../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/scanning-security-vulnerabilities-5.png" alt=""><figcaption></figcaption></figure>
 
 Continue is then able to gather all the security scanning results, both code (SAST) and dependencies (SCA), and based on recommendations and contextual information provided by the Snyk MCP Server, it is now able to provide code changes that address some or all of the security vulnerabilities that were found:
 
-<figure><img src="../../../.gitbook/assets/image (370).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/continue-able-gather-all-security-scanning-results-both.png" alt=""><figcaption></figcaption></figure>
 
 ### "Secure at inception" rules <a href="#secure-at-inception-rules" id="secure-at-inception-rules"></a>
 
@@ -94,7 +98,7 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 
 The following is a suggested instruction for creating project rules for use with [Continue](https://docs.continue.dev/customize/deep-dives/rules). Append the following contents to the rules file at `.continue/rules/new-rule.md`:
 
-```
+```yaml
 ---
 applyTo: "**"
 ---

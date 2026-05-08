@@ -1,3 +1,7 @@
+---
+description: Check which IDEs, languages, and Snyk product features are supported by each Snyk IDE plugin.
+---
+
 # IDE Plugin Compatibility Matrix
 
 This matrix shows the compatible CLI version range for each IDE plugin version released in the past 12 months.

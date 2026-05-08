@@ -1,3 +1,7 @@
+---
+description: Evaluate your web applications and AI-powered services with expert-driven penetration testing that goes beyond automated scans to identify real-world vulnerabilities.
+---
+
 # Snyk Penetration Testing service description
 
 ## Overview

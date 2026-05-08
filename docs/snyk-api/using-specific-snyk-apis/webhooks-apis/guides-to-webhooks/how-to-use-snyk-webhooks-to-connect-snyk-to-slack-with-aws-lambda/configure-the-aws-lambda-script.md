@@ -1,3 +1,7 @@
+---
+description: Customize the Lambda script to filter Snyk vulnerability payloads and format them for your Slack notification messages.
+---
+
 # Configure the AWS Lambda script
 
 You can configure the example code provided in multiple ways to get the information you want into Slack.

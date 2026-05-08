@@ -1,3 +1,8 @@
+---
+description: >-
+  View cloud configuration issues for your Organization in the Snyk Web UI and filter by cloud provider.
+---
+
 # View cloud issues in the Snyk Web UI
 
 You can view cloud issues for an Organization through the Snyk Web UI.
@@ -107,11 +112,11 @@ The cloud issue summary panel displays the **Overview** by default, which contai
   * ID, with a link to fix advice
   * Rule description (**Why to fix it** section)
 
-<figure><img src="../../../../.gitbook/assets/snyk-cloud-issue-panel-overview-2.png" alt=""><figcaption><p>Issue summary panel, Overview tab</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/snyk-cloud-issue-panel-overview-okta-saml-application-creation.png" alt=""><figcaption><p>Issue summary panel, Overview tab</p></figcaption></figure>
 
 Select the **Resource** tab to view the scanned resource's attributes:
 
-<figure><img src="../../../../.gitbook/assets/snyk-cloud-issue-panel-resource-2.png" alt=""><figcaption><p>Issue summary panel, Resource tab</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/snyk-cloud-issue-panel-resource-okta-saml-application-creation.png" alt=""><figcaption><p>Issue summary panel, Resource tab</p></figcaption></figure>
 
 ## Filter issues
 

@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan Python open-source dependencies for vulnerabilities using the Snyk CLI with configurable Python version support.
+---
+
 # CLI support for Python
 
 ## Set the Python version in the CLI
@@ -15,7 +20,7 @@ For details, see the options for Python Projects in the [`snyk test`](../../../d
 {% hint style="info" %}
 Run `pip install` before scanning with the CLI, for example:
 
-```
+```bash
 pip install -r requirements.txt
 ```
 {% endhint %}
@@ -46,7 +51,7 @@ However, Snyk parses `pyproject.toml` using a TOML implementation that does not 
 
 Example of a failing configuration:
 
-```
+```text
 include = [
   "py.typed",
   { path = "src/my_package/templates/**/*", format = ["sdist", "wheel"] },
@@ -55,7 +60,7 @@ include = [
 
 To fix this issue, use only one format for every entry. For example, use only inline tables:
 
-```
+```text
 include = [
   { path = "py.typed" },
   { path = "src/my_package/templates/**/*", format = ["sdist", "wheel"] },

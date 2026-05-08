@@ -1,3 +1,7 @@
+---
+description: Retrieve up to 90 days of user-initiated activity audit logs for your Snyk Group or Organization using the REST API.
+---
+
 # Retrieve audit logs of user-initiated activity by API for an Org or Group
 
 {% hint style="info" %}

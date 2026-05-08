@@ -1,3 +1,7 @@
+---
+description: Test an existing SBOM file for known vulnerabilities using the snyk sbom test CLI command.
+---
+
 # SBOM test
 
 **Feature availability:** This feature is available to customers on Snyk Enterprise plans.

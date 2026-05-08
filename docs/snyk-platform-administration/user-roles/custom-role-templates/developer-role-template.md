@@ -1,3 +1,7 @@
+---
+description: Use this Organization-level role template to give developers access to view scan results, fix issues, and run Project tests.
+---
+
 # Developer role template
 
 This Organization-level role enables review of scan results, fixing issues, and initiating Project tests. Users with this role can view Organizations and Projects.

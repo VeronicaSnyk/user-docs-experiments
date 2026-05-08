@@ -1,3 +1,8 @@
+---
+description: >-
+  Find, fix, and monitor vulnerabilities in your open-source dependencies using Snyk Open Source.
+---
+
 # Snyk Open Source
 
 {% hint style="info" %}

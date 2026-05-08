@@ -1,3 +1,7 @@
+---
+description: Install Snyk Broker on Kubernetes using the Broker Helm Chart, enabling high-availability deployments with multi-tenant region support across supported SCM integrations.
+---
+
 # Install and configure Broker using Helm
 
 {% hint style="info" %}

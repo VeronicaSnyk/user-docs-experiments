@@ -1,3 +1,7 @@
+---
+description: Add Snyk Studio to Factory to secure code generated with agentic workflows using the Snyk MCP server.
+---
+
 # Factory guide
 
 You can access Snyk Studio, including Snyk's MCP server, in Factory to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server will ask for trust and trigger authentication if necessary.
@@ -20,7 +24,7 @@ Install the Snyk MCP Server using the method suited to your OS and environment.
 
 Create or edit the MCP configuration file `~/Library/Application Support/Factory Bridge/mcp.json` .
 
-```
+```json
 {
   "mcpServers": { 
     "Snyk": {
@@ -40,7 +44,7 @@ If the `snyk` command is not available, add it by following the instructions on 
 
 #### Install with Node.js and `npx`
 
-```
+```json
 {
   "mcpServers": { 
     "Snyk": {
@@ -60,7 +64,7 @@ If the `snyk` command is not available, add it by following the instructions on 
 
 The following example shows a Snyk MCP Server that was successfully configured and started.
 
-<figure><img src="../../../.gitbook/assets/image (409).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/following-example-shows-snyk-mcp-server-successfully-3.png" alt=""><figcaption></figcaption></figure>
 
 This json file can also be found by clicking on the Factory icon on the top toolbar and then selecting "Open MCP Config File".
 
@@ -68,7 +72,7 @@ This json file can also be found by clicking on the Factory icon on the top tool
 
 The MCP Server attempts to start automatically. The following example shows a Snyk MCP Server that was successfully configured and started.
 
-<figure><img src="../../../.gitbook/assets/image (410).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setting-snyk-mcp-server-href-setting-snyk-mcp-server-id-2.png" alt=""><figcaption></figcaption></figure>
 
 As a one-time setup, authenticate and trust the current Project directory. If required, the agentic workflow will likely manage this automatically.
 
@@ -88,11 +92,11 @@ Scan this directory for code security & dependency vulnerabilities and security 
 
 Factory indicates that this request is related to security vulnerability scanning and calls the Snyk MCP Server for various scans.
 
-<figure><img src="../../../.gitbook/assets/image (411).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/scanning-security-vulnerabilities-8.png" alt=""><figcaption></figcaption></figure>
 
 Factory is then able to gather all the security scanning results, both code (SAST) and dependencies (SCA), and based on recommendations and contextual information provided by the Snyk MCP Server, it is now able to provide code changes that address some or all of the security vulnerabilities that were found:
 
-<figure><img src="../../../.gitbook/assets/image (412).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/factory-able-gather-all-security-scanning-results-both-code.png" alt=""><figcaption></figcaption></figure>
 
 ### "Secure at inception" rules <a href="#secure-at-inception-rules" id="secure-at-inception-rules"></a>
 
@@ -100,7 +104,7 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 
 The following is a suggested instruction for [creating memories with Factory](https://docs.factory.ai/user-guides/memory/understanding-memory#adding-new-facts):
 
-```
+```text
 - Always run **snyk_code_scan** tool for new first party code that is generated in a Snyk-supported language.
 - If any security issues are found based on newly introduced or modified code or dependencies, attempt to fix the issues using the results context from **Snyk**.
 - Rescan the code after fixing the issues to ensure that the issues were fixed and that there are no newly introduced issues.

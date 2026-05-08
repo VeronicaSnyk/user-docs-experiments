@@ -6,7 +6,7 @@ description: The list of options and some examples for GitHub
 
 Available options:
 
-```
+```bash
   --version                 Show version number                        [boolean]
   --help                    Show help                                  [boolean]
   --token                   GitHub token                               [required]
@@ -31,17 +31,17 @@ Consider the following levels of usage and options:
 
 *   To get commits for all repos in all my orgs in GitHub, provide the GitHub token:
 
-    ```
+```bash
     snyk-scm-contributors-count github --token TOKEN
     ```
 *   To get commits for some Orgs and their repos in GitHub:, provide the GitHub token and the org names, separated by a comma:
 
-    ```
+```bash
     snyk-scm-contributors-count github --token TOKEN --orgs ORG_ONE,ORG_TWO,ORG_THREE
     ```
 *   To get commits for only one repo in GitHub, provide the GitHub token, one org name ,and one repo name:
 
-    ```
+```bash
     snyk-scm-contributors-count github --token TOKEN --orgs ORG --repo REPO
     ```
 
@@ -49,17 +49,17 @@ Consider the following levels of usage and options:
 
 * To exclude some contributors from being counted in the commits , add an exclusion file with the emails to ignore(separated by a new line) and apply the `--exclusionFilePath` with the path to that file:
 
-```
+```bash
 snyk-scm-contributors-count github --token TOKEN --orgs ORG_ONE,ORG_TWO --exclusionFilePath PATH_TO_FILE
 ```
 
 *   To set the output to json format, dd the `--json` flag:
 
-    ```
+```bash
     snyk-scm-contributors-count github --token TOKEN --json
     ```
 * To run in debug mode for verbose output, prefix with `DEBUG=snyk*`:
 
-```
+```bash
 DEBUG=snyk* snyk-scm-contributors-count github --token TOKEN --orgs ORG --repo REPO --exclusionFilePath PATH_TO_FILE --json
 ```

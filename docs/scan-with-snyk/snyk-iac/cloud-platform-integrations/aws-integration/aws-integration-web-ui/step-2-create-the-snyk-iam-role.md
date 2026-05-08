@@ -1,3 +1,8 @@
+---
+description: >-
+  Create the Snyk IAM role using your downloaded IaC template to grant Snyk read-only access to your AWS account.
+---
+
 # Step 2: Create the Snyk IAM role
 
 {% hint style="info" %}
@@ -30,13 +35,13 @@ Before you use the [Terraform CLI](https://www.terraform.io/downloads), ensure y
 1. In your terminal, navigate to the directory containing the Snyk IAM role Terraform file (named `snyk-permissions-aws.tf` if it has been downloaded from the Snyk Web UI).
 2. Using the Terraform CLI, initialize the Terraform Project:
 
-```
+```bash
 terraform init
 ```
 
 3\. Review and apply the Terraform plan:
 
-```
+```bash
 terraform apply
 ```
 
@@ -44,7 +49,7 @@ terraform apply
 
 Terraform then creates the IAM role. When the role has been created, you will see the following output:
 
-```
+```text
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
@@ -57,7 +62,7 @@ Before you use the [AWS CLI](https://aws.amazon.com/cli/), ensure you [configure
 1. In your terminal, navigate to the directory containing the Snyk IAM role CloudFormation file (named `snyk-permissions-aws.yml` if it has been downloaded from the Snyk Web UI).
 2. Using the AWS CLI, launch the CloudFormation stack, replacing `snyk-cloud-role` with the name of your IAM role if you changed it and `snyk-permissions-aws.yml` with the name of your file:
 
-```
+```bash
 aws cloudformation create-stack \
   --stack-name snyk-cloud-role \
   --capabilities CAPABILITY_NAMED_IAM \
@@ -66,7 +71,7 @@ aws cloudformation create-stack \
 
 3\. AWS then creates the IAM role. This typically takes about a minute. To check if it is finished, get the stack status, replacing `snyk-cloud-role` with the name of your IAM role:
 
-```
+```bash
 aws cloudformation describe-stacks \
   --stack-name snyk-cloud-role \
   --query 'Stacks[0].StackStatus'

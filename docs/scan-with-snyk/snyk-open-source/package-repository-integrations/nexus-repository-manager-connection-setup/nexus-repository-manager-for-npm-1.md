@@ -1,3 +1,8 @@
+---
+description: >-
+  Configure Snyk to use your Nexus Repository Manager for scanning private NuGet dependencies.
+---
+
 # Nexus repository manager for NuGet
 
 {% hint style="info" %}

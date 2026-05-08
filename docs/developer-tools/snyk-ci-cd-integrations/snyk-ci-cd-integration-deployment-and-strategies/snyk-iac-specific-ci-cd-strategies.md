@@ -1,3 +1,7 @@
+---
+description: Implement Infrastructure as Code scanning in your CI/CD pipeline using Snyk CLI iac test after SCA and container stages.
+---
+
 # Snyk IaC-specific CI/CD strategies
 
 The best way to implement Snyk Infrastructure as Code in your pipeline is as part of the stages, but after the SCA and the Containers stage.

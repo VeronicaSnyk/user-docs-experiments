@@ -1,3 +1,7 @@
+---
+description: Integrate Snyk into your CI/CD pipelines to enforce security gates and generate vulnerability reports on every build.
+---
+
 # Snyk CI/CDs
 
 {% hint style="info" %}

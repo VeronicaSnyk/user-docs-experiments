@@ -1,3 +1,7 @@
+---
+description: Use the Backstage catalog-info.yaml file to classify and enrich repository assets in your Snyk AppRisk inventory.
+---
+
 # Backstage file in Asset Inventory - use case
 
 After you finish configuring the [Backstage catalog](./#backstage-file-for-scm-integrations), Snyk Essentials starts enriching your repository assets (the [All Assets](../../../manage-assets/manage-assets.md#inventory-menu) tab from the Inventory layout) with the data found in the backstage `catalog-info.yaml` file.
@@ -34,7 +38,7 @@ The Asset Summary tab shows the six backstage attributes that are configured in 
 
 In the Asset Attributes tab only the selected attributes should be added as metadata to the repository asset.
 
-```
+```json
 {
     name:"spring.goof",
     repositoryURL:"https://github.com/snyk/spring.goof.git",

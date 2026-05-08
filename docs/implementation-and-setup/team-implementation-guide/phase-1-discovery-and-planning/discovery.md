@@ -1,3 +1,7 @@
+---
+description: Identify your business-critical applications, internal stakeholders, and integration points to inform your Snyk rollout plan.
+---
+
 # Discovery
 
 ## Identify business-critical applications

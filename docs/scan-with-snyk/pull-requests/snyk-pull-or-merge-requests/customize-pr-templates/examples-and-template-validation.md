@@ -1,3 +1,8 @@
+---
+description: >-
+  Review example custom PR templates and validate your template syntax for API and YAML-based approaches.
+---
+
 # Examples and template validation
 
 ## Examples of custom PR templates

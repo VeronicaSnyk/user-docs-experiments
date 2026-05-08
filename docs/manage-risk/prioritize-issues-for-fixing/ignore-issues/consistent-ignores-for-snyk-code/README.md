@@ -1,3 +1,7 @@
+---
+description: Enable Snyk Code Consistent Ignores to ensure that once an ignore is created, it applies consistently across all test methods, branches, and environments for your Group or Organization.
+---
+
 # Consistent Ignores for Snyk Code
 
 Snyk Code Consistent Ignores helps your teams focus on important tasks by filtering out distractions. It ensures that once an ignore is created, it is consistently respected regardless of how and where the test is run and what branch is being tested.

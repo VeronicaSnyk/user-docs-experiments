@@ -1,3 +1,7 @@
+---
+description: Track learning progress across your Snyk tenant using organization-level reports, assignment reports, and program reports available in Snyk Learn.
+---
+
 # Snyk Learn reporting
 
 {% hint style="info" %}

@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan Python projects managed with uv for vulnerabilities using Snyk CLI in Early Access for Enterprise plans.
+---
+
 # CLI support for uv
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+description: Set up Snyk using a supported browser and a compatible language, package manager, or framework to begin scanning your code, dependencies, containers, and infrastructure.
+---
+
 # Getting started
 
 {% hint style="info" %}
@@ -63,7 +67,7 @@ Your Snyk API token is a personal token available under your user profile. The S
 
 Free and Team plan and trial users have access only to tokens under the user profile. Your personal tokens can be used to authenticate with the Snyk CLI running on a local or a build machine and an IDE when you are setting a token manually. Use a personal token with caution if you are authenticating for CI/CD or with the API, which is available for Enterprise plan users only.
 
-#### Personal Access Tokens (recommended)
+### Personal Access Tokens (recommended)
 
 To create your Snyk personal access token:
 
@@ -76,7 +80,7 @@ To create your Snyk personal access token:
 For more information, visit [Personal Access Tokens](../../snyk-api/authentication-for-api/personal-access-tokens-pats.md).
 {% endhint %}
 
-#### Legacy API Tokens
+### Legacy API Tokens
 
 To obtain your personal Snyk API token:
 

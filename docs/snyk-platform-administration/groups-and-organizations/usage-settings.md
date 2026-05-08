@@ -1,3 +1,7 @@
+---
+description: View test usage counts and contributing developer numbers for your Group or Organization in the Usage settings.
+---
+
 # Usage settings
 
 In your Group or Organization, select **Settings** > **Usage** to view Snyk usage details for your Group or Organization:

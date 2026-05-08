@@ -1,3 +1,7 @@
+---
+description: Navigate the Snyk AppRisk Issues UI to filter, understand, visualize, and export issues enriched with application context and risk factors at the Group level.
+---
+
 # Using the Issues UI with Snyk AppRisk
 
 The following pages provide information and instructions on how to use the Issues UI.

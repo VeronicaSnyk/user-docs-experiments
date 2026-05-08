@@ -1,3 +1,7 @@
+---
+description: Track Snyk Studio adoption and developer usage through built-in analytics reports for agentic security scanning.
+---
+
 # Usage analytics
 
 Snyk provides Snyk Studio usage analytics in the following report types:

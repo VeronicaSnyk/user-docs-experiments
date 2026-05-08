@@ -1,8 +1,13 @@
+---
+description: >-
+  Browse example commands for snyk iac describe to detect unmanaged resources across cloud providers.
+---
+
 # IaC describe command examples
 
 For a full list of `snyk iac describe` options, see [`snyk iac describe`](../../../developer-tools/snyk-cli/commands/iac-describe.md) command help or display the help by running:
 
-```
+```bash
 snyk iac describe --help
 ```
 
@@ -10,13 +15,13 @@ snyk iac describe --help
 
 Read and aggregate all Terraform states in a given directory:
 
-```
+```bash
 snyk iac describe --from="tfstate://directory/*.tfstate"
 ```
 
 Use any unsupported backend by using `terraform` to pipe your state into a file and then use the file:
 
-```
+```bash
 terraform state pull > state.tfstate
 
 snyk iac describe --from="tfstate://state.tfstate"
@@ -26,7 +31,7 @@ snyk iac describe --from="tfstate://state.tfstate"
 
 Explicitly scan AWS in a Terraform context:
 
-```
+```bash
 snyk iac describe --to="aws+tf"
 ```
 
@@ -34,13 +39,13 @@ snyk iac describe --to="aws+tf"
 
 Specify terraform provider 3.43.0 to use this provider to avoid scan errors:
 
-```
+```bash
 snyk iac describe --tf-provider-version=3.43.0
 ```
 
 Use the same parameter for every cloud provider:
 
-```
+```bash
 snyk iac describe --to="github+tf" --tf-provider-version=4.10.1
 ```
 
@@ -48,7 +53,7 @@ snyk iac describe --to="github+tf" --tf-provider-version=4.10.1
 
 Specify a custom path for the Terraform lock file (`.terraform.lock.hcl`):
 
-```
+```bash
 snyk iac describe --to="aws+tf" --tf-lockfile="/path/to/.terraform.lock.hcl"
 ```
 
@@ -56,7 +61,7 @@ snyk iac describe --to="aws+tf" --tf-lockfile="/path/to/.terraform.lock.hcl"
 
 Specify HTTPS authentication to use a Terraform state stored on GitLab:
 
-```
+```bash
 GITLAB_TOKEN=<access_token> \
   snyk iac describe \
   --from="tfstate+https://gitlab.com/api/v4/projects/<project_id>/terraform/state/<path_to_state>" \
@@ -71,7 +76,7 @@ Remember to provide your Terraform Enterprise API token.
 
 Example:
 
-```
+```bash
 snyk iac describe --from="tfstate+tfcloud://$WORKSPACE_ID" --tfc-token="$TFC_TOKEN" --tfc-endpoint="https://tfe.example.com/api/v2"
 ```
 
@@ -79,7 +84,7 @@ snyk iac describe --from="tfstate+tfcloud://$WORKSPACE_ID" --tfc-token="$TFC_TOK
 
 Include AWS S3 and AWS EC2 resources in the report:
 
-```
+```bash
 snyk iac describe --service="aws_s3,aws_ec2"
 ```
 
@@ -91,7 +96,7 @@ This can happen if you have an Organization account in which you, by default, ha
 
 Example to enable strict mode:
 
-```
+```bash
 snyk iac describe --strict
 ```
 
@@ -99,6 +104,6 @@ snyk iac describe --strict
 
 Save the report to a JSON file through redirection:
 
-```
+```bash
 snyk iac describe --json > report.json
 ```

@@ -1,3 +1,7 @@
+---
+description: Use the --policy-path option to specify a .snyk policy file located in a different directory from your manifest file.
+---
+
 # A .snyk policy file in a different directory from the manifest file
 
 When you scan a project with the CLI, the `.snyk` policy file may be in a different directory from the manifest file, either because of the structure of the project or because the project has multiple manifest files using the same policy file.

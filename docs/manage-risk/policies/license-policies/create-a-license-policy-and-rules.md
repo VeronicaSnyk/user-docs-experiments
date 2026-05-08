@@ -1,3 +1,7 @@
+---
+description: Configure severity levels for each license type in your Group license policy and set custom instructions that appear in Snyk test results for developers to follow.
+---
+
 # Create a license policy and rules
 
 {% hint style="info" %}

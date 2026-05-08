@@ -1,3 +1,8 @@
+---
+description: >-
+  Use Snyk Container from the Snyk Web UI to detect and manage vulnerabilities in your container images.
+---
+
 # Use Snyk Container
 
 To use Snyk Container from the Web UI, see the pages in this section. Information about using Snyk Container with the CLI is included as noted.

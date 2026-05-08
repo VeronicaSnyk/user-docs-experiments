@@ -1,3 +1,7 @@
+---
+description: Use API tokens or supported identity providers to authenticate third-party tools with your Snyk account.
+---
+
 # Authentication for third-party tools
 
 When you work with Snyk from within any third-party tool, Snyk requires authentication in order to initiate its processes.

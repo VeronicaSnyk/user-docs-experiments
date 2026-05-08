@@ -1,3 +1,7 @@
+---
+description: Add a template engine to your Snyk App to display Project data to authorized users and an authorization button to new users.
+---
+
 # Render content for users
 
 In the previous module, we covered registering our Snyk App, setting up the authorization flow, and handling user authorization within our App. All of those topics are integral to the functionality of every Snyk App, but they're all what you might call "behind the scenes" topics.

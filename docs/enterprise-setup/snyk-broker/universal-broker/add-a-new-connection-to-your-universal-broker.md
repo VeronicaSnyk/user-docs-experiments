@@ -1,3 +1,7 @@
+---
+description: Create a new connection in your Universal Broker deployment using the snyk-broker-config CLI and integrate it with the appropriate Snyk Organization.
+---
+
 # Add a new connection to your Universal Broker
 
 To add a new connection, run `snyk-broker-config workflows connections create`. If prompted, select the desired deployment.

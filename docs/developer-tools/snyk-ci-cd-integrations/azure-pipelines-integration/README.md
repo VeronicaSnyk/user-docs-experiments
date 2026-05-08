@@ -1,3 +1,7 @@
+---
+description: Use the Snyk Security Scan task in Azure Pipelines to automatically find and fix application and container vulnerabilities.
+---
+
 # Azure Pipelines integration using the Snyk Security Scan task
 
 Snyk enables security across the Microsoft Azure ecosystem, including Azure Pipelines, by automatically finding and fixing application and container vulnerabilities.

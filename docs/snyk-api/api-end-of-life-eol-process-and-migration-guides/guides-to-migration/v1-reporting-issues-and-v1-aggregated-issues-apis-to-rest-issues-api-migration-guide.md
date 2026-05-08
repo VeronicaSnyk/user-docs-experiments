@@ -1,4 +1,5 @@
 ---
+description: Migrate from V1 Reporting Issues and Aggregated Issues APIs to the REST Issues API for improved querying and pagination.
 hidden: true
 ---
 

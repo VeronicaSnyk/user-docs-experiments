@@ -1,3 +1,8 @@
+---
+description: >-
+  Create the Google service account that grants Snyk access to your Google Cloud Project from the Snyk Web UI.
+---
+
 # Step 2: Create the Google service account (Web UI)
 
 {% hint style="info" %}
@@ -24,13 +29,13 @@ Snyk scans the Google Cloud Project specified by the `project_id` [variable](htt
 
 * Set the `project_id` variable directly in the Terraform template. On line 4 of the template, change the default value of the `project_id` variable to your Project ID:
 
-```
+```text
 default = "your-project-id"
 ```
 
 * Set the `project_id` variable when you apply the Terraform. In the following section, [Apply  Terraform](step-2-create-the-google-service-account-web-ui.md#apply-terraform), you will apply Terraform to create the Google service account. At that time, you can use Terraform's [-var](https://www.terraform.io/language/values/variables#variables-on-the-command-line) option to set the `project_id` variable to your Project ID:
 
-```
+```bash
 terraform apply -var="project_id=your-project-id"
 ```
 
@@ -47,13 +52,13 @@ To provision the Google service account using Terraform:
 1. In your terminal, navigate to the directory containing your `.tf` file (named `snyk-permissions-google.tf` if it has been downloaded from the Web UI).
 2. Using the Terraform CLI, initialize the Terraform Project:
 
-```
+```bash
 terraform init
 ```
 
 3\. Review and apply the Terraform plan:
 
-```
+```bash
 terraform apply
 ```
 
@@ -61,7 +66,7 @@ terraform apply
 
 Terraform then creates the Google service account. When it is finished, you will see the following output:
 
-```
+```text
 Apply complete! Resources: 22 added, 0 changed, 0 destroyed.
 
 Outputs:

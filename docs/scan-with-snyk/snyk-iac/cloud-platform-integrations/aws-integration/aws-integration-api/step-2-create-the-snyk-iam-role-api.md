@@ -1,3 +1,8 @@
+---
+description: >-
+  Create the Snyk IAM role using your downloaded Terraform or CloudFormation template to grant read-only AWS access.
+---
+
 # Step 2: Create the Snyk IAM role (API)
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+description: Use the Snyk Jenkins plugin to test and monitor your Snyk Open Source Projects for vulnerabilities in your Jenkins pipeline.
+---
+
 # Jenkins plugin integration with Snyk
 
 Snyk offers a native plugin for Jenkins that is based on the [Snyk CLI](../snyk-cli/), to test and monitor Projects for vulnerabilities in your pipelines.
@@ -33,7 +37,7 @@ Follow the steps in each section of this document to use the Snyk Jenkins plugin
 
 The plugin can download the latest version of Snyk binaries and keep them up-to-date for you.
 
-<figure><img src="../../.gitbook/assets/snyk_config_auto-update_v2.png" alt=""><figcaption><p>Snyk Jenkins plugin automatic installation</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/snyk_config_auto-update_vokta-saml-application-creation.png" alt=""><figcaption><p>Snyk Jenkins plugin automatic installation</p></figcaption></figure>
 
 ### Manual installation
 
@@ -45,7 +49,7 @@ The plugin can download the latest version of Snyk binaries and keep them up-to-
   * Ensure you have the correct permissions to execute the binaries.
 * Provide the absolute path to the directory under **Installation directory**.
 
-<figure><img src="../../.gitbook/assets/snyk_config_manual_v2.png" alt=""><figcaption><p>Snyk Jenkins plugin manual installation</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/snyk_config_manual_vokta-saml-application-creation.png" alt=""><figcaption><p>Snyk Jenkins plugin manual installation</p></figcaption></figure>
 
 ### Custom API endpoints
 
@@ -69,7 +73,7 @@ For more information, see [Configure Snyk CLI to connect to Snyk API](../../cli-
 * Configure the Credentials.
 * Remember the **ID** for use when configuring the build step.
 
-<figure><img src="../../.gitbook/assets/snyk_configuration_token_v2.png" alt=""><figcaption><p>Configure Snyk API token for Jenkins plugin</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/snyk_configuration_token_vokta-saml-application-creation.png" alt=""><figcaption><p>Configure Snyk API token for Jenkins plugin</p></figcaption></figure>
 
 ## Add Snyk Security to your Project
 
@@ -88,7 +92,7 @@ This step depends on whether you are using Freestyle Projects or Pipeline Projec
 
 Use the `snykSecurity` step as part of your pipeline script. You can use the **Snippet Generator** to generate the code from a web form and copy it into your pipeline. Refer to the following example.
 
-```
+```bash
 pipeline {
   agent any
 

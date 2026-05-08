@@ -1,8 +1,12 @@
+---
+description: Install the Snyk Broker Container Registry Agent using the Helm chart by setting the required environment variables.
+---
+
 # Install Broker for Container Registry Agent using Helm
 
 Installing the Broker Container Registry Agent using Docker requires the parameter `CR_AGENT_URL`, but it is not required to install using Helm. The environment variables are defined for [installing with Docker ](./#set-up-the-remote-connection-for-container-registry-agent-using-docker)and also apply to installing with Helm.
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=container-registry-agent \
              --set brokerToken=<ENTER_BROKER_TOKEN> \
@@ -15,7 +19,7 @@ helm install snyk-broker-chart snyk-broker/snyk-broker \
 
 Allowed values for `crType`:
 
-```
+```text
 acr
 artifactory-cr
 digitalocean-cr
@@ -38,7 +42,7 @@ Elastic Container Registry and Digital Ocean Container Registry require specific
 * crRegion
 * crExternalId
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=container-registry-agent \
              --set brokerToken=<ENTER_BROKER_TOKEN> \
@@ -53,7 +57,7 @@ helm install snyk-broker-chart snyk-broker/snyk-broker \
 
 * crToken
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=container-registry-agent \
              --set brokerToken=<ENTER_BROKER_TOKEN> \

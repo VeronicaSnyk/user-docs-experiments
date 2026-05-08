@@ -1,3 +1,7 @@
+---
+description: Add Snyk Studio to Amazon Q in your IDE to scan AI-generated code for vulnerabilities using the Snyk MCP server.
+---
+
 # Amazon Q guide
 
 You can access Snyk Studio, including Snyk's MCP server, in Amazon Q to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server will ask for trust and trigger authentication if necessary.
@@ -36,11 +40,11 @@ As a one-time setup, you may need to authenticate and trust the current Project 
 
 These workflows are mostly automatically executed by the underlying model and the agentic code assistant, and you will need to approve them using a browser confirmation dialog. The process should look similar to this:
 
-<figure><img src="../../../.gitbook/assets/image (341).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setting-snyk-mcp-server-2.png" alt=""><figcaption></figcaption></figure>
 
 If you need to authenticate and trust the current directory, then proceed and complete the process.
 
-<figure><img src="../../../.gitbook/assets/image (342).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setting-snyk-mcp-server-3.png" alt=""><figcaption></figcaption></figure>
 
 ## Examples
 
@@ -56,11 +60,11 @@ Scan this directory for code security & dependency vulnerabilities and security 
 
 Amazon Q indicates that this request is related to security vulnerability scanning and calls the Snyk MCP Server for various scans.
 
-<figure><img src="../../../.gitbook/assets/image (344).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/scanning-security-vulnerabilities-2.png" alt=""><figcaption></figcaption></figure>
 
 Amazon Q is then able to gather all the security scanning results, both code (SAST) and dependencies (SCA), and based on recommendations and contextual information provided by the Snyk MCP Server, it is now able to provide code changes that address some or all of the security vulnerabilities that were found:
 
-<figure><img src="../../../.gitbook/assets/image (345).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/amazon-able-gather-all-security-scanning-results-both-code.png" alt=""><figcaption></figcaption></figure>
 
 ### "Secure at inception" rules
 
@@ -68,10 +72,10 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 
 The following is a suggested instruction for creating project rules for use with [Amazon Q Developer chat](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/context-project-rules.html). Append the following contents to the rules file at `.amazonq/rules/amazonq-rules.md`:
 
-<figure><img src="../../../.gitbook/assets/image (346) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/secure-inception-rules.png" alt=""><figcaption></figcaption></figure>
 
 {% code title=".amazonq/rules/amazonq-rules.md" overflow="wrap" %}
-```
+```text
 - Always run **snyk_code_scan** tool for new first party code that is generated in a Snyk-supported language.
 - If any security issues are found based on newly introduced or modified code or dependencies, attempt to fix the issues using the results context from **Snyk**.
 - Rescan the code after fixing the issues to ensure that the issues were fixed and that there are no newly introduced issues.

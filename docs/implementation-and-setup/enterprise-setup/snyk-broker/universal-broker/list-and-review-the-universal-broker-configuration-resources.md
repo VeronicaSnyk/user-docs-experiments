@@ -1,3 +1,7 @@
+---
+description: List and review your Universal Broker connections, credentials, deployments, and integrations using the snyk-broker-config CLI tool.
+---
+
 # List and review the Universal Broker configuration resources
 
 The `snyk-broker-config` CLI tool provides resources to guide you in configuring your Universal Broker. The following types of resources are available:
@@ -9,7 +13,7 @@ The `snyk-broker-config` CLI tool provides resources to guide you in configuring
 
 To list the workflows available, run `snyk-broker-config-workflows`.
 
-```
+```bash
 > snyk-broker-config workflows
 Interactive workflows for Deployments, Credentials, Connections and 
 Integrations management
@@ -28,7 +32,7 @@ Run `snyk-broker-config workflows <RESOURCE>` to list the available resources to
 
 Run the available workflows and follow the prompts to use the specific resources.
 
-```
+```text
 > snyk-broker-config-workflows connections
 Universal Broker - Create Connection Workflow
 

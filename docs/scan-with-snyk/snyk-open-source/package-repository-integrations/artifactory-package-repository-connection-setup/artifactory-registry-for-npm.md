@@ -1,3 +1,8 @@
+---
+description: >-
+  Configure Snyk to use your Artifactory registry for scanning private npm packages.
+---
+
 # Artifactory Registry for npm
 
 {% hint style="info" %}

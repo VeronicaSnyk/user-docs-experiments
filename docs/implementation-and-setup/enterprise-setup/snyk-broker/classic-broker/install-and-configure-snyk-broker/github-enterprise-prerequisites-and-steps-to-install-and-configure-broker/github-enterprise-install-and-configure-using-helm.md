@@ -1,3 +1,7 @@
+---
+description: Install and configure the Snyk Broker Client for GitHub Enterprise using the Helm chart with the required environment variables.
+---
+
 # GitHub Enterprise - install and configure using Helm
 
 Before installing, review the [prerequisites](../../../../../../enterprise-setup/snyk-broker/classic-broker/install-and-configure-snyk-broker/github-enterprise-prerequisites-and-steps-to-install-and-configure-broker/) and the general instructions for installation using [Helm](../../../../../../enterprise-setup/snyk-broker/classic-broker/install-and-configure-snyk-broker/install-and-configure-broker-using-helm.md).
@@ -19,7 +23,7 @@ For `github`, `githubApi` and `githubGraphQl` values do not include `https://`
 When installing, you must add a command in your script to set the `brokerServerUrl`. This is the URL of the Broker server for the region where your data is hosted. For the commands and URLs to use, see [Broker URLs](../../../../../../snyk-data-and-governance/regional-hosting-and-data-residency.md#broker-server-urls).
 {% endhint %}
 
-```
+```bash
 helm install snyk-broker-chart snyk-broker/snyk-broker \
              --set scmType=github-enterprise \
              --set brokerToken=<ENTER_BROKER_TOKEN> \

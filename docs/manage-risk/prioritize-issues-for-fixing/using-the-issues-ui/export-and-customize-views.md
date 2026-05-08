@@ -1,3 +1,7 @@
+---
+description: Customize the Issues table by selecting visible columns and export filtered issue data to CSV for reporting—applied filters carry through to the exported file.
+---
+
 # Export and customize views
 
 By using the **Modify Columns** dropdown, you can customize the data you see in your table view by choosing from a variety of options.

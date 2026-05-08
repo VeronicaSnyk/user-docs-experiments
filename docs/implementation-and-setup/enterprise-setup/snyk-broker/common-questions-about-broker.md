@@ -1,3 +1,7 @@
+---
+description: Find answers to common questions about Snyk Broker updates, vulnerability scanning, and SLA commitments.
+---
+
 # Common questions about Broker
 
 ## How often is Snyk Broker updated?

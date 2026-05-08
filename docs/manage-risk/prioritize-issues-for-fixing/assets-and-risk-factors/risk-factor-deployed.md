@@ -1,3 +1,7 @@
+---
+description: Identify which container images are actively deployed in your Kubernetes clusters so Snyk can surface the Deployed risk factor and help you reduce your risk surface area.
+---
+
 # Risk factor: deployed
 
 Any deployed code increases the risk of exploitation of your application and business.
@@ -22,7 +26,7 @@ Kubernetes is very [specific](https://kubernetes.io/docs/concepts/containers/ima
 Snyk adheres to the defined naming standards as documented for [Kubernetes](https://kubernetes.io/docs/concepts/containers/images/#image-names) and Docker [images](https://docs.docker.com/engine/reference/commandline/images/) to ensure consistency with Kubernetes.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-12 at 02.01.48.png" alt="Naming standards"><figcaption><p>Naming standards</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-12 at 02.01.4enter-details-snyk-google.png" alt="Naming standards"><figcaption><p>Naming standards</p></figcaption></figure>
 
 Consider the following examples:\\
 
@@ -40,7 +44,7 @@ Consider the examples that follow.
 
 Result: Image successfully matched, and risk factor applied
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-12 at 02.04.31.png" alt="Image matecjed"><figcaption><p>Image matched</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/matched.png" alt="Image matecjed"><figcaption><p>Image matched</p></figcaption></figure>
 
 The container image is scanned using the Snyk Container CLI only, referencing the full name of the image, including the registry. Snyk recommends doing this after the image is built and before it is deployed to your cluster.
 
@@ -64,7 +68,7 @@ This enables Insights to successfully match the image name and apply the Deploye
 
 Result: Image successfully matched, and risk factor applied
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-12 at 02.05.31.png" alt="Matching of names"><figcaption><p>Matching of names</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/matching-names.png" alt="Matching of names"><figcaption><p>Matching of names</p></figcaption></figure>
 
 The container image is scanned referencing a partial name, omitting the container registry.
 
@@ -100,7 +104,7 @@ Snyk recommends always specifying the full name of the image in your CLI command
 
 ### Third-party integrations
 
-The Deployed risk factor is extended to third-party integrations through real-time monitoring of Kubernetes clusters, along with data from external sources. This enables a comprehensive assessment of deployed risks across diverse environments. By integrating with third-party tools, Snyk can cross-reference vulnerabilities from various sources, ensuring that the deployed risk factor reflects the most accurate and current threat landscape. This holistic approach allows Snyk to provide actionable insights and maintain robust security postures across all integrated platforms.
+The Deployed risk factor extends to third-party integrations through real-time monitoring of Kubernetes clusters and data from external sources. Snyk cross-references vulnerabilities from multiple sources to keep the deployed risk factor accurate and current. This gives you actionable insights and consistent security coverage across all integrated platforms.
 
 ## Technical details for Snyk Insights Deployed risk factor
 

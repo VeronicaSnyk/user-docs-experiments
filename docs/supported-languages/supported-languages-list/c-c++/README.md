@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan C and C++ projects for vulnerabilities using Snyk Open Source and Snyk Code.
+---
+
 # C/C++
 
 ## Applicability

@@ -1,3 +1,7 @@
+---
+description: Ensure Snyk Code Consistent Ignores take effect in IDE plugins by using the minimum required version for VS Code, IntelliJ, Visual Studio, and Eclipse.
+---
+
 # Consistent Ignores for Snyk Code IDE
 
 When you run tests in any of the [supported Snyk IDE plugins](../../../../developer-tools/snyk-ide-plugins-and-extensions/), the plugins will take into account your ignores.

@@ -1,3 +1,8 @@
+---
+description: >-
+  View the IaC languages, cloud providers, and cloud resources supported by Snyk IaC scanning.
+---
+
 # Supported IaC languages, cloud providers, and cloud resources
 
 {% hint style="info" %}

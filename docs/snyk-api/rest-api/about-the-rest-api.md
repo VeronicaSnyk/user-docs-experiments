@@ -1,3 +1,7 @@
+---
+description: Understand the Snyk REST API architecture, versioning model, regional base URLs, and rate limits.
+---
+
 # About the REST API
 
 The Snyk REST API is based on the [JSON:API standard](https://jsonapi.org/), defined in [OpenAPI 3.0.3](https://spec.openapis.org/oas/v3.0.3.html), and represents an evolutionary approach to API development, with each endpoint versioned. For more information, see the [Versioning](about-the-rest-api.md#versioning) section on this page.
@@ -18,7 +22,7 @@ The Snyk REST API generally adheres to the [JSON:API standard](https://jsonapi.o
 
 When using the REST API, send all requests which contain data with the header:
 
-```
+```http
 Content-Type: application/vnd.api+json
 ```
 
@@ -48,7 +52,7 @@ The API Reference examples include `?version=text` as a placeholder, where `text
 
 The following information applies to calling versions earlier than 2024-10-15. The Snyk REST API has per-endpoint version contracts. For information about the differences in GA versions, see the [API Changelog](../changelog.md). Each endpoint can have its own release and support lifecycle, independent of any other endpoint in the Snyk REST API. In its most explicit form, the endpoint version number includes a date and stability tree, for example:
 
-```
+```text
 2023-11-27~beta
 ```
 
@@ -60,7 +64,7 @@ This version number indicates that the requested endpoint should be at stability
 
 In the default case of Generally Available, there is no stability level specified in the version number itself, that is, only the date is present, for example:
 
-```
+```text
 2023-11-27
 ```
 
@@ -72,7 +76,7 @@ Granular version controls enable Snyk to introduce progressive enhancements. The
 
 After an endpoint is marked as deprecated, it will contain a `Sunset` header indicating the date at which that endpoint contract will no longer be supported. For example:
 
-```
+```http
 Sunset: "2021-11-11"
 ```
 

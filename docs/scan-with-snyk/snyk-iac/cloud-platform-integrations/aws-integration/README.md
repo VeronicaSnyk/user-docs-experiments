@@ -1,3 +1,8 @@
+---
+description: >-
+  Integrate Snyk with your AWS account to find misconfigurations and generate cloud context for prioritization.
+---
+
 # AWS integration
 
 Snyk integrates with your [Amazon Web Services (AWS)](https://aws.amazon.com/) account to find issues in your cloud configurations and to generate cloud context to help you prioritize your vulnerabilities.

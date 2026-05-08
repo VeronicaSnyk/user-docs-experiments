@@ -1,3 +1,7 @@
+---
+description: Find the maximum number of Projects allowed per Organization on each Snyk pricing plan.
+---
+
 # Maximum number of Projects in an Organization
 
 The number of Projects you can have in a single Snyk Organization depends on your Snyk [pricing plan](https://snyk.io/plans/).
@@ -24,7 +28,7 @@ In the Snyk CLI, the `snyk monitor` command returns the following error:
 
 In the Snyk API, an import request returns this error:
 
-```
+```text
 "data":{
         "code":400,
         "message":"This organization has 25000 of the maximum 25000 projects.

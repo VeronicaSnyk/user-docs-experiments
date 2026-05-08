@@ -1,3 +1,7 @@
+---
+description: Configure a GitHub Group-level integration in Snyk AppRisk to discover repositories, builds, and code scans at scale.
+---
+
 # GitHub for Snyk Essentials
 
 {% hint style="info" %}

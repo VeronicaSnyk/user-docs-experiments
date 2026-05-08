@@ -1,3 +1,7 @@
+---
+description: Scan Node.js projects for open-source vulnerabilities in GitHub Actions using the Snyk Node action.
+---
+
 # Snyk Node action
 
 This page provides examples of using the Snyk GitHub action for [Node](https://github.com/snyk/actions/tree/master/node). For instructions on using the action and further information, see [GitHub Actions for Snyk setup and checking for vulnerabilities](./).

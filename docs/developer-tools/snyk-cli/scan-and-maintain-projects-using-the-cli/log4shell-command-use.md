@@ -1,3 +1,7 @@
+---
+description: Use the Snyk CLI to detect Log4Shell vulnerabilities across your application dependencies.
+---
+
 # Log4shell command use
 
 ## Introduction
@@ -52,7 +56,7 @@ A vulnerable version of log4j was detected:
 
 If no traces of a vulnerable log4j library are found, the results show this:
 
-```
+```bash
 $ snyk log4shell
 Please note this command is for already built artifacts. To test source code use `snyk test`.
 

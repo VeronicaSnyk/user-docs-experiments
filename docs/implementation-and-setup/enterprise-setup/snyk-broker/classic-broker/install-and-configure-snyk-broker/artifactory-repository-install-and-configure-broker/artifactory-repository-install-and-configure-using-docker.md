@@ -1,3 +1,7 @@
+---
+description: Install and configure the Snyk Broker Client for Artifactory Repository using Docker with the required environment variables.
+---
+
 # Artifactory Repository - install and configure using Docker
 
 {% hint style="info" %}
@@ -36,7 +40,7 @@ docker run --restart=always \
 
 For an npm or Yarn integration, use the following command.
 
-```
+```bash
 docker run --restart=always \
   -p 8000:8000 \
   -e BROKER_TOKEN=secret-broker-token \

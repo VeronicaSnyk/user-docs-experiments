@@ -1,3 +1,7 @@
+---
+description: Configure the Snyk MCP server to enable your AI coding assistant to run Snyk security scans during code generation.
+---
+
 # Getting started with Snyk Studio
 
 {% hint style="info" %}
@@ -22,7 +26,7 @@ If these are not available to you, the Snyk CLI can be manually introduced in th
 Navigate to the coding assistant MCP server configuration setup. This often involves modifying a file called `mcp.json` or similar. The following snippet can be used to configure the Snyk MCP server:
 
 {% code overflow="wrap" expandable="true" %}
-```
+```json
 {
   "mcpServers": {
     "Snyk": {
@@ -55,12 +59,12 @@ These tools are available for the following profile types:
 
 To set a profile, use either the `--profile` CLI flag or the `SNYK_MCP_PROFILE` environment variable CLI flag:
 
-```
+```bash
 npx -y snyk@latest mcp -t stdio --profile=lite
 ```
 
 {% code title="mcp.json" %}
-```
+```json
 {
   "mcpServers": {
     "Snyk": {

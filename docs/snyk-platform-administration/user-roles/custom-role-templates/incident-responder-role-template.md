@@ -1,3 +1,7 @@
+---
+description: Use this Organization-level role template to give incident responders quick access to find and remediate security issues.
+---
+
 # Incident Responder role template
 
 This Organization-level role needs quick access to core functionality in Snyk to find issues of a particular type and make changes.

@@ -1,3 +1,8 @@
+---
+description: >-
+  Identify the base image of your container and receive recommendations to fix vulnerable layers.
+---
+
 # Detect the container base image
 
 Detecting vulnerable base images allows you to identify the source of your vulnerabilities and fix them by updating the base image according to recommendations.
@@ -37,7 +42,7 @@ This allows you to see vulnerability counts in minor and major upgrades and in a
 
 You can see the base image vulnerabilities in your Project among the vulnerabilities added by your instructions, sorted by their priority score.
 
-<figure><img src="../../../.gitbook/assets/base-image2.png" alt=""><figcaption><p>Recommendations for upgrading the base image</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/base-imageokta-saml-application-creation.png" alt=""><figcaption><p>Recommendations for upgrading the base image</p></figcaption></figure>
 
 You can also filter only the base image vulnerabilities using the **Base image** option under the **Image Layer** filter.
 

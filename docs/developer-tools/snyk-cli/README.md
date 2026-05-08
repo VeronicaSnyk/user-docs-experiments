@@ -1,3 +1,7 @@
+---
+description: Use the Snyk CLI to scan, monitor, and fix vulnerabilities in your code, open-source dependencies, containers, and IaC.
+---
+
 # Snyk CLI
 
 This documentation provides guidance and information for using the Snyk CLI to bring the functionality of Snyk into your development workflow. Here you will find:

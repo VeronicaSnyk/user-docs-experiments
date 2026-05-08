@@ -1,3 +1,7 @@
+---
+description: Integrate Snyk webhooks with Zapier to trigger automated workflows when Snyk detects new vulnerabilities.
+---
+
 # How to use Snyk webhooks with Zapier
 
 {% hint style="info" %}
@@ -14,11 +18,11 @@ To access request headers, create a **Catch Raw Hook** trigger. This trigger pro
 
 You receive a webhook URL where you send requests.
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-1%20\(1\).png)
+![Zapier Catch Raw Hook trigger configuration](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-1%20\(1\).png)
 
 Create a Webhook in Snyk using the API with the `your-url` URL.
 
-```
+```text
 POST /api/v1/org/{orgId}/webhooks HTTP/2
 > Host: snyk.io
 > Authorization: token {authToken}
@@ -31,7 +35,7 @@ POST /api/v1/org/{orgId}/webhooks HTTP/2
 
 The API responds with the new webhook.
 
-```
+```text
 < HTTP/2 200 
 < Content-Type: application/json
 | {
@@ -42,7 +46,7 @@ The API responds with the new webhook.
 
 You can ping a webhook to test the Zapier trigger.
 
-```
+```text
 > POST /api/v1/org/{orgId}/webhooks/{webhookId}/ping HTTP/2
 > Host: snyk.io
 > Authorization: token {authToken}
@@ -51,7 +55,7 @@ You can ping a webhook to test the Zapier trigger.
 
 Select a ping request from the list and map fields.
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-2%20\(1\).png)
+![Selecting a ping request and mapping fields in Zapier](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-2%20\(1\).png)
 
 ### Action (validate a payload)
 
@@ -59,11 +63,11 @@ Create a JS Action to validate a payload:
 
 **"Code by Zapier" → "Run Javascript"**
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-3%20\(1\).png)
+![Code by Zapier Run Javascript action setup](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-3%20\(1\).png)
 
 Map `headers['X-Hub-Signature']` and `payload string` to the snippet variables.
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-4%20\(1\).png)
+![Mapping X-Hub-Signature and payload string to Zapier snippet variables](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-4%20\(1\).png)
 
 This snippet adds an `isValid: boolean` variable to Zap fields.
 
@@ -96,7 +100,7 @@ try {
 
 Test the snippet, ensure `isValid === true`.
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-5%20\(1\).png)
+![Zapier test result showing isValid equals true](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-5%20\(1\).png)
 
 ### Action (parse a payload)
 
@@ -106,11 +110,11 @@ Create the same JS Action:
 
 **"Code by Zapier" → "Run Javascript"**, with the following field mapping:
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-6%20\(1\).png)
+![Field mapping for the parse payload Javascript action in Zapier](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-6%20\(1\).png)
 
 And the following JS snippet:
 
-```
+```text
 try {
   output = JSON.parse(inputData.body);
 } catch (err) {
@@ -128,7 +132,7 @@ Create one more JS Action:
 
 **"Code by Zapier" → "Run Javascript"**, and paste the following snippet:
 
-```
+```javascript
 function formatIssue({ pkgName, pkgVersions, issueData }) {
   return `
   <a href="${issueData.url}">${issueData.title}</a><br/>
@@ -151,14 +155,14 @@ After providing all fields, decide whether to use the event.
 
 To filter, create **"Filter by Zapier"** app:
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-7%20\(1\).png)
+![Filter by Zapier app configuration](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-7%20\(1\).png)
 
 Select a filter method.
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-8%20\(1\).png)
+![Selecting a filter method in Zapier](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-8%20\(1\).png)
 
 ### Action (send a notification)
 
 Access all fields to build a notification template. Send an email or choose other notification types.
 
-![](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-9%20\(1\).png)
+![Zapier notification template showing mapped webhook fields for email](https://partner-workshop-assets.s3.us-east-2.amazonaws.com/untitled-9%20\(1\).png)

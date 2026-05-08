@@ -1,3 +1,7 @@
+---
+description: Allow the Snyk Broker Docker client to retrieve large manifest files from GitHub or GitHub Enterprise using an alternative endpoint.
+---
+
 # Snyk Open Source Scans (SCA) of large manifest files, Docker setup
 
 {% hint style="info" %}

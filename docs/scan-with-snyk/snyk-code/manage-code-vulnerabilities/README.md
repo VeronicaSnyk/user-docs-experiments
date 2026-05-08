@@ -1,3 +1,8 @@
+---
+description: >-
+  View, triage, and fix code vulnerabilities discovered by Snyk Code in the Snyk Web UI.
+---
+
 # Manage code vulnerabilities
 
 ## Prerequisites for managing code vulnerabilities in Snyk Web UI

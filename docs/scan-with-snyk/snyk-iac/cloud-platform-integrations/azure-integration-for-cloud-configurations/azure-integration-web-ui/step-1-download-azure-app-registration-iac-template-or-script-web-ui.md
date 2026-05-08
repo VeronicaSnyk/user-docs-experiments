@@ -1,3 +1,8 @@
+---
+description: >-
+  Download the Terraform template or Bash script for Azure app registration as the first onboarding step from the Snyk Web UI.
+---
+
 # Step 1: Download Azure app registration IaC template or script (Web UI)
 
 Before you can create a Cloud Environment for an Azure subscription, you must **download** a Terraform infrastructure as code (IaC) template or Azure CLI Bash script declaring the following resources:

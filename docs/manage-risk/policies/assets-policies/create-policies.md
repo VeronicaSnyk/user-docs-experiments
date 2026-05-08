@@ -1,3 +1,7 @@
+---
+description: Create Snyk Essentials policies by defining asset filters and setting automated actions, starting from scratch or using a policy template in the policy editor.
+---
+
 # Create policies
 
 Snyk Essentials includes a powerful policy editor for creating and modifying policies.

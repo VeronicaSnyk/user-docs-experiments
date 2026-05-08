@@ -1,3 +1,8 @@
+---
+description: >-
+  Trigger a manual scan of a Snyk cloud environment or rely on the automatic daily scan cycle.
+---
+
 # Scan a cloud environment
 
 Snyk automatically runs a scan when a [cloud environment](../key-concepts-for-cloud-scans.md#environments) is created. After that, Snyk scans the environment once every 24 hours. You can also manually trigger a new scan at any time by using the [Snyk API](https://apidocs.snyk.io/?version=2022-12-21%7Ebeta#post-/orgs/-org_id-/cloud/scans).
@@ -39,7 +44,7 @@ If you so not have [jq](https://stedolan.github.io/jq/download/) installed, you 
 
 First, find the ID of the Cloud environment you want to scan. Send a request to the [`/cloud/environments`](https://apidocs.snyk.io/#get-/orgs/-org_id-/cloud/environments) endpoint in the following format:
 
-```
+```bash
 curl -X GET \
   'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/environments?version=2022-12-21~beta' \
   -H 'Authorization: token YOUR-API-TOKEN'
@@ -63,7 +68,7 @@ In the output, look for the `data.id` property. In the shortened example that fo
 
 To manually trigger a scan, send a request to the [`/cloud/scans`](https://apidocs.snyk.io/#post-/orgs/-org_id-/cloud/scans) endpoint in the following format:
 
-```
+```bash
 curl -X POST \
 'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/scans?version=2022-12-21~beta' \
 -H 'Authorization: token YOUR-API-TOKEN' \
@@ -137,7 +142,7 @@ The following are some key attributes from the API response:
 
 To check the status of a scan, retrieve the details of the environment being scanned. Send a request to the [`/cloud/environments`](https://apidocs.snyk.io/#get-/orgs/-org_id-/cloud/environments) endpoint in the following format:
 
-```
+```bash
 curl -X GET \
   'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/environments?id=YOUR-ENVIRONMENT-ID&version=2022-12-21~beta' \
   -H 'Authorization: token YOUR-API-TOKEN'
@@ -174,7 +179,7 @@ Scan status values are as follows:
 
 To view all scans for an Organization, send an API request to the [List scans](https://apidocs.snyk.io/#get-/orgs/-org_id-/cloud/scans) endpoint in the following format:
 
-```
+```bash
 curl -X GET \
 'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/scans?version=2022-12-21~beta' \
 -H 'Authorization: token YOUR-API-TOKEN'

@@ -1,3 +1,7 @@
+---
+description: Apply Project attributes such as lifecycle stage and business criticality to filter and prioritize your Snyk Projects.
+---
+
 # Add project attributes
 
 After importing your projects, you can add metadata to your Projects using [Project Attributes](../../../snyk-platform-administration/snyk-projects/project-attributes.md). This allows you to filter and report on specific subsets of your Organization.

@@ -1,3 +1,7 @@
+---
+description: Reference the required environment variables for configuring the Snyk Broker Client to connect to your Jira instance.
+---
+
 # Jira - environment variables for Snyk Broker
 
 The following environment variables are needed to configure the Broker Client for Jira:

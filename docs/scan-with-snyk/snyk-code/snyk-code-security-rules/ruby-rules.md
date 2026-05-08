@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Ruby code, including CWE references and OWASP categories.
+---
+
 # Ruby rules
 
 Each rule includes the following information.

@@ -1,3 +1,7 @@
+---
+description: Configure system-level environment variables for Snyk IDE plugins and the CLI across all operating systems.
+---
+
 # OAuth 2.0 authentication does not work
 
 ## A new browser tab does not open automatically  <a href="#windows" id="windows"></a>

@@ -1,3 +1,7 @@
+---
+description: Manage Snyk Code Consistent Ignores programmatically using the Snyk Policies REST API with the snyk/asset/finding/v1 identifier for asset-scoped ignore management.
+---
+
 # Consistent Ignores for Snyk Code API
 
 You can manage ignores individually through the [Snyk Policies API (REST)](../../../../snyk-api/reference/policies.md).&#x20;

@@ -1,3 +1,8 @@
+---
+description: >-
+  Create and scan a Google Cloud Environment in Snyk from the Snyk Web UI to detect cloud configuration issues.
+---
+
 # Step 3: Create and scan a Cloud Environment for Google (Web UI)
 
 {% hint style="info" %}

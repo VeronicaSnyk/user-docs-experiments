@@ -1,3 +1,8 @@
+---
+description: >-
+  Import JavaScript repositories from supported SCM integrations to scan for open-source vulnerabilities.
+---
+
 # SCM integrations for JavaScript
 
 You can import JavaScript repositories from any SCM integration supported by Snyk. See [Organization level integrations](../../../developer-tools/scm-integrations/organization-level-integrations/). After the import, Snyk analyzes your Projects based on their supported manifest files.

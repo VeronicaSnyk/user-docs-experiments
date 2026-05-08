@@ -1,3 +1,7 @@
+---
+description: Automate business context and notifications across your asset inventory by creating Snyk Essentials policies that run on a schedule and apply actions to filtered assets.
+---
+
 # Assets policies
 
 ## Overview

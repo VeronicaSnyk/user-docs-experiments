@@ -1,3 +1,7 @@
+---
+description: Use Snyk Broker to connect Snyk with SCMs hosted in a private network, enabling secure scanning of your code through an open-source proxy during your pilot deployment.
+---
+
 # Configure self-hosted SCM
 
 {% include "../../../../.gitbook/includes/pilot-guide-toc.md" %}

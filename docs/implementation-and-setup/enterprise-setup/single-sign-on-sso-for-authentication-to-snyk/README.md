@@ -1,3 +1,7 @@
+---
+description: Connect your corporate identity provider to Snyk so users authenticate through SSO and are automatically provisioned.
+---
+
 # Single Sign-On (SSO) for authentication to Snyk
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+description: View dependency and license information for all Projects in your Group or Organization, with filters for severity, Project type, and specific packages.
+---
+
 # Dependencies and licenses
 
 You can [view dependencies](view-dependencies.md) and [license information](view-licenses.md) for all Projects in your Group or Organization using the **Dependencies** option in your Group or Organization menu.

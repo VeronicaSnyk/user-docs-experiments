@@ -1,3 +1,7 @@
+---
+description: Add Snyk Studio to JetBrains AI Assistant to scan AI-generated code for vulnerabilities using the Snyk MCP server.
+---
+
 # JetBrains AI assistant
 
 You can access Snyk Studio, including Snyk's MCP server, in JetBrains AI Assistant to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server will ask for trust and trigger authentication if necessary.
@@ -53,7 +57,7 @@ Reload the IDE window for the changes to apply.
 
 Verify that the Snyk MCP Server is available by checking the Status column in the MCP configuration and requesting it to list the tools it has available.
 
-<figure><img src="../../../.gitbook/assets/image3 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/imageadd-sso-details-okta.png" alt=""><figcaption></figcaption></figure>
 
 \
 As a one-time setup, authenticate and trust the current Project directory. If required, the agentic workflow will likely manage this automatically.

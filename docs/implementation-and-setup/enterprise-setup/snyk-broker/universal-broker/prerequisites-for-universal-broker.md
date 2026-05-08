@@ -1,3 +1,7 @@
+---
+description: Meet the system, network, and authentication requirements before installing the Universal Broker snyk-broker-config CLI tool.
+---
+
 # Prerequisites for Universal Broker
 
 {% hint style="info" %}

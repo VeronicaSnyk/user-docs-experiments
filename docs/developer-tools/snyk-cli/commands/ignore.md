@@ -1,3 +1,7 @@
+---
+description: Modify your .snyk policy file to ignore a specific vulnerability issue by ID, path, expiry, or reason.
+---
+
 # Ignore
 
 ## Usage and description
@@ -125,19 +129,19 @@ Default: global
 
 ### Ignore a specific vulnerability with the expiry and reason specified
 
-```
+```bash
 $ snyk ignore --id='npm:qs:20170213' --expiry='2021-01-10' --reason='Module not affected by this vulnerability'
 ```
 
 ### Ignore a specific vulnerability with the expiry, a resource path, and reason specified
 
-```
+```bash
 $ snyk ignore --id='SNYK-JS-PATHPARSE-1077067' --expiry='2021-01-10' --path='nyc@11.9.0 > istanbul-lib-report@1.1.3 > path-parse@1.0.5' --reason='Module not affected by this vulnerability
 ```
 
 ### Ignore a specific vulnerability with an expiry date and path specified
 
-```
+```bash
 $ snyk ignore --id='SNYK-JS-PATHPARSE-1077067' --expiry='2021-01-10' --path='nyc@11.9.0
 ```
 
@@ -151,7 +155,7 @@ File: terraform\environment\com\iam.tf
 
 The corresponding `snyk ignore` command would be:
 
-```
+```bash
 $ snyk ignore --id=SNYK-CC-TF-118 --path="terraform\environment\com\iam.tf > resource > aws_iam_role[OrganizationAccountAccessRole] > assume_role_policy['Statement'][0]"
 ```
 
@@ -165,13 +169,13 @@ File: terraform/environment/com/iam.tf
 
 The corresponding `snyk ignore` command would be:
 
-```
+```bash
 $ snyk ignore --id=SNYK-CC-TF-118 --path="terraform/environment/com/iam.tf > resource > aws_iam_role[OrganizationAccountAccessRole] > assume_role_policy['Statement'][0]"
 ```
 
 ### Ignore a specific vulnerability for 30 days
 
-```
+```bash
 $ snyk ignore --id=npm:tough-cookie:20160722
 ```
 
@@ -181,7 +185,7 @@ Ignore a specific file.
 
 The rule created in the `.snyk` file is used by `snyk test --unmanaged` until 2031-01-20, with a description as a reference for the future.
 
-```
+```bash
 $ snyk ignore --file-path='deps/curl-7.58.0/src/tool_msgs.c' --expiry='2031-01-20' --reason='patched file'
 ```
 
@@ -191,7 +195,7 @@ To ignore files matching a glob expression, add them to a specific group.
 
 This applies to Snyk Code; it does not apply to Snyk Open Source except `unmanaged`, to Container, or to IaC.
 
-```
+```bash
 $ snyk ignore --file-path='**/vendor/**/*.cpp' --file-path-group='global'
 ```
 

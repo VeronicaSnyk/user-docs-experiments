@@ -1,3 +1,8 @@
+---
+description: >-
+  Use Snyk Agent Fix to automatically generate and apply code fixes for security vulnerabilities in your source code.
+---
+
 # Fix code vulnerabilities automatically
 
 {% hint style="info" %}
@@ -93,7 +98,7 @@ Snyk Agent Fix highlights all identified vulnerabilities that can be automatical
 
 Opening the vulnerability gives us details on where the issue is and allows us to generate a fix using Snyk Agent Fix.
 
-<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption><p>Opening the Snyk Code vulnerability panel</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/opening-snyk-code-vulnerability-panel.png" alt=""><figcaption><p>Opening the Snyk Code vulnerability panel</p></figcaption></figure>
 
 After you select Generate Fix using Snyk DeepCode AI, the system will analyze your code and generate up to five potential fixes. After you apply a fix, Snyk Agent Fix automatically retests the fix for quality using Snyk Code's engine.
 
@@ -103,7 +108,7 @@ The result, in this case, is five fixes, which you can navigate through to decid
 
 When you apply the fix, you will be guided to where the new code has been introduced. After you save and rescan, the vulnerability will disappear.
 
-<figure><img src="../../../.gitbook/assets/image (26) (1).png" alt=""><figcaption><p>Vulnerability has been fixed</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vulnerability-has-fixed.png" alt=""><figcaption><p>Vulnerability has been fixed</p></figcaption></figure>
 
 ## Limitations
 

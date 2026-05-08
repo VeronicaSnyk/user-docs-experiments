@@ -1,3 +1,7 @@
+---
+description: Review workflow diagrams for the Universal Broker setup steps including creating deployments, connections, and integrations.
+---
+
 # Universal Broker workflow diagrams
 
 The following workflow diagrams illustrate the steps that are implemented in the `snyk broker config` tool when you use the commands to automate. The same workflows are implemented when you use the API.

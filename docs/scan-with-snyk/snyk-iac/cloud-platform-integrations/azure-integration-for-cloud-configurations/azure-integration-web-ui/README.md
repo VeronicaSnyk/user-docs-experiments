@@ -1,3 +1,8 @@
+---
+description: >-
+  Onboard your Azure subscription to Snyk using the Snyk Web UI to start scanning cloud configurations.
+---
+
 # Azure Integration: Web UI
 
 The steps follow to onboard an Azure subscription to Snyk via the API:

@@ -1,3 +1,8 @@
+---
+description: >-
+  Add Amazon ECR container images to Snyk for continuous vulnerability scanning and monitoring.
+---
+
 # Amazon Elastic Container Registry (ECR) - add images to Snyk
 
 Snyk scans and monitors your Amazon ECR container images by evaluating the tags as they are in your ECR repositories.

@@ -1,3 +1,7 @@
+---
+description: Invite stakeholders, configure notifications, and provide training to complete your initial enterprise Snyk rollout.
+---
+
 # Initial team rollout
 
 Invite your stakeholders to explore Snyk features and integrate security into their workflows. After this step, your teams can fix issues, monitor pipelines, and manage vulnerabilities using integrations like Jira.

@@ -1,3 +1,8 @@
+---
+description: >-
+  Use the Snyk Dep Graph API to submit dependency graphs from Bazel builds for vulnerability testing.
+---
+
 # Dep Graph API
 
 {% hint style="info" %}
@@ -14,7 +19,7 @@ Follow these basic steps:
 1. For each type of dependency, for example, Maven, Cocoapods, create a [Dep Graph JSON object](https://github.com/snyk/dep-graph) listing all the dependency packages and versions. See [Example of Snyk for Bazel](example-of-snyk-for-bazel.md).
 2.  As part of a Bazel test rule, send the Dep Graph JSON object as a POST request to the endpoint [Test Dep Graph](../../../snyk-api/reference/test-v1.md#test-dep-graph), along with your [auth token](../../../snyk-api/authentication-for-api/). An example curl request follows:
 
-    ```
+    ```bash
     curl -X POST 'https://api.snyk.io/v1/test/dep-graph' \
       -H 'Authorization: token {{your token}}' \
       -H 'Content-Type: application/json; charset=utf-8' \

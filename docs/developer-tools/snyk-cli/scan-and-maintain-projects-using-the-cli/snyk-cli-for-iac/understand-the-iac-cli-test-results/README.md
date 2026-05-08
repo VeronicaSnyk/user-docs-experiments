@@ -1,3 +1,7 @@
+---
+description: Interpret the output from snyk iac test to understand detected misconfigurations and their severity.
+---
+
 # Understand the IaC CLI test results
 
 {% hint style="info" %}
@@ -11,7 +15,7 @@ Snyk Infrastructure as Code offers additional CLI `iac test` results in Snyk CLI
 
 To use the new IaC CLI output results, install the latest Snyk CLI version or update to this version, for example, by entering:
 
-```
+```bash
 npm install snyk -g 
 ```
 

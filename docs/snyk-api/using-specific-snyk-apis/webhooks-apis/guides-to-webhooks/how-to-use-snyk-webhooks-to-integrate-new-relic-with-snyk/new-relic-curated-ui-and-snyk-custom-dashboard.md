@@ -1,3 +1,7 @@
+---
+description: View Snyk vulnerability data in New Relic's curated UI and build custom dashboards after your webhook integration is active.
+---
+
 # New Relic Curated UI and Snyk Custom Dashboard
 
 Once the Azure Function and the Snyk Webhook are created, you see data coming in for Snyk projects with the configured retest frequency, or projects that you scan manually and where Snyk identifies new issues.

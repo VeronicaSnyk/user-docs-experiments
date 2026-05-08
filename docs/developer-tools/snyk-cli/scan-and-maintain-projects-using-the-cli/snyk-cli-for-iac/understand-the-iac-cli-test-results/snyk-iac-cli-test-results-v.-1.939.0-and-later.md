@@ -1,3 +1,7 @@
+---
+description: Understand the updated IaC CLI test result format introduced in Snyk CLI version 1.939.0 and later.
+---
+
 # Snyk IaC CLI test results (v. 1.939.0 and later)
 
 {% hint style="info" %}
@@ -8,13 +12,13 @@ Snyk CLI analyzes your configuration file for issues and provides information an
 
 For example, when scanning a Terraform file,  run the following command:
 
-```
+```bash
 snyk iac test aws_api_gateway_stage_logging.tf
 ```
 
 The results from running this command follow:
 
-```
+```text
 Snyk Infrastructure as Code
 
 ✔ Test completed.
@@ -54,14 +58,14 @@ These results include a list of issues sorted by severity, where each issue repo
 
 An example of the property path follows.
 
-```
+```text
 resource > aws_api_gateway_stage[denied] > access_log_settingsresource > aws_api_gateway_stage[denied] > access_log_settings
 ```
 
 The following example represents the content of the `aws_api_gateway_stage` block, called "**denied**", which lacks the `access_log_settings` field:
 
 {% code title="aws_api_gateway_stage_logging.tf" %}
-```
+```hcl
 resource "aws_api_gateway_stage" "denied" {
   xray_tracing_enabled = true
 }

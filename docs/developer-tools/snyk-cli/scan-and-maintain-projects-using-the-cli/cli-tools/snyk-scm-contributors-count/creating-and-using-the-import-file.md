@@ -19,7 +19,7 @@ When you apply the `importConfDir` and `importFileRepoType` flags to the command
 
 `importConfDir` - This flag indicates that a query for unmonitored repos should be made and expects a path to a folder (with write privileges) in which to create the json import files, for example :
 
-```
+```bash
 snyk-scm-contributors-count <command> --token TOKEN -- importConfDir /snyk/import/
 ```
 
@@ -27,7 +27,7 @@ By default, this command populates the json import files with all types of unmon
 
 `importFileRepoType` - This flag can be set with the values of `all,` `private`, or `public` (case **insensitive**) to fill the import file with only data from the given repo type, for example:
 
-```
+```bash
 snyk-scm-contributors-count <command> --token TOKEN -- importConfDir /snyk/import/ --importFileRepoType 'private'
 ```
 

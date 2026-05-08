@@ -1,3 +1,7 @@
+---
+description: Scan Maven projects for open-source vulnerabilities in GitHub Actions using the Snyk Maven action.
+---
+
 # Snyk Maven action
 
 This page provides examples of using the Snyk GitHub action for [Maven](https://github.com/snyk/actions/tree/master/maven). For instructions on using the action and further information, see [GitHub Actions for Snyk setup and checking for vulnerabilities](./).

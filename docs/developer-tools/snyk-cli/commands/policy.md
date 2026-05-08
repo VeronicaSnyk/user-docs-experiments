@@ -1,3 +1,7 @@
+---
+description: Display the .snyk policy file for a package to review your configured ignores and patch settings.
+---
+
 # Policy
 
 ## Usage

@@ -1,3 +1,7 @@
+---
+description: Access a curated repository of scripts and tools that solve specific customer use cases with the Snyk API.
+---
+
 # Solutions for specific use cases
 
 Snyk maintains a [repository](https://github.com/snyk-playground/cx-tools) of scripts and tools to solve specific use cases raised by customers.

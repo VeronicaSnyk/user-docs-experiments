@@ -1,3 +1,7 @@
+---
+description: Understand the Tenant level of the Snyk hierarchy and how it encompasses all Groups and Organizations in your enterprise.
+---
+
 # Tenant
 
 {% hint style="info" %}

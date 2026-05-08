@@ -1,3 +1,7 @@
+---
+description: Access pre-built Snyk reports at the Tenant level to manage and improve your application security posture across exposure, remediation, compliance, prevention, and education.
+---
+
 # Reports tab
 
 {% hint style="info" %}

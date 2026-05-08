@@ -1,3 +1,7 @@
+---
+description: Forward Snyk audit logs to AWS CloudTrail Lake to run SQL-based queries and retain logs for up to seven years.
+---
+
 # AWS CloudTrail Lake
 
 {% hint style="info" %}

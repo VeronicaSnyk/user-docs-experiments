@@ -1,3 +1,8 @@
+---
+description: >-
+  Configure AWS credentials for the Snyk IaC describe command to detect unmanaged AWS resources.
+---
+
 # Configure AWS provider
 
 ## Authentication for AWS provider
@@ -8,7 +13,7 @@ The `iac describe` command supports a [named profile](https://docs.aws.amazon.co
 
 If you are using an [IAM role](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html) as an authorization tool, which is considered a good practice, you can still use `iac describe` by defining a profile for the role in your `~/.aws/config` file.
 
-```
+```json
 [profile snykrole]
 role_arn = arn:aws:iam::123456789012:role/<NAMEOFTHEROLE>
 source_profile = user # profile to assume the role
@@ -17,7 +22,7 @@ region = eu-west-3
 
 You can now use `iac describe` by overriding the profile setting.
 
-```
+```bash
 $ AWS_PROFILE=snykrole snyk iac describe
 ```
 
@@ -25,7 +30,7 @@ $ AWS_PROFILE=snykrole snyk iac describe
 
 If you want to use a different set of AWS credentials to read your state on S3, you can override each specific AWS environment variable with the `DCTL_S3_` prefix. The purpose is to have the choice to read a state in a different region from your infrastructure. Remember to use your usual AWS credentials to read the resources of your actual infrastructure.
 
-```
+```bash
 # Export a dedicated AWS named profile (or any other AWS environment variables) to read your state in your S3 backend
 $ export DCTL_S3_PROFILE="s3reader"
 # Export the usual AWS named profile
@@ -40,7 +45,7 @@ $ DCTL_S3_REGION=us-east-1 snyk iac describe --from="tfstate+s3://mybucket/terra
 
 The following code represents the custom role you can assume to run `iac describe` written in HCL.
 
-```
+```hcl
 data "aws_caller_identity" "current" {}
 
 data "aws_iam_policy_document" "assume_role_policy" {
@@ -186,7 +191,7 @@ Deploy this CloudFormation template to create the limited permission role that y
 
 When the stack is deployed, attach the following policy to your IAM user. This allows the user to assume only the role specified. For more information about granting a user access to assume a role, see the [AWS Identity and Access Management User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -215,7 +220,7 @@ There is no automatic way to update the CloudFormation template from the Snyk si
 
 Use the following command:
 
-```
+```bash
 $ aws cloudformation update-stack --stack-name SNYK_STACK_NAME --template-url https://driftctl-cfn-templates.s3.eu-west-3.amazonaws.com/snyk-role.yml --capabilities CAPABILITY_NAMED_IAM
 ```
 
@@ -225,7 +230,7 @@ The `iac describe` command needs access to your cloud provider account so that i
 
 As the AWS documentation recommends, the policy that follows grants only the required permissions.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

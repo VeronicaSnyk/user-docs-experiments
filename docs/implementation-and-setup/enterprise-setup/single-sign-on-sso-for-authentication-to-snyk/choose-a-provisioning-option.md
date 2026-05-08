@@ -1,3 +1,7 @@
+---
+description: Select the right user provisioning option — Open to all, Invitation required, or Custom mapping — for your SSO configuration.
+---
+
 # Choose a provisioning option
 
 {% hint style="warning" %}

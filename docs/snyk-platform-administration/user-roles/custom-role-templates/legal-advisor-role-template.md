@@ -1,3 +1,7 @@
+---
+description: Use this Organization-level role template to allow legal advisors to manage license policies and export reports without accessing Projects.
+---
+
 # Legal Advisor role template
 
 This Organization-level role can manage security and license policies for the Group and view and export reports, but not manage the Group or Organizations or view individual Projects.

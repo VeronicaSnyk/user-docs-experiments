@@ -1,3 +1,7 @@
+---
+description: Use this Organization-level role template to allow users to run snyk test and snyk monitor from the CLI.
+---
+
 # CLI Tester role template
 
 This Organization-level role can use `snyk test` and `snyk monitor`.

@@ -1,3 +1,7 @@
+---
+description: Resolve the HTTP 403 error returned by the Snyk IDE plugin when it cannot reach the Snyk API.
+---
+
 # Server returned HTTP response code 403 for URL
 
 Check the endpoint URL and the authentication information.

@@ -1,3 +1,8 @@
+---
+description: >-
+  Grant Snyk read-only permissions to access your Amazon ECR registry for the first time using an IAM role.
+---
+
 # Enable Snyk permissions to access Amazon Elastic Container Registry (ECR) for the first time
 
 {% hint style="warning" %}

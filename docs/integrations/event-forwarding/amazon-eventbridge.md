@@ -1,3 +1,7 @@
+---
+description: Send Snyk issue and audit events to Amazon EventBridge to integrate with your AWS environment and trigger custom workflows.
+---
+
 # Amazon EventBridge
 
 The [Amazon EventBridge](https://aws.amazon.com/eventbridge/) integration sends Snyk platform events to EventBridge, allowing you to integrate Snyk events into your existing AWS environments. The integration can be configured to send two different types of events:

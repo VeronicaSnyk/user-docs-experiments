@@ -1,3 +1,7 @@
+---
+description: Generate an AI bill of materials for your project using the snyk aibom CLI command.
+---
+
 # AI-BOM
 
 ## Prerequisites

@@ -1,3 +1,7 @@
+---
+description: Find migration guides for transitioning your CI/CD pipelines away from deprecated Snyk images.
+---
+
 # Snyk images guides to migration
 
 Guides are available for the following:

@@ -1,3 +1,7 @@
+---
+description: Understand how Snyk defines and counts billable assets, including repositories and container images, to align your usage with your subscription allocation.
+---
+
 # How Snyk counts assets
 
 ## Billable assets <a href="#billable-assets" id="billable-assets"></a>

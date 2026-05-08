@@ -1,3 +1,7 @@
+---
+description: View, filter, and act on issue cards in a Project to understand vulnerabilities, see fix advice, and manage ignores.
+---
+
 # Issue card information
 
 Issue cards appear on the details page for a Project. You can use available options to do the following:

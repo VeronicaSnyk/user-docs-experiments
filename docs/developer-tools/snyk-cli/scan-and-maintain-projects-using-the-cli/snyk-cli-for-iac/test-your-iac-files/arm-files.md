@@ -1,3 +1,7 @@
+---
+description: Scan Azure Resource Manager (ARM) template files for security misconfigurations using the Snyk CLI.
+---
+
 # ARM files
 
 With Snyk Infrastructure as Code, you can test your configuration files using the CLI.
@@ -8,13 +12,13 @@ Snyk Infrastructure as Code for Azure Resource Manager (ARM) supports scanning J
 
 Enter the following Snyk CLI command:
 
-```
+```bash
 snyk iac test deploy.json
 ```
 
 You can also specify multiple files by appending the file names after each other, for example:
 
-```
+```bash
 snyk iac test file-1.json file-2.json
 ```
 
@@ -24,12 +28,12 @@ Be sure you have the [Bicep CLI installed](https://docs.microsoft.com/en-us/azur
 
 After installing the Bicep CLI, **navigate** to the directory that contains your Bicep files and **convert** the relevant Bicep file to JSON by entering the following:
 
-```
+```bash
 az bicep build -f deploy.bicep
 ```
 
 You can then scan the newly created JSON file in the same way as any other file. Use the following Snyk CLI command:
 
-```
+```bash
 snyk iac test deploy.json
 ```

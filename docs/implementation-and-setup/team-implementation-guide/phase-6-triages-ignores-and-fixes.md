@@ -1,3 +1,7 @@
+---
+description: Triage your vulnerability backlog, apply ignores where appropriate, and use Jira to track and fix issues systematically.
+---
+
 # Phase 6: triages, ignores and fixes
 
 ## Tips for deciding on prioritization

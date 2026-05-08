@@ -1,3 +1,7 @@
+---
+description: Add Snyk Studio to Qodo in VS Code or JetBrains to scan AI-generated code for vulnerabilities using the Snyk MCP server.
+---
+
 # Qodo guide
 
 You can access Snyk Studio, including Snyk's MCP server, in Qodo to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server will ask for trust and trigger authentication if necessary.
@@ -49,7 +53,7 @@ For the full path option, if the `snyk` command is not available, add it by foll
 
 The following example shows a Snyk MCP Server that was successfully configured.
 
-<figure><img src="../../../.gitbook/assets/image (408).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/following-example-shows-snyk-mcp-server-successfully-2.png" alt=""><figcaption></figcaption></figure>
 
 For additional MCP configuration options on VS Code and troubleshooting, consult the official [VS Code MCP server documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
@@ -59,11 +63,11 @@ As a one-time setup, you may need to authenticate and trust the current Project 
 
 These workflows are mostly automatically executed by the underlying model and the agentic code assistant, and you will need to approve them using a browser confirmation dialog. The process should look similar to this:
 
-<figure><img src="../../../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/browser-confirmation-dialog-authenticating-trusting-project.png" alt=""><figcaption></figcaption></figure>
 
 If you need to authenticate and trust the current directory, then proceed and complete the process.
 
-<figure><img src="../../../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vs-code-prompt-authenticate-trust-current-directory-snyk-mcp.png" alt=""><figcaption></figcaption></figure>
 
 ## Examples
 
@@ -88,7 +92,7 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 The following is a suggested instruction for [Qodo best practices](https://docs.qodo.ai/qodo-documentation/qodo-gen/chat/chat-modes/standard-mode/commands/generate-best-practices). Append the following contents to the rules file at `best_practices.md`:
 
 {% code title="best_practices.md" overflow="wrap" %}
-```
+```yaml
 ---
 applyTo: "**"
 ---
@@ -102,7 +106,7 @@ applyTo: "**"
 ```
 {% endcode %}
 
-#### Qodo Workflows
+## Qodo Workflows
 
 Create a custom Snyk workflow to scan and remediate security vulnerabilities. The following is a suggestion for [Qodo workflows](https://docs.qodo.ai/qodo-documentation/qodo-gen/agent/workflows). Append the following contents to a Qodo agent file `remediate-snyk-studio.toml`:
 

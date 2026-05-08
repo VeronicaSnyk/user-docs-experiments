@@ -1,3 +1,7 @@
+---
+description: Build custom Docker images for the Snyk CLI to replace deprecated Snyk images in your CI/CD pipelines.
+---
+
 # User-defined custom images for CLI
 
 ## Context for user-defined custom images for CLI
@@ -58,7 +62,7 @@ docker build <PATH-TO-DOCKERFILE> --tag foobar/snyk:node-lts
 docker push foobar/snyk:node-lts
 ```
 
-### Example: how to use a custom image in a BitBucket pipeline
+## Example: how to use a custom image in a BitBucket pipeline
 
 Compatibility in the BitBucket Pipeline integration is limited to environments supported by the Docker container the integration runs in. Following the Snyk announcement [Decoupling Snyk Scan from Snyk CLI Docker Images](https://updates.snyk.io/decoupling-snyk-scan-from-snyk-cli-docker-images-277502), before v1.0.0, the experience was limited to environments supported by the Snyk CLI Docker Images.
 

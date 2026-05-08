@@ -1,3 +1,7 @@
+---
+description: Set up authorization, token exchange, and refresh flows for your Snyk App using the OAuth2 API with PKCE.
+---
+
 # Set up a Snyk App using the OAuth2 API
 
 The following pages explain how to:

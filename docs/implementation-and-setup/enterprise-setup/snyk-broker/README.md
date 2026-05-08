@@ -1,3 +1,7 @@
+---
+description: Deploy Snyk Broker to connect your private repositories and integrations to Snyk without exposing credentials outside your network.
+---
+
 # Snyk Broker
 
 {% hint style="info" %}

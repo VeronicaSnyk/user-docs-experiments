@@ -1,3 +1,8 @@
+---
+description: >-
+  Download the service account IaC template as the first step to onboarding a Google Cloud Project via the API.
+---
+
 # Step 1: Download service account IaC template (API)
 
 Before you can create a Cloud Environment, you must download an infrastructure as code (IaC) template declaring a tightly-scoped Google service account that gives Snyk permission to scan the configuration of resources in your Google Project.
@@ -13,7 +18,7 @@ To retrieve the IaC template from the [Snyk API](https://apidocs.snyk.io/?versio
 1. In the [Snyk Web UI](https://app.snyk.io/), navigate to **Settings** > **General** > **Organization ID** and copy your Organization ID.
 2. Send a request to the Snyk API in the following format:
 
-```
+```bash
 curl -X POST \
 'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/permissions?version=2022-12-21~beta' \
 -H 'Authorization: token YOUR-API-TOKEN' \
@@ -64,7 +69,7 @@ Before you can use the template to provision the resources, you must unescape th
 1. Download and install [jq](https://stedolan.github.io/jq/download/).
 2. When you are submitting the API request to retrieve the template, append the following to the end of the command:
 
-```
+```bash
 | jq -r .data.attributes.data > snyk_google_iac_template.tf
 ```
 

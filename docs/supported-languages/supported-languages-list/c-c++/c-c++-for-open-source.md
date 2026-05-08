@@ -1,3 +1,8 @@
+---
+description: >-
+  Manage open-source C/C++ dependencies and detect vulnerabilities using Snyk Open Source features.
+---
+
 # C/C++ for open source
 
 Refer to the [C/C++ details ](./)for supported package managers and features.

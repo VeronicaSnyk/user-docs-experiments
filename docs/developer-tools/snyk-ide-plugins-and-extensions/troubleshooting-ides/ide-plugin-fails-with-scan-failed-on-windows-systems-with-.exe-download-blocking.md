@@ -1,3 +1,7 @@
+---
+description: Fix Snyk IDE plugin scan failures on Windows when .exe downloads are blocked by group policies.
+---
+
 # IDE plugin scan fails on Windows systems with .exe download blocking
 
 ## **Problem**

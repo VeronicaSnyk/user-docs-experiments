@@ -1,3 +1,8 @@
+---
+description: >-
+  Analyze your Dockerfile with Snyk Container to detect vulnerable base images and receive upgrade recommendations.
+---
+
 # Scan your Dockerfile
 
 Snyk Container allows you to analyze your Dockerfile and scan base images from the Dockerfile.

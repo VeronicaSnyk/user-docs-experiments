@@ -1,3 +1,7 @@
+---
+description: Manage Snyk users programmatically using the Web UI and REST API to provision, update, and remove members.
+---
+
 # User management with the API
 
 {% hint style="info" %}

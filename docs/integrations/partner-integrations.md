@@ -1,3 +1,7 @@
+---
+description: Explore Snyk partner integrations across 17 categories, from API security and compliance to pipeline management and notifications.
+---
+
 # Partner integrations
 
 Explore our 17 integration categories for Snyk Partner solutions below. Click on a category to view specific partner offerings.

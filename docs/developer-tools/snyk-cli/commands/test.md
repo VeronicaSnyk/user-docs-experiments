@@ -1,3 +1,7 @@
+---
+description: Scan your project for open-source vulnerabilities and license issues using the snyk test CLI command.
+---
+
 # Test
 
 ## Usage

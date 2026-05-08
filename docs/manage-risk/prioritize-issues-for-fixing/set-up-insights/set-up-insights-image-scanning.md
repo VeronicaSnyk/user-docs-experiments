@@ -1,3 +1,7 @@
+---
+description: Scan your container images with Snyk Container to enable risk factor analysis and allow Snyk to bridge development and deployment states for accurate prioritization.
+---
+
 # Set up Insights: image scanning
 
 To determine the risk factors and prioritize your Code, Open Source, and Container issues, you must scan your container images using [Snyk Container](../../../scan-with-snyk/snyk-container/).

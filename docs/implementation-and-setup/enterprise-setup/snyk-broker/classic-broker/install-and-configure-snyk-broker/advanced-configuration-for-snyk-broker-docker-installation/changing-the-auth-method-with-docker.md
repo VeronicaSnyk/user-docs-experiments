@@ -1,3 +1,7 @@
+---
+description: Override the default authentication method for a Snyk Broker integration by modifying the accept.json configuration.
+---
+
 # Changing the auth method with Docker
 
 Each integration has an auth method set by default, with the exact method varying by service.

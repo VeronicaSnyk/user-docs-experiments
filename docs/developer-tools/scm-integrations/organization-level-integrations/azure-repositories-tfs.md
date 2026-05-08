@@ -1,3 +1,7 @@
+---
+description: Connect Snyk to Azure Repositories to continuously scan your Azure DevOps Projects for open-source vulnerabilities.
+---
+
 # Azure Repositories (TFS)
 
 {% hint style="info" %}
@@ -7,7 +11,7 @@ Integration with Azure DevOps Server 2020 and above, also known as TFS, is avail
 Snyk supports only Git. Snyk does not currently support integration with Team Foundation Version Control (TFVC).
 {% endhint %}
 
-### Prerequisites for Azure Repositories (TFS) integration
+## Prerequisites for Azure Repositories (TFS) integration
 
 * [Snyk Organization Admin](../../../snyk-platform-administration/user-roles/pre-defined-roles.md) user role.
 * An Azure project. If you do not have a project yet, create one in [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops) or set one up in an [on-premise Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops) instance.

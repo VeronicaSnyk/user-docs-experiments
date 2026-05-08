@@ -1,3 +1,7 @@
+---
+description: Snapshot container image dependencies and continuously monitor them for new vulnerabilities using snyk container monitor.
+---
+
 # Container monitor
 
 ## Usage

@@ -1,3 +1,7 @@
+---
+description: Set up Group-level SCM integrations to gain visibility into all application assets and pull developer metadata across your Organization.
+---
+
 # Group-level integrations
 
 Group-level SCM integrations provide broader visibility into all the application assets for a given customer and pull in the additional application context and, or metadata, for example, information on developers, commits, and so on.
@@ -37,11 +41,11 @@ Each connected integration enables you to:
 
 See the [Integration syncing time](../../../integrations/integrate-with-snyk.md#integrations-syncing-time) for more details about the time required to sync for each action.
 
-### Prerequisites
+## Prerequisites
 
 To configure a Group-level integration, you must be a Group Admin or have a custom role that includes the `Edit Snyk Essentials` permissions under the [Group-level permissions](../../../snyk-platform-administration/user-roles/pre-defined-roles.md#group-level-permissions).
 
-### Wildcard SCM integration
+## Wildcard SCM integration
 
 The wildcard integration allows you to use a special character to detect and integrate multiple SCM organizations simultaneously.
 

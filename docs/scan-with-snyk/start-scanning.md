@@ -1,3 +1,8 @@
+---
+description: >-
+  Start scanning your code, dependencies, containers, and IaC files manually or automatically using Snyk.
+---
+
 # Start scanning
 
 You can use Snyk to scan your code manually and automatically using the [Snyk CLI](start-scanning.md#scan-using-the-cli), the [Snyk web UI](start-scanning.md#scan-using-the-web-ui), the [Snyk API](start-scanning.md#scan-using-the-api), and by running [PR Checks](start-scanning.md#using-pr-checks).

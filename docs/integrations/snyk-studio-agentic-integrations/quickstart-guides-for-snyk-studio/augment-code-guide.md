@@ -1,3 +1,7 @@
+---
+description: Add Snyk Studio to Augment Code to scan AI-generated code for vulnerabilities using the Snyk MCP server.
+---
+
 # Augment Code guide
 
 Add Snyk Studio to Augment Code to secure code generated with agentic workflows through a Large Language Model (LLM). You can achieve this in several ways. When you use it for the first time, Snyk Studio asks for trust and, if necessary, trigger authentication.
@@ -32,7 +36,7 @@ If the `snyk` command is not available, add it by following the instructions on 
 
 The MCP Server starts automatically. The following example shows a Snyk MCP Server that was successfully configured and started.
 
-<figure><img src="../../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/setting-snyk-mcp-server-7.png" alt=""><figcaption></figcaption></figure>
 
 As a one-time setup, authenticate and trust the current Project directory. If required, the agentic workflow will likely manage this automatically.
 
@@ -50,7 +54,7 @@ Scan this directory for code security & dependency vulnerabilities and security 
 
 Augment Code indicates that this request is related to security vulnerability scanning and calls the Snyk MCP Server for various scans.
 
-<figure><img src="../../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/scanning-security-vulnerabilities-href-scanning-security.png" alt=""><figcaption></figcaption></figure>
 
 ### "Secure at inception" rules
 
@@ -58,7 +62,7 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 
 The following is a suggested instruction for Augment Code user guidelines:
 
-```
+```text
 - Always run Snyk Code scanning tool for new first party code generated.
 - Always run Snyk SCA scanning tool for new dependencies or dependency updates.
 - If any security issues are found based on newly introduced or modified code or dependencies, attempt to fix the issues using the results context from Snyk.
@@ -66,4 +70,4 @@ The following is a suggested instruction for Augment Code user guidelines:
 - Repeat this process until no issues are found.
 ```
 
-<figure><img src="../../../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/secure-inception-rules-3.png" alt=""><figcaption></figcaption></figure>

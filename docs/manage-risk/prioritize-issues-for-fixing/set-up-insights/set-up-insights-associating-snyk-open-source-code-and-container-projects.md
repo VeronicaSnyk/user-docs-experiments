@@ -1,3 +1,7 @@
+---
+description: Link Snyk Open Source, Code, and Container Projects so Snyk can understand their relationships and use container composition as a proxy for vulnerability prioritization.
+---
+
 # Set up Insights: associating Snyk Open Source, Code, and Container Projects
 
 After you have set up insights, Snyk can set up the required linking for the chosen application.
@@ -38,7 +42,7 @@ See the examples at the end of this section.
 * The tag must follow the specified format,
 * The Projects do not have to be in the same Snyk Organization to be mapped but must be in the same Snyk Group,
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-06 at 23.29.29.png" alt="Project tags"><figcaption><p>Project tags</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/project-tags.png" alt="Project tags"><figcaption><p>Project tags</p></figcaption></figure>
 
 ## Examples of Project tags
 
@@ -66,7 +70,7 @@ To map these associations, you would have the following tags set up:
 
 ### **Monorepo to many images**
 
-<figure><img src="../../../.gitbook/assets/Example - Multiple repos Single image-2.png" alt="Example: monorepo to multiple images"><figcaption><p>Example: monorepo to multiple images</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Example - Multiple repos Single image-okta-saml-application-creation.png" alt="Example: monorepo to multiple images"><figcaption><p>Example: monorepo to multiple images</p></figcaption></figure>
 
 In this example, the application team is using a monorepo approach. The contents of the repository are built into different container images as they may be run separately.
 
@@ -100,7 +104,7 @@ See the [Project Update documentation](../../../snyk-api/reference/projects-v1.m
 
 Example:
 
-```
+```text
  "tags": [
     {
       "key": "component",

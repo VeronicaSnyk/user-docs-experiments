@@ -1,3 +1,7 @@
+---
+description: Forward Snyk issue events and platform audit events to external platforms for custom alerting, reporting, and automation.
+---
+
 # Event Forwarding
 
 Snyk event forwarding integrations allow you to push Snyk platform events directly to certain products on other platforms, enabling you to set up custom alerting, build your own reporting, trigger automation, and more.&#x20;

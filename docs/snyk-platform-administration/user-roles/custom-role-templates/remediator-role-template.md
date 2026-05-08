@@ -1,3 +1,7 @@
+---
+description: Use this Organization-level read-only role template to help developers with issue assessment and prioritization.
+---
+
 # Remediator role template
 
 This is an Organization-level role, meaning a Remediator can only view certain areas and functions in Snyk and cannot create PRs, Projects, and more.

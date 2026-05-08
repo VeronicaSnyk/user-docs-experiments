@@ -1,3 +1,7 @@
+---
+description: Manage users at the Tenant level to control access across all Groups and Organizations in your Snyk workspace.
+---
+
 # Manage users in a Tenant
 
 {% hint style="info" %}

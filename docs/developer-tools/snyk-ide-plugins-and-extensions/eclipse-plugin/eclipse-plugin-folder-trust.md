@@ -1,3 +1,7 @@
+---
+description: Grant folder trust in the Eclipse plugin to allow Snyk to scan code in your workspace directories.
+---
+
 # Eclipse plugin folder trust
 
 The Snyk plugin asks for folder trust before allowing scans to be run against new folders.&#x20;
@@ -12,4 +16,4 @@ After a trust is granted, Snyk will not ask for trust on the opened Project fold
 
 To revoke an existing folder trust, you can navigate to the Snyk plugin preferences in Eclipse and edit the **Trusted Folders** setting to specify which paths are safe to scan.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-01-09 at 8.33.24 AM.png" alt="Snyk Eclipse plugin preferences Trusted Folders setting"><figcaption><p>Snyk Eclipse plugin preferences Trusted Folders setting</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/snyk-eclipse-plugin-preferences-trusted-folders-setting.png" alt="Snyk Eclipse plugin preferences Trusted Folders setting"><figcaption><p>Snyk Eclipse plugin preferences Trusted Folders setting</p></figcaption></figure>

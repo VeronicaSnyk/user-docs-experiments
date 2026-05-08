@@ -1,3 +1,7 @@
+---
+description: Install and configure Universal Broker using the snyk-broker-config CLI tool, following guided workflows to create deployments, connections, and Organization integrations.
+---
+
 # Basic steps to install and configure Universal Broker
 
 {% hint style="info" %}
@@ -61,7 +65,7 @@ This returns an install ID, a client ID, and a client secret, which are all need
 
 * After you install, start the Universal Broker Create Connection workflow.
 
-```
+```text
 > snyk-broker-config workflows connections create
 Using https;//api.snyk.io (or https://api.REGION.snyk.io)
 Universal Broker Create Connection workflow
@@ -70,7 +74,7 @@ Universal Broker Create Connection workflow
 
 * Type your Snyk API token and press Enter.
 
-```
+```text
 ✓ Valid Snyk Token.
 ✓ Tenant Admin role confirmed.
     Have you installed the Broker App against an Org? (Y/N)
@@ -78,7 +82,7 @@ Universal Broker Create Connection workflow
 
 * Type N and press Enter.
 
-```
+```text
 Enter Org ID to install Broker App. Must be in Tenant <uuid returned>.
 (Must be a valid uuid).
 ```
@@ -87,7 +91,7 @@ Enter Org ID to install Broker App. Must be in Tenant <uuid returned>.
 
 The Broker App facilitates the secure connection and communication with the Broker server through OAuth.
 
-```
+```text
 App installed. Please store the following credentials securely:
 - client id: <client ID>
 - ClientSecret: <snyk_client-secret>
@@ -99,7 +103,7 @@ The tool displays the credentials for the Broker App just installed. Be sure to 
 
 * When you have saved your credentials, type Y and press Enter.
 
-```
+```text
 Helpful tip ! Set TENANT_ID, INSTALL_ID as environment values to avoid pasting 
 the values in for every command.
 Now using Tenant ID <current Tenant ID> and Install ID <current Install ID>.
@@ -117,7 +121,7 @@ This includes creating credentials references needed for your connections. Each 
 
 * In response to the prompt, type Y and press Enter.
 
-```
+```text
 Which Connection type do you want to create?
 acr
 artifactory
@@ -130,20 +134,20 @@ artifactory
 
 This example shows creating a GitHub connection. Creating all the other types of connection follows the same process. Each deployment is limited to 25 connections.
 
-```
+```text
 Enter a human-friendly name for your Connection.
 ```
 
 * Enter a connection name to help you identify the connection, for example, github-connection-for-team-x.
 
-```
+```text
 Enter a human-friendly name for your Connection. <name you entered>
 broker_client_url: Broker client url. Must be url.
 ```
 
 * Enter your Broker\_client\_url. Snyk recommends using the default value. You can enter a different value, which is required for container integrations.
 
-```
+```text
 broker_client_url: Broker client url. Must be url. <region-specific URL you entered>
 github_token (Sensitive): No existing Credential Reference for this Connection type. 
 CreateNew
@@ -153,14 +157,14 @@ Env Var Name (e.g., MY_GITHUB_TOKEN). (Must be a valid envvar).
 * Create the credential reference (not the actual credential value). Enter the name of the environment variable which will contain the actual credential value when the Broker client is running, for example, MY\_GITHUB\_TOKEN.
 * Optionally, you can enter a comment to help you keep track of this connection.
 
-```
+```text
 Env Var Name (e.g. MY_GITHUB_TOKEN). (Must be a valid envvar). <MY_GITHUB_TOKEN>
 Comment this is a demo broker connection.
 ```
 
 When you run the Broker client container in a subsequent step, you must add the `-e MY_GITHUB_TOKEN=<SECRET_TOKEN_VALUE>`. In a production setup, these values are mounted from the secrets vault.
 
-```
+```text
 Connection created with ID <ID number>. Ready to configure integrations 
 to use this connection.
 Connection Create workflow completed.
@@ -172,7 +176,7 @@ The connection is now created.
 
 You can use the following workflow to display details about the connection.
 
-```
+```text
 > snyk-broker-config workflows connections get
 ```
 
@@ -180,7 +184,7 @@ You can use the following workflow to display details about the connection.
 
 Exporting the INSTALL\_ID avoids this optional step in your terminal session in the future. The deployment details follow.
 
-```
+```text
 Now using Deployment <name>.
 Selected Connection ID <number>. 
 Ready to configure integrations to use this connection.
@@ -188,20 +192,20 @@ Ready to configure integrations to use this connection.
 
 Details of the connection follow: `connection ID`; `connection type (broker_connection)`; `attributes: deployment_id, identifier, name, and secrets-primary and secondary`, each with the `status`, `encrypted`, `expires_at`, and `nonce`; `configuration required: broker-client-url` and `github_token values`; `type: github.`
 
-```
+```text
 Connection Detail Workflow completed.
 ```
 
 ## Integrate your connection with an Organization that  uses Universal Broker
 
-```
+```text
 > snyk-broker-config workflows connections integrate
 Enter the OrgID you want to integrate.. (Must be a valid  uuid).
 ```
 
 * Enter the ID of the Organization where you want to use the newly created Broker connection.
 
-```
+```text
 Enter the OrgID you want to integrate.. (Must be a valid uuid). <uuid-entered>
 Connection <number returned> (type:github) integrated with <integration <number>.
 
@@ -224,7 +228,7 @@ For automated workflows or bulk updates, you can manage this setting using the S
 
 ## Run the Broker client
 
-```
+```bash
 docker run -d --restart=always \
 -p 8000:8000 \
 -e DEPLOYMENT_ID=<DEPLOYMENT_ID_JUST_CREATED> \
@@ -245,7 +249,7 @@ When the Broker client has started, the connection is ready to use, in this case
 
 To integrate your connection with another Organization, run the `integrate` command again and enter the new Organization ID. Repeat as needed to connect with multiple Organizations.
 
-```
+```text
 > snyk-broker-config workflows connections integrate
 ```
 

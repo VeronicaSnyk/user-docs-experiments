@@ -1,8 +1,12 @@
+---
+description: Install Snyk Studio directly in Factory Terminal/IDE to scan AI-generated code for security vulnerabilities.
+---
+
 # Factory Terminal/IDE guide
 
 Access Snyk Studio, including Snyk's MCP server, in Factory Terminal/IDE to secure code generated with agentic workflows through an LLM. You can achieve this by installing Snyk Studio directly.
 
-### Install Factory Terminal/IDE
+## Install Factory Terminal/IDE
 
 Install Factory Droid to your local machine from the [Factory website](https://docs.factory.ai/cli/getting-started/quickstart).
 
@@ -10,7 +14,7 @@ Install Factory Droid to your local machine from the [Factory website](https://d
 
 Add the Snyk entry to `~/.factory/mcp.json`. To learn more, visit the official [Factory documentation](https://docs.factory.ai/cli/configuration/mcp#configuration) for more information.
 
-```
+```json
 {
   "mcpServers": {
     "Snyk": {
@@ -70,11 +74,11 @@ Scan this directory for code security & dependency vulnerabilities and security 
 ```
 {% endcode %}
 
-<figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Droid prompt to scan code for SAS and SCA issues</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/droid-prompt-scan-code-sas-sca-issues.png" alt=""><figcaption><p>Droid prompt to scan code for SAS and SCA issues</p></figcaption></figure>
 
 Factory indicates that this request is related to security vulnerability scanning and calls the Snyk MCP Server for various scans.
 
-<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption><p>Factory call to Snyk MCP Server</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/factory-call-snyk-mcp-server.png" alt=""><figcaption><p>Factory call to Snyk MCP Server</p></figcaption></figure>
 
 Factory is then able to gather all the security scanning results, both code (SAST) and dependencies (SCA), and based on recommendations and contextual information provided by the Snyk MCP Server, it is now able to provide code changes that address some or all of the security vulnerabilities that were found.
 
@@ -85,7 +89,7 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 The following is a suggested instruction for [Factory AGENTS.md](https://docs.factory.ai/cli/configuration/agents-md). Append the following contents to the rules file at `AGENTS.md`:
 
 {% code title="AGENTS.md" overflow="wrap" %}
-```
+```yaml
 ---
 alwaysApply: true
 always_on: true

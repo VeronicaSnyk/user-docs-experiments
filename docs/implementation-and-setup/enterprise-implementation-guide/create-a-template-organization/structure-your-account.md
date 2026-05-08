@@ -1,3 +1,7 @@
+---
+description: Choose the right Organization structure — team-based, product-based, or SCM-based — to match your reporting and access needs.
+---
+
 # Structure your account
 
 ## Plan your Organization structure

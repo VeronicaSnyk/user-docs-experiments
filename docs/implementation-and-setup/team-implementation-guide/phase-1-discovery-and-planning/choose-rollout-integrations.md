@@ -1,3 +1,7 @@
+---
+description: Select the integrations to implement first based on your SDLC stages, avoiding duplicate reporting across integration types.
+---
+
 # Choose rollout integrations
 
 ## **SDLC integration points**

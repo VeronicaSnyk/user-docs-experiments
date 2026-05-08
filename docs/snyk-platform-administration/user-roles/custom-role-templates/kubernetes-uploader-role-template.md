@@ -1,3 +1,7 @@
+---
+description: Use this Organization-level role template to allow a service account to publish Kubernetes Monitor and Insights Collector data.
+---
+
 # Kubernetes Uploader role template
 
 This Organization-level role can publish Kubernetes Monitor and Insights Collector data to Snyk and is often tied to a [**Service Account**](../../../implementation-and-setup/enterprise-setup/service-accounts/).

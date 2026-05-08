@@ -1,3 +1,8 @@
+---
+description: >-
+  Integrate Snyk with Nexus Container Registry to import and monitor container images for vulnerabilities.
+---
+
 # Integrate with Nexus Container Registry
 
 {% hint style="info" %}

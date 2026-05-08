@@ -1,3 +1,7 @@
+---
+description: Use your own container registry and image pull secret in the Snyk Broker Helm chart instead of the default public images.
+---
+
 # Image repository, tab, and Image Pull Secret
 
 You can choose to use your own container registry and tag instead of the public images by customizing the `values.yaml` file to specify your container registry uri and tag.

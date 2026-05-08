@@ -1,3 +1,7 @@
+---
+description: Configure automated PR checks and CI/CD pipeline gates to stop new vulnerabilities from entering your applications.
+---
+
 # Automate prevention measures
 
 Once you have visibility into your existing security posture, implement prevention and gating systems to stop new vulnerabilities from entering your applications. By automating these checks, you empower developers to take responsibility for the security of their specific changes without manually triaging every issue.

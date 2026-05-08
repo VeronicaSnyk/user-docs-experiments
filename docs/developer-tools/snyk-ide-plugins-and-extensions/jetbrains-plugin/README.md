@@ -1,3 +1,7 @@
+---
+description: Install and configure the Snyk JetBrains plugin to scan for vulnerabilities inside IntelliJ IDEA and other JetBrains IDEs.
+---
+
 # JetBrains plugin
 
 ## **Scan early, fix as you develop: elevate your security posture**

@@ -1,3 +1,8 @@
+---
+description: >-
+  Mirror your Bitbucket Server organizations and repositories into Snyk using the snyk-api-import utilities.
+---
+
 # Mirroring Bitbucket Server organizations and repos in Snyk
 
 You can use four commands in the available utils to import the entirety of Bitbucket Server repos into Snyk. You must configure both the both the Bitbucket Server token and Snyk token as environment variables to proceed.

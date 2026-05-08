@@ -1,3 +1,7 @@
+---
+description: View and edit Project settings including notification preferences, test frequency, and SCM integration configuration.
+---
+
 # View and edit Project settings
 
 Select the **Settings** tab on the Project listing or details page to view and edit Project settings:

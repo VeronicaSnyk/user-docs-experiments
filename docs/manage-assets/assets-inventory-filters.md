@@ -1,3 +1,7 @@
+---
+description: Filter your asset inventory using quick filters and advanced criteria to find specific assets by risk factors, repository freshness, asset class, and coverage gaps.
+---
+
 # Assets inventory filters
 
 From the **Inventory** > **All Assets** tab, you can use the search bar to look for specific keywords across assets. Results can include the asset name and data retrieved from the **Attributes** tab of an asset.
@@ -84,7 +88,7 @@ You can filter unenriched repositories directly from the banner by selecting the
 
 <figure><img src="../.gitbook/assets/inventory_all_assets_no_of_repos.png" alt=""><figcaption></figcaption></figure>
 
-#### Unenriched assets with Group SCM integration
+### Unenriched assets with Group SCM integration
 
 If you use a Group-level integration, the banner shows assets not discovered through that integration. Although the integration is in place, some assets are not being pulled in. Possible reasons for unrenriched assets:
 
@@ -104,7 +108,7 @@ To resolve this issue, select the unenriched repositories that are not being dis
 
 Example:
 
-<figure><img src="../.gitbook/assets/image (416).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/assets-discovered-group-organization-level-integrations.png" alt=""><figcaption></figcaption></figure>
 
 Check if the repository still exists in the SCM. If it was deleted, remove the asset by deleting its Snyk target.
 

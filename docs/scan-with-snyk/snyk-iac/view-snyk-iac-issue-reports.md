@@ -1,3 +1,8 @@
+---
+description: >-
+  View Snyk IaC configuration issues in Snyk reports by filtering for the Configuration issue type.
+---
+
 # View Snyk IaC issue reports
 
 Set the **Issue Type** filter on [Snyk reports](../../manage-risk/analytics/reports-tab/#snyk-reporting-filters) to **Configuration** to view issues in your IaC configuration files.

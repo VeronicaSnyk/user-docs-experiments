@@ -1,3 +1,7 @@
+---
+description: Migrate from the experimental REST Issues API to the GA Issues API with updated request parameters and response fields.
+---
+
 # REST Issues experimental API to GA API migration guide
 
 {% hint style="info" %}

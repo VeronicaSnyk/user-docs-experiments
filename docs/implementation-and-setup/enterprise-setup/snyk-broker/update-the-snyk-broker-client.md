@@ -1,3 +1,7 @@
+---
+description: Update your Snyk Broker Client to the latest version to get new features and bug fixes by repeating your initial installation steps.
+---
+
 # Update the Snyk Broker client
 
 Snyk regularly releases updated versions of the Broker client in order to provide new features, bug fixes, and more. Snyk recommends that you install the updated version of your Broker client regularly to take advantage of bug fixes and new features.

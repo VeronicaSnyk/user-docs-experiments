@@ -1,3 +1,7 @@
+---
+description: Configure SCM integrations, container registries, and Universal Broker in your template Organization to establish a consistent baseline.
+---
+
 # Connect your development tools
 
 To roll out Snyk efficiently at scale, your first major milestone is configuring a Template Organization. Rather than setting up every new team from scratch, this template acts as your master blueprint. By configuring your core tools, source control integrations, and default security behaviors here first, you establish a standardized baseline that can be easily cloned, either manually or using the API, across your entire business.
@@ -321,7 +325,7 @@ If you are setting up Snyk Essentials for asset management with over 1,000 repos
 
 Run the Docker command using the unified `snyk/broker:universal` image and your specific environment variables:
 
-```
+```bash
 docker run --restart always \
   -p 8000:8000 \
   -e DEPLOYMENT_ID=<YOUR_DEPLOYMENT_ID> \
@@ -336,7 +340,7 @@ docker run --restart always \
 
 Deploy using the official Snyk Universal Broker Helm chart. Ensure your secrets are stored securely as Kubernetes secrets.
 
-```
+```bash
 helm pull oci://registry-1.docker.io/snyk/snyk-universal-broker helm install my-snyk-broker oci://registry-1.docker.io/snyk/snyk-universal-broker
 --set deploymentId='YOUR_DEPLOYMENT_ID'
 --set clientId='YOUR_CLIENT_ID'

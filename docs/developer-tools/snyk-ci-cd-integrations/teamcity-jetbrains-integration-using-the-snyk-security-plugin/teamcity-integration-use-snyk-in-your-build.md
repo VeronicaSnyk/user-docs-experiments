@@ -1,3 +1,7 @@
+---
+description: Add a Snyk Security build step to your TeamCity Project to scan for vulnerabilities before deployment.
+---
+
 # TeamCity integration: use Snyk in your build
 
 For any Project, you can add Snyk to your build to scan the code while you build and to fail the build for vulnerabilities, based on your configurations.

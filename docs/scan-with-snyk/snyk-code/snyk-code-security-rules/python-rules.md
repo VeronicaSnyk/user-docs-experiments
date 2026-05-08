@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Python code, including CWE references and OWASP categories.
+---
+
 # Python rules
 
 Each rule includes the following information.

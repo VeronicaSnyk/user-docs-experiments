@@ -1,3 +1,7 @@
+---
+description: Set environment variables for the Snyk Eclipse plugin to customize its runtime behavior and proxy settings.
+---
+
 # Environment variables for the Eclipse plugin
 
 To analyze open-source dependencies and IAC template files, the plugin uses the Snyk CLI. The CLI needs the following environment variables:

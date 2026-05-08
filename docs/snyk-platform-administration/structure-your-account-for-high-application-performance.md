@@ -1,3 +1,7 @@
+---
+description: Apply account structure guidelines for users, Organizations, and Projects to ensure optimal Snyk performance.
+---
+
 # Structure your account for high application performance
 
 To ensure the best experience using Snyk, consider these guidelines when making decisions about your Snyk user accounts, Groups, Organizations, and Projects.

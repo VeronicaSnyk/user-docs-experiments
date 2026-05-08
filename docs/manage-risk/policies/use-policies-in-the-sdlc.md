@@ -1,3 +1,7 @@
+---
+description: Apply Snyk security and license policies across all SDLC stages—from local development and CI/CD to production—to flag issues as early and cost-effectively as possible.
+---
+
 # Use policies in the SDLC
 
 You can apply policies across all stages of the SDLC, from the developer’s local development environment, in the IDE or CLI, through to Git-based workflows and CI/CD, and into production.

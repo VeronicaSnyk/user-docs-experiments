@@ -1,3 +1,7 @@
+---
+description: Update your CircleCI configuration to use the latest Snyk orb version and migrate away from deprecated IaC jobs.
+---
+
 # CircleCI migration
 
 This page explains how to transition away from affected jobs.

@@ -1,3 +1,7 @@
+---
+description: Configure Snyk Studio in Claude Code to run security scans on AI-generated code using the Snyk MCP server.
+---
+
 # Claude Code guide
 
 You can access Snyk Studio in Claude Code to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server will ask for trust and trigger authentication if necessary.
@@ -22,11 +26,11 @@ This command:
 * Sets up Snyk Studio within Claude Code.
 * Configures Snyk Studio's Secure at inception directives within Claude Code's global rules file.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-09 at 3.23.45 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/install-npx.png" alt=""><figcaption></figcaption></figure>
 
 To verify installation, use the `/mcp` command within Claude:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-09 at 3.26.38 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/verify-installation-use-mcp-command-within-claude.png" alt=""><figcaption></figcaption></figure>
 
 Select **View Tools** to look at all of the commands and tooling Snyk utilizes as part of its execution The descriptions also include instructions specific for the LLM. These are capitalized to help you differentiate. These tools include:
 
@@ -67,7 +71,7 @@ The default ruleset frequency can be adjusted by editing the global `CLAUDE.md` 
 &#x20;For reference, the following are the smart apply rules Snyk places in Claude's global rules file when prompted:
 
 {% code overflow="wrap" %}
-```
+```text
 BEFORE declaring task complete: Run snyk_code_scan tool when a significant change has been made in first party code.
 - This should only apply for Snyk-supported coding language
 - If any security issues are found based on newly introduced or modified code or dependencies, attempt to fix the issues using the results context from Snyk.
@@ -112,7 +116,7 @@ Create or edit the MCP configuration file `~/.claude.json` .
 
 If you have the Snyk CLI installed and accessible on your system path, include the following JSON snippet in the file. You might need to specify the full path to the Snyk executable CLI:
 
-```
+```json
 {
   "mcpServers": {
     "Snyk": {
@@ -135,13 +139,13 @@ If the `snyk` command is not available, add it by following the instructions on 
 
 Run the Snyk MCP Server in `sse` transport mode using the Snyk CLI:
 
-```
+```bash
 snyk mcp -t sse 
 ```
 
 Then run the Claude Code CLI for adding a new MCP server:
 
-```
+```bash
 claude mcp add --transport sse snyk http://127.0.0.1:7695/sse
 ```
 
@@ -151,9 +155,9 @@ If the `snyk` command is not available, add it by following the instructions on 
 
 The following examples shows a Snyk MCP Server that was successfully configured and started.
 
-<figure><img src="../../../.gitbook/assets/image (372).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/following-examples-shows-snyk-mcp-server-successfully.png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (373).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/following-examples-shows-snyk-mcp-server-successfully-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 For additional MCP configuration options on Claude Code and troubleshooting, visit the official [Claude Code MCP documentation](https://docs.anthropic.com/en/docs/claude-code/mcp).
 
@@ -163,13 +167,13 @@ For additional MCP configuration options on Claude Code and troubleshooting, vis
 
 As a one-time setup, you need to authenticate and trust the current Project directory.
 
-<figure><img src="../../../.gitbook/assets/image (374).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/authenticate-snyk-mcp-server.png" alt=""><figcaption></figcaption></figure>
 
 ## Uninstall Snyk Studio
 
 To remove Snyk Studio and its associated ruleset from your environment, use:
 
-```
+```bash
 snyk mcp configure --rm --tool=claude-cli
 ```
 
@@ -179,10 +183,10 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 
 The following is a suggested instruction for creating project rules for use with [Claude Code md files](https://www.anthropic.com/engineering/claude-code-best-practices). Append the following contents to the rules file at `CLAUDE.md`:
 
-<figure><img src="../../../.gitbook/assets/image (381) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/secure-inception-directives.png" alt=""><figcaption></figcaption></figure>
 
 {% code title="CLAUDE.md" overflow="wrap" %}
-```
+```text
 - Always run **snyk_code_scan** tool for new first party code that is generated in a Snyk-supported language.
 - If any security issues are found based on newly introduced or modified code or dependencies, attempt to fix the issues using the results context from **Snyk**.
 - Rescan the code after fixing the issues to ensure that the issues were fixed and that there are no newly introduced issues.

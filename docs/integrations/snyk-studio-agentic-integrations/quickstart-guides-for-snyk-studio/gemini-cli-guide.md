@@ -1,3 +1,7 @@
+---
+description: Configure Snyk Studio in Gemini CLI to run security scans on AI-generated code using the Snyk MCP server.
+---
+
 # Gemini CLI guide
 
 You can access Snyk Studio, including Snyk's MCP server, in Gemini CLI to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, Snyk Studio may ask for trust and trigger authentication.
@@ -61,7 +65,7 @@ To utilize smart scan from install, add the following argument to the npx instal
 The default ruleset frequency can be adjusted by editing Gemini CLI's global `Gemini.md` file. For reference, the following are the smart apply rules Snyk places in Gemini CLI's global rules file when prompted:
 
 {% code overflow="wrap" %}
-```
+```text
 BEFORE declaring task complete: Run snyk_code_scan tool when a significant change has been made in first party code.
 - This should only apply for Snyk-supported coding language
 - If any security issues are found based on newly introduced or modified code or dependencies, attempt to fix the issues using the results context from Snyk.
@@ -86,15 +90,15 @@ Use the Gemini extension to install Snyk Studio. In your terminal, run:
 gemini extensions install https://github.com/snyk/agentic-integration-wrappers
 ```
 
-<figure><img src="../../../.gitbook/assets/image (425).png" alt="Gemini extensions install in the CLI"><figcaption><p>Example of using the Gemini install command in your terminal</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/example-using-gemini-install-command-terminal.png" alt="Gemini extensions install in the CLI"><figcaption><p>Example of using the Gemini install command in your terminal</p></figcaption></figure>
 
 To confirm the extension was installed, run the following command in the Gemini CLI:
 
-```
+```text
 /extensions list
 ```
 
-<figure><img src="../../../.gitbook/assets/image (382).png" alt=""><figcaption><p>Result of the /extensions list terminal command</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/result-extensions-list-terminal-command.png" alt=""><figcaption><p>Result of the /extensions list terminal command</p></figcaption></figure>
 
 To install Snyk Studio manually, use the method that best suits your operating system and local development environment.
 
@@ -155,7 +159,7 @@ If the `snyk` command is not available, add it by following the instructions on 
 
 Run `/mcp list` to confirm the Snyk MCP Server is connected.
 
-<figure><img src="../../../.gitbook/assets/image (383).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/run-mcp-list-confirm-snyk-mcp-server-connected.png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -172,7 +176,7 @@ To practice [Secure at inception](../../../discover-snyk/getting-started/glossar
 Append one of the following contents to the context file at `~/.gemini/GEMINI.md`  &#x20;
 
 {% code title="~/.gemini/GEMINI.md" overflow="wrap" %}
-```
+```text
 # Project security best practices
 
 - Always run **snyk_code_scan** tool for new first party code that is generated in a Snyk-supported language.
@@ -186,6 +190,6 @@ Append one of the following contents to the context file at `~/.gemini/GEMINI.md
 
 To remove Snyk Studio and the associated rulesets from your environment, use:
 
-```
+```bash
 snyk mcp configure --rm --tool=gemini-cli
 ```

@@ -1,3 +1,7 @@
+---
+description: Dynamically assign users to Snyk Groups and Organizations based on roles data from your identity provider.
+---
+
 # Custom mapping
 
 Custom mapping allows you to dynamically assign users to your Snyk Groups and Organizations based on data provided by your Identity Provider (IdP), in order to implement a scaled user provisioning and access model.
@@ -89,7 +93,7 @@ An example of a set of role assertions for a user follows:
 {% hint style="info" %}
 The system also supports comma-separated lists of roles instead of an array.
 
-```
+```json
 {
   "roles": "snyk:group:*:group_viewer, snyk:org:development:org_admin, 
 snyk:org:test-org-N58YhztauHcaMiNfvi5fbL:custom:developer_readonly"
@@ -109,7 +113,7 @@ Custom mapping introduces wildcards, which allow one assertion to assign a user 
 
 Assertions using wildcards take a lower priority than assertions with a specific target. This means that it is possible, for example, to assign a user a default role for all Organizations, and specific roles in others:
 
-```
+```text
 roles: [
         "snyk:org:*:custom:developer_readonly",
         "snyk:org:development:org_admin",
@@ -136,7 +140,7 @@ To find an Organization slug, navigate to the **Settings** page for the Organiza
 
 To find the slug of a Group, navigate to the Group Settings, and find the Group slug under General Settings, which you can copy.
 
-<figure><img src="../../../../.gitbook/assets/image (153).png" alt="Group general settings page, showing the Group slug"><figcaption><p>Group general settings page, showing the Group slug</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/group-general-settings-page-showing-group-slug.png" alt="Group general settings page, showing the Group slug"><figcaption><p>Group general settings page, showing the Group slug</p></figcaption></figure>
 
 ## Role normalized name
 
@@ -146,7 +150,7 @@ This will open the role details page that shows which permissions are enabled fo
 
 For more details on roles, and specifically, custom roles, see [user role management](../../../../snyk-platform-administration/user-roles/user-role-management.md).
 
-<figure><img src="../../../../.gitbook/assets/image (154).png" alt="Role details page for Organization Admin role"><figcaption><p>Role details page for Organization Admin role</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/role-details-page-organization-admin-role.png" alt="Role details page for Organization Admin role"><figcaption><p>Role details page for Organization Admin role</p></figcaption></figure>
 
 ## Pre-defined role slugs
 

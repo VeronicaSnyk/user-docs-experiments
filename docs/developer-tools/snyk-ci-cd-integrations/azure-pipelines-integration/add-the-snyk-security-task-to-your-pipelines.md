@@ -1,3 +1,7 @@
+---
+description: Add the Snyk Security Scan task to your Azure Pipelines YAML configuration to scan code and container images.
+---
+
 # Add the Snyk Security Task to your pipelines
 
 ## **Prerequisites to add Snyk Security Task to your pipelines**
@@ -30,7 +34,7 @@ This extension requires that Node.js and npm be installed on the build agent. Th
    2. This might be useful, for example, if you have multiple project manifest files you want to test or if you want to test both the application and the container images.
 6.  From the configuration panel, click **Add**. The task is inserted into your pipeline where your cursor was placed, similar to the following:
 
-    ```
+    ```yaml
        - task: SnykSecurityScan@1
          inputs:
            testType: 'app'

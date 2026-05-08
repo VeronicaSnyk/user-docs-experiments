@@ -1,3 +1,7 @@
+---
+description: Deploy the configured POST method in AWS API Gateway to activate the endpoint that receives Snyk webhook events.
+---
+
 # AWS API Gateway: deploy the POST method
 
 Deploy with configured POST method so the AWS Lambda function can start receiving the information.

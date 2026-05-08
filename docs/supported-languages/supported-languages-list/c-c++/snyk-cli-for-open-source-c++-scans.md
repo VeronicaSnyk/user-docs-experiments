@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan open-source C/C++ dependencies for vulnerabilities by hashing files and testing against the Snyk Vuln DB.
+---
+
 # Snyk CLI for open-source C++ scans
 
 ## Snyk CLI for open-source C/C++
@@ -34,7 +39,7 @@ Having a large percentage of files in their original (unchanged) form is critica
 
 The example that follows shows a typical package with dependencies listed:
 
-```
+```bash
 c-example
 ├── deps
 │   ├── curl-7.58.0
@@ -155,7 +160,7 @@ You may need to change the source code of the dependencies that you use in your 
 
 To get machine-readable output in JSON, use the `--json` option:
 
-```
+```bash
 $ snyk test --unmanaged --json
 [
   {
@@ -272,7 +277,7 @@ For more information about command line options, see the Snyk help docs: [Option
 
 To import the test results (issues and dependencies) in the Snyk CLI, run the `snyk monitor --unmanaged` command:
 
-```
+```bash
 $ snyk monitor --unmanaged
 Monitoring /c-example (c-example)...
 
@@ -285,4 +290,4 @@ This creates a snapshot of dependencies and vulnerabilities and imports them int
 
 Importing a Project with unmanaged dependencies creates a new Project that is listed on the Project page:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-04 at 11.18.10.png" alt="Project with unmanaged dependencies"><figcaption><p>Project with unmanaged dependencies</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-04 at 11.18.entity-id-assertion-consumer-service-url.png" alt="Project with unmanaged dependencies"><figcaption><p>Project with unmanaged dependencies</p></figcaption></figure>

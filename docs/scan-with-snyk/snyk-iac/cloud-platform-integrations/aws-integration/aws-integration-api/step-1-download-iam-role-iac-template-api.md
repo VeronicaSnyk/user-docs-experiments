@@ -1,3 +1,8 @@
+---
+description: >-
+  Download the IaC template for an AWS IAM role as the first step to creating a Cloud Environment via the API.
+---
+
 # Step 1: Download IAM role IaC template (API)
 
 Before you can create a Cloud Environment, you must download an Infrastructure as Code (IaC) template declaring a read-only Identity and Access Management (IAM) role that Snyk can assume to scan the configuration of resources in your Amazon Web Services (AWS) account.
@@ -13,7 +18,7 @@ To retrieve the IaC template using the [Snyk API endpoint Generate Cloud Provide
 1. In the [Snyk Web UI](https://app.snyk.io), navigate to **Settings** > **General** > **Organization ID** and copy your Organization ID.
 2. Send a request to the Snyk API in the following format, replacing `INPUT-TYPE` with `tf` for Terraform or `cf` for CloudFormation:
 
-```
+```bash
 curl -X POST \
 'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/permissions?version=2022-12-21~beta' \
 -H 'Authorization: token YOUR-API-TOKEN' \
@@ -86,7 +91,7 @@ Before you can use the template to provision the resources, you need to unescape
 1. Download and install [jq](https://stedolan.github.io/jq/download/).
 2.  When you are submitting the API request to retrieve the template, append the following to the end of the command:
 
-    ```
+    ```bash
     | jq -r .data.attributes.data > snyk_iac_template
     ```
 
@@ -105,13 +110,13 @@ By default, the name of the Snyk IAM role is `snyk-cloud-role`. If your Organiza
 
 In **Terraform**, the role name is on line 19:
 
-```
+```text
   name                = "snyk-cloud-role"
 ```
 
 In **CloudFormation**, the role name is on line 7:
 
-```
+```text
       RoleName: snyk-cloud-role
 ```
 

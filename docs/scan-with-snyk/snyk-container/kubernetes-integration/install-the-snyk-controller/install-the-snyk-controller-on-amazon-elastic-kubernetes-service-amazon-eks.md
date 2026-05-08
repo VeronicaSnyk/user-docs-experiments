@@ -1,3 +1,8 @@
+---
+description: >-
+  Install the Snyk Controller on Amazon EKS using Helm to enable Kubernetes workload vulnerability scanning.
+---
+
 # Install the Snyk Controller on Amazon Elastic Kubernetes Service (Amazon EKS)
 
 {% hint style="info" %}
@@ -16,13 +21,13 @@ To install Amazon EKS:
 
 1\. Access your Kubernetes environment. Run the following command in order to add the Snyk Charts repository to Helm:
 
-```
+```bash
 helm repo add snyk-charts https://snyk.github.io/kubernetes-monitor --force-update
 ```
 
 2\. After the repository is added, create a unique namespace for the Snyk Controller:
 
-```
+```bash
 kubectl create namespace snyk-monitor
 ```
 
@@ -34,7 +39,7 @@ Ensure you remember the namespace `snyk-monitor`. You will use it when configuri
 
 3\. Create a file named "dockercfg.json" and ensure it matches the following example:
 
-```
+```json
 {
   "credsStore": "ecr-login"
 }
@@ -44,7 +49,7 @@ For additional setup for private registries, see [Authenticate to private contai
 
 4\. Create a Kubernetes secret containing your Integration ID, service account token, and dockercfg.json file:
 
-```
+```bash
 kubectl create secret generic snyk-monitor \
         -n snyk-monitor --from-file=dockercfg.json \
         --from-literal=integrationId=abcd1234-abcd-1234-abcd-1234abcd1234 \
@@ -53,18 +58,18 @@ kubectl create secret generic snyk-monitor \
 
 5\. Attach policies or roles for nodes. You can do this using one of the below options:
 
-#### Attach policies for worker nodes
+## Attach policies for worker nodes
 
 1. Attach the `NodeInstanceRole` policy. See [Using Amazon ECR Images with Amazon EKS](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_on_EKS.html).
 2. Attach the `AmazonEC2ContainerRegistryReadOnly` policy to your EKS worker nodes.\
    The Snyk Controller is now able to pull private images when running on those worker nodes.
 
-#### Create an EKS node role for your Node Group and add the Trust Relationship for the IAM Role
+## Create an EKS node role for your Node Group and add the Trust Relationship for the IAM Role
 
 1. Follow the instructions on [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html) and check your existing node role. Ensure you have attached the policy `AmazonEC2ContainerRegistryReadOnly`**.**
 2. For the Snyk Controller to successfully assume the IAM role and pull images from ECR, the role's trust policy must be configured to trust your EKS cluster's OIDC provider. Create the trust policy document in JSON format and apply this trust policy document to the IAM role that the Snyk Controller will use.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -86,13 +91,13 @@ kubectl create secret generic snyk-monitor \
 
 1. Navigate to the **Details** tab on your EKS node group page, where you see `Node IAM Role ARN`
 
-```
+```text
 arn:aws:iam::<role-id>:role/<role-name>
 ```
 
 3. Create a \<newFile>.yaml with the following content:
 
-```
+```yaml
 volumes:
   projected:
     serviceAccountToken: true
@@ -110,7 +115,7 @@ rbac:
 
 After creating the IAM role for your service account, you can install your Snyk Controller with the newly created YAML file to overwrite the values in the Helm chart.
 
-```
+```bash
 helm upgrade --install snyk-monitor snyk-charts/snyk-monitor \
              --namespace snyk-monitor \
              --set clusterName=<ENTER_CLUSTER_NAME> \

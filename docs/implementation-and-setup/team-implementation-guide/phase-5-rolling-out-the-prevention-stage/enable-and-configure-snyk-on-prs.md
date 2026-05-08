@@ -1,3 +1,7 @@
+---
+description: Enable Snyk PR checks on your source control integration to automatically scan code changes and gate merges.
+---
+
 # Enable and configure Snyk on PRs
 
 ## Use PR Checks to introduce gating

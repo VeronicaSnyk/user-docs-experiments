@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan container images for vulnerabilities using Snyk Container through registry integrations, CLI, or the Snyk Web UI.
+---
+
 # Scan container images
 
 Snyk Container helps you find and fix vulnerabilities in container images, based on container registry scans.

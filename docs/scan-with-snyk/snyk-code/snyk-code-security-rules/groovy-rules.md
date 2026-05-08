@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Groovy code in Early Access for Enterprise plans.
+---
+
 # Groovy rules
 
 {% hint style="info" %}

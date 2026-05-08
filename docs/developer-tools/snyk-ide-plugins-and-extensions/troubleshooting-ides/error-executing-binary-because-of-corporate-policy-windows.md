@@ -1,3 +1,7 @@
+---
+description: Resolve the error executing binary error caused by corporate security policies blocking the Snyk CLI on Windows.
+---
+
 # Error executing binary because of corporate policy (Windows)
 
 ## **Problem**

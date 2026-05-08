@@ -1,3 +1,7 @@
+---
+description: Run your Universal Broker deployment on Docker or Kubernetes, targeting the correct regional Broker server URL.
+---
+
 # Running your Universal Broker client
 
 Run your Broker deployment on your container engine or Kubernetes cluster.
@@ -6,7 +10,7 @@ If you are not using broker.snyk.io, target the Broker server for your region by
 
 Add the environment variable or variables as defined in your credentials references with the associated values. If references are missing, the connection will not be established, and an error entry will be logged in the Broker client logs.
 
-```
+```text
 docker run --restart=always 
 -p 8000:8000 
 -e DEPLOYMENT_ID=<DEPLOYMENTID> 
@@ -25,7 +29,7 @@ Ensure that you first pull the Helm chart:
 
 Then run:
 
-```
+```bash
 helm install my-snyk-broker oci://registry-1.docker.io/snyk/snyk-universal-broker \
   --set deploymentId='YOUR_DEPLOYMENT_ID' \
   --set clientId='YOUR_CLIENT_ID' \
@@ -33,7 +37,7 @@ helm install my-snyk-broker oci://registry-1.docker.io/snyk/snyk-universal-broke
   --set credentialReferences.MY_GITHUB_TOKEN='YOUR_GITHUB_PAT' \
 ```
 
-#### Secret Values
+## Secret Values
 
 Integration types may require different SCM-specific authentication parameters. When setting your credential reference environment variable in your Broker deployment you may wish to consult the following list of secret values and their required formats:
 

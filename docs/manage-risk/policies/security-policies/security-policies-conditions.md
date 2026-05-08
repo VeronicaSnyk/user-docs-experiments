@@ -1,3 +1,7 @@
+---
+description: Define security policy conditions using categories such as exploit maturity, CWE, CVE, Snyk ID, and severity to match specific issues and trigger automated policy actions.
+---
+
 # Security policy conditions
 
 A condition is a variable on which to set a rule.

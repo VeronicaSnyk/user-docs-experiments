@@ -1,3 +1,7 @@
+---
+description: Add Snyk tests to your CI/CD pipeline to block builds that introduce new vulnerabilities before deployment.
+---
+
 # Add and configure Snyk to your CI/CD pipeline
 
 Using Snyk as a gatekeeper in your build pipeline prevents the introduction of new vulnerabilities, based on the "fail" criteria you set.

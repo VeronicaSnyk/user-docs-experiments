@@ -1,3 +1,7 @@
+---
+description: Apply custom filters to Snyk CLI JSON output to control which vulnerabilities are reported and fail your build.
+---
+
 # snyk-filter
 
 The `snyk-filter` tool provides **custom filtering for Snyk CLI output**. `snyk-filter` takes the JSON-formatted output from the [Snyk CLI](../../), for example, `snyk test --json` and applies custom filtering of the results, as well as options to fail your build.
@@ -10,7 +14,7 @@ First, clone the [repo](https://github.com/snyk-labs/snyk-filter). Then run:
 
 **`snyk-filter` uses the `node-jq` library**, which requires that a [`jq`](https://stedolan.github.io/jq/) binary be installed. This typically happens transparently via `npm install -g`, but on some systems `jq` is not properly installed locally. If you receive an error after installation regarding `node-jq`, then install `jq` manually to avoid this error.
 
-```
+```bash
 # install jq ahead of time (ubuntu example)
 sudo apt-get install -y jq
 

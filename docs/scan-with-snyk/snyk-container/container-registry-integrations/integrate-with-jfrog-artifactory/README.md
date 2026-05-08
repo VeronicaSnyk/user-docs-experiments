@@ -1,3 +1,8 @@
+---
+description: >-
+  Integrate Snyk with JFrog Artifactory Container Registry to import and monitor images for vulnerabilities.
+---
+
 # Integrate with JFrog Artifactory
 
 {% hint style="info" %}

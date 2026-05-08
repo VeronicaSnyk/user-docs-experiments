@@ -1,3 +1,7 @@
+---
+description: Create deployments, connections, and credentials references, then integrate your Universal Broker with Snyk Organizations.
+---
+
 # Setting up and integrating your Universal Broker connections
 
 The following diagram illustrates installing the Snyk Broker App, which facilitates the secure connection and communication with the Snyk platform through OAuth, and creating a Universal Broker deployment with connections to GitHub and Jira. The process includes creating credentials references for both GitHub and Jira and creating Broker connections for both.

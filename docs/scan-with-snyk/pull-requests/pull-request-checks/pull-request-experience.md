@@ -1,3 +1,8 @@
+---
+description: >-
+  Enhance the developer experience by automatically applying fixes directly within pull requests using Snyk Agent Fix.
+---
+
 # Pull Request experience
 
 {% hint style="info" %}
@@ -44,7 +49,7 @@ Additional to the general SCM and PR Checks prerequisites, certain features with
 
 * To configure the inline comments feature, enable the **Code analysis** PR checks setting. This is located on the Organization level under **Settings** > **Integrations**.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-27 at 14.14.35.png" alt=""><figcaption><p>Code analysis feature for pull request status checks</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/code-analysis-feature-pull-request-status-checks.png" alt=""><figcaption><p>Code analysis feature for pull request status checks</p></figcaption></figure>
 
 * If you are using the GitHub Integration, specify a dedicated GitHub account by supplying a **GitHub Personal Access Token (PAT)** in the integration settings. This is required to be able to add inline comments or Agent Fix
 
@@ -69,7 +74,7 @@ Configure the pull request experience for one or more integrations in your Snyk 
    3. Enable[ inline comments](pull-request-experience.md#inline-comments)**:** Enable inline comments to add a comment for each issue found by Snyk Code PR check.
    4. Enable [Snyk Agent fix in the PR](pull-request-experience.md#snyk-agent-fix-in-the-pr): Enable requesting Snyk Agent fix suggestions for issues found by Snyk Code PR check, and applying the fixes to the PR branch.
 
-<figure><img src="../../../.gitbook/assets/image (301).png" alt=""><figcaption><p>Configuration details for the PR Comment experience</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/configuration-details-pr-comment-experience.png" alt=""><figcaption><p>Configuration details for the PR Comment experience</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/pat_config.png" alt=""><figcaption><p>Configuration details for the GitHub integration</p></figcaption></figure>
 
@@ -77,7 +82,7 @@ Configure the pull request experience for one or more integrations in your Snyk 
 
 The issue summary comment feature adds a comment to each pull request, summarizing the latest PR check results. The summary includes the type of checks performed and a breakdown of the findings by severity. Select **View Details** to access the PR check details in the Snyk Web UI.
 
-<figure><img src="../../../.gitbook/assets/image (426).png" alt=""><figcaption><p>Issue summary comment feature for pull request experience</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/issue-summary-comment-feature-pull-request-experience.png" alt=""><figcaption><p>Issue summary comment feature for pull request experience</p></figcaption></figure>
 
 ## Inline comments
 
@@ -110,9 +115,9 @@ The Snyk Agent fix in the PR feature enables the user to request and apply fixes
 
 * Request an initial fix by replying to an inline comment using the `@snyk /fix` command.
 
-<figure><img src="../../../.gitbook/assets/image (299).png" alt=""><figcaption><p>Inline Comments with Snyk Agent Fix enabled</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/inline-comments-snyk-agent-fix-enabled.png" alt=""><figcaption><p>Inline Comments with Snyk Agent Fix enabled</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (300).png" alt=""><figcaption><p>Request a fix by replying to the inline comment</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/request-fix-replying-inline-comment.png" alt=""><figcaption><p>Request a fix by replying to the inline comment</p></figcaption></figure>
 
 * Request a different suggestion by replying with the `@snyk /fix` command to a previously generated fix. Snyk Agent fix can generate up to five potential fixes, depending on the issue type.
 * Apply a specific fix by using the `@snyk /apply #` command, where # is the number of the suggestion the user wishes to apply. A commit is created by Snyk on the PR branch, containing the selected fix.
@@ -166,7 +171,7 @@ PR Comments can only be added for issues detected in a PR Check. If issues are o
 
 3. **Inline Comments** are enabled in the **Pull Request Experience** section for your integration.
 
-<figure><img src="../../../.gitbook/assets/image (302).png" alt=""><figcaption><p>Configuration details to enable Inline Comments</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/configuration-details-enable-inline-comments.png" alt=""><figcaption><p>Configuration details to enable Inline Comments</p></figcaption></figure>
 
 ### Why are some findings not appearing as inline comments?
 

@@ -1,3 +1,7 @@
+---
+description: Find answers to common questions about excluding files and ignoring issues across Snyk scanning methods, import types, and ignore sources including policies, UI, API, and the .snyk file.
+---
+
 # Exclude files and ignore issues FAQs
 
 There are many considerations in determining how excluding files and ignoring issues will work, depending on several factors:

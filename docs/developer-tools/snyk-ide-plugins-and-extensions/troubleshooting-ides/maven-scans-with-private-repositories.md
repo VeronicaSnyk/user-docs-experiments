@@ -1,3 +1,7 @@
+---
+description: Configure Snyk IDE plugins to scan Maven projects that depend on packages from private repositories.
+---
+
 # Maven scans with private repositories
 
 ## Problem <a href="#problem" id="problem"></a>

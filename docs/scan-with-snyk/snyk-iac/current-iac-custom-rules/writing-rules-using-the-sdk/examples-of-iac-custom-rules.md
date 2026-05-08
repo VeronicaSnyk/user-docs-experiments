@@ -1,3 +1,8 @@
+---
+description: >-
+  Review complete examples of simple boolean and complex IaC custom rules written in Rego.
+---
+
 # Examples of IaC custom rules
 
 ## Example of a simple boolean rule
@@ -9,7 +14,7 @@ You can find a full example of this guide in [this OPA Playground](https://play.
 Assume you have generated a new rule, `CUSTOM-RULE-1` using the SDK , that is, `snyk-iac-rules template --rule CUSTOM-RULE-1` and have a very simple fixture file containing a Terraform resource:
 
 {% code title="rules/CUSTOM-RULE-1/fixtures/denied.tf" %}
-```
+```hcl
 resource "aws_redshift_cluster" "denied" {
   cluster_identifier = "tf-redshift-cluster"
   node_type          = "dc1.large"
@@ -28,7 +33,7 @@ Now, modify the generated Rego to enforce resources tagged with an owner:
 The modified Rego is:
 
 {% code title="rules/CUSTOM-RULE-1/main.rego" %}
-```
+```rego
 package rules
 
 deny[msg] {
@@ -60,7 +65,7 @@ Snyk recommends always validating that your rule is correct by [updating and run
 The test for this rule verifies that the Rego rule can identify that the fixture at the beginning of this guide is invalid:
 
 {% code title="rules/CUSTOM-RULE-1/main_test.rego" %}
-```
+```rego
 package rules
 
 import data.lib
@@ -96,7 +101,7 @@ Try and extend the preceding example  and update the rule to allow all cases tha
 To test this new condition, generate a new rule `CUSTOM-RULE-2` using the `template` command and write the following fixture file:
 
 {% code title="rules/CUSTOM-RULE-2/fixtures/denied.tf" %}
-```
+```hcl
 resource "aws_redshift_cluster" "denied" {
   cluster_identifier = "tf-redshift-cluster"
   node_type          = "dc1.large"
@@ -117,7 +122,7 @@ The logical AND is covered also in the [OPA documentation](https://www.openpolic
 {% endhint %}
 
 {% code title="rules/CUSTOM-RULE-2/main.rego" %}
-```
+```rego
 package rules
 
 aws_redshift_cluster_tags_present(resource) {
@@ -149,7 +154,7 @@ Snyk recommends always validating that your rule is correct by [updating and run
 The test for this rule will look the same as the one for `CUSTOM-RULE-1`, but the name of the test and the first two arguments passed to the `testing.evaluate_test_cases` function will differ:
 
 {% code title="rules/CUSTOM-RULE-2/main_test.rego" %}
-```
+```rego
 package rules
 
 import data.lib
@@ -184,7 +189,7 @@ Update the example in a new rule `CUSTOM-RULE-3`, to deny all cases that fail ei
 For this, use two new fixture files, one for each case:
 
 {% code title="rules/CUSTOM-RULE-3/fixtures/denied1.tf" %}
-```
+```hcl
 resource "aws_redshift_cluster" "denied1" {
   cluster_identifier = "tf-redshift-cluster"
   node_type          = "dc1.large"
@@ -196,7 +201,7 @@ resource "aws_redshift_cluster" "denied1" {
 {% endcode %}
 
 {% code title="rules/CUSTOM-RULE-3/fixtures/denied2.tg" %}
-```
+```hcl
 resource "aws_redshift_cluster" "denied2" {
   cluster_identifier = "tf-redshift-cluster"
   node_type          = "dc1.large"
@@ -212,7 +217,7 @@ To express logical OR in Rego, define multiple rules or functions with the same 
 First, add a function that will implement the `NOT` for each tag. Then, call this function with the resource:
 
 {% code title="rules/CUSTOM-RULE-3/main.rego" %}
-```
+```rego
 package rules
 
 aws_redshift_cluster_tags_missing(resource) {
@@ -249,7 +254,7 @@ Snyk recommends always validating that your rule is correct by [updating and run
 The test for this rule will now contain multiple test cases, to show that the logical OR works as expected:
 
 {% code title="rules/CUSTOM-RULE-3/main_test.rego" %}
-```
+```rego
 package rules
 
 import data.lib
@@ -284,7 +289,7 @@ Extend this further and add a third condition. Deny all resources that are missi
 3. The email of the owner does not belong to the “@corp-domain.com” domain
 
 {% code title="rules/CUSTOM-RULE-4/main.rego" %}
-```
+```rego
 package rules
 
 aws_redshift_cluster_tags_missing(resource) {
@@ -338,7 +343,7 @@ Now assume you want to add more complexity and check the following:
 To do this, refactor your code to use a checkTags helper function. This can check whether there are any tags, but also check for the two conditions above with an OR.
 
 {% code title="rules/CUSTOM-RULE-5/main.rego" %}
-```
+```rego
 package rules
 
 checkTags(resource){
@@ -376,7 +381,7 @@ deny[msg] {
 To convert this to an XOR you can use an `else` rule:
 
 {% code title="rules/CUSTOM-RULE-5/main.rego" %}
-```
+```rego
 package rules
 
 checkUserTag(resource){
@@ -436,7 +441,7 @@ The test for this rule will look very similar to the ones from the previous exam
 
 You can also iterate over many resources by adding them to an array of resources.
 
-```
+```text
 "resources": [
             "aws_iam_policy",
             "aws_iam_group_policy",
@@ -452,7 +457,7 @@ For example, you may want to ensure that if someone defines a Kubernetes ConfigM
 
 You can do that and expand what is defined as "sensitive information" over time by defining a group of sensitive tokens inside a denylist:
 
-```
+```rego
 package rules
 
 sensitive_denylist := [

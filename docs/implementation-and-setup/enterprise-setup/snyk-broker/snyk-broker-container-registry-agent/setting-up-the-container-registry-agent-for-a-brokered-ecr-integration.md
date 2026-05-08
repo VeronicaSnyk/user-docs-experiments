@@ -1,3 +1,7 @@
+---
+description: Configure an IAM Role for the Container Registry Agent to assume read-only access to Amazon ECR through Snyk Broker.
+---
+
 # Setting up the Container Registry Agent for a brokered ECR integration
 
 ## Terminology and diagram for brokered ECR integration
@@ -54,7 +58,7 @@ The following examples explain how to provide the IAM Role or IAM User using one
 4. In **Resources** choose **All resources** (you will harden the resources in a later step).
 5.  In the **JSON** tab verify that the policy contains the following:
 
-    ```
+    ```json
     {
       Version: 2012-10-17,
       Statement: [
@@ -102,7 +106,7 @@ When you are running the Container Registry Agent image on the EC2 machine, the 
 4. In **Resources** choose **All resources** (you will harden the resources in a later step).
 5.  In the **JSON** tab verify that the policy contains the following statement:
 
-    ```
+    ```json
     {
       Version: 2012-10-17,
       Statement: [
@@ -136,7 +140,7 @@ In this step, you will create a Role in the account in which your ECR repositori
 3. Choose to edit the JSON data.
 4.  Delete the default data and in its place copy and paste the following:
 
-    ```
+    ```json
     {
       Version:2012-10-17,
       Statement: [
@@ -186,7 +190,7 @@ This step hardens the usability of the Snyk ECR Service Role so that it can be a
 3. Edit the trust relationship.
 4.  Delete all of the data and replace it with the following JSON:
 
-    ```
+    ```json
     {
       Version:2012-10-17,
       Statement: [
@@ -231,7 +235,7 @@ This step hardens the usability of the IAM Role or IAM User used by the Containe
 
 If the Container Registry Agent needs to access multiple ECR registries found in different accounts, you must add a separate item to the Statement list, so that each ECR account has a separate statement, for example:
 
-```
+```json
 {
   Version: 2012-10-17,
   Statement: [

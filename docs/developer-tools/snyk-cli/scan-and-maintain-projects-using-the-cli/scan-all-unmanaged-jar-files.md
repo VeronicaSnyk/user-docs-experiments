@@ -1,3 +1,7 @@
+---
+description: Scan unmanaged JAR files in Java projects to identify vulnerabilities in dependencies without a build file.
+---
+
 # Scan all unmanaged JAR files
 
 The Snyk CLI can scan unmanaged JAR files in [Java applications](../../../supported-languages-package-managers-and-frameworks/java-and-kotlin/) to identify which open-source package they contain.
@@ -30,7 +34,7 @@ The following is a Linux/Mac Bash script used with CLI versions before Snyk CLI 
 
 Setting a value for the `REMOTE_REPO_URL` variable is important; it is used to combine all scan results under a single Snyk Project in the UI using the `--remote-repo-url` parameter.
 
-```
+```bash
 #!/bin/bash
 
 SNYK_CLI_BINARY_NAME=snyk-cli
@@ -113,4 +117,4 @@ for /R %WORKSPACE% %%f in (*.jar) do cmd /c snyk monitor --scan-unmanaged --remo
 
 An example follows of the result shown in the Snyk UI after you use these scripts with `REMOTE_REPO_URL` set to "econnect".
 
-<figure><img src="../../../.gitbook/assets/untitled.png" alt="Result of scanning unmanaged JAR files"><figcaption><p>Result of scanning unmanaged JAR files</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/result-scanning-unmanaged-jar-files.png" alt="Result of scanning unmanaged JAR files"><figcaption><p>Result of scanning unmanaged JAR files</p></figcaption></figure>

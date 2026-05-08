@@ -1,3 +1,7 @@
+---
+description: Use the Inventory to organize repository assets, visualize SCM tool assets, track Snyk coverage, and prioritize remediation based on business impact.
+---
+
 # Overview
 
 Snyk defines an asset as an identifiable entity that is part of an application and relevant to security and developers. Snyk is generally focused on the development stages of application software, secures repository assets containing software package assets, and builds artifacts like container image assets.

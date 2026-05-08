@@ -1,3 +1,8 @@
+---
+description: >-
+  Diagnose and resolve common issues with PR checks to restore automated security scanning on your pull requests.
+---
+
 # Troubleshoot PR checks
 
 ## General troubleshooting for PR checks

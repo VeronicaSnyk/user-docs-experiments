@@ -1,3 +1,7 @@
+---
+description: Define IaC ignore rules in your .snyk policy file to suppress known misconfigurations in CLI results.
+---
+
 # IaC ignores using the .snyk policy file
 
 When you scan IaC configuration files using the Snyk CLI `iac test` command, you can ignore issues that are not relevant to you by using the [`.snyk` policy file](../../../../manage-risk/policies/the-.snyk-file.md). Snyk recommends that you store and version the `.snyk` file in the root of the working directory where you store your IaC configuration files. This file can be created with the `snyk ignore` command. For details see [Ignore vulnerabilities using Snyk CLI](../ignore-vulnerabilities-using-the-snyk-cli.md).
@@ -23,7 +27,7 @@ When you run `snyk iac test` against a directory, either by passing in one or mo
 
 The syntax of the policy file is as follows:
 
-```
+```yaml
 version: v1.19.0
 ignore:
   SNYK-CC-K8S-1:
@@ -48,14 +52,14 @@ In the following example, an issue is being ignored with the `SNYK-CC-K8S-1` ID 
 
 You can generate the scoped ignore rules with the Snyk CLI by running the following commands:
 
-```
+```bash
 snyk ignore --id=SNYK-CC-K8S-1 --path='staging/cronjob.yaml > *'
 snyk ignore --id=SNYK-CC-K8S-1 --path='staging/deployment.yaml > *'
 ```
 
 Alternatively, manually modify the `.snyk` policy file as follows:
 
-```
+```yaml
 version: v1.19.0
 ignore:
   SNYK-CC-K8S-1:
@@ -77,7 +81,7 @@ Individual instances of a vulnerability within a file can be ignored. To do this
 
 For example, from the following output snippet (line break added for ease of reading):
 
-```
+```text
 Testing production/deployment.yaml...Infrastructure as code issues:
   ✗ Container is running in privileged mode [High Severity] [SNYK-CC-K8S-1] in Deployment
     introduced by [DocId: 0] > input > spec > template > spec > containers[web] 
@@ -86,14 +90,14 @@ Testing production/deployment.yaml...Infrastructure as code issues:
 
 you could generate the scoped ignore rule with the Snyk CLI by running the following command:
 
-```
+```bash
  snyk ignore --id=SNYK-CC-K8S-1 --path='production/deployment.yaml > [DocId:1] > spec > template > spec > containers[web] 
  > securityContext > privileged'
 ```
 
 Alternatively, manually modify the policy file as follows:
 
-```
+```yaml
 version: v1.19.0
 ignore:
   SNYK-CC-K8S-1:

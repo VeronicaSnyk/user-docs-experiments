@@ -1,3 +1,7 @@
+---
+description: Raise Jira issues directly from the Snyk UI for vulnerabilities and license issues found in your Projects.
+---
+
 # Jira integration
 
 {% hint style="info" %}

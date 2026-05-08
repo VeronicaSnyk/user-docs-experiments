@@ -1,3 +1,7 @@
+---
+description: Grant users the Group Viewer or Organization Collaborator role to access the Issues UI and Set up Insights pages for Snyk AppRisk prioritization at the Group level.
+---
+
 # Set up Insights: user permissions
 
 Set up Insights is available at the Group level, so [grant relevant users the Group viewer or the Organization Collaborator role](../../../snyk-platform-administration/user-roles/user-role-management.md#manage-roles). This is the minimum required permission, but Group Admins can also view Prioritization.

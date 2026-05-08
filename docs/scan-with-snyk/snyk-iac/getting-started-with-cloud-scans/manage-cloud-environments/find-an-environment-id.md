@@ -1,3 +1,8 @@
+---
+description: >-
+  Find the ID of a Snyk cloud environment using the Snyk Web UI or API for use in update and delete operations.
+---
+
 # Find an environment ID
 
 Certain actions, such as updating or deleting an environment using the Snyk API, require the environment ID.
@@ -24,7 +29,7 @@ To find an environment ID using the [Web UI](https://app.snyk.io/):
 
 To find an environment ID using the API, send a request to the [`/cloud/environments`](https://apidocs.snyk.io/#get-/orgs/-org_id-/cloud/environments) endpoint in the following format:
 
-```
+```bash
 curl -X GET \
   'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/environments?version=2022-12-21~beta' \
   -H 'Authorization: token YOUR-API-TOKEN'
@@ -32,7 +37,7 @@ curl -X GET \
 
 In the output, look for the `data.id` property of the desired environment. In the shortened example that follows, the ID is `3b7ccff9-8900-4e54-0000-1234abcd1234`:
 
-```
+```json
 {
   "jsonapi": {
     "version": "1.0"
@@ -48,7 +53,7 @@ In the output, look for the `data.id` property of the desired environment. In th
 
 You can filter the list of environments using query parameters to make it easier to find a particular environment. For example, you can add `kind=google` to the API request to return only Google Cloud environments:
 
-```
+```bash
 curl -X GET \
   'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/environments?kind=google&version=2022-12-21~beta' \
   -H 'Authorization: token YOUR-API-TOKEN'

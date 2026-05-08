@@ -1,3 +1,7 @@
+---
+description: Review and interpret Snyk Code vulnerability findings returned by the CLI, including severity and fix guidance.
+---
+
 # View Snyk Code CLI results
 
 The Snyk CLI enables you to perform the following actions on the results of the `snyk code test` command:
@@ -17,7 +21,7 @@ You can also [display the CLI results in HTML format using `snyk-to-html`](../cl
 
 After you run the `snyk code test` command in the CLI, the results of the test are displayed:
 
-<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results Details - 2.png" alt="Snyk Code test restuls from the CLI"><figcaption><p>Snyk Code test restuls from the CLI</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results Details - okta-saml-application-creation.png" alt="Snyk Code test restuls from the CLI"><figcaption><p>Snyk Code test restuls from the CLI</p></figcaption></figure>
 
 Note that if you ignored issues on the Snyk Web UI, these issues would still appear in the CLI results. Each section on this page explains one section of the displayed results.
 
@@ -27,7 +31,7 @@ The list of issues discovered in the Snyk Code test is organized by the severity
 
 For each detected issue, the following information is provided:
 
-<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Issue summary - 2.png" alt="CLI test information for each Snyk Code issue"><figcaption><p>CLI test information for each Snyk Code issue</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Issue summary - okta-saml-application-creation.png" alt="CLI test information for each Snyk Code issue"><figcaption><p>CLI test information for each Snyk Code issue</p></figcaption></figure>
 
 * Header: The severity level and vulnerability type of the issue.
 * Path: The file name and the line in the file where the issue was found. These location details refer to the sink of the issue, meaning where the vulnerability may be executed in the tested repository.
@@ -35,13 +39,13 @@ For each detected issue, the following information is provided:
 
 The message that appears in the `Info` section is the same as the one in the **Data flow** section on the Web UI:
 
-<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Issue summary - In the UI - 2.png" alt="CLI test Info for Snyk Code issue in the Data flow section"><figcaption><p>CLI test Info for Snyk Code issue in the Data flow section</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Issue summary - In the UI - okta-saml-application-creation.png" alt="CLI test Info for Snyk Code issue in the Data flow section"><figcaption><p>CLI test Info for Snyk Code issue in the Data flow section</p></figcaption></figure>
 
 ### General information about the test results
 
 The general information about the test results includes the following details:
 
-<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Test summary - 2.png" alt="Details in general information about the CLI test results"><figcaption><p>Detals in general information about the CLI test results</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Test summary - okta-saml-application-creation.png" alt="Details in general information about the CLI test results"><figcaption><p>Detals in general information about the CLI test results</p></figcaption></figure>
 
 * Test success: Whether the test was completed or not.
 * Organization: The Snyk ID or internal name of the Organization under which the test run. For more information, see [Set the Snyk Organization for the CLI tests](set-the-snyk-organization-for-the-cli-tests.md).
@@ -52,7 +56,7 @@ The general information about the test results includes the following details:
 
 The summary of the test findings includes the following details:
 
-<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Summary - 2.png" alt="Summary ot CLI test findings for Snyk Code issues"><figcaption><p>Summary ot CLI test findings for Snyk Code issues</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Summary - okta-saml-application-creation.png" alt="Summary ot CLI test findings for Snyk Code issues"><figcaption><p>Summary ot CLI test findings for Snyk Code issues</p></figcaption></figure>
 
 * The number of vulnerability issues that Snyk Code discovered in the tested repository.
 * The number of discovered issues at each severity level.
@@ -69,7 +73,7 @@ You can filter the test results that are shown in the CLI terminal and display o
 
 To display only issues above a specific severity level, enter the following:
 
-```
+```bash
 snyk code test <path/to/folder> --severity-threshold=<low|medium|high>
 ```
 
@@ -77,17 +81,17 @@ The results will include only issues with the specified severity level and issue
 
 For example, in the `snyk-goof-master` folder, eight issues were found, four with a High severity level and four with Medium:
 
-<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Filter Severity - Example - before - 2.png" alt="CLI test results for Snyk Code with High and Medium severity"><figcaption><p>CLI test results for Snyk Code with High and Medium severity</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Filter Severity - Example - before - okta-saml-application-creation.png" alt="CLI test results for Snyk Code with High and Medium severity"><figcaption><p>CLI test results for Snyk Code with High and Medium severity</p></figcaption></figure>
 
 To display only issues with a High severity level and above, enter the following:
 
-```
+```bash
 snyk code test /Users/username/Documents/Repositories/snyk-goof-master --severity-threshold=high
 ```
 
 The results show four issues, all with a High severity level. Issues with a lower severity level are not displayed:
 
-![CLI test results for Snyk Code with High severity](<../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Filter Severity - Example - after - 2.png>)
+![CLI test results for Snyk Code with High severity](<../../../../.gitbook/assets/Snyk Code - CLI - snyk code test - Results - Filter Severity - Example - after - okta-saml-application-creation.png>)
 
 ## Severity levels in JSON and SARIF files
 
@@ -117,13 +121,13 @@ The severity levels of the issues discovered by running `snyk code test` and rep
 
 To output the test results to JSON format, enter the following:
 
-```
+```bash
 snyk code test <path/to/folder> --json
 ```
 
 To output the test results to SARIF format, enter the following:
 
-```
+```bash
 snyk code test <path/to/folder> --sarif
 ```
 
@@ -131,7 +135,7 @@ The test results appear in the terminal in JSON or SARIF format.
 
 Because JSON and SARIF are the same for `snyk code test`, only a JSON example is shown here. The example shows how to output the test results of the `snyk-goof-master` folder in JSON format in the terminal by using the following command:
 
-```
+```bash
 snyk code test /Users/username/Documents/Repositories/snyk-goof-master --json
 ```
 
@@ -155,13 +159,13 @@ The `snyk code test --json-file-output=<path/to/new_file>` command is available 
 
 To export the results to a new JSON file, with a standard display of results in the terminal, use the following command:
 
-```
+```bash
 snyk code test --json-file-output=<path/to/new_json_file>
 ```
 
 To export the test results to a new SARIF file, use the following command:
 
-```
+```bash
 snyk code test --sarif-file-output=<path/to/new_sarif_file>
 ```
 
@@ -169,7 +173,7 @@ The test results appear in the terminal in the standard format, and a JSON or SA
 
 Because JSON and SARIF are the same for snyk code test, only a JSON example is shown here. To export the test results of the `snyk-goof-master` folder to a JSON file called `json`, change the directory to the root folder of the repository, and enter the following:
 
-```
+```bash
 snyk code test --json-file-output=json
 ```
 
@@ -185,12 +189,12 @@ In the repository folder, a JSON file is created:
 
 To export the results to a new JSON file without displaying the results in the terminal, use the following command:
 
-```
+```bash
 snyk code test --json > <path/to/new_json_file>
 ```
 
 To export the results to a SARIF file without displaying the results in the terminal, use the following command:
 
-```
+```bash
 snyk code test --sarif > <path/to/new_sarif_file>
 ```

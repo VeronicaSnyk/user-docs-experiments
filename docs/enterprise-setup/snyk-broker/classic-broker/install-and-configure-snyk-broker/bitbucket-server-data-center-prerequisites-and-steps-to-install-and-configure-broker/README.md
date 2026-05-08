@@ -1,3 +1,7 @@
+---
+description: Review the prerequisites and choose between Docker and Helm installation methods to configure Snyk Broker for Bitbucket Server or Data Center.
+---
+
 # Bitbucket Server/Data Center - prerequisites and steps to install and configure Broker
 
 {% hint style="info" %}

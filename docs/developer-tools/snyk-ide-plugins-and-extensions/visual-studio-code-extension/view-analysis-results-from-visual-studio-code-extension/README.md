@@ -1,3 +1,7 @@
+---
+description: Navigate and interpret Snyk scan results in Visual Studio Code across code, open-source, and IaC findings.
+---
+
 # View analysis results from Visual Studio Code extension
 
 ## Overview of results
@@ -10,11 +14,11 @@ The **Snyk analysis panel** on the left shows the time the analysis took and a l
 
 Each issue contains a severity icon that has the following meaning:
 
-| ![](<../../../../.gitbook/assets/image (50) (1).png>) Critical severity | May allow attackers access to sensitive data and to run code on your application.                                                            |
-| ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](<../../../../.gitbook/assets/image (29) (1).png>) High severity     | May allow attackers access to sensitive data on your application.                                                                            |
-| ![](<../../../../.gitbook/assets/image (62) (1).png>) Medium severity   | May allow attackers under some conditions to have access to sensitive data on your application.                                              |
-| ![](<../../../../.gitbook/assets/image (37) (1).png>) Low severity      | The application may expose some data allowing vulnerability mapping, which can be used with other vulnerabilities to attack the application. |
+| ![Critical severity icon](<../../../../.gitbook/assets/critical-severity-icon.png>) Critical severity | May allow attackers access to sensitive data and to run code on your application.                                                            |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![High severity icon](<../../../../.gitbook/assets/high-severity-icon.png>) High severity         | May allow attackers access to sensitive data on your application.                                                                            |
+| ![Medium severity icon](<../../../../.gitbook/assets/medium-severity-icon.png>) Medium severity     | May allow attackers under some conditions to have access to sensitive data on your application.                                              |
+| ![Low severity icon](<../../../../.gitbook/assets/low-severity-icon.png>) Low severity           | The application may expose some data allowing vulnerability mapping, which can be used with other vulnerabilities to attack the application. |
 
 ## Scan configuration
 
@@ -52,9 +56,9 @@ In Visual Studio Code version 2.21.0 and later, you can choose any folder as you
 
 To apply the filter and see only the new issues, use the **total** or **new** toggle in the summary panel.
 
-<figure><img src="../../../../.gitbook/assets/image (272).png" alt=""><figcaption><p>Summary panel with a toggle that shows the total number of issues, and the number of issues in the checked out branch or current folder</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/summary-panel-toggle-shows-total-number-issues-number.png" alt="Summary panel toggle showing total issues and issues in the current branch or folder"><figcaption><p>Summary panel with a toggle that shows the total number of issues, and the number of issues in the checked out branch or current folder</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (271).png" alt=""><figcaption><p>Net new issues filter enabled after the user clicks on the total/new issues toggle</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/net-new-issues-filter-enabled-after-user-clicks-total-new.png" alt="Net new issues filter enabled in the summary panel after clicking the total or new issues toggle"><figcaption><p>Net new issues filter enabled after the user clicks on the total/new issues toggle</p></figcaption></figure>
 
 You can also enable the net new issues feature in the [scan configuration](./#scan-configuration) settings for the extension.
 

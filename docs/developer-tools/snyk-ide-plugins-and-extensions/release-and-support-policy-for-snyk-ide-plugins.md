@@ -1,3 +1,7 @@
+---
+description: Understand the release cadence and support lifecycle for Snyk IDE plugins and extensions.
+---
+
 # Release and support policy for Snyk IDE plugins
 
 This page details the release policy for Snyk IDE plugins.
@@ -63,4 +67,3 @@ Release notes identify all changes, focusing on new features or significant chan
 * [JetBrains plugin changelog](https://github.com/snyk/snyk-intellij-plugin/blob/master/CHANGELOG.md)
 * [Visual Studio extension changelog](https://github.com/snyk/snyk-visual-studio-plugin/blob/main/CHANGELOG.md)
 * [Visual Studio extension changelog](https://github.com/snyk/snyk-visual-studio-plugin/blob/main/CHANGELOG.md)
-

@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan Dart and Flutter code and open-source dependencies for vulnerabilities using Snyk Code and Snyk Open Source.
+---
+
 # Dart and Flutter
 
 {% hint style="info" %}
@@ -75,7 +80,7 @@ The following file formats are supported: `.dart`
 
 Activate the pub [`sbom`](https://pub.dev/packages/sbom) package & create a minimal `sbom.yaml` file in the root folder of the repository:
 
-```
+```yaml
 dart pub global activate sbom
 cat << EOF > sbom.yaml
 type: spdx
@@ -86,7 +91,7 @@ EOF
 
 Use the dart `sbom` command to create a SBOM file & test it using the [`sbom test`](../../developer-tools/snyk-cli/commands/sbom-test.md) command:
 
-```
+```bash
 dart pub global run sbom
 snyk sbom test --experimental --file sbom-pub.json
 ```
@@ -99,7 +104,7 @@ Snyk’s regular open-source support can scan these packages; however, a complet
 
 You can start by building the application for all relevant platforms. This ensures that `pub` fetches all required packages, and the Flutter build system establishes the necessary links for the native build systems.
 
-```
+```text
 flutter build apk --debug
 flutter build ios --debug --no-codesign
 flutter build macos --debug
@@ -107,7 +112,7 @@ flutter build macos --debug
 
 Next, run the `snyk monitor` command to scan for native dependencies:
 
-```
+```bash
 snyk monitor --all-projects --exclude=example,.symlinks
 ```
 
@@ -115,4 +120,4 @@ The `--exclude` parameter removes duplicates and ignores example applications, w
 
 You are now able to view in the Snyk Web UI all native dependencies, including those introduced by third-party plugins.
 
-<figure><img src="../../.gitbook/assets/image (197).png" alt=""><figcaption><p>Snyk Project page showing dependencies in Flutter apps</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/snyk-project-page-showing-dependencies-flutter-apps.png" alt=""><figcaption><p>Snyk Project page showing dependencies in Flutter apps</p></figcaption></figure>

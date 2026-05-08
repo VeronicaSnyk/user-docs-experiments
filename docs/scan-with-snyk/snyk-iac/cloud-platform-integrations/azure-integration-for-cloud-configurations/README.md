@@ -1,3 +1,8 @@
+---
+description: >-
+  Integrate Snyk with your Azure subscription to find cloud configuration issues and generate remediation context.
+---
+
 # Azure integration for cloud configurations
 
 Snyk integrates with your [Microsoft Azure](https://azure.microsoft.com/en-us/) subscription to find issues in your cloud configurations and generate cloud context to help you prioritize your vulnerabilities.

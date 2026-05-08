@@ -1,3 +1,8 @@
+---
+description: >-
+  Integrate Snyk with Quay Container Registry to import and monitor container images for vulnerabilities.
+---
+
 # Integrate with Quay Container Registry
 
 Snyk integrates with Quay Container Registry to enable you to import your container images and monitor them for vulnerabilities.

@@ -1,8 +1,12 @@
+---
+description: Create a new Snyk App by sending a POST request to the apps/creations endpoint with your token and Organization ID.
+---
+
 # Create a Snyk App using the Snyk API
 
 When you have an API token and `orgId`, you can use the Snyk API to create your Snyk App by sending a `POST` request to the endpoint [Create a new Snyk App for an organization](../../reference/apps.md#post-orgs-org_id-apps-creations):
 
-```
+```text
 https://api.snyk.io/rest/orgs/{orgId}/apps/creations?version={version}
 ```
 

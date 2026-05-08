@@ -1,3 +1,8 @@
+---
+description: >-
+  View the Snyk Code security rules applied when scanning Kotlin code, including CWE references and OWASP categories.
+---
+
 # Kotlin rules
 
 Each rule includes the following information.

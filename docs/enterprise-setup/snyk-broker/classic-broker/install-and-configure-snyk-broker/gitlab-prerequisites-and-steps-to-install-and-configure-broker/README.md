@@ -1,3 +1,7 @@
+---
+description: Review GitLab administrator requirements, network allowlist settings, and Broker token prerequisites before installing Snyk Broker for GitLab.
+---
+
 # GitLab - prerequisites and steps to install and configure Broker
 
 Before installing, review the general instructions for the installation method you plan to use, [Helm](../install-and-configure-broker-using-helm.md) or [Docker](../install-and-configure-broker-using-docker.md).

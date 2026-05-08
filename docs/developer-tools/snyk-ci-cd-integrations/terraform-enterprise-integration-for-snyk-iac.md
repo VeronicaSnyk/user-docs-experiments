@@ -1,3 +1,7 @@
+---
+description: Connect Snyk to Terraform Enterprise to scan Terraform plans for infrastructure misconfigurations before each apply.
+---
+
 # Terraform Enterprise integration for Snyk IaC
 
 ## Terraform Enterprise overview

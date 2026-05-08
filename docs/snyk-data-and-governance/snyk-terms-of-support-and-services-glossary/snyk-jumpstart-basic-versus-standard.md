@@ -1,3 +1,7 @@
+---
+description: Compare Snyk Jumpstart Basic and Standard packages by engagement length, SSO setup, Broker installation, developer training, and included features.
+---
+
 # Snyk Jumpstart: Basic versus Standard
 
 Snyk Jumpstart services accelerate Snyk product configuration through remote, consultant-led engagements. Both packages provide a Template Organization to ensure a consistent, scalable account structure.

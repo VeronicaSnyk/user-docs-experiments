@@ -1,3 +1,7 @@
+---
+description: Customize snyk test behavior with CLI options to control scope, output format, and severity filtering.
+---
+
 # Use options to customize the snyk test command
 
 The Snyk CLI has many commands that enable you to perform various tasks and many options that enable you to customize the commands. For details, see the [CLI help](../../commands/). This page explains how to customize snyk test to accomplish tasks you may want to do in testing Open Source Projects.

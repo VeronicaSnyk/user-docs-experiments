@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan your source code for security vulnerabilities in real time using Snyk Code SAST across IDEs, repositories, and CI/CD pipelines.
+---
+
 # Snyk Code
 
 ## Overview

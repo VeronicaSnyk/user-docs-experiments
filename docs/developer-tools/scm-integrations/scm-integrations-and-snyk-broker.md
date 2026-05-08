@@ -1,3 +1,7 @@
+---
+description: Use Snyk Broker to connect Snyk SCM integrations to repositories on private networks not accessible from the internet.
+---
+
 # SCM integrations and Snyk Broker
 
 If your SCM instance is not publicly accessible, you need Snyk Broker. You can install and configure your Snyk Broker using Docker or Helm. For more information about Snyk Broker, see the [Snyk Broker](../../implementation-and-setup/enterprise-setup/snyk-broker/) documentation, including [Using Snyk Essentials wtih Snyk Broker](../../implementation-and-setup/enterprise-setup/snyk-broker/using-snyk-essentials-with-snyk-broker.md).
@@ -54,7 +58,7 @@ The setup process for Universal Broker involves:
 
 To use the GitHub Server App with Universal Broker you must create your own GitHub App on your GitHub Server instance. You can do this by using the predefined `GITHUB-SERVER-URL` that follows and includes all the required permissions for Snyk services:
 
-```
+```text
 {{GITHUB-SERVER-URL}}/settings/apps/new?name=Snyk&description=Snyk%20helps%20you%20develop%20fast%20while%20staying%20secure%20by%20finding%20and%20automatically%20fixing%20security%20issues%20in%20your%20code%2C%20open%20source%20dependencies%2C%20containers%2C%20and%20infrastructure%20as%20code%20-%20all%20powered%20by%20Snyk%E2%80%99s%20security%20intelligence.&url=https%3A%2F%2Fgithub.com%2Fapps%2Fsnyk-io&public=false&webhook_active=true&webhook_url={{SNYK-ENV}}%2Fapi%2Fhidden%2Fscm-apps%2Fapi%2Fgithub-app%2Fwebhook&checks=write&statuses=write&contents=write&metadata=read&pull_requests=write&repository_hooks=write&members=read&events[]=repository 
 ```
 
@@ -69,7 +73,7 @@ Replace the following in the URL above:
 
 After the values are replaced, navigate to that URL. This will take you to the app creation screen in your GitHub Server instance with all the required details pre-filled. Afterward, scroll to the end of the page and click on the **Create GitHub App** button, ensuring that the **Any account** radio button is selected.
 
-<figure><img src="../../.gitbook/assets/image (218).png" alt=""><figcaption><p>Create GitHub App account setting selection</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create-github-app-account-setting-selection.png" alt=""><figcaption><p>Create GitHub App account setting selection</p></figcaption></figure>
 
 {% hint style="warning" %}
 On creation of your GitHub Server App you will see a`ClientId` and `AppId` - store these safely as these are your app's credentials and should be treated as secrets.
@@ -77,15 +81,15 @@ On creation of your GitHub Server App you will see a`ClientId` and `AppId` - sto
 
 After creating your GitHub Server App you will see a banner at the top of the page prompting you to create a private key. Click on it and create a private key for your app.
 
-<figure><img src="../../.gitbook/assets/image (219).png" alt=""><figcaption><p>Registration success message with a link for private key generation</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/registration-success-message-link-private-key-generation.png" alt=""><figcaption><p>Registration success message with a link for private key generation</p></figcaption></figure>
 
 Generating a private key will initiate a download of a `.pem` file; this should be treated as a secret and kept safe.
 
 Your GitHub Server App is now ready to be installed against repositories in your Snyk Organization. You can scroll to the top of the same page and select **Install App** from the left-hand panel. Choose the newly created app and click on the **Install** button to the right.
 
-<figure><img src="../../.gitbook/assets/image (221).png" alt=""><figcaption><p>Install the GitHub App in your repositories</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/install-github-app-repositories.png" alt=""><figcaption><p>Install the GitHub App in your repositories</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (241).png" alt="" width="563"><figcaption><p>Install the GitHub App in your selected repositories</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/install-github-app-selected-repositories.png" alt="" width="563"><figcaption><p>Install the GitHub App in your selected repositories</p></figcaption></figure>
 
 Choose where you want to install the app in your GitHub organization. It can be installed against specific repositories, or all of them in your GitHub organization.
 
@@ -114,6 +118,6 @@ When you have these prerequisites, use the following commands
 
 Visit the integrations page in Snyk to see that the integration has been configured.
 
-<figure><img src="../../.gitbook/assets/image (222).png" alt=""><figcaption><p>A successful GitHub Server App integration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/successful-github-server-app-integration.png" alt=""><figcaption><p>A successful GitHub Server App integration</p></figcaption></figure>
 
 See the [Universal Broker](../../enterprise-setup/snyk-broker/universal-broker/) documentation for more details.

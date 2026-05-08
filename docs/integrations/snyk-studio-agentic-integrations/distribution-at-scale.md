@@ -1,3 +1,7 @@
+---
+description: Deploy Snyk Studio as a managed utility to standardize local security testing and AI-assisted remediation across your developer teams.
+---
+
 # Distribution at scale
 
 Distribute Snyk Studio as a managed utility to automate local security testing and integrate it into your software development life cycle (SDLC).
@@ -143,7 +147,7 @@ This demonstrates functionality and troubleshoots any issues, with the user test
 
 
 
-    <figure><img src="../../.gitbook/assets/2026-01-21_16-14-45.png" alt=""><figcaption><p>Script attributes configuration in Jamf </p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/script-attributes-configuration-jamf.png" alt=""><figcaption><p>Script attributes configuration in Jamf </p></figcaption></figure>
 4. Navigate to the **Scripts** tab and paste in the script.
 5. Click **Save**.
 
@@ -163,14 +167,14 @@ This demonstrates functionality and troubleshoots any issues, with the user test
 4. Navigate to the **Options** > **Scripts**:
    1.  Click **Configure.**&#x20;
 
-       <figure><img src="../../.gitbook/assets/2026-01-21_16-21-18.png" alt=""><figcaption><p>Configure the Snyk Studio Deployment script</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/configure-snyk-studio-deployment-script.png" alt=""><figcaption><p>Configure the Snyk Studio Deployment script</p></figcaption></figure>
    2. Select the **Snyk Studio Deployment** script.
 5. Navigate to the **Scope** tab. Configure the scope by setting the following value:
    1. **Targets**: Select one group for initial testing.
 6. Click **Save**.
 7. Optionally: Navigate to the **Self Service** tab and make the policy available:
 
-<figure><img src="../../.gitbook/assets/2026-01-21_20-17-39.png" alt=""><figcaption><p>Optional Self Service setting in Jamf</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/optional-self-service-setting-jamf.png" alt=""><figcaption><p>Optional Self Service setting in Jamf</p></figcaption></figure>
 
 </details>
 

@@ -1,3 +1,8 @@
+---
+description: >-
+  Run automated security scans on pull requests to catch issues before code merges into your main branch.
+---
+
 # Pull Request checks
 
 ## Introduction to automated security scans with PR checks
@@ -35,7 +40,7 @@ You can analyze PR Checks results in your SCM to test for dependency and licensi
 
 The following diagram explains how Snyk Checks PRs in your development workflow.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2022-09-20 at 11.27.44.png" alt="Where Snyk checks for pull requests in the development workflow."><figcaption><p>Where Snyk checks for pull requests in the development workflow</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/snyk-checks-pull-requests-development-workflow.png" alt="Where Snyk checks for pull requests in the development workflow."><figcaption><p>Where Snyk checks for pull requests in the development workflow</p></figcaption></figure>
 
 PR checks proceed as follows:
 

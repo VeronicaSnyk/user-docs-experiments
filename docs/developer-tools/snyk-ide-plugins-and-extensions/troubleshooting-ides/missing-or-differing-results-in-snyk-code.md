@@ -1,3 +1,7 @@
+---
+description: Troubleshoot why Snyk Code results in your IDE differ from or are missing compared to the Snyk Web UI.
+---
+
 # Missing or differing results in Snyk Code
 
 ## .gitignore and .dcignore files <a href="#gitignore-and-.dcignore-files" id="gitignore-and-.dcignore-files"></a>

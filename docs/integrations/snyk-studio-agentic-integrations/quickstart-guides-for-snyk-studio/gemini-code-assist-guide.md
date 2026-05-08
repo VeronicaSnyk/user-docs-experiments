@@ -1,3 +1,7 @@
+---
+description: Add Snyk Studio to Gemini Code Assist to scan AI-generated code for vulnerabilities using the Snyk MCP server.
+---
+
 # Gemini Code Assist guide
 
 You can access Snyk Studio, including Snyk's MCP server, in Gemini Code Assist to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server will ask for trust and trigger authentication if necessary.
@@ -71,7 +75,7 @@ You might need to reload the IDE window for the changes to apply. In VS Code, do
 
 Next, you can verify that the Snyk MCP Server is available by enabling Agent mode on Gemini Code Assist and requesting it to list the tools it has available:
 
-<figure><img src="../../../.gitbook/assets/image (359).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/next-verify-snyk-mcp-server-available-enabling-agent-mode.png" alt=""><figcaption></figcaption></figure>
 
 ## Setting up the Snyk MCP Server
 
@@ -93,7 +97,7 @@ Scan this directory for code security & dependency vulnerabilities and security 
 
 Gemini indicates that this request is related to security vulnerability scanning and calls the Snyk MCP Server for various scans.
 
-<figure><img src="../../../.gitbook/assets/image (360).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/scanning-code-dependencies-security-vulnerabilities.png" alt=""><figcaption></figcaption></figure>
 
 ### Gemini Code Assist security rules
 
@@ -102,7 +106,7 @@ To practice [Secure at Inception](../../../discover-snyk/getting-started/glossar
 The following is a suggested instruction for Gemini Code Assist rules. Following the [documentation proposal for Gemini Code Assist style guide](https://developers.google.com/gemini-code-assist/docs/customize-gemini-behavior-github), append the following contents to the rules file at `.gemini/styleguide.md`:
 
 {% code title=".gemini/styleguide.md" overflow="wrap" %}
-```
+```text
 
 # Project security best practices
 
@@ -113,8 +117,8 @@ The following is a suggested instruction for Gemini Code Assist rules. Following
 ```
 {% endcode %}
 
-#### Add Gemini Code Assist security rules using the Settings UI
+## Add Gemini Code Assist security rules using the Settings UI
 
 You can add these rules using VS Code **UI Settings** and locate the **Geminicodeassist: Rules** configuration:
 
-<figure><img src="../../../.gitbook/assets/image (361).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add-gemini-code-assist-security-rules-using-settings-ui.png" alt=""><figcaption></figcaption></figure>

@@ -1,3 +1,7 @@
+---
+description: Connect your Git repositories or CI/CD pipelines to Snyk with PR checks disabled to start monitoring without gating.
+---
+
 # Configure integrations
 
 Integrate Git or CI/CD integrations as identified in the previous phase.

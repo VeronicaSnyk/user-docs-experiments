@@ -1,3 +1,8 @@
+---
+description: >-
+  Connect Snyk to your Artifactory package repository to resolve and scan private dependencies.
+---
+
 # Artifactory package repository connection setup
 
 {% hint style="info" %}
@@ -24,4 +29,4 @@ The steps to set up Artifactory Repository Manager follow.
 3. Enter your username and password.
 4. Select **Save**.
 
-<figure><img src="../../../../.gitbook/assets/screenshot_2020-04-17_at_14.38.12.png" alt="Artifactory repository setup"><figcaption><p>Artifactory repository setup</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/screenshot_2020-04-17_at_14.38.adding-example-group.png" alt="Artifactory repository setup"><figcaption><p>Artifactory repository setup</p></figcaption></figure>

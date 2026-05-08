@@ -1,3 +1,7 @@
+---
+description: Create automated Group-level security policies to identify Snyk Open Source and Container issues and apply actions like severity changes or ignores based on defined conditions.
+---
+
 # Security policies
 
 Group administrators can define Open Source and Container security policies, providing an automated way to identify certain issues or types of issues and apply actions like changing the severity of or ignoring an issue based on specified conditions.

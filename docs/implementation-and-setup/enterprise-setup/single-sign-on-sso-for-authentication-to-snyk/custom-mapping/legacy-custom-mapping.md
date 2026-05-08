@@ -1,3 +1,7 @@
+---
+description: Use legacy custom mapping to assign Snyk Group and Organization roles by sending role patterns in SAML attributes or OIDC claims.
+---
+
 # Legacy custom mapping
 
 To configure this option, send the `roles` array within the SAML attributes or OIDC claims to adhere to **one** of the following patterns:
@@ -31,7 +35,7 @@ snyk-{orgslug}-{role}
 Users must only have one role mapped per Organization. Mapping multiple roles for an Organization is not supported and can lead to unexpected behavior.
 {% endhint %}
 
-### Tenant-level role assertions
+## Tenant-level role assertions
 
 {% hint style="info" %}
 With the introduction of Tenants, Snyk has added new possible role assertions at a Tenant level, enabling customers to assign Tenant-level roles.
@@ -57,7 +61,7 @@ snyk-tenantmember
 
 To assign users with Group Admin role, use the following format:
 
-```
+```json
 {
     "roles": [
         "snyk-groupadmin"
@@ -67,7 +71,7 @@ To assign users with Group Admin role, use the following format:
 
 To assign users with Group Viewer roles, use the following format:
 
-```
+```json
 {
     "roles": [
         "snyk-groupviewer"
@@ -77,7 +81,7 @@ To assign users with Group Viewer roles, use the following format:
 
 To assign users with Org Collaborator roles, use the following format:
 
-```
+```json
 {
     "roles": [
         "snyk-{groupID}"
@@ -91,7 +95,7 @@ To assign users as Org Admin or Org Collaborator, use the following format for t
 You can assign different roles on a per-org basis. The following example assigns a user as Org Admin in the `orgslug` Org but a Collaborator in the `orgslug2` Org.
 {% endhint %}
 
-```
+```json
 {
     "roles": [
         "snyk-{orgslug}-admin",
@@ -102,7 +106,7 @@ You can assign different roles on a per-org basis. The following example assigns
 
 To assign users a custom role, use the following format for the roles array. You can assign different roles on a per-Org basis and can use a combination of standard and custom roles for different Orgs.
 
-```
+```json
 {
     "roles": [
         "snyk-{orgslug}-admin",
@@ -115,7 +119,7 @@ To assign users a custom role, use the following format for the roles array. You
 {% hint style="info" %}
 The system also supports comma-separated lists of roles instead of an array.
 
-```
+```json
 {
   "roles": "snyk-{orgslug}-admin,snyk-{orgslug2}-collaborator"
 }
@@ -136,7 +140,7 @@ The following example shows how to assign roles to Snyk users under the mapping 
 
 For the Business Development Team, Snyk uses the snyk-{orgslug}-{role} mapping:
 
-```
+```json
 {
     "roles": [
         "snyk-partner-plugins-admin"
@@ -146,7 +150,7 @@ For the Business Development Team, Snyk uses the snyk-{orgslug}-{role} mapping:
 
 For the Engineering Team, Snyk uses the snyk-{orgslug}-{role} mapping:
 
-```
+```json
 {
     "roles": [
         "snyk-application-securityscanner1-admin",
@@ -158,7 +162,7 @@ For the Engineering Team, Snyk uses the snyk-{orgslug}-{role} mapping:
 
 For the Security Team, Snyk uses the snyk-groupadmin mapping:
 
-```
+```json
 {
     "roles": [
         "snyk-groupadmin"
@@ -168,7 +172,7 @@ For the Security Team, Snyk uses the snyk-groupadmin mapping:
 
 For the Product Team, Snyk uses the snyk-{groupID} mapping, where the value of groupID must be inserted;
 
-```
+```json
 {
     "roles": [
         "snyk-{groupID}"
@@ -178,4 +182,4 @@ For the Product Team, Snyk uses the snyk-{groupID} mapping, where the value of g
 
 ## Summary diagram of roles under custom mapping
 
-<figure><img src="../../../../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/summary-diagram-roles-under-custom-mapping.png" alt=""><figcaption></figcaption></figure>

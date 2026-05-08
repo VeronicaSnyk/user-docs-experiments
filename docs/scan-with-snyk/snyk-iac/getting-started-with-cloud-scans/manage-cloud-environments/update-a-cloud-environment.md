@@ -1,3 +1,8 @@
+---
+description: >-
+  Update the name, IAM role ARN, or other attributes of an existing Snyk cloud environment.
+---
+
 # Update a cloud environment
 
 You can update the following attributes for a [cloud environment](../key-concepts-for-cloud-scans.md#environments):
@@ -38,7 +43,7 @@ To update an environment using the Snyk API:
 
 First, find the ID of the Cloud environment you want to update. Send a request to the [`/cloud/environments`](https://apidocs.snyk.io/#get-/orgs/-org_id-/cloud/environments) endpoint in the following format:
 
-```
+```bash
 curl -X GET \
   'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/environments?version=2022-12-21~beta' \
   -H 'Authorization: token YOUR-API-TOKEN'
@@ -64,7 +69,7 @@ To update an environment, send a request to the [`/cloud/environments/{environme
 
 #### AWS
 
-```
+```bash
 curl -X PATCH \
 'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/environments/YOUR-ENVIRONMENT-ID?version=2022-12-21~beta' \
 -H 'Authorization: token YOUR-API-TOKEN' \
@@ -84,7 +89,7 @@ curl -X PATCH \
 
 `data.attributes.options.service_account_email` is required. You can choose to specify the Project ID explicitly with a `data.attributes.options.project_id` field, but it cannot be different from the current ProjectProject ID.
 
-```
+```bash
 curl -X PATCH \
 'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/environments/YOUR-ENVIRONMENT-ID?version=2022-12-21~beta' \
 -H 'Authorization: token YOUR-API-TOKEN' \
@@ -104,7 +109,7 @@ curl -X PATCH \
 
 `data.attributes.options.tenant_id` and `data.attributes.options.subscription_id` are required and cannot be different from the current values.
 
-```
+```bash
 curl -X PATCH \
 'https://api.snyk.io/rest/orgs/YOUR-ORGANIZATION-ID/cloud/environments/YOUR-ENVIRONMENT-ID?version=2022-12-21~beta' \
 -H 'Authorization: token YOUR-API-TOKEN' \

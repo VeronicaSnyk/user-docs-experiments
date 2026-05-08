@@ -1,3 +1,7 @@
+---
+description: Apply system or custom labels to repository assets using the Set Asset Labels policy action to categorize and filter assets efficiently from the Inventory view.
+---
+
 # Labeling policy
 
 ## Labeling policy

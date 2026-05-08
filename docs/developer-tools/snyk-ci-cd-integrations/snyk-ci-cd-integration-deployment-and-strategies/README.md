@@ -1,3 +1,7 @@
+---
+description: Understand CI/CD integration deployment stages, setup steps, and strategies for Snyk Open Source, Container, and IaC.
+---
+
 # Snyk CI/CD Integration deployment and strategies
 
 When you decide to use a Snyk CI/CD Integration, you typically adopt the integration in specific stages and choose a deployment method. See [CI/CD adoption and deployment](ci-cd-adoption-and-deployment.md).

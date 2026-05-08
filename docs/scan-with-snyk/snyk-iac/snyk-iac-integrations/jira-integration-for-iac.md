@@ -1,3 +1,8 @@
+---
+description: >-
+  Create Jira issues directly from Snyk IaC misconfigurations found in your infrastructure configuration files.
+---
+
 # Jira integration for Snyk IaC
 
 Snyk Infrastructure as Code allows users to raise Jira issues for misconfigurations found in their IaC resources.

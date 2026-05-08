@@ -19,14 +19,21 @@ Usage:
 import argparse
 import re
 import sys
+import urllib.parse
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent.parent
 DOCS_ROOT = REPO_ROOT / "docs"
 ASSETS_DIR = DOCS_ROOT / ".gitbook" / "assets"
 
-IMAGE_INLINE_RE = re.compile(r'!\[([^\]]*)\]\(([^)]+)\)')
-IMAGE_REF_RE = re.compile(r'!\[([^\]]*)\]\[([^\]]*)\]')
+IMAGE_ANGLE_RE = re.compile(r'!\[([^\]]*)\]\(<([^>]+)>\)')
+IMAGE_INLINE_RE = re.compile(r'!\[([^\]]*)\]\(([^)<][^)]*)\)')
+HTML_IMG_RE = re.compile(r'<img[^>]+src=["\']([^"\']+)["\']')
+HTML_HREF_IMG_RE = re.compile(
+    r'<a[^>]+href=["\']([^"\']+\.(?:png|jpg|jpeg|gif|svg|webp|pdf))["\']', re.I
+)
+COVER_FRONTMATTER_RE = re.compile(r'^cover:\s*(.+)$', re.M)
+GITBOOK_FILE_RE = re.compile(r'\{%\s*file\s+src=["\']([^"\']+)["\']')
 EXTERNAL_IMAGE_DOMAINS = [
     "lh7-rt.googleusercontent.com",
     "lh3.googleusercontent.com",
@@ -41,6 +48,19 @@ GENERIC_NAME_RE = re.compile(r'^image\s*\(\d+\)', re.IGNORECASE)
 
 def is_external(url: str) -> bool:
     return url.startswith("http://") or url.startswith("https://")
+
+
+def asset_name_from_url(url):
+    """Extract bare filename from a markdown URL, handling angle brackets,
+    spaces, anchors, and URL encoding. Returns None for external URLs."""
+    url = url.strip().strip('"').strip("'")
+    if url.startswith("<") and url.endswith(">"):
+        url = url[1:-1]
+    if is_external(url) or url.startswith(("mailto:", "data:")):
+        return None
+    url = url.split("#")[0]
+    url = urllib.parse.unquote(url)
+    return Path(url).name
 
 
 def scan_docs(docs_root: Path) -> dict:
@@ -58,34 +78,38 @@ def scan_docs(docs_root: Path) -> dict:
         except Exception:
             continue
 
+        # Per-line scan: missing alt text + external image flagging
         for line_num, line in enumerate(content.splitlines(), 1):
-            for match in IMAGE_INLINE_RE.finditer(line):
-                alt_text = match.group(1).strip()
-                src = match.group(2).strip().split(" ")[0]  # strip title
+            for regex in (IMAGE_ANGLE_RE, IMAGE_INLINE_RE):
+                for match in regex.finditer(line):
+                    alt_text = match.group(1).strip()
+                    raw_src = match.group(2).strip()
+                    name = asset_name_from_url(raw_src)
+                    if name:
+                        findings["referenced_assets"].add(name)
+                    elif is_external(raw_src):
+                        for domain in EXTERNAL_IMAGE_DOMAINS:
+                            if domain in raw_src:
+                                findings["external_images"].append({
+                                    "file": str(rel),
+                                    "line": line_num,
+                                    "src": raw_src[:80] + ("..." if len(raw_src) > 80 else ""),
+                                    "domain": domain,
+                                })
+                                break
+                    if not alt_text:
+                        findings["missing_alt"].append({
+                            "file": str(rel),
+                            "line": line_num,
+                            "src": name or raw_src[:60],
+                        })
 
-                # Track referenced local assets
-                if not is_external(src):
-                    asset_name = Path(src).name
-                    findings["referenced_assets"].add(asset_name)
-                else:
-                    # Check for known fragile external domains
-                    for domain in EXTERNAL_IMAGE_DOMAINS:
-                        if domain in src:
-                            findings["external_images"].append({
-                                "file": str(rel),
-                                "line": line_num,
-                                "src": src[:80] + ("..." if len(src) > 80 else ""),
-                                "domain": domain,
-                            })
-                            break
-
-                # Check for missing alt text
-                if not alt_text:
-                    findings["missing_alt"].append({
-                        "file": str(rel),
-                        "line": line_num,
-                        "src": Path(src).name if not is_external(src) else src[:60],
-                    })
+        # Whole-file scan: HTML, GitBook, frontmatter patterns
+        for regex in (HTML_IMG_RE, HTML_HREF_IMG_RE, COVER_FRONTMATTER_RE, GITBOOK_FILE_RE):
+            for match in regex.finditer(content):
+                name = asset_name_from_url(match.group(1))
+                if name:
+                    findings["referenced_assets"].add(name)
 
     return findings
 

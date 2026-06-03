@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI documentation assistant</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <style>
+      /* For Webkit-based browsers (Chrome, Safari) */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1f2937; /* gray-800 */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #4b5563; /* gray-600 */
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6b7280; /* gray-500 */
+      }
+
+      /* Custom Prose styles for high-contrast dark mode */
+      .prose, .prose-invert {
+          --tw-prose-body: #ffffff;
+          --tw-prose-headings: #ffffff;
+          --tw-prose-lead: #d1d5db;
+          --tw-prose-links: #7dd3fc;
+          --tw-prose-bold: #ffffff;
+          --tw-prose-counters: #d1d5db;
+          --tw-prose-bullets: #9ca3af;
+          --tw-prose-hr: #374151;
+          --tw-prose-quotes: #f3f4f6;
+          --tw-prose-quote-borders: #4b5563;
+          --tw-prose-captions: #d1d5db;
+          --tw-prose-code: #f3f4f6;
+          --tw-prose-pre-code: #e5e7eb;
+          --tw-prose-pre-bg: #111827;
+          --tw-prose-th-borders: #4b5563;
+          --tw-prose-td-borders: #374151;
+      }
+      .prose code::before, .prose code::after, .prose-invert code::before, .prose-invert code::after {
+          content: '';
+      }
+      .prose pre, .prose-invert pre {
+        border: 1px solid #374151;
+      }
+
+      /* Style for highlighting inserted text */
+      .prose ins, .prose-invert ins {
+        background-color: #166534;
+        border-left: 3px solid #4ade80;
+        padding: 2px 6px;
+        margin: 0 1px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 500;
+        color: #ffffff;
+      }
+
+      /* Snyk-like note boxes */
+      .prose blockquote, .prose-invert blockquote {
+        background-color: rgba(14, 165, 233, 0.1);
+        border-left-width: 4px;
+        border-left-color: #0ea5e9;
+        padding: 1em;
+        font-weight: 500;
+        color: #e0f2fe;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0.25rem;
+      }
+      .prose blockquote p, .prose-invert blockquote p {
+        margin: 0;
+      }
+      .prose blockquote strong, .prose-invert blockquote strong {
+        color: #7dd3fc;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^9.0.1",
+    "remark-gfm": "https://aistudiocdn.com/remark-gfm@^4.0.0",
+    "rehype-raw": "https://aistudiocdn.com/rehype-raw@^7.0.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-black text-gray-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

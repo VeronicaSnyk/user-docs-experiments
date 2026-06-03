@@ -1,0 +1,88 @@
+name: Docs ship-it draft
+
+# Triggered by the Slack /ship-it Workflow Builder webhook step (via repository_dispatch),
+# or manually for testing. Generates a style-guide-compliant GitBook Change Request (draft)
+# from a technical spec and posts the draft URL back to Slack / Jira.
+#
+# See tools/docs-assistant/README.md for the Slack Workflow Builder webhook setup and the
+# expected client_payload shape.
+on:
+  repository_dispatch:
+    types: [docs-ship-it]
+  workflow_dispatch:
+    inputs:
+      spec:
+        description: 'Technical spec / PRD text'
+        required: true
+        type: string
+      space:
+        description: 'Target GitBook space'
+        required: true
+        default: closed-beta
+        type: choice
+        options:
+          - closed-beta
+          - public
+      slidesUrl:
+        description: 'Optional link to slides'
+        required: false
+        type: string
+      slackChannel:
+        description: 'Slack channel ID to notify (optional)'
+        required: false
+        type: string
+      jiraIssueKey:
+        description: 'Jira issue key to comment on (optional)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  draft:
+    name: Generate GitBook draft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: tools/docs-assistant/package-lock.json
+
+      - name: Install dependencies
+        working-directory: tools/docs-assistant
+        run: npm ci
+
+      - name: Run pipeline (repository_dispatch)
+        if: github.event_name == 'repository_dispatch'
+        working-directory: tools/docs-assistant
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITBOOK_API_TOKEN: ${{ secrets.GITBOOK_API_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        run: node --experimental-strip-types scripts/run-pipeline.ts
+
+      - name: Run pipeline (manual dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        working-directory: tools/docs-assistant
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITBOOK_API_TOKEN: ${{ secrets.GITBOOK_API_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        run: |
+          node --experimental-strip-types scripts/run-pipeline.ts \
+            --spec "${{ inputs.spec }}" \
+            --space "${{ inputs.space }}" \
+            --slidesUrl "${{ inputs.slidesUrl }}" \
+            --slackChannel "${{ inputs.slackChannel }}" \
+            --jiraIssueKey "${{ inputs.jiraIssueKey }}"

@@ -4,27 +4,29 @@ description: Configure Snyk Studio in Claude Code to run security scans on AI-ge
 
 # Claude Code guide
 
-You can access Snyk Studio in Claude Code to secure code generated with agentic workflows through an LLM. This can be achieved in several ways. When you use it for the first time, the MCP server will ask for trust and trigger authentication if necessary.
+Access Snyk Studio in Claude Code to ensure generated code is secure at inception (SAI). Snyk Studio supports a default hooks-based approach to SAI for Claude Code.
 
-## Prerequisite
+## Prerequisites
 
-Install Claude Code. For more details, visit the official [Claude Code - Quickstart](https://docs.anthropic.com/en/docs/claude-code/quickstart).
+Install Claude Code. For details, visit [Claude Code Quickstart](https://docs.anthropic.com/en/docs/claude-code/quickstart).
 
-## Install Snyk Studio
+## Install Snyk Studio with hooks support
 
-Install Snyk Studio using the method that best suits your operating system and local development environment. Snyk recommends leveraging the ['single command install' using `npx`](claude-code-guide.md#install-with-npx) . For different ways to install MCP servers into Claude Code, see Anthropic's [official documentation](https://docs.anthropic.com/en/docs/claude-code/mcp#installing-mcp-servers).
+For installation instructions, visit [Getting started with Snyk Studio](../getting-started-with-snyk-studio.md).
+
+## Install Snyk Studio (legacy rules-based approach)
 
 ### Install with `npx`
 
 Open a terminal window and paste the following command:
 
-`npx -y snyk@latest mcp configure --tool=claude-cli`&#x20;
+`npx -y snyk@latest mcp configure --tool=claude-cli`
 
 This command:
 
-* Downloads the latest version of Snyk's CLI.
-* Sets up Snyk Studio within Claude Code.
-* Configures Snyk Studio's Secure at inception directives within Claude Code's global rules file.
+* Downloads the latest version of Snyk CLI.
+* Sets up Snyk Studio in Claude Code.
+* Configures Snyk Studio's Secure at inception directives in Claude Code's global rules file.
 
 <figure><img src="../../../.gitbook/assets/install-npx.png" alt=""><figcaption></figcaption></figure>
 
@@ -32,15 +34,15 @@ To verify installation, use the `/mcp` command within Claude:
 
 <figure><img src="../../../.gitbook/assets/verify-installation-use-mcp-command-within-claude.png" alt=""><figcaption></figcaption></figure>
 
-Select **View Tools** to look at all of the commands and tooling Snyk utilizes as part of its execution The descriptions also include instructions specific for the LLM. These are capitalized to help you differentiate. These tools include:
+Select **View Tools** to look at all of the commands and tooling Snyk uses as part of its execution. The descriptions also include instructions specific for the LLM. These are capitalized to help you differentiate. These tools include:
 
 | Tool                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `snyk_aibom`          | Generates an AI Bill of Materials (AI-BOM) for Python software projects in CycloneDX v1.6 JSON format. This experimental feature analyzes local Python projects to identify AI models, datasets, tools, and other AI-related components. Requires an active internet connection and access to the experimental feature (available on request). The command must be run from within a Python project directory and requires the CLI from the preview release channel. |
 | `snyk_auth`           | Authenticate the user with Snyk.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `snyk_code_scan`      | <p>Performs Static Application Security Testing (SAST) directly from the Snyk MCP. It analyzes an application's source code with a SAST scan to identify security vulnerabilities and weaknesses without executing the code. </p><p></p><p>Supported languages: </p><p>Apex, C/C++, Dart and Flutter, Elixir, Go, Groovy, Java and Kotlin, Javascript, .NET, PHP, Python, Ruby, Rust, Scala, Swift and Objective-C, Typescript, VB.NET   </p>                        |
+| `snyk_code_scan`      | <p>Performs Static Application Security Testing (SAST) directly from the Snyk MCP. It analyzes an application's source code with a SAST scan to identify security vulnerabilities and weaknesses without executing the code.</p><p>Supported languages:</p><p>Apex, C/C++, Dart and Flutter, Elixir, Go, Groovy, Java and Kotlin, Javascript, .NET, PHP, Python, Ruby, Rust, Scala, Swift and Objective-C, Typescript, VB.NET</p>                                    |
 | `snyk_container_scan` | Scans container images for known vulnerabilities in OS packages and application dependencies.                                                                                                                                                                                                                                                                                                                                                                        |
-| `snyk_iac_scan`       | <p>Analyzes Infrastructure as Code (IaC) files for security misconfigurations. </p><p></p><p>Supports Terraform (.tf, .tf.json, plan files), Kubernetes (YAML, JSON), AWS CloudFormation (YAML, JSON), Azure Resource Manager (ARM JSON), and Serverless Framework.  </p>                                                                                                                                                                                            |
+| `snyk_iac_scan`       | <p>Analyzes Infrastructure as Code (IaC) files for security misconfigurations.</p><p>Supports Terraform (.tf, .tf.json, plan files), Kubernetes (YAML, JSON), AWS CloudFormation (YAML, JSON), Azure Resource Manager (ARM JSON), and Serverless Framework.</p>                                                                                                                                                                                                      |
 | `snyk_logout`         | Logs the Snyk MCP out of the current Snyk account by clearing the locally stored authentication token.                                                                                                                                                                                                                                                                                                                                                               |
 | `snyk_sbom_scan`      | Experimental command. Analyzes an existing SBOM file for known vulnerabilities in its open-source components. Requires components in SBOM to be identified using PackageURLs (purls).                                                                                                                                                                                                                                                                                |
 | `snyk_sca_scan`       | Analyzes Projects for open-source vulnerabilities and license compliance issues by inspecting manifest files (for example package.json, pom.xml, requirements.txt) to understand dependencies and then queries the Snyk vulnerability database.                                                                                                                                                                                                                      |
@@ -68,7 +70,7 @@ To utilize smart-scan from install, add the following argument to the npx instal
 
 The default ruleset frequency can be adjusted by editing the global `CLAUDE.md` file.
 
-&#x20;For reference, the following are the smart apply rules Snyk places in Claude's global rules file when prompted:
+For reference, the following are the smart apply rules Snyk places in Claude's global rules file when prompted:
 
 {% code overflow="wrap" %}
 ```text
@@ -177,7 +179,7 @@ To remove Snyk Studio and its associated ruleset from your environment, use:
 snyk mcp configure --rm --tool=claude-cli
 ```
 
-## Secure at inception directives
+## "Secure at inception" directives
 
 To practice [Secure at Inception](../../../discover-snyk/getting-started/glossary.md#secure-at-inception), Snyk recommends adopting rules that align the LLM for secure code generation and workflows.
 

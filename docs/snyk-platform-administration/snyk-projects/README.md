@@ -70,6 +70,7 @@ Possible Origin values are:
 * github-enterprise
 * gitlab
 * gitlab-cr
+* github-app
 * google-artifact-cr
 * harbor-cr
 * heroku

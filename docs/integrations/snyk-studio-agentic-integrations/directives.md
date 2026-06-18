@@ -10,6 +10,13 @@ They have varying names across different coding assistants. For example, rules, 
 
 Snyk categorizes anything that guides an agent to produce code a certain way under the term "Directives" and offers code examples that you can use as they are, or customized to meet your needs.
 
+You can implement directives in two ways:
+
+* Hooks: programmatic scripts that run at IDE lifecycle events.
+* Rules: natural language instructions in the AI context.
+
+For implementation details, navigate to [Snyk Studio Recipes repository](https://github.com/snyk/studio-recipes).
+
 Snyk categorizes directives into the following types:
 
 * [Guardrail directives](directives.md#guardrail-directives)
@@ -30,6 +37,21 @@ Non-determinism is a factor with LLM interactions and there can be scenarios whe
 {% endhint %}
 
 There are many guardrail directives that your company may choose to implement, some of which may relate to security.
+
+#### Implementation approaches
+
+| Consideration | Hooks                                         | Rules                           |
+| ------------- | --------------------------------------------- | ------------------------------- |
+| Enforcement   | Deterministic (always runs)                   | Non-deterministic (AI may skip) |
+| Complexity    | More complex (scripts + config)               | Simple (one file copy)          |
+| Setup         | Configure hooks + install scripts             | Copy to rules directory         |
+| Best for      | Enterprise compliance, guaranteed enforcement | Quick setup, real-time feedback |
+
+{% hint style="info" %}
+Snyk recommends using hooks for deterministic enforcement, if available. Combine hooks with rules for inline feedback in real time.&#x20;
+{% endhint %}
+
+For hook implementations, navigate to [Snyk Studio Recipes repository](https://github.com/snyk/studio-recipes).
 
 ### Secure at inception directives
 
@@ -78,7 +100,7 @@ The following code snippet extends the Secure at inception testing to include ch
 
 <details>
 
-<summary>Secure at inception: Package health check </summary>
+<summary>Secure at inception: Package health check</summary>
 
 The `snyk_package_health_check` directive evaluates open-source packages for security vulnerabilities, maintenance health, community engagement, and popularity. This reduces supply chain risk in agentic development workflows where AI agents autonomously select and install dependencies.
 
@@ -88,7 +110,7 @@ The `snyk_package_health_check` is available only for npm, pypi, nuget, maven, a
 
 Snyk Studio provides two ready-to-use sample scripts that integrate `snyk_package_health_check` into your development workflow: a skill for proactive package selection and a hook for enforcing security gates on package installations.
 
-### Skill: Secure dependency health check
+#### Skill: Secure dependency health check
 
 This skill evaluates and compares open-source packages for AI agents.
 
@@ -111,13 +133,13 @@ You can:
 
 To use this skill, refer to the sample script in the [Snyk Studio recipes repository](https://github.com/snyk/studio-recipes/tree/main/command_directives/synchronous_remediation/skills/secure-dependency-health-check).
 
-### Hook: Enforce security scan on new packages
+#### Hook: Enforce security scan on new packages
 
 {% hint style="info" %}
 The `snyk_package_health_check` hook works only with Cursor.
 {% endhint %}
 
-The Enforce Security Scan hook implements a security gate for the Cursor IDE. Install this hook to enforce a policy that prevents installing new dependencies without a security check.&#x20;
+The Enforce Security Scan hook implements a security gate for the Cursor IDE. Install this hook to enforce a policy that prevents installing new dependencies without a security check.
 
 When an AI agent modifies a package manifest, for example, `package.json`, the hook blocks install commands, like `npm install`, until the `snyk_package_health_check` runs. After the agent invokes the health check, the install commands proceed. If a session ends with unscanned manifest changes, the hook displays a warning.
 
@@ -125,9 +147,9 @@ The hook operates in the background and requires no developer intervention. This
 
 To use this hook, refer to the sample script in the [Snyk Studio recipes repository](https://github.com/snyk/studio-recipes/tree/main/guardrail_directives/package_enforcement/cursor/hooks).
 
-### How to use the sample scripts
+#### How to use the sample scripts
 
-Sample scripts are available in the [studio-recipes repository](https://github.com/snyk/studio-recipes).&#x20;
+Sample scripts are available in the [studio-recipes repository](https://github.com/snyk/studio-recipes).
 
 To use them:
 

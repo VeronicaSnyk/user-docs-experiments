@@ -143,7 +143,7 @@ If you have the Node.js `npx` executable installed in your environment, add the 
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (407) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (407).png" alt=""><figcaption></figcaption></figure>
 
 ### Install with pre-installed Snyk CLI
 

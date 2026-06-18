@@ -6,6 +6,8 @@ description: Run adversarial red teaming scans against your AI application using
 
 **Warning:** `snyk redteam` is an experimental command. The `--experimental` flag is required. Behavior and options may change in future releases without notice.
 
+`snyk redteam` will be deprecated on May 31, 2026.
+
 Agent Red Teaming is potentially disruptive. Before running this command, ensure you:
 
 * Favor scanning dev or staging over production, so as to avoid disruption of live apps.
@@ -83,7 +85,7 @@ Default: `{"message": "{{prompt}}"}`
 
 JMESPath expression used to extract the AI response from the target's JSON response body. Overrides `target.settings.response_selector` from the config file.
 
-Default: `response`&#x20;
+Default: `response`
 
 For more information about the JMESPath expression syntax, visit [jmespath.org](https://jmespath.org/)
 
@@ -135,7 +137,7 @@ List all available attack strategies with descriptions and exit. Does not run a 
 
 Snyk tenant ID. Auto-discovered from your authenticated Snyk account if not provided. Only needed when your account belongs to multiple tenants.
 
-### Options for `snyk redteam setup`&#x20;
+### Options for `snyk redteam setup`
 
 #### `--experimental`
 

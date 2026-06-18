@@ -12,7 +12,7 @@ description: >-
 ## .NET for Snyk Code
 
 {% hint style="info" %}
-For .NET with Snyk Code, C# and VB.NET are supported.&#x20;
+For .NET with Snyk Code, C# and VB.NET are supported.
 {% endhint %}
 
 ### Supported frameworks and libraries
@@ -66,7 +66,7 @@ For .NET with Snyk Open Source, NuGet and Paket are supported as package manager
 ### Supported file formats
 
 * For NuGet: `project.assets.json`, `*.sln`, `packages.config,` `project.json`
-* For Paket: `paket.dependencies` and `paket.lock`&#x20;
+* For Paket: `paket.dependencies` and `paket.lock`
 
 ### Available integrations
 
@@ -106,11 +106,6 @@ By default, Snyk excludes developer dependencies to reduce noise in scan results
 
 To include developer dependencies in NuGet SCM imports, navigate to **Settings** > **Languages** > **.NET**.
 
-Snyk scans Projects differently depending on the format:
-
-* Modern Projects (SDK-style): For modern `.csproj` formats, Snyk uses the .NET SDK to resolve dependencies. This improves accuracy and supports any Project the `dotnet` SDK can restore, including `Directory.Build.props`, `global.json`, and Central Package Management (`Directory.Packages.props`).
-* Legacy Projects (non-SDK style): For Projects that use `packages.config`, `project.json`, or XML-style `*.csproj`, `*.vbproj`, or `*.fproj` files, Snyk uses static analysis. This approximates the dependency graph based on standard NuGet algorithms.
-
 When scanning through an SCM integration, the methodology varies based on your Project format:
 
 * Modern Projects (SDK-style): For modern `.csproj` formats, the scanner utilises the .NET SDK directly to resolve dependencies, resulting in higher accuracy. This also provides the capability of scanning any Project that can be successfully restored by the `dotnet` SDK itself including `Directory.Build.props` files, `global.json`, or Central Package Management (`Directory.Packages.props`).
@@ -118,7 +113,7 @@ When scanning through an SCM integration, the methodology varies based on your P
 
 To improve accuracy, migrate to the [Universal Broker](../../../enterprise-setup/snyk-broker/universal-broker/) and [enable](../../../enterprise-setup/snyk-broker/universal-broker/basic-steps-to-install-and-configure-universal-broker.md#enabling-the-universal-broker-for-enhanced-sca-scanning) it for Open Source Scanning.
 
-### .NET framework package pruning&#x20;
+### .NET framework package pruning
 
 For Snyk Projects targeting .NET 10.0 and later, the Snyk SCM and CLI scanners align with default Microsoft build behavior.
 

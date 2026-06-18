@@ -8,6 +8,10 @@ description: Use the Snyk CLI red-teaming agent to evaluate AI-generated code fo
 **Experimental Feature**: Snyk Agent Red Teaming is an experimental feature subject to breaking changes without notice. It is provided "as is" without warranties or guarantees. Use at your own risk.
 {% endhint %}
 
+{% hint style="warning" %}
+**Deprecated:** `snyk redteam` will be deprecated on May 31, 2026.
+{% endhint %}
+
 {% hint style="danger" %}
 **Testing environment only**: This tool actively sends adversarial inputs to your AI application. Only run scans against staging or development environments using test data and test credentials. **Do not target production systems or environments containing real user data.** Snyk is not responsible for any unintended side effects, data loss, or disruptions caused by running scans against your applications.
 {% endhint %}
@@ -42,7 +46,7 @@ snyk redteam --experimental setup
 
 {% stepper %}
 {% step %}
-### Install the Snyk CLI
+**Install the Snyk CLI**
 
 Use one of the following methods to install the Snyk CLI. For more installation options and troubleshooting, visit [Install or update the Snyk CLI](../install-the-snyk-cli/).
 
@@ -76,7 +80,7 @@ scoop install snyk
 {% endstep %}
 
 {% step %}
-### Authenticate
+**Authenticate**
 
 To authenticate, run:
 
@@ -102,7 +106,7 @@ You can create the configuration file manually, or generate one with the `setup`
 
 {% stepper %}
 {% step %}
-### Run the `setup` subcommand
+**Run the `setup` subcommand**
 
 ```bash
 snyk redteam --experimental setup
@@ -112,13 +116,13 @@ This will open an interactive UI to guide you through the target configuration.
 {% endstep %}
 
 {% step %}
-#### Define the target
+**Define the target**
 
 Give the target a recognizable name and select the target type.
 {% endstep %}
 
 {% step %}
-#### Configure the endpoint connection
+**Configure the endpoint connection**
 
 Configure how Snyk AI Red Teaming will communicate with your target.
 
@@ -126,19 +130,19 @@ Click **Test Connection** to verify the endpoint is reachable and responding cor
 {% endstep %}
 
 {% step %}
-#### Provide application context
+**Provide application context**
 
 Tell Agent Red Teaming more details about the application. The more accurately you describe the target here, the better the tool will be at assessing the attack success.
 {% endstep %}
 
 {% step %}
-#### Select the test goals
+**Select the test goals**
 
 Choose which attack goals you want Agent Red Teaming to attempt. Goals are the particular exploits that red teaming attacks are trying to reach. You can choose a pre-configured profile, which will select recommended options or pick and choose goals that best reflect your threat model. For more information on what is available, visit [#attack-goals](snyk-agent-red-teaming.md#attack-goals "mention").
 {% endstep %}
 
 {% step %}
-#### Review the configuration and download it
+**Review the configuration and download it**
 
 Check the generated YAML to make sure everything looks correct, then click **Test Connection** to confirm the target is still reachable. When you're satisfied, click **Download Configuration** to save the file in your browser's download folder or **Save** the configuration to download it to your running directory as `redteam.yaml`. You can also **Copy** the configuration and save it manually under your prefered name.
 {% endstep %}
@@ -146,7 +150,7 @@ Check the generated YAML to make sure everything looks correct, then click **Tes
 
 ### Run the scan
 
-Now that we have the config ready, we can run the scan.&#x20;
+Now that we have the config ready, we can run the scan.
 
 ```bash
 snyk redteam --experimental --config=redteam.yaml --html-file-output=report.html
@@ -240,8 +244,6 @@ Below you can find an overview of the JSON structure:
   ]
 }
 </code></pre>
-
-
 
 </details>
 

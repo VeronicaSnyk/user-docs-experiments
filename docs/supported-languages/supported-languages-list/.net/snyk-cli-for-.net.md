@@ -3,7 +3,7 @@ description: >-
   Scan .NET open-source dependencies for vulnerabilities using the Snyk CLI with solution and project file options.
 ---
 
-# Snyk CLI for .NET
+# CLI support for .NET
 
 To analyze Open Source libraries, install your dependencies, then run `snyk test` using one of the following options:
 

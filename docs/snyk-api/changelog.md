@@ -1,3 +1,102 @@
+## 2026-03-25 - Updated 2026-05-19
+
+### GET - `/orgs/{org_id}/issues` - Updated
+- added the new enum value `secrets` to the `query` request parameter `type`
+
+
+
+### GET - `/orgs/{org_id}/issues/{issue_id}` - Updated
+- added the non-success response with the status `501`
+
+
+
+### GET - `/groups/{group_id}/issues` - Updated
+- added the new enum value `secrets` to the `query` request parameter `type`
+
+
+
+### GET - `/groups/{group_id}/issues/{issue_id}` - Updated
+- added the non-success response with the status `501`
+
+
+## 2026-03-25 - Updated 2026-05-19
+
+### GET - `/orgs/{org_id}/container_import/{integration_id}/policy` - Updated
+- deleted the `query` request parameter `ending_before`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- deleted the `query` request parameter `limit`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- deleted the `query` request parameter `starting_after`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+## 2026-03-25 - Updated 2026-05-12
+
+### GET - `/orgs/{org_id}/issues` - Updated
+- the `data/items/attributes/coordinates/items/remedies/items/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- the `data/items/attributes/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+
+### GET - `/orgs/{org_id}/issues/{issue_id}` - Updated
+- the `data/attributes/coordinates/items/remedies/items/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- the `data/attributes/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+
+### GET - `/groups/{group_id}/issues` - Updated
+- the `data/items/attributes/coordinates/items/remedies/items/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- the `data/items/attributes/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+
+### GET - `/groups/{group_id}/issues/{issue_id}` - Updated
+- the `data/attributes/coordinates/items/remedies/items/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- the `data/attributes/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+## 2026-03-25 - Updated 2026-05-01
+
+### GET - `/tenants` - Updated
+- added the new optional `query` request parameter `name`
+
+
+## 2026-03-25 - Updated 2026-04-30
+
+### POST - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Create a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
+
+### PATCH - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Update a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
+
+### GET - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Get a container registry import policy
+
+#### Required permissions
+
+- `View integrations (org.integration.read)`
+
+
+### DELETE - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Delete a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
 ## 2026-03-25 - Updated 2026-04-28
 
 ### GET - `/groups/{group_id}/orgs` - Updated

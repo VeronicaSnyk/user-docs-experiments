@@ -4,19 +4,19 @@ description: Scan, prioritize, and fix security vulnerabilities in code, open-so
 
 # What's Snyk?
 
-Snyk is a platform that allows you to scan, prioritize, and fix security vulnerabilities in your code, open-source dependencies, container images, and infrastructure as code configurations. The Snyk platform uses a risk-based approach, focusing security efforts on issues that matter, and eliminating the noise of vulnerabilities that have no meaningful impact.
+Snyk is a platform that allows you to scan, prioritize, and fix security vulnerabilities in your code, open-source dependencies, container images, infrastructure as code configurations, and after your web application or API is live. The Snyk platform uses a risk-based approach, focusing security efforts on issues that matter, and eliminating the noise of vulnerabilities that have no meaningful impact.
 
 To manage and govern the security program, Snyk gives security teams immediate visibility into coverage and business context across all application assets, smart policies to automate and scale in large environments, and analytics and reporting to measure the performance of your security program.
 
 * Snyk Open Source and Snyk Code: see [Supported languages, package managers, and frameworks](../supported-languages/supported-languages-package-managers-and-frameworks.md).
 * Snyk Container: see [Supported operating system distributions](../scan-with-snyk/snyk-container/how-snyk-container-works/operating-system-distributions-supported-by-snyk-container.md).
 * Snyk Infrastructure as Code: see [Supported IaC and cloud providers](../scan-with-snyk/snyk-iac/supported-iac-languages-cloud-providers-and-cloud-resources/).
-* Snyk Essentials: see [Snyk Essentials](../scan-with-snyk/snyk-essentials.md)
+* Snyk Essentials: see [Snyk Essentials](../scan-with-snyk/snyk-essentials.md).
 * Snyk API & Web: see [Snyk API & Web](https://snyk.io/product/dast-api-web/).
 
 ## The Snyk developer-first approach
 
-Snyk provides visibility in a developer’s workflow and actionable insights. The benefit is engaging developers in security practices as part of their development work. Thus, the focus is on building a secure application rather than overhead-intensive work, such as putting in hard QA gates.
+Snyk provides visibility in a developer’s workflow and actionable insights. The benefit is engaging developers in security practices as part of their development work. Thus, the focus is on building a secure application rather than overhead-intensive work, such as putting in hard quality assurance gates.
 
 Developers now assemble applications with a combination of proprietary and open-source code, run that code in containers, and then deploy with infrastructure as code configurations using technologies like Kubernetes and Terraform.
 
@@ -27,6 +27,7 @@ A robust security process secures each component where they are built and mainta
 * Secure your code: use [Snyk Open Source](../scan-with-snyk/snyk-open-source/) to fix vulnerabilities in your open source dependencies and [Snyk Code](../scan-with-snyk/snyk-code/) to fix vulnerabilities in your source code.
 * Secure your containers: use [Snyk Container](../scan-with-snyk/snyk-container/) to fix vulnerabilities in container images and Kubernetes applications.
 * Secure your infrastructure: use [Snyk Infrastructure as Code](../scan-with-snyk/snyk-iac/) (IaC) to fix misconfigurations in Terraform, CloudFormation, Kubernetes, and Azure templates.
+* Secure your APIs and web applications: use [Snyk API & Web](https://snyk.io/product/dast-api-web/) to discover and test the security of all your APIs and web apps, including those AI-generated.
 
 ## Choose how to run Snyk
 

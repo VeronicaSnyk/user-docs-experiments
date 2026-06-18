@@ -63,7 +63,7 @@ Project retests typically occur on a nightly or weekly basis, but you can also r
 
 1. Log in to the Snyk Web UI and navigate to your Group and Organization.
 2. Open a Project and find an issue card.
-3. Select **Ignore across repository** on an issue card to create an ignore.
+3. Select **Ignore** on an issue card to create an ignore.
 4. Fill in the ignore information and confirm its creation. The issue will be updated and moved from **Open** to **Ignored**.\
    \
    If anyone loads the page before a retest, an indicator will appear and encourage retesting to capture policy or ignore changes.

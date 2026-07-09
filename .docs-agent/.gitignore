@@ -1,0 +1,23 @@
+# Secrets and credentials — NEVER commit these.
+.env
+*.env
+!.env.example
+*token.pickle*
+credentials*.json
+*.pem
+
+# Local runtime / build artifacts.
+**/node_modules/
+**/__pycache__/
+*.pyc
+
+# Retired self-hosted GitBook MCP build (we use the hosted mcp.gitbook.com server).
+# Kept out of git; the source can be re-cloned from GITBOOK_MCP_SETUP.md if ever needed.
+mcp/gitbook-mcp/node_modules/
+mcp/gitbook-mcp/dist/
+
+# Local test scratch (drafts produced by dry-runs).
+test/scratch/
+
+# Retired self-hosted GitBook MCP (source kept local; we use hosted mcp.gitbook.com).
+mcp/gitbook-mcp/

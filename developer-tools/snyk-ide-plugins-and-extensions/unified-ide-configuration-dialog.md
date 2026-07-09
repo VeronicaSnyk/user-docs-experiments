@@ -1,40 +1,17 @@
-# Unified IDE Configuration Dialog (experimental)
+# Unified IDE configuration dialog
 
-You can use only one IDE configuration dialog to configure all your IDEs.
+Use the unified IDE configuration dialog to configure all your IDEs in one place. The unified dialog is available in Visual Studio Code, JetBrains, Eclipse, and Visual Studio.
 
-<figure><img src="../.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (104).png" alt="Unified IDE configuration dialog"><figcaption></figcaption></figure>
 
-## Enabling/Disabling
+## Accessing the unified configuration dialog
 
-### Visual Studio Code
+[ACTION REQUIRED: add per-IDE steps for accessing the unified dialog in GA — replace the previous opt-in/feature-flag instructions with the GA access method for each IDE]
 
-1. Add `"htmlSettings": true` to the `snyk.features.preview` object.
-2. Click **Settings** in the Snyk extension panel to open the settings page.
-
-<figure><img src="../.gitbook/assets/Screenshot 2026-01-14 at 11.45.20.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/Screenshot 2026-01-14 at 11.47.24.png" alt=""><figcaption></figcaption></figure>
-
-### JetBrains
-
-The configuration dialog is disabled by default. To enable the dialog, set the `snyk.useNewConfigDialog` feature flag to `true` in the JetBrains IDE built-in registry.
-
-<figure><img src="../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
-
-### Eclipse
-
-Set the `SNYK_USE_NEW_CONFIG_DIALOG` environment variable globally, or launch the IDE from the terminal using a shell script to ensure the variable is enabled.
-
-### Visual Studio
-
-In the **Experimental** Snyk settings, click **Open settings v2 page**.
-
-<figure><img src="../.gitbook/assets/Screenshot 2026-01-14 at 11.52.50.png" alt=""><figcaption></figcaption></figure>
-
-### Disabling the new settings page
+## Disabling the unified configuration dialog
 
 {% hint style="info" %}
-If you disable the new settings page, your configurations remain active. These settings are not visible in the native IDE settings.
+If you disable the unified configuration dialog, your configurations remain active. These settings are not visible in the native IDE settings.
 {% endhint %}
 
 ## Scan Configuration

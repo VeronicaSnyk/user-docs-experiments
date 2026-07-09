@@ -1,5 +1,9 @@
 # Visual Studio extension configuration, environment variables, and proxy
 
+{% hint style="info" %}
+This page describes the legacy native Visual Studio extension settings, which apply to older versions of the extension. If you are using a recent version, use the [unified IDE configuration dialog](../unified-ide-configuration-dialog.md) instead.
+{% endhint %}
+
 After the plugin is installed, you can set the following configurations for the extension.
 
 ## Account <a href="#snyk-account" id="snyk-account"></a>

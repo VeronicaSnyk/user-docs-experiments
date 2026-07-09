@@ -1,5 +1,9 @@
 # Visual Studio Code extension configuration, environment variables, and proxy
 
+{% hint style="info" %}
+This page describes the legacy native Visual Studio Code extension settings, which apply to older versions of the extension. If you are using a recent version, use the [unified IDE configuration dialog](../unified-ide-configuration-dialog.md) instead.
+{% endhint %}
+
 ## Configuration of the Visual Studio Code extension
 
 After the plugin is installed, you can set the following configurations for the extension.

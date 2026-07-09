@@ -1,5 +1,9 @@
 # Configuration of the Eclipse plugin
 
+{% hint style="info" %}
+This page describes the legacy native Eclipse plugin settings, which apply to older versions of the plugin. If you are using a recent version, use the [unified IDE configuration dialog](../unified-ide-configuration-dialog.md) instead.
+{% endhint %}
+
 You can configure both [Global settings](configuration-of-the-eclipse-plugin.md#general-settings) and [Project-specific properties](configuration-of-the-eclipse-plugin.md#project-specific-properties).
 
 ## General settings

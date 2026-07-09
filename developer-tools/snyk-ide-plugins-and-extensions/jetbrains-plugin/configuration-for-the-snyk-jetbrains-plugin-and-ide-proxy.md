@@ -1,7 +1,7 @@
 # Configuration for the Snyk JetBrains plugin and IDE proxy
 
 {% hint style="info" %}
-Snyk is moving to a [new unified configuration dialog](../unified-ide-configuration-dialog-experimental.md) which is currently available via opt-in.
+This page describes the legacy native JetBrains plugin settings, which apply to older versions of the plugin. If you are using a recent version, use the [unified IDE configuration dialog](../unified-ide-configuration-dialog.md) instead.
 {% endhint %}
 
 Navigate to **Preferences** > **Tools** > **Snyk** to set the following configurations for the plugin:

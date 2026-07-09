@@ -1,10 +1,14 @@
-name: ship-it new docs
+name: ship-it docs
 
-# Triggered by the Slack /ship-it app, which opens (or labels) a GitHub issue
-# carrying the `ship-it-new-docs` label. The issue body contains a Jira browse
-# URL (for example https://snyksec.atlassian.net/browse/DOCT-2618). This workflow
-# extracts the ticket key, runs the ship-it-new-docs skill headlessly with Claude
-# Code, and opens a draft PR against main. It then comments the result on the issue.
+# Triggered by the Slack /ship-it app, which opens a GitHub issue and labels it.
+# Every ship-it ticket carries the base `ship-it` label plus ONE variant that
+# depends on the Slack workflow branch the user chose:
+#   - ship-it-new-docs    → draft a NEW documentation page
+#   - ship-it-doc-updates → EDIT the existing page(s) for the feature
+# The issue body contains a Jira browse URL (for example
+# https://snyksec.atlassian.net/browse/DOCT-2618). This workflow extracts the
+# ticket key, runs Claude Code headlessly in the mode the variant selects, opens
+# a draft PR against main, and comments the result on the issue.
 #
 # See .github/ship-it-README.md for the full contract and the required secrets.
 
@@ -29,12 +33,16 @@ jobs:
   # ---------------------------------------------------------------------------
   gate:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'ship-it-new-docs')
+    # Fire on either variant label; the base `ship-it` label is not required.
+    if: >-
+      contains(github.event.issue.labels.*.name, 'ship-it-new-docs') ||
+      contains(github.event.issue.labels.*.name, 'ship-it-doc-updates')
     outputs:
       ticket: ${{ steps.parse.outputs.ticket }}
+      mode: ${{ steps.parse.outputs.mode }}
       proceed: ${{ steps.parse.outputs.proceed }}
     steps:
-      - name: Extract Jira ticket key from the issue body
+      - name: Extract Jira ticket key and mode from the issue
         id: parse
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
@@ -46,6 +54,20 @@ jobs:
             echo "proceed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
+          # Determine mode from the variant label. new-docs wins if somehow both
+          # are present (creating a page is the safer default to review).
+          if echo "$LABELS_JSON" | grep -q 'ship-it-new-docs'; then
+            MODE="new"
+          elif echo "$LABELS_JSON" | grep -q 'ship-it-doc-updates'; then
+            MODE="update"
+          else
+            echo "No ship-it variant label present; skipping."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "Mode: $MODE"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
 
           # Pull the first DOCT-#### (or other PROJECT-####) key out of the body.
           # Prefer a key on a "Jira issue:" line / browse URL, fall back to any key.
@@ -85,7 +107,7 @@ jobs:
                 "",
                 "No Jira ticket key found in this issue. Add a line like:",
                 "`Jira issue: https://snyksec.atlassian.net/browse/DOCT-1234`",
-                "then re-apply the **ship-it-new-docs** label.",
+                "then re-apply the **ship-it-new-docs** or **ship-it-doc-updates** label.",
               ].join("\n"),
             });
 
@@ -127,15 +149,13 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: "🚀 Running the ship-it docs workflow for **${{ needs.gate.outputs.ticket }}**…",
+              body: "🚀 Running the ship-it docs workflow (${{ needs.gate.outputs.mode == 'update' && 'update existing docs' || 'new docs' }}) for **${{ needs.gate.outputs.ticket }}**…",
             });
 
-      # Runs the committed ship-it-new-docs skill headlessly. The skill orchestrates
-      # fetch-jira-ticket / fetch-confluence / fetch-google-docs, applies
-      # snyk-docs-writing-rules, places the page, updates the section SUMMARY.md,
-      # commits to a new branch, and hands off to create-draft-pr.
-      - name: Draft docs with Claude Code
-        id: claude
+      # --- NEW DOCS: draft a brand-new page via the ship-it-new-docs skill. -----
+      - name: Draft new docs with Claude Code
+        id: claude_new
+        if: needs.gate.outputs.mode == 'new'
         uses: anthropics/claude-code-action@v1
         env:
           # Fetch-script credentials (read by the skill's Python scripts).
@@ -175,6 +195,58 @@ jobs:
             --model claude-opus-4-8
             --allowedTools "Bash,Read,Write,Edit,Glob,Grep"
 
+      # --- DOC UPDATES: locate and edit the EXISTING page(s) for the feature. ---
+      # No update-specific skill exists, so the behavior is driven here. It reuses
+      # the same fetch skills (Jira/Confluence/Google) and snyk-docs-writing-rules,
+      # then edits in place instead of creating a page.
+      - name: Update existing docs with Claude Code
+        id: claude_update
+        if: needs.gate.outputs.mode == 'update'
+        uses: anthropics/claude-code-action@v1
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          CONFLUENCE_BASE_URL: ${{ secrets.CONFLUENCE_BASE_URL }}
+          CONFLUENCE_EMAIL: ${{ secrets.CONFLUENCE_EMAIL }}
+          CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
+          GOOGLE_TOKEN_JSON: ${{ secrets.GOOGLE_TOKEN_JSON }}
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.SHIP_IT_PAT }}
+          prompt: |
+            Update EXISTING Snyk documentation for the change described in Jira
+            ticket ${{ needs.gate.outputs.ticket }}. This is a doc-UPDATE, not a
+            new page — do not create a new page unless the change genuinely has no
+            existing home.
+
+            You are running headlessly in GitHub Actions — there is no human to
+            answer prompts. Steps:
+            1. Fetch the ticket with:
+               python .claude/skills/fetch-jira-ticket/scripts/fetch_jira_ticket.py ${{ needs.gate.outputs.ticket }}
+               and fetch any referenced Confluence pages / Google Docs with the
+               fetch-confluence and fetch-google-docs scripts under .claude/skills/.
+               If a Google token is not configured, skip Google Docs and note it.
+            2. Identify which existing page(s) the change affects. Search the
+               repository (Grep/Glob over the section folders and each SUMMARY.md)
+               for the feature, product area, commands, or UI names in the ticket.
+               List the candidate files you found.
+            3. Edit the existing page(s) in place to reflect the change. Apply the
+               /snyk-docs-writing-rules skill. Keep edits scoped to what the ticket
+               describes; do not rewrite unrelated content.
+            4. If the ticket clearly describes something with no existing page,
+               fall back to creating one per the /ship-it-new-docs placement rules,
+               and say so in the PR body.
+            5. Commit to a new branch named ship-it/${{ needs.gate.outputs.ticket }},
+               push it, then run /create-draft-pr to open a DRAFT PR against main.
+            6. The PR title must start with "${{ needs.gate.outputs.ticket }}:".
+               In the PR body: list every file changed and why, note this was a
+               doc-update run, and add "Triggered by issue #${{ github.event.issue.number }}".
+          claude_args: |
+            --max-turns 40
+            --model claude-opus-4-8
+            --allowedTools "Bash,Read,Write,Edit,Glob,Grep"
+
       - name: Report success on the issue
         if: success()
         uses: actions/github-script@v7
@@ -193,7 +265,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `✅ Draft docs ready in ${link} for **${{ needs.gate.outputs.ticket }}**. A Technical Writer reviews it after it is moved from Draft to Ready.`,
+              body: `✅ Draft ${{ needs.gate.outputs.mode == 'update' && 'doc updates' || 'docs' }} ready in ${link} for **${{ needs.gate.outputs.ticket }}**. A Technical Writer reviews it after it is moved from Draft to Ready.`,
             });
             await github.rest.issues.addLabels({
               owner: context.repo.owner,

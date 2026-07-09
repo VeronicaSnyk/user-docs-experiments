@@ -1,17 +1,22 @@
 # Labels used by docs automation.
-# The ship-it workflow (.github/workflows/ship-it.yml) triggers only on issues
-# carrying the `ship-it-new-docs` label. The Slack /ship-it app must apply this
-# label when it opens the release issue.
-#
-# Create the label once with:
-#   gh label create ship-it-new-docs \
-#     --repo <owner>/<repo> \
-#     --color 1D76DB \
-#     --description "Upcoming-release issue that triggers the ship-it docs workflow"
+# The Slack /ship-it app applies the base `ship-it` label to every ticket it
+# creates, plus ONE variant depending on the workflow branch the user chose:
+#   - ship-it-new-docs    → the workflow drafts a new page
+#   - ship-it-doc-updates → the workflow edits existing page(s)
+# The workflow (.github/workflows/ship-it.yml) triggers on either variant label;
+# the base `ship-it` label is informational and not required to fire.
+
+- name: ship-it
+  color: "5319E7"
+  description: "Created by the Slack /ship-it app (base label on every ship-it ticket)"
 
 - name: ship-it-new-docs
   color: "1D76DB"
-  description: "Upcoming-release issue that triggers the ship-it docs workflow"
+  description: "ship-it variant: draft a NEW documentation page"
+
+- name: ship-it-doc-updates
+  color: "0052CC"
+  description: "ship-it variant: UPDATE existing documentation"
 
 - name: ship-it-processed
   color: "0E8A16"

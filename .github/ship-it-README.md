@@ -3,15 +3,30 @@
 The Slack **/ship-it** app turns an upcoming-release submission into a **draft docs PR**.
 This document is the contract between that Slack app and this repository.
 
+## Labels: base + variant
+
+The Slack app applies the base **`ship-it`** label to every ticket it creates,
+plus **one variant** depending on the workflow branch the submitter chose:
+
+| Variant label | Workflow mode | What it does |
+|---|---|---|
+| `ship-it-new-docs` | **new** | Drafts a brand-new page via the `ship-it-new-docs` skill |
+| `ship-it-doc-updates` | **update** | Locates and edits the existing page(s) for the feature |
+
+The workflow triggers on **either variant** (the base `ship-it` label is
+informational and not required). If both variants are somehow present, **new**
+wins — creating a page is the safer default to review.
+
 ## Flow
 
 ```
-Slack /ship-it  ──opens──▶  GitHub issue (label: ship-it-new-docs)
+Slack /ship-it  ──opens──▶  GitHub issue
+                            labels: ship-it + (ship-it-new-docs | ship-it-doc-updates)
                                      │
                                      ▼  on: issues [opened, labeled]
                        .github/workflows/ship-it.yml
                                      │
-              parses Jira key ──▶ runs ship-it-new-docs skill (Claude Code)
+              parses Jira key + mode ──▶ runs Claude Code (new page | edit existing)
                                      │
                                      ▼
                        draft PR against main  ──▶  comments link on the issue
@@ -25,7 +40,8 @@ workflow, so the trigger is an **issue**, not a Slack-to-Claude call. Your exist
 
 When someone runs `/ship-it`, the app opens a GitHub issue in this repo:
 
-- **Label:** `ship-it-new-docs` (required — this is the workflow's trigger filter)
+- **Labels:** `ship-it` **plus** the variant for the chosen branch —
+  `ship-it-new-docs` **or** `ship-it-doc-updates`. The variant is the trigger filter.
 - **Title:** anything; `Ship It: <feature>` is conventional
 - **Body:** must contain the Jira browse URL so the workflow can read the ticket key:
 
@@ -46,10 +62,12 @@ Use the GitHub REST API with a token that has `issues: write` on this repo:
 POST /repos/<owner>/user-docs/issues
 {
   "title": "Ship It: CLI v1.1306.0",
-  "labels": ["ship-it-new-docs"],
+  "labels": ["ship-it", "ship-it-new-docs"],
   "body": "Feature: CLI v1.1306.0\n... \nJira issue: https://snyksec.atlassian.net/browse/DOCT-2618\n..."
 }
 ```
+
+Use `ship-it-doc-updates` instead of `ship-it-new-docs` for the update branch.
 
 The workflow parses the **first** `atlassian.net/browse/<KEY>` link (falling back
 to the first bare `PROJECT-####` token) and normalizes it to upper case.
@@ -59,10 +77,11 @@ to the first bare `PROJECT-####` token) and normalizes it to upper case.
 1. **Create the labels** (used as the trigger + status markers):
 
    ```bash
-   gh label create ship-it-new-docs --color 1D76DB \
-     --description "Upcoming-release issue that triggers the ship-it docs workflow"
-   gh label create ship-it-processed --color 0E8A16 --description "Workflow already ran"
-   gh label create ship-it-failed    --color B60205 --description "Workflow errored; needs a human"
+   gh label create ship-it             --color 5319E7 --description "Created by the Slack /ship-it app"
+   gh label create ship-it-new-docs    --color 1D76DB --description "Variant: draft a new page"
+   gh label create ship-it-doc-updates --color 0052CC --description "Variant: update existing docs"
+   gh label create ship-it-processed   --color 0E8A16 --description "Workflow already ran"
+   gh label create ship-it-failed      --color B60205 --description "Workflow errored; needs a human"
    ```
 
    (Definitions also live in [labels.yml](labels.yml).)

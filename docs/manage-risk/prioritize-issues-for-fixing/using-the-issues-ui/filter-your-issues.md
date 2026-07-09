@@ -6,7 +6,7 @@ description: Filter Snyk Issues at the Group level using the funnel view risk fa
 
 Snyk Issues operates at the Group level and provides a holistic view of all the issues within that Group. Those issues are also tied to specific Organizations. Use the top-level filter to choose which Organizations are relevant to you and see only the issues in those Organizations.
 
-## Funnel View
+## Funnel view
 
 The funnel view is a visual representation of your application's issues and risk factors. It allows you to filter the list of issues by specific risk factors or a combination of them. The **Deployed** and **Public facing** risk factors are clickable filters.
 
@@ -31,8 +31,12 @@ By using the filters above the table view, you can filter your issues by the fol
 
 You can also add a variety of filters that you consider relevant for any particular scenario.
 
-In an initial triage, you want to look at OS condition, Deployed, and Public facing, and choose both critical and high severity. Snyk Open Source finds critical vulnerabilities, while Snyk Code finds vulnerabilities up to high severity only. When you filter on the issues of greatest concern, filter for both critical and high severity.
+To view the issues of greatest concern during an initial triage, filter for both **Critical** and **High** severity. Snyk Open Source identifies critical vulnerabilities, and Snyk Code identifies vulnerabilities up to high severity.
 
-When you filter based on the Asset class and an issue is found in two different repositories with two different classes assigned, the class with the highest priority is displayed in Snyk.
+Use the following filters to prioritize your results:
 
-When you want to split out Open Source and Snyk Code issues, use a product filter.
+* **Initial triage:** Filter by **OS condition**, **Deployed**, and **Public facing**.
+* **Compliance:** Use the **KEV** filter to narrow results to CVEs in the CISA KEV catalog.
+* **Product:** Use the **Product** filter to separate Snyk Open Source and Snyk Code issues.
+
+If you filter by **Asset class** and Snyk finds an issue in two repositories with different assigned classes, Snyk displays the class with the highest priority.

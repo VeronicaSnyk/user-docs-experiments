@@ -16,7 +16,7 @@ If you use a proxy server, ensure you configure it and any firewalls to allow th
 
 Establish the outbound connection on port 443 from the Broker Client running in your environment to `https://broker.snyk.io` and `https://api.snyk.io` or your regional Broker URL.
 
-Establish an internal connection that allows inbound access from the integration (SCM, CR) to the Broker Client at the BROKER\_CLIENT\_URL on the port you have configured (typically 8000). This is not inbound from the internet.
+Establish an internal connection that allows inbound access from the integration (SCM, CR) to the Broker Client at the `BROKER_CLIENT_URL` on the port you have configured (typically 8000). This is not inbound from the internet.
 
 Traffic initiated from the Snyk Broker server side always uses the latest available Broker connection. All activity from the Snyk side, such as traffic driven by recurring tests, appears on only one of your replicas at a time. The amount of Snyk activity is proportional to the activity in the repositories or Jira items. That activity generates webhooks, which are distributed across all replicas.
 
@@ -28,12 +28,22 @@ If you have not previously installed the Universal Broker, refer to the Prerequi
 
 Be sure to set your environment variables to make usage easier, including when you are installing the `snyk-broker-config` CLI tool. Use the following commands:
 
-* `export SNYK_TOKEN=xxxx` (Linux/Mac)
-* `export TENANT_ID=yyyy` (Linux/Mac)
-* `set SNYK_TOKEN=xxxx` (Windows)
-* `set TENANT_ID=yyyy` (Windows)
+Linux/Mac
+
+* `export SNYK_TOKEN=<your_snyk_token>`
+* `export TENANT_ID=<your_tenant_id>`
+
+Windows
+
+* `set SNYK_TOKEN=<your_snyk_token>`
+* `set TENANT_ID=<your_tenant_id>`
 
 If the Universal Broker has already been installed, set the Install ID as an environment variable for easier usage. Use the following commands:
 
-* `export INSTALL_ID=zzzz` (Linux/Mac)
-* `set INSTALL_ID=zzzz` (Windows)
+Linux/Mac
+
+* `export INSTALL_ID=<your_install_id>`
+
+Windows
+
+* `set INSTALL_ID=<your_install_id>`

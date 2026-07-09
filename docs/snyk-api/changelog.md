@@ -2,376 +2,493 @@
 description: Track all versioned changes to Snyk REST API endpoints including additions, modifications, and breaking changes.
 ---
 
-## 2026-03-25
-
-### POST - `/orgs/{org_id}/policies` - Updated
-- removed the required property `data/attributes/action/data/ignore_type` from the response with the `201` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the request property `data/attributes/action/data/expires`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the request property `data/attributes/action/data/ignore_type`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the request property `data/attributes/action/data/reason`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the optional property `data/attributes/action/data/expires` from the response with the `201` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the optional property `data/attributes/action/data/reason` from the response with the `201` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- added discriminator to `data/attributes/action/data` request property
-
-- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` request property `oneOf` list
-
-- added discriminator to `data/attributes/action/data` response property for the response status `201`
-
-- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `201`
-
-
-
-### GET - `/orgs/{org_id}/policies` - Updated
-- removed the required property `data/items/attributes/action/data/ignore_type` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the optional property `data/items/attributes/action/data/expires` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the optional property `data/items/attributes/action/data/reason` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- added discriminator to `data/items/attributes/action/data` response property for the response status `200`
-
-- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/items/attributes/action/data` response property `oneOf` list for the response status `200`
-
-
-
-### PATCH - `/orgs/{org_id}/policies/{policy_id}` - Updated
-- removed the required property `data/attributes/action/data/ignore_type` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the request property `data/attributes/action/data/expires`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the request property `data/attributes/action/data/ignore_type`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the request property `data/attributes/action/data/reason`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the optional property `data/attributes/action/data/expires` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the optional property `data/attributes/action/data/reason` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- added discriminator to `data/attributes/action/data` request property
-
-- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` request property `oneOf` list
-
-- added discriminator to `data/attributes/action/data` response property for the response status `200`
-
-- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `200`
-
-
-
-### GET - `/orgs/{org_id}/policies/{policy_id}` - Updated
-- removed the required property `data/attributes/action/data/ignore_type` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the optional property `data/attributes/action/data/expires` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- removed the optional property `data/attributes/action/data/reason` from the response with the `200` status
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- added discriminator to `data/attributes/action/data` response property for the response status `200`
-
-- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `200`
-
-
-## 2025-11-05 - Updated 2026-03-31
-
-### POST - `/orgs/{org_id}/export` - Updated
-- added the new optional request property `data/attributes/filters/cve`
-
-- added the new optional request property `data/attributes/filters/issue_status`
-
-- added the new optional request property `data/attributes/filters/issue_type`
-
-- added the new optional request property `data/attributes/filters/nvd_severity`
-
-- added the new optional request property `data/attributes/filters/project_origin`
-
-- added the new optional request property `data/attributes/filters/project_target_display_name`
-
-- added the new optional request property `data/attributes/filters/project_target_ref`
-
-- added the new optional request property `data/attributes/filters/reachability`
-
-
-
-### POST - `/groups/{group_id}/export` - Updated
-- added the new optional request property `data/attributes/filters/cve`
-
-- added the new optional request property `data/attributes/filters/issue_status`
-
-- added the new optional request property `data/attributes/filters/issue_type`
-
-- added the new optional request property `data/attributes/filters/nvd_severity`
-
-- added the new optional request property `data/attributes/filters/project_origin`
-
-- added the new optional request property `data/attributes/filters/project_target_display_name`
-
-- added the new optional request property `data/attributes/filters/project_target_ref`
-
-- added the new optional request property `data/attributes/filters/reachability`
-
-
-## 2025-11-05 - Updated 2026-02-27
-
-### POST - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/contexts` - Added
-- Creates a new Broker Context
-
-#### Required permissions
-
-- `View Tenant Details (tenant.read)`
-
-- `Edit Tenant Details (tenant.edit)`
-
-
-### GET - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/contexts` - Added
-- List Deployment contexts for a given deployment ID
-
-#### Required permissions
-
-- `View Tenant Details (tenant.read)`
-
-
-### PATCH - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}` - Added
-- Updates a Broker Context for an deployment
-
-#### Required permissions
-
-- `View Tenant Details (tenant.read)`
-
-- `Edit Tenant Details (tenant.edit)`
-
-
-### GET - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}` - Added
-- List Broker context for a given broker context ID
-
-#### Required permissions
-
-- `View Tenant Details (tenant.read)`
-
-
-### DELETE - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}` - Added
-- Deletes an existing broker context
-
-#### Required permissions
-
-- `View Tenant Details (tenant.read)`
-
-- `Edit Tenant Details (tenant.edit)`
-
-
-### DELETE - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}/integrations/{integration_id}` - Added
-- Deletes an existing Broker context association for an integration
-
-#### Required permissions
-
-- `View Tenant Details (tenant.read)`
-
-- `Edit Tenant Details (tenant.edit)`
-
-
-### PATCH - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}/integration` - Added
-- Updates an integration to be associated with a Broker context
-
-#### Required permissions
-
-- `View Tenant Details (tenant.read)`
-
-- `Edit Tenant Details (tenant.edit)`
-
-
-### GET - `/tenants/{tenant_id}/brokers/installs/{install_id}/connections/{connection_id}/contexts` - Added
-- List Broker contexts for a given broker connection ID
-
-#### Required permissions
-
-- `View Tenant Details (tenant.read)`
-
-## 2025-11-05 - Updated 2026-02-19
-
-### GET - `/self/personal_access_tokens` - Added
-- List personal access tokens
-
-
-### DELETE - `/self/personal_access_tokens/{personal_access_token_id}` - Added
-- Delete a personal access token
-
-## 2025-11-05 - Updated 2026-02-03
-
-### GET - `/orgs/{org_id}/projects/{project_id}/sbom` - Updated
-- deleted the `query` request parameter `go-module-level`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- added the new optional `query` request parameter `go_module_level`
-
-
-## 2025-11-05 - Updated 2026-01-09
-
-### GET - `/orgs/{org_id}/projects/{project_id}/sbom` - Updated
-- added the new optional `query` request parameter `go-module-level`
-
-
-## 2025-11-05 - Updated 2025-12-04
-
-### DELETE - `/tenants/{tenant_id}/brokers/connections/{connection_id}/orgs/{org_id}/integrations/{integration_id}` - Updated
-- added the non-success response with the status `403`
-
-
-
-### POST - `/tenants/{tenant_id}/brokers/connections/{connection_id}/orgs/{org_id}/integration` - Updated
-- added the non-success response with the status `403`
-
-
-## 2025-11-05
-
-### GET - `/orgs/{org_id}/packages/{purl}/issues` - Updated
-- for the `query` request parameter `limit`, the type/format was changed from `number`/`` to `integer`/``
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- for the `query` request parameter `offset`, the type/format was changed from `number`/`` to `integer`/``
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- for the `query` request parameter `limit`, the max was set to `1000.00`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- for the `query` request parameter `limit`, the min was set to `1.00`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- for the `query` request parameter `offset`, the min was set to `0.00`
-![Badge](https://img.shields.io/badge/Breaking-yellow)
-- api operation id `fetchIssuesPerPurl` removed and replaced with `getIssuesPerPurl`
-
-- added the optional property `meta/match` to the response with the `200` status
-
-
-
-### POST - `/orgs/{org_id}/packages/issues` - Updated
-- added the optional property `meta/packages` to the response with the `200` status
-
-
-## 2025-09-28 - Updated 2025-11-13
-
-### POST - `/orgs/{org_id}/export` - Updated
-- added the new optional request property `data/attributes/filters/empty_project_tags`
-
-
-
-### POST - `/groups/{group_id}/export` - Updated
-- added the new optional request property `data/attributes/filters/empty_project_tags`
-
-
-## 2025-09-28 - Updated 2025-11-13
+## 2026-03-25 - Updated 2026-05-19
 
 ### GET - `/orgs/{org_id}/issues` - Updated
-- added the optional property `data/items/attributes/coordinates/items/created_at` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/last_introduced_at` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/last_resolved_at` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/last_resolved_details` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/state` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/updated_at` to the response with the `200` status
+- added the new enum value `secrets` to the `query` request parameter `type`
 
 
 
 ### GET - `/orgs/{org_id}/issues/{issue_id}` - Updated
-- added the optional property `data/attributes/coordinates/items/created_at` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/last_introduced_at` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/last_resolved_at` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/last_resolved_details` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/state` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/updated_at` to the response with the `200` status
+- added the non-success response with the status `501`
 
 
 
 ### GET - `/groups/{group_id}/issues` - Updated
-- added the optional property `data/items/attributes/coordinates/items/created_at` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/last_introduced_at` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/last_resolved_at` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/last_resolved_details` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/state` to the response with the `200` status
-
-- added the optional property `data/items/attributes/coordinates/items/updated_at` to the response with the `200` status
+- added the new enum value `secrets` to the `query` request parameter `type`
 
 
 
 ### GET - `/groups/{group_id}/issues/{issue_id}` - Updated
-- added the optional property `data/attributes/coordinates/items/created_at` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/last_introduced_at` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/last_resolved_at` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/last_resolved_details` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/state` to the response with the `200` status
-
-- added the optional property `data/attributes/coordinates/items/updated_at` to the response with the `200` status
+- added the non-success response with the status `501`
 
 
-## 2025-09-28 - Updated 2025-10-22
+## 2026-03-25 - Updated 2026-05-19
 
-### POST - `/orgs/{org_id}/export` - Updated
-- added the new optional request property `data/attributes/url_expiration_seconds`
+### GET - `/orgs/{org_id}/container_import/{integration_id}/policy` - Updated
+- deleted the `query` request parameter `ending_before`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- deleted the `query` request parameter `limit`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- deleted the `query` request parameter `starting_after`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+## 2026-03-25 - Updated 2026-05-12
+
+### GET - `/orgs/{org_id}/issues` - Updated
+- the `data/items/attributes/coordinates/items/remedies/items/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- the `data/items/attributes/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+
+### GET - `/orgs/{org_id}/issues/{issue_id}` - Updated
+- the `data/attributes/coordinates/items/remedies/items/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- the `data/attributes/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+
+### GET - `/groups/{group_id}/issues` - Updated
+- the `data/items/attributes/coordinates/items/remedies/items/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- the `data/items/attributes/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+
+### GET - `/groups/{group_id}/issues/{issue_id}` - Updated
+- the `data/attributes/coordinates/items/remedies/items/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- the `data/attributes/description` response property`s maxLength was increased from `4096` to `20480` for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+## 2026-03-25 - Updated 2026-05-01
+
+### GET - `/tenants` - Updated
+- added the new optional `query` request parameter `name`
+
+
+## 2026-03-25 - Updated 2026-04-30
+
+### POST - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Create a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
+
+### PATCH - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Update a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
+
+### GET - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Get a container registry import policy
+
+#### Required permissions
+
+- `View integrations (org.integration.read)`
+
+
+### DELETE - `/orgs/{org_id}/container_import/{integration_id}/policy` - Added
+- Delete a container registry import policy
+
+#### Required permissions
+
+- `Edit integrations (org.integration.edit)`
+
+## 2026-03-25 - Updated 2026-04-28
+
+### GET - `/groups/{group_id}/orgs` - Updated
+- added the new optional `query` request parameter `expand`
+
+- added the optional property `meta` to the response with the `200` status
+
+
+## 2026-03-25 - Updated 2026-04-23
+
+### PATCH - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Updated
+- added the new enum value `Golang` to the `path` request parameter `ecosystem`
 
 
 
-### POST - `/groups/{group_id}/export` - Updated
-- added the new optional request property `data/attributes/url_expiration_seconds`
+### GET - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Updated
+- added the new enum value `Golang` to the `path` request parameter `ecosystem`
 
 
 # Changelog
 
-## 2025-09-28 - Updated 2025-10-14
+### 2026-03-25 - Updated 2026-04-20
 
-### GET - `/orgs/{org_id}/issues` - Updated
+#### DELETE - `/orgs/{org_id}/settings/opensource/broker` - Added
 
-* the `data/items/attributes/coordinates/items/representations/items/oneOf[subschema #3]/cloud_resource/resource/name` response property`s maxLength was unset from` 256`for the response status`200\` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* Deletes the opensource broker setting for the organization by uninstalling the Snyk App
 
-### GET - `/orgs/{org_id}/issues/{issue_id}` - Updated
+**Required permissions**
 
-* the `data/attributes/coordinates/items/representations/items/oneOf[subschema #3]/cloud_resource/resource/name` response property`s maxLength was unset from` 256`for the response status`200\` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* `Install Apps (org.app.install)`
 
-### GET - `/groups/{group_id}/issues` - Updated
+### 2026-03-25 - Updated 2026-04-20
 
-* the `data/items/attributes/coordinates/items/representations/items/oneOf[subschema #3]/cloud_resource/resource/name` response property`s maxLength was unset from` 256`for the response status`200\` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+#### PATCH - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Added
 
-### GET - `/groups/{group_id}/issues/{issue_id}` - Updated
+* Updates all Broker settings of a specific Open Source Ecosystem for an Organization. This endpoint has JSON-PATCH semantics: only provided Broker integrations are updated. Provide an empty value for `urls` to remove a Broker integration.
 
-* the `data/attributes/coordinates/items/representations/items/oneOf[subschema #3]/cloud_resource/resource/name` response property`s maxLength was unset from` 256`for the response status`200\` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+**Required permissions**
 
-### 2025-09-28
+* `Edit Organization (org.edit)`
+
+#### GET - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Added
+
+* Retrieves all Broker settings of a specific Open Source Ecosystem for an Organization
+
+**Required permissions**
+
+* `View Organization (org.read)`
+
+#### POST - `/orgs/{org_id}/settings/opensource/broker` - Added
+
+* Enables the opensource broker setting for an organization by installing the Snyk App
+
+**Required permissions**
+
+* `Install Apps (org.app.install)`
+
+#### GET - `/orgs/{org_id}/settings/opensource/broker` - Added
+
+* Returns whether the opensource broker setting is enabled for the organization
+
+**Required permissions**
+
+* `View Organization (org.read)`
+
+#### POST - `/groups/{group_id}/settings/opensource/broker` - Added
+
+* Enables the opensource broker setting for a group by installing the Snyk App
+
+**Required permissions**
+
+* `Install Apps (group.app.install)`
+
+#### GET - `/groups/{group_id}/settings/opensource/broker` - Added
+
+* Returns whether the opensource broker setting is enabled for the group
+
+**Required permissions**
+
+* `View Groups (group.read)`
+
+#### DELETE - `/groups/{group_id}/settings/opensource/broker` - Added
+
+* Deletes the opensource broker setting for the group
+
+**Required permissions**
+
+* `Install Apps (group.app.install)`
+
+### 2026-03-25 - Updated 2026-04-16
+
+#### POST - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/connections` - Updated
+
+* removed `#/components/schemas/DockerHubAttributes, #/components/schemas/EcrAttributes, #/components/schemas/GcrAttributes` from the `data/attributes/configuration` request property `oneOf` list ![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+#### PATCH - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/connections/{connection_id}` - Updated
+
+* removed `#/components/schemas/DockerHubAttributes, #/components/schemas/EcrAttributes, #/components/schemas/GcrAttributes` from the `data/attributes/configuration` request property `oneOf` list ![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+### 2026-03-25
 
 #### POST - `/orgs/{org_id}/policies` - Updated
 
-* added the new optional request property `data/attributes/source`
+* removed the required property `data/attributes/action/data/ignore_type` from the response with the `201` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the request property `data/attributes/action/data/expires` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the request property `data/attributes/action/data/ignore_type` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the request property `data/attributes/action/data/reason` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the optional property `data/attributes/action/data/expires` from the response with the `201` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the optional property `data/attributes/action/data/reason` from the response with the `201` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* added discriminator to `data/attributes/action/data` request property
+* added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` request property `oneOf` list
+* added discriminator to `data/attributes/action/data` response property for the response status `201`
+* added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `201`
 
-### 2024-10-15 - Updated 2025-09-29
+#### GET - `/orgs/{org_id}/policies` - Updated
+
+* removed the required property `data/items/attributes/action/data/ignore_type` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the optional property `data/items/attributes/action/data/expires` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the optional property `data/items/attributes/action/data/reason` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* added discriminator to `data/items/attributes/action/data` response property for the response status `200`
+* added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/items/attributes/action/data` response property `oneOf` list for the response status `200`
+
+#### PATCH - `/orgs/{org_id}/policies/{policy_id}` - Updated
+
+* removed the required property `data/attributes/action/data/ignore_type` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the request property `data/attributes/action/data/expires` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the request property `data/attributes/action/data/ignore_type` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the request property `data/attributes/action/data/reason` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the optional property `data/attributes/action/data/expires` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the optional property `data/attributes/action/data/reason` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* added discriminator to `data/attributes/action/data` request property
+* added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` request property `oneOf` list
+* added discriminator to `data/attributes/action/data` response property for the response status `200`
+* added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `200`
+
+#### GET - `/orgs/{org_id}/policies/{policy_id}` - Updated
+
+* removed the required property `data/attributes/action/data/ignore_type` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the optional property `data/attributes/action/data/expires` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* removed the optional property `data/attributes/action/data/reason` from the response with the `200` status ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* added discriminator to `data/attributes/action/data` response property for the response status `200`
+* added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `200`
+
+### 2025-11-05 - Updated 2026-03-31
 
 #### POST - `/orgs/{org_id}/export` - Updated
 
-* added the new optional request property `data/attributes/filters/product_name`
-* added the new optional request property `data/attributes/filters/project_tags`
-* added the new optional request property `data/attributes/filters/project_type`
+* added the new optional request property `data/attributes/filters/cve`
+* added the new optional request property `data/attributes/filters/issue_status`
+* added the new optional request property `data/attributes/filters/issue_type`
+* added the new optional request property `data/attributes/filters/nvd_severity`
+* added the new optional request property `data/attributes/filters/project_origin`
+* added the new optional request property `data/attributes/filters/project_target_display_name`
+* added the new optional request property `data/attributes/filters/project_target_ref`
+* added the new optional request property `data/attributes/filters/reachability`
 
 #### POST - `/groups/{group_id}/export` - Updated
 
+* added the new optional request property `data/attributes/filters/cve`
+* added the new optional request property `data/attributes/filters/issue_status`
+* added the new optional request property `data/attributes/filters/issue_type`
+* added the new optional request property `data/attributes/filters/nvd_severity`
+* added the new optional request property `data/attributes/filters/project_origin`
+* added the new optional request property `data/attributes/filters/project_target_display_name`
+* added the new optional request property `data/attributes/filters/project_target_ref`
+* added the new optional request property `data/attributes/filters/reachability`
+
+### 2025-11-05 - Updated 2026-02-27
+
+#### POST - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/contexts` - Added
+
+* Creates a new Broker Context
+
+**Required permissions**
+
+* `View Tenant Details (tenant.read)`
+* `Edit Tenant Details (tenant.edit)`
+
+#### GET - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/contexts` - Added
+
+* List Deployment contexts for a given deployment ID
+
+**Required permissions**
+
+* `View Tenant Details (tenant.read)`
+
+#### PATCH - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}` - Added
+
+* Updates a Broker Context for an deployment
+
+**Required permissions**
+
+* `View Tenant Details (tenant.read)`
+* `Edit Tenant Details (tenant.edit)`
+
+#### GET - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}` - Added
+
+* List Broker context for a given broker context ID
+
+**Required permissions**
+
+* `View Tenant Details (tenant.read)`
+
+#### DELETE - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}` - Added
+
+* Deletes an existing broker context
+
+**Required permissions**
+
+* `View Tenant Details (tenant.read)`
+* `Edit Tenant Details (tenant.edit)`
+
+#### DELETE - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}/integrations/{integration_id}` - Added
+
+* Deletes an existing Broker context association for an integration
+
+**Required permissions**
+
+* `View Tenant Details (tenant.read)`
+* `Edit Tenant Details (tenant.edit)`
+
+#### PATCH - `/tenants/{tenant_id}/brokers/installs/{install_id}/contexts/{context_id}/integration` - Added
+
+* Updates an integration to be associated with a Broker context
+
+**Required permissions**
+
+* `View Tenant Details (tenant.read)`
+* `Edit Tenant Details (tenant.edit)`
+
+#### GET - `/tenants/{tenant_id}/brokers/installs/{install_id}/connections/{connection_id}/contexts` - Added
+
+* List Broker contexts for a given broker connection ID
+
+**Required permissions**
+
+* `View Tenant Details (tenant.read)`
+
+### 2025-11-05 - Updated 2026-02-19
+
+#### GET - `/self/personal_access_tokens` - Added
+
+* List personal access tokens
+
+#### DELETE - `/self/personal_access_tokens/{personal_access_token_id}` - Added
+
+* Delete a personal access token
+
+### 2025-11-05 - Updated 2026-02-03
+
+#### GET - `/orgs/{org_id}/projects/{project_id}/sbom` - Updated
+
+* deleted the `query` request parameter `go-module-level` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* added the new optional `query` request parameter `go_module_level`
+
+### 2025-11-05 - Updated 2026-01-09
+
+#### GET - `/orgs/{org_id}/projects/{project_id}/sbom` - Updated
+
+* added the new optional `query` request parameter `go-module-level`
+
+### 2025-11-05 - Updated 2025-12-04
+
+#### DELETE - `/tenants/{tenant_id}/brokers/connections/{connection_id}/orgs/{org_id}/integrations/{integration_id}` - Updated
+
+* added the non-success response with the status `403`
+
+#### POST - `/tenants/{tenant_id}/brokers/connections/{connection_id}/orgs/{org_id}/integration` - Updated
+
+* added the non-success response with the status `403`
+
+### 2025-11-05
+
+#### GET - `/orgs/{org_id}/packages/{purl}/issues` - Updated
+
+* for the `query` request parameter `limit`, the type/format was changed from `number`/ ``to `integer`/`` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* for the `query` request parameter `offset`, the type/format was changed from `number`/ ``to `integer`/`` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* for the `query` request parameter `limit`, the max was set to `1000.00` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* for the `query` request parameter `limit`, the min was set to `1.00` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* for the `query` request parameter `offset`, the min was set to `0.00` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+* api operation id `fetchIssuesPerPurl` removed and replaced with `getIssuesPerPurl`
+* added the optional property `meta/match` to the response with the `200` status
+
+#### POST - `/orgs/{org_id}/packages/issues` - Updated
+
+* added the optional property `meta/packages` to the response with the `200` status
+
+### 2025-09-28 - Updated 2025-11-13
+
+#### POST - `/orgs/{org_id}/export` - Updated
+
+* added the new optional request property `data/attributes/filters/empty_project_tags`
+
+#### POST - `/groups/{group_id}/export` - Updated
+
+* added the new optional request property `data/attributes/filters/empty_project_tags`
+
+### 2025-09-28 - Updated 2025-11-13
+
+#### GET - `/orgs/{org_id}/issues` - Updated
+
+* added the optional property `data/items/attributes/coordinates/items/created_at` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/last_introduced_at` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/last_resolved_at` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/last_resolved_details` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/state` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/updated_at` to the response with the `200` status
+
+#### GET - `/orgs/{org_id}/issues/{issue_id}` - Updated
+
+* added the optional property `data/attributes/coordinates/items/created_at` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/last_introduced_at` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/last_resolved_at` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/last_resolved_details` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/state` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/updated_at` to the response with the `200` status
+
+#### GET - `/groups/{group_id}/issues` - Updated
+
+* added the optional property `data/items/attributes/coordinates/items/created_at` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/last_introduced_at` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/last_resolved_at` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/last_resolved_details` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/state` to the response with the `200` status
+* added the optional property `data/items/attributes/coordinates/items/updated_at` to the response with the `200` status
+
+#### GET - `/groups/{group_id}/issues/{issue_id}` - Updated
+
+* added the optional property `data/attributes/coordinates/items/created_at` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/last_introduced_at` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/last_resolved_at` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/last_resolved_details` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/state` to the response with the `200` status
+* added the optional property `data/attributes/coordinates/items/updated_at` to the response with the `200` status
+
+### 2025-09-28 - Updated 2025-10-22
+
+#### POST - `/orgs/{org_id}/export` - Updated
+
+* added the new optional request property `data/attributes/url_expiration_seconds`
+
+#### POST - `/groups/{group_id}/export` - Updated
+
+* added the new optional request property `data/attributes/url_expiration_seconds`
+
+## Changelog
+
+#### 2025-09-28 - Updated 2025-10-14
+
+**GET - `/orgs/{org_id}/issues` - Updated**
+
+* the `data/items/attributes/coordinates/items/representations/items/oneOf[subschema #3]/cloud_resource/resource/name` response property`s maxLength was unset from` 256`for the response status`200\` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+**GET - `/orgs/{org_id}/issues/{issue_id}` - Updated**
+
+* the `data/attributes/coordinates/items/representations/items/oneOf[subschema #3]/cloud_resource/resource/name` response property`s maxLength was unset from` 256`for the response status`200\` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+**GET - `/groups/{group_id}/issues` - Updated**
+
+* the `data/items/attributes/coordinates/items/representations/items/oneOf[subschema #3]/cloud_resource/resource/name` response property`s maxLength was unset from` 256`for the response status`200\` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+**GET - `/groups/{group_id}/issues/{issue_id}` - Updated**
+
+* the `data/attributes/coordinates/items/representations/items/oneOf[subschema #3]/cloud_resource/resource/name` response property`s maxLength was unset from` 256`for the response status`200\` ![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+#### 2025-09-28
+
+**POST - `/orgs/{org_id}/policies` - Updated**
+
+* added the new optional request property `data/attributes/source`
+
+#### 2024-10-15 - Updated 2025-09-29
+
+**POST - `/orgs/{org_id}/export` - Updated**
+
 * added the new optional request property `data/attributes/filters/product_name`
 * added the new optional request property `data/attributes/filters/project_tags`
 * added the new optional request property `data/attributes/filters/project_type`
 
-## Changelog
+**POST - `/groups/{group_id}/export` - Updated**
 
-### 2024-10-15 - Updated 2025-09-08
+* added the new optional request property `data/attributes/filters/product_name`
+* added the new optional request property `data/attributes/filters/project_tags`
+* added the new optional request property `data/attributes/filters/project_type`
+
+### Changelog
+
+**2024-10-15 - Updated 2025-09-08**
 
 **POST - `/orgs/{org_id}/policies` - Updated**
 
@@ -390,20 +507,20 @@ description: Track all versioned changes to Snyk REST API endpoints including ad
 
 * removed the `cancelled` enum value from the `data/attributes/review` response property for the response status `200`
 
-#### 2024-10-15 - Updated 2025-08-15
+**2024-10-15 - Updated 2025-08-15**
 
 **GET - `/orgs/{org_id}/policies` - Updated**
 
 * added the new enum value `ignore-type` to the `query` request parameter `order_by`
 * added the new enum value `requested-by` to the `query` request parameter `order_by`
 
-#### 2024-10-15 - Updated 2025-08-14
+**2024-10-15 - Updated 2025-08-14**
 
 **PATCH - `/orgs/{org_id}/policies/{policy_id}` - Updated**
 
 * added the new `cancelled` enum value to the request property `data/attributes/review`
 
-#### 2024-10-15 - Updated 2025-08-06
+**2024-10-15 - Updated 2025-08-06**
 
 **POST - `/orgs/{org_id}/export` - Updated**
 
@@ -413,7 +530,7 @@ description: Track all versioned changes to Snyk REST API endpoints including ad
 
 * removed the request property `data/attributes/destination` ![Badge](https://img.shields.io/badge/Breaking-yellow)
 
-#### 2024-10-15 - Updated 2025-07-07
+**2024-10-15 - Updated 2025-07-07**
 
 **POST - `/orgs/{org_id}/service_accounts` - Updated**
 
@@ -498,7 +615,7 @@ description: Track all versioned changes to Snyk REST API endpoints including ad
 * added the optional property `data/attributes/access_token_expires_at` to the response with the `200` status
 * added the optional property `data/attributes/created_at` to the response with the `200` status
 
-### Changelog
+#### Changelog
 
 **2024-10-15 - Updated 2025-06-12**
 
@@ -835,7 +952,7 @@ description: Track all versioned changes to Snyk REST API endpoints including ad
 
 * the request property `data` became required![Badge](https://img.shields.io/badge/Breaking-yellow)
 
-#### Changelog
+**Changelog**
 
 **2024-10-15 - Updated 2025-03-04**
 

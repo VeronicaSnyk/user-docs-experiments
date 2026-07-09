@@ -7,13 +7,13 @@ description: Manage repository coverage and monitoring configurations centrally 
 {% hint style="info" %}
 **Release status**
 
-Repository monitoring configuration is in Early Access and available only with Enterprise plans. To enable the feature, visit [Snyk Preview](https://docs.snyk.io/snyk-admin/manage-settings/snyk-preview).
+Repository monitoring configuration is in Early Access and available only with Enterprise plans. To enable the feature, visit [Snyk Preview](../snyk-platform-administration/snyk-preview.md).
 {% endhint %}
 
 ## Overview
 
 {% hint style="info" %}
-To perform bulk monitoring configuration and maintain visibility into the security health of all repositories, you must be a Group Admin.&#x20;
+To perform bulk monitoring configuration and maintain visibility into the security health of all repositories, you must be a Group Admin.
 {% endhint %}
 
 You can manage repository coverage and monitoring configurations centrally across your entire Snyk Group from the **Inventory** page, at Group level. This means you can monitor and manage repositories without navigating between individual Snyk Organizations.
@@ -31,13 +31,13 @@ You can configure repository monitoring settings for your Projects across multip
 
 {% stepper %}
 {% step %}
-### Select the repositories to update.
+#### Select the repositories to update
 
-Select one or more repositories that you want to update and click **Continue**.
+Select the repositories you want to update, then click **Configure monitoring.**
 {% endstep %}
 
 {% step %}
-### Select the configuration type
+#### Select the configuration type
 
 Select one of the following:
 
@@ -48,7 +48,7 @@ Click **Continue**.
 {% endstep %}
 
 {% step %}
-### Configure settings&#x20;
+#### Configure settings
 
 On the configuration page, the following configurations are available:
 
@@ -62,14 +62,14 @@ It is not possible to manage these settings at Organization level for assets tra
 * **Testing exclusions (optional)**: manage file exclusions for Snyk Open Source and Snyk Container Projects. Exclusions apply at the asset level. You cannot exclude specific files for the same repository in different Snyk Organizations.
 
 {% hint style="info" %}
-For Snyk Code, you can manage exclusions using the  `.snyk` files, in order to maintain developer-first workflows.
+For Snyk Code, you can manage exclusions using the `.snyk` files, in order to maintain developer-first workflows.
 {% endhint %}
 
 Click **Continue**.
 {% endstep %}
 
 {% step %}
-### Enable monitoring
+#### Enable monitoring
 
 Review your configuration settings and click **Enable monitoring**.
 {% endstep %}

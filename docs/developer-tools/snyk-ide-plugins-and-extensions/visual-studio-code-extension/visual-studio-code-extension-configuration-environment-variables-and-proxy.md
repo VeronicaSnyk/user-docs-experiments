@@ -27,7 +27,7 @@ After the plugin is installed, you can set the following configurations for the 
 * **All issues vs Net new issues**: Specify whether to see all issues or only net new issues. The latter requires an SCM integration, where the extension compares findings with those in the base branch.
 *   **Additional parameters**: Set additional `snyk test` CLI options for Open Source scanning.
 
-    For unmanaged [C/C++](../../../supported-languages/supported-languages-list/c-c++/) scanning, use the CLI option `--unmanaged` to find vulnerabilities in open-source packages. This option works only for unmanaged C/C++ scanning. Additional parameters do not apply to Snyk Code or IaC.
+    For unmanaged [C/C++](../../../supported-languages/supported-languages-list/c-c++.md) scanning, use the CLI option `--unmanaged` to find vulnerabilities in open-source packages. This option works only for unmanaged C/C++ scanning. Additional parameters do not apply to Snyk Code or IaC.
 
 ## User experience
 

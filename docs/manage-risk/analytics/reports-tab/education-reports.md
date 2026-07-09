@@ -99,7 +99,7 @@ This section of the report shows recommendation for training for your top open c
 
 You will see coverage for all users within organisation scope of the report filters. This shows you how many people have ever completed a related Snyk Learn lesson on the topic.
 
-<div><figure><img src="../../../.gitbook/assets/Screenshot 2025-10-23 at 14.12.2add-enterprise-application.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../../.gitbook/assets/top-10-cwes-open-issues-issues-introduced-period.png" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../../../.gitbook/assets/add-enterprise-application.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../../.gitbook/assets/top-10-cwes-open-issues-issues-introduced-period.png" alt=""><figcaption></figcaption></figure></div>
 
 {% hint style="info" %}
 The recommendations in this section allow you to focus on the most impactful training opportunities. Use the filters to further customise the recommendations based on issue severity or for specific Organizations.

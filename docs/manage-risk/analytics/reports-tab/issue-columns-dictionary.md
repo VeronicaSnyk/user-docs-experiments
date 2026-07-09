@@ -27,7 +27,7 @@ Describes the main attributes of the issue.
   * **Baseline Issue** - Issues identified right after the Project began to be monitored.
   * **Preventable Issue** - Issues for which Snyk published the related problem at least seven days before detection.
   * **Non Preventable Issue** - Issues that were created due to external factors such as a new vulnerability being published.
-  * **Other New Issue** - Issues for which Snyk cannot classify their preventability.&#x20;
+  * **Other New Issue** - Issues for which Snyk cannot classify their preventability.
 * **ISSUE** - A combination of:
   * **Problem Title**: Snyk vulnerability name.
   * **Issue Type:** indicates whether the issue is related to a vulnerability, license, or configuration.
@@ -47,6 +47,7 @@ Describes the main attributes of the issue.
 The vulnerability details refer to various issue attributes that are being defined by Snyk, Mitre, NVD, or any other trusted security organization.
 
 * **ATTACK VECTOR -** Represents the context by which vulnerability exploitation is possible. For more details about the attack vector and its values (Network, Adjacent, Local, Physical), see the [specification document](https://www.first.org/cvss/specification-document).
+* **CISA KEV -** Indicates whether the CVE is included in CISA's catalog of known exploited vulnerabilities.&#x20;
 * **CVE** - Mitre CVE ID
 * **CWE** - Mitre CWE ID
 * **EPSS SCORE** - The probability of exploitation in the wild in the next 30 days.
@@ -59,7 +60,7 @@ The vulnerability details refer to various issue attributes that are being defin
   * **No data**: The issue is not a vulnerability, but a license issue or a vulnerability advisory.
 * **FIXED IN AVAILABLE** - Indicates if a new package version that includes a fix for the vulnerability exists.
 * **FIXED IN VERSION** - Indicates the package version with a fix for the vulnerability.
-* **NVD SCORE** - The vuln score as calculated by NVD.
+* **NVD SCORE** - The vulnerability score as calculated by NVD.
 * **NVD SEVERITY** - The vulnerability severity as rated by NVD.
 * **PACKAGE NAME AND VERSION** - The vulnerability-associated package name and version.
 * **PROBLEM ID** - Snyk Vuln DB ID that uniquely identifies the vulnerability.

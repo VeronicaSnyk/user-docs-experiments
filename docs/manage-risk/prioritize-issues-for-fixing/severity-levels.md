@@ -4,7 +4,7 @@ description: Assess vulnerability risk using Snyk severity levels—Critical, Hi
 
 # Severity levels
 
-Use severity levels to help you with [vulnerability assessment](https://snyk.io/learn/vulnerability-assessment/) for your applications. Severity levels indicate the assessed level of risk, as **C**ritical, **H**igh, **M**edium, or **L**ow. Snyk reports the number of vulnerabilities at each level of severity in many places in the Snyk application.&#x20;
+Use severity levels to help you with [vulnerability assessment](https://snyk.io/learn/vulnerability-assessment/) for your applications. Severity levels indicate the assessed level of risk, as **C**ritical, **H**igh, **M**edium, or **L**ow. Snyk reports the number of vulnerabilities at each level of severity in many places in the Snyk application.
 
 {% hint style="info" %}
 Severity levels also apply to license issues. See [Licenses](../../scan-with-snyk/snyk-open-source/scan-open-source-libraries-and-licenses/open-source-license-compliance.md).

@@ -3,7 +3,7 @@ description: >-
   Scan Java and Kotlin Maven and Gradle projects for vulnerabilities using the Snyk CLI.
 ---
 
-# Snyk CLI for Java and Kotlin
+# CLI support for Java and Kotlin
 
 To test Maven and Gradle Projects, use the `snyk test` command as follows:
 
@@ -12,8 +12,8 @@ To test Maven and Gradle Projects, use the `snyk test` command as follows:
 
 | Package manager-environment | Test help                                                                                                                                                                                                                                                                                                                                                                                                                              | Monitor help                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Maven                       | <p><code>--maven-aggregate-project</code><br> <a href="../../../developer-tools/snyk-cli/commands/test.md#options-for-maven-projects">Options for Maven Projects</a>.<br><br>Example for aggregate projects:<br><code>snyk test --maven-aggregate-project</code></p><p>Ensure you execute the options in the same directory as the root pom.xml file.</p>                                                                              | <p><code>--maven-aggregate-project</code><br> <a href="../../../developer-tools/snyk-cli/commands/monitor.md#options-for-maven-projects">Options for Maven Projects</a>.<br><br>Example for aggregate projects:<br><code>snyk monitor --maven-aggregate-project</code></p><p>Ensure you execute the options in the same directory as the root pom.xml file.</p>                                                                            |
-| Gradle                      | <p><code>--init-script=&#x3C;FILE></code> - Used for projects with a Gradle initialization script.</p><p> <a href="../../../developer-tools/snyk-cli/commands/test.md#options-for-gradle-projects">Options for Gradle Projects</a>.</p>                                                                                                                                                                                                | <p><code>--init-script=&#x3C;FILE></code> - Used for projects with a Gradle initialization script.<br> <a href="../../../developer-tools/snyk-cli/commands/monitor.md#options-for-gradle-projects">Options for Gradle Projects</a>.</p>                                                                                                                                                                                                    |
+| Maven                       | <p><code>--maven-aggregate-project</code><br><a href="../../../developer-tools/snyk-cli/commands/test.md#options-for-maven-projects">Options for Maven Projects</a>.<br><br>Example for aggregate projects:<br><code>snyk test --maven-aggregate-project</code></p><p>Ensure you execute the options in the same directory as the root pom.xml file.</p>                                                                               | <p><code>--maven-aggregate-project</code><br><a href="../../../developer-tools/snyk-cli/commands/monitor.md#options-for-maven-projects">Options for Maven Projects</a>.<br><br>Example for aggregate projects:<br><code>snyk monitor --maven-aggregate-project</code></p><p>Ensure you execute the options in the same directory as the root pom.xml file.</p>                                                                             |
+| Gradle                      | <p><code>--init-script=&#x3C;FILE></code> - Used for projects with a Gradle initialization script.</p><p><a href="../../../developer-tools/snyk-cli/commands/test.md#options-for-gradle-projects">Options for Gradle Projects</a>.</p>                                                                                                                                                                                                 | <p><code>--init-script=&#x3C;FILE></code> - Used for projects with a Gradle initialization script.<br><a href="../../../developer-tools/snyk-cli/commands/monitor.md#options-for-gradle-projects">Options for Gradle Projects</a>.</p>                                                                                                                                                                                                     |
 | Build tools                 | <p><code>snyk test -- [&#x3C;context-specific_options>]</code></p><p>See <a href="../../../developer-tools/snyk-cli/commands/test.md#options-for-build-tools">Options for build tools</a>.</p>                                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Unmanaged JAR files         | <p><code>--scan-unmanaged</code> - Tests unmanaged files<br></p><p><code>--scan-unmanaged --file=&#x3C;JAR_FILE_NAME></code> - Tests individual JAR, WAR, and AAR files<br></p><p><code>--scan-all-unmanaged</code> - Auto-detects Maven, JAR, WAR, and AAR files recursively from the current folder.<br>See <a href="../../../developer-tools/snyk-cli/commands/test.md#scan-all-unmanaged">Options for unmanaged JAR files</a>.</p> | <p><code>--scan-unmanaged</code> - Tests unmanagedfiles<br></p><p><code>--scan-unmanaged --file=&#x3C;JAR_FILE_NAME></code> - Testsindividual JAR, WAR, and AAR files<br></p><p><code>--scan-all-unmanaged</code> - Auto-detects Maven, JAR, WAR, and AAR files recursively from the current folder.</p><p>See <a href="../../../developer-tools/snyk-cli/commands/monitor.md#scan-all-unmanaged">Options for unmanaged JAR files</a>.</p> |
 
@@ -97,7 +97,7 @@ Examples of how you can use the `--configuration-matching` option:
 * `--configuration-matching=compile` to match `compile`, `testCompile`, `compileOnly`, and so on.
 * `--configuration-matching=^compile$` to match only `compile`.
 * `--configuration-matching='^(debug|release)compile$'` to match `debugCompile` and `releaseCompile`.
-* `--configuration-matching='^(?!test).*$'` to match all configurations except those starting with "test" (for example, excludes `testCompileClasspath`, `testRuntimeClasspath`). This is recommended for  with large dependency graphs that hit max path limits, as excluding test configurations reduces the graph size while still covering production dependencies.
+* `--configuration-matching='^(?!test).*$'` to match all configurations except those starting with "test" (for example, excludes `testCompileClasspath`, `testRuntimeClasspath`). This is recommended for with large dependency graphs that hit max path limits, as excluding test configurations reduces the graph size while still covering production dependencies.
 
 ### Android build variants
 
@@ -141,7 +141,7 @@ By default, Snyk passes `gradle build --no-daemon` in the background when runnin
 
 If you see `snyk test` or `snyk monitor` fail on other operating systems because of daemon-related issues, try adding the `--no-daemon` flag to the Snyk command or set `GRADLE_OPTS: '-Dorg.gradle.daemon=false'`.
 
-For tips on disabling the daemon,  the [Gradle documentation](https://docs.gradle.org/current/userguide/gradle_daemon.html#sec:disabling_the_daemon).
+For tips on disabling the daemon, the [Gradle documentation](https://docs.gradle.org/current/userguide/gradle_daemon.html#sec:disabling_the_daemon).
 
 ### Lockfiles
 
@@ -223,7 +223,7 @@ snyk monitor --file=pom.xml
 
 ## Snyk CLI tips and tricks
 
-&#x20;the [CLI commands and options summary](../../../developer-tools/snyk-cli/cli-commands-and-options-summary.md) and the [CLI cheat sheet](https://snyk.io/blog/snyk-cli-cheat-sheet/). Use the `--help` option in the CLI for details of Snyk CLI commands.
+the [CLI commands and options summary](../../../developer-tools/snyk-cli/cli-commands-and-options-summary.md) and the [CLI cheat sheet](https://snyk.io/blog/snyk-cli-cheat-sheet/). Use the `--help` option in the CLI for details of Snyk CLI commands.
 
 ### Testing your own code
 
@@ -260,20 +260,20 @@ specific configurations, [Snyk for Java and Kotlin](../../../supported-languages
 
 #### Unmanaged
 
-For more details on unmanaged Jars,  [Scan all unmanaged JAR files](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/scan-all-unmanaged-jar-files.md).
+For more details on unmanaged Jars, [Scan all unmanaged JAR files](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/scan-all-unmanaged-jar-files.md).
 
 ### Testing containers
 
-Snyk automatically looks for application (such as open source, maven, and npm) vulnerabilities as part of a container scan. Snyk recommends integrating via CLI or Registry earlier in the pipeline and use this as an additional signal or insight into what is in production.  [Snyk CLI for container security](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-cli-for-snyk-container/).
+Snyk automatically looks for application (such as open source, maven, and npm) vulnerabilities as part of a container scan. Snyk recommends integrating via CLI or Registry earlier in the pipeline and use this as an additional signal or insight into what is in production. [Snyk CLI for container security](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-cli-for-snyk-container/).
 
-To test Infrastructure as Code,  [Infrastructure as Code security](https://snyk.io/product/infrastructure-as-code-security/).
+To test Infrastructure as Code, [Infrastructure as Code security](https://snyk.io/product/infrastructure-as-code-security/).
 
-To fix vulnerabilities,  [Fixing vulnerabilities on Maven projects](https://snyk.io/blog/fixing-vulnerabilities-in-maven-projects/).
+To fix vulnerabilities, [Fixing vulnerabilities on Maven projects](https://snyk.io/blog/fixing-vulnerabilities-in-maven-projects/).
 
 ### Options and plugins
 
-To help generate reports locally or at build time,  [snyk-to-html plugin](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/cli-tools/snyk-to-html.md).
+To help generate reports locally or at build time, [snyk-to-html plugin](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/cli-tools/snyk-to-html.md).
 
 See `--json` and `--sarif` options for generating output that can be programmatically accessed.
 
-For advanced filtering options, [ snyk-filter](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/cli-tools/snyk-filter.md).
+For advanced filtering options, [snyk-filter](../../../developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/cli-tools/snyk-filter.md).

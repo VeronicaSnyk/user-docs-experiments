@@ -70,6 +70,7 @@ Possible Origin values are:
 * github-enterprise
 * gitlab
 * gitlab-cr
+* github-app
 * google-artifact-cr
 * harbor-cr
 * heroku
@@ -88,7 +89,7 @@ Projects appear in the **Projects** listing. You can also find Projects using th
 
 Use **Group by none** (ungrouped) for better Project visibility and to apply [filtering attributes at the Project level](project-attributes.md).
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-01-23 at 18.07.4application-name-integration.png" alt="Filtering attributes applied at the Project level"><figcaption><p>Filtering attributes applied at the Project level</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/application-name-integration.png" alt="Filtering attributes applied at the Project level"><figcaption><p>Filtering attributes applied at the Project level</p></figcaption></figure>
 
 ## Targetfile
 

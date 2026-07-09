@@ -12,7 +12,7 @@ The Universal Broker allows you to run multiple connections of any type using a 
 
 On Kubernetes, the Helm chart creates a stateful set with numerous members, automatically creating multiple replicas.
 
-In other orchestrators, such as Docker Compose, you must create multiple replicas explicitly in your deployment configuration.
+When using Docker Compose, you must create multiple replicas explicitly in your deployment configuration. See the [Docker Compose example](../../../implementation-and-setup/enterprise-setup/snyk-broker/universal-broker/running-your-universal-broker-client.md#docker-compose-example) for more info.
 
 Usage of resources varies based on a number of factors, making it difficult to model the actual use of resources (CPU and memory) for the container. Each deployment is limited to a maximum of 25 connections to avoid exhaustion of resources.
 
@@ -22,8 +22,8 @@ Note that moving connections from deployment A to deployment B is not supported.
 
 Contact your Snyk account team or [Snyk support](https://support.snyk.io/s/) if you need more assistance designing a Universal Broker architecture for your needs.
 
-## High Availability Mode
+### High availability mode
 
-High Availability Mode for a Universal Broker deployment is enabled by default and can be disabled by by setting the `BROKER_HA_MODE_ENABLED=false` environment variable inside the container. When this mode is enabled, the Universal Broker deployment will support up to four Broker client replicas.
+High availability (HA) mode for a Universal Broker deployment is enabled by default. The Universal Broker deployment supports up to four Broker client replicas.
 
-For more information on High Availability Mode, please refer to the [HA mode documentation page.](../../../implementation-and-setup/enterprise-setup/snyk-broker/high-availability-mode.md)
+For more information about HA mode, visit [High availability mode](../../../implementation-and-setup/enterprise-setup/snyk-broker/high-availability-mode.md).

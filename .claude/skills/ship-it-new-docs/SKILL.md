@@ -15,13 +15,34 @@ metadata:
 
 This skill orchestrates the complete end-to-end workflow for creating documentation from a Jira ticket:
 0. Checks the local clone is current with `main` and offers to sync if behind
+0.5 Source-of-truth gate: confirm a PRD/one-pager/spec link is present, or hold
 1. Fetches the Jira ticket details
 2. Extracts and retrieves all referenced Confluence and Google Docs URLs
+2.5 (Optional) Enriches context with the `gather-context` skill
 3. Searches existing Snyk documentation to understand structure and find placement
-4. Generates a clean, merge-ready draft (without metadata)
+4. Generates a clean, merge-ready draft (without metadata) using ONLY the provided sources
 5. Creates the file in the matching top-level product folder and updates that folder's `SUMMARY.md`
 6. Commits the changes to the current branch
 7. **Automatically invokes `create-draft-pr`** to create a GitHub PR in draft mode with metadata
+8. **Automatically invokes `update-jira-ticket`** to write the PR link back to the ticket
+
+## Content guardrails (must follow)
+
+These are non-negotiable rules from the AI ContentOps project. They apply to every
+step that writes content.
+
+1. **Provided sources are the only source of truth.** Draft ONLY from the Jira
+   ticket and the links it references (PRD, one-pager, spec, Confluence, Google
+   Docs). Do not invent product behavior, field names, limits, or steps from prior
+   knowledge or assumption.
+2. **Mark gaps, never fabricate.** When the sources do not cover something the page
+   needs, insert an inline `[ACTION REQUIRED: <what is missing>]` placeholder
+   instead of guessing. A draft with honest gaps is correct; an invented detail is a
+   defect.
+3. **Sensitivity gate before finalizing.** Do not carry internal-only content into a
+   public draft: internal URLs/paths, unreleased dates beyond what the ticket
+   approves, customer names, or internal Confluence excerpts. When unsure, replace
+   with an `[ACTION REQUIRED: confirm public-safe wording]` placeholder.
 
 ## Workflow
 
@@ -48,6 +69,24 @@ Placement, deduplication, and the new branch are all derived from local state, s
    - If the user declines: proceed on the stale clone, and have `create-draft-pr` add a line to the PR description noting the branch was cut from a clone N commits behind `origin/main`.
 
 Only after this check do the search and placement steps (Step 3 onward) and the branch creation in Final Steps run, so they operate on current (or explicitly-acknowledged-stale) content.
+
+### Step 0.5: Source-of-truth gate
+
+New-feature docs require a source. Before drafting, confirm the ticket has at least
+one PRD, one-pager, technical spec, Confluence page, or Google Doc link.
+
+1. Fetch the ticket (Step 1) far enough to inspect its description, comments, and links.
+2. If **no** usable source link is present:
+   - **Interactive:** tell the submitter the request is on hold and ask for a PRD /
+     one-pager / spec link before continuing. Do not draft from the summary alone.
+   - **Headless (CI):** stop with a clear message ("held: no source-of-truth link")
+     and have the workflow relabel the issue and comment asking for a link. Do not
+     draft a page with no source.
+3. If a source link **is** present, continue. Everything drafted must trace back to
+   these sources (see **Content guardrails** above).
+
+This mirrors the "Tech validated? if No → hold + notify submitter" gate in the
+AI ContentOps design.
 
 ### Step 1: Fetch Jira Ticket
 ```bash
@@ -76,6 +115,15 @@ For each Google Docs URL:
 ```bash
 python .docs-agent/skills/fetch-google-docs/scripts/fetch_google_docs.py <URL>
 ```
+
+### Step 2.5: (Optional) Enrich context
+
+If the ticket is thin or references internal systems, invoke the `gather-context`
+skill to cross-check the ticket against additional sources (AlphaPatch / ask-snyk /
+Confluence) and surface gaps. It degrades gracefully: when those MCPs are not
+configured it simply reports what it could and could not confirm. Anything it finds
+that the sources do not confirm becomes an `[ACTION REQUIRED]` placeholder, never an
+invented detail, and its output passes through the sensitivity gate before use.
 
 ### Step 3: Search Existing Documentation
 
@@ -252,6 +300,12 @@ The `create-draft-pr` skill will:
 - Include placement, source, references, and related pages in PR description
 - Set PR to draft mode
 - Add review instructions for Technical Writers
+
+4. **Automatically invoke the `update-jira-ticket` skill** to write the PR link back
+   to the source ticket, so tracking is centralized (per the AI ContentOps outcome
+   "Automated Jira ticket per request, updated with links to all drafts"). This step
+   is best-effort: if the Atlassian MCP is not configured it is skipped and noted,
+   never failing the run.
 
 ## Gotchas
 

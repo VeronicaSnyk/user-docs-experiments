@@ -180,6 +180,18 @@ jobs:
             answer prompts. Follow these non-interactive rules:
             - Do NOT run the interactive "sync local clone" checkpoint; the checkout
               is already current. Skip Step 0's questions.
+            - SOURCE-OF-TRUTH GATE (Step 0.5): the ticket must reference a PRD /
+              one-pager / spec / Confluence / Google Docs link. If NONE is present,
+              do not draft — write the single word "held" to the file
+              .ship-it-outcome, print "HELD: no source-of-truth link", and stop.
+              Otherwise, after opening the PR, write "done" to .ship-it-outcome.
+            - GUARDRAILS: draft ONLY from the ticket and its linked sources. Never
+              invent behavior, fields, limits, or dates. Where a source does not
+              cover something the page needs, insert an inline
+              "[ACTION REQUIRED: <what is missing>]" placeholder instead of guessing.
+              Apply the sensitivity gate — no internal-only URLs/paths/dates/customer
+              names in the public draft.
+            - Optionally run /gather-context first to confirm facts and list gaps.
             - Decide page placement yourself using the fixed section rules in the
               skill (never create a new top-level folder). State the chosen
               placement in the PR body so a Technical Writer can confirm it.
@@ -189,7 +201,10 @@ jobs:
             - Commit to a new branch named ship-it/${{ needs.gate.outputs.ticket }},
               push it, then run /create-draft-pr to open a DRAFT PR against main.
             - The PR title must start with "${{ needs.gate.outputs.ticket }}:".
-            - In the PR body, add: "Triggered by issue #${{ github.event.issue.number }}".
+            - In the PR body: add "Triggered by issue #${{ github.event.issue.number }}"
+              and a count of any [ACTION REQUIRED] placeholders left in the draft.
+            - Finally, run /update-jira-ticket to write the PR link back to
+              ${{ needs.gate.outputs.ticket }} (best-effort; skip if no Atlassian MCP).
           claude_args: |
             --max-turns 40
             --model claude-opus-4-8
@@ -223,8 +238,16 @@ jobs:
             answer prompts. Follow these non-interactive rules:
             - Skip the interactive "sync local clone" checkpoint (Step 0); the
               checkout is already current.
-            - If a Google Docs URL is referenced but no Google token is configured,
-              skip that source and note the omission in the PR body — do not fail.
+            - SOURCE-OF-TRUTH GATE: a substantive change needs a PRD / spec /
+              Confluence / Google Docs link (or a sufficiently specific ticket
+              description). If a substantive change has NO source, write "held" to
+              the file .ship-it-outcome, print "HELD: no source-of-truth link", and
+              stop. Otherwise, after opening the PR, write "done" to .ship-it-outcome.
+            - GUARDRAILS: base every edit ONLY on the ticket and its linked sources.
+              Never invent changed behavior. Where a detail is unspecified, insert
+              "[ACTION REQUIRED: <what is missing>]" instead of guessing. Apply the
+              sensitivity gate — no internal-only content in public pages.
+            - Optionally run /gather-context first to confirm facts and list gaps.
             - Produce the explicit candidate list of affected files (skill Step 3)
               and edit only what the ticket describes; keep the diff minimal.
             - If there is truly no existing page, fall back to /ship-it-new-docs
@@ -233,14 +256,53 @@ jobs:
               push it, then run /create-draft-pr to open a DRAFT PR against main.
             - The PR title must start with "${{ needs.gate.outputs.ticket }}:".
               In the PR body, list every file changed and why, note this was a
-              doc-update run, and add "Triggered by issue #${{ github.event.issue.number }}".
+              doc-update run, add "Triggered by issue #${{ github.event.issue.number }}",
+              and a count of any [ACTION REQUIRED] placeholders.
+            - Finally, run /update-jira-ticket to write the PR link back to
+              ${{ needs.gate.outputs.ticket }} (best-effort; skip if no Atlassian MCP).
           claude_args: |
             --max-turns 40
             --model claude-opus-4-8
             --allowedTools "Bash,Read,Write,Edit,Glob,Grep"
 
+      - name: Read draft outcome
+        if: always()
+        id: outcome
+        run: |
+          if [ -f .ship-it-outcome ]; then
+            OUT="$(tr -d '[:space:]' < .ship-it-outcome)"
+          else
+            OUT="unknown"
+          fi
+          echo "value=$OUT" >> "$GITHUB_OUTPUT"
+          echo "Draft outcome: $OUT"
+
+      - name: Report HOLD on the issue (no source of truth)
+        if: success() && steps.outcome.outputs.value == 'held'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: [
+                "⏸️ **ship-it held for ${{ needs.gate.outputs.ticket }}.**",
+                "",
+                "No PRD / one-pager / spec / Confluence / Google Docs link was found,",
+                "so no draft was created (the AI must not invent content).",
+                "Add a source link to the ticket, then re-apply the variant label.",
+              ].join("\n"),
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ["ship-it-held"],
+            });
+
       - name: Report success on the issue
-        if: success()
+        if: success() && steps.outcome.outputs.value != 'held'
         uses: actions/github-script@v7
         with:
           script: |

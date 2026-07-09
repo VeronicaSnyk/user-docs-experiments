@@ -22,6 +22,10 @@
   color: "0E8A16"
   description: "The ship-it workflow has already run for this issue"
 
+- name: ship-it-held
+  color: "FBCA04"
+  description: "Held: the ticket has no source-of-truth link; add one and re-label"
+
 - name: ship-it-failed
   color: "B60205"
   description: "The ship-it workflow errored; needs a human"

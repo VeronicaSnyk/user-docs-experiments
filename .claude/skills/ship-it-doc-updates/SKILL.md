@@ -33,6 +33,22 @@ This skill orchestrates the complete end-to-end workflow for updating documentat
 > unrelated page to absorb the content. Creating a new page is the fallback, not the
 > default, for this skill.
 
+## Content guardrails (must follow)
+
+Non-negotiable rules from the AI ContentOps project, applied to every edit:
+
+1. **Provided sources are the only source of truth.** Base each edit ONLY on the
+   Jira ticket and the links it references (PRD, one-pager, spec, Confluence, Google
+   Docs). Do not invent changed behavior, new field names, or limits from prior
+   knowledge.
+2. **Mark gaps, never fabricate.** When the sources do not specify a detail the edit
+   needs, insert an inline `[ACTION REQUIRED: <what is missing>]` placeholder rather
+   than guessing.
+3. **Sensitivity gate before finalizing.** Do not introduce internal-only content
+   (internal URLs/paths, unreleased dates, customer names, internal Confluence
+   excerpts) into public pages. When unsure, use an `[ACTION REQUIRED: confirm
+   public-safe wording]` placeholder.
+
 ## Workflow
 
 ### Step 0: Ensure the local clone is current with `main`
@@ -66,6 +82,18 @@ this check first.
 > `ship-it.yml` GitHub Action), skip the questions in this step — the checkout is
 > already current — and proceed straight to Step 1.
 
+### Step 0.5: Source-of-truth gate
+
+An update must be grounded in a source. The ticket description itself can be the
+source for a small correction, but any substantive change needs a PRD / one-pager /
+spec / Confluence / Google Docs link.
+
+- If the change is substantive and **no** source link is present: hold and ask for
+  one (interactive), or stop with "held: no source-of-truth link" and have the
+  workflow comment on the issue (headless). Do not invent the changed behavior.
+- If a source is present (link or a sufficiently specific ticket description),
+  continue. Every edit must trace to it (see **Content guardrails** above).
+
 ### Step 1: Fetch Jira Ticket
 ```bash
 python .docs-agent/skills/fetch-jira-ticket/scripts/fetch_jira_ticket.py <TICKET-KEY>
@@ -97,6 +125,13 @@ python .docs-agent/skills/fetch-google-docs/scripts/fetch_google_docs.py <URL>
 > If a Google Docs URL is referenced but Google auth is not configured (for example
 > in CI without a pre-seeded token), skip that source and note the omission in the
 > PR body — do not fail the run.
+
+### Step 2.5: (Optional) Enrich context
+
+If the ticket is thin, invoke the `gather-context` skill to cross-check it against
+AlphaPatch / ask-snyk / Confluence and surface what is confirmed vs. missing. It
+degrades gracefully when those MCPs are absent. Unconfirmed details become
+`[ACTION REQUIRED]` placeholders, and its output passes the sensitivity gate.
 
 ### Step 3: Locate the existing page(s) to edit
 
@@ -206,6 +241,10 @@ After completing the edits, **automatically proceed** to create a GitHub pull re
 3. **Automatically invoke the `create-draft-pr` skill** to open the PR in draft mode
    against `main` with all metadata. In the PR description, include the list of files
    changed and the reason for each so the Technical Writer can review the scope.
+
+4. **Automatically invoke the `update-jira-ticket` skill** to write the PR link back
+   to the source ticket. Best-effort: skipped and noted if the Atlassian MCP is not
+   configured, never failing the run.
 
 ## Gotchas
 

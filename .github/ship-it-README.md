@@ -81,6 +81,7 @@ to the first bare `PROJECT-####` token) and normalizes it to upper case.
    gh label create ship-it-new-docs    --color 1D76DB --description "Variant: draft a new page"
    gh label create ship-it-doc-updates --color 0052CC --description "Variant: update existing docs"
    gh label create ship-it-processed   --color 0E8A16 --description "Workflow already ran"
+   gh label create ship-it-held        --color FBCA04 --description "Held: no source-of-truth link; add one and re-label"
    gh label create ship-it-failed      --color B60205 --description "Workflow errored; needs a human"
    ```
 
@@ -116,6 +117,24 @@ to the first bare `PROJECT-####` token) and normalizes it to upper case.
 - **The Snyk User Docs MCP** used interactively for doc search is not wired into
   the action. Placement uses the in-repo `SUMMARY.md` files and the skill's fixed
   section rules. To add MCP search in CI, pass `--mcp-config` in `claude_args`.
+
+## Content guardrails
+
+Per the AI ContentOps project, the workflow enforces:
+
+- **Source of truth.** The ticket must reference a PRD / one-pager / spec /
+  Confluence / Google Docs link. With none, the run is **held** (labeled
+  `ship-it-held`, commented on the issue) rather than drafting from nothing.
+- **No fabrication.** Drafts use only the provided sources; anything unspecified
+  becomes an inline `[ACTION REQUIRED: …]` placeholder. The PR body reports how many
+  remain.
+- **Sensitivity gate.** Internal-only content is kept out of public drafts.
+- **Jira write-back.** After the PR opens, `update-jira-ticket` links it on the
+  source ticket (best-effort; needs the Atlassian MCP in the runner).
+
+See [_planning/ai-contentops-roadmap.md](../_planning/ai-contentops-roadmap.md) for
+the full target architecture and remaining gaps (Contentful, staging repo, internal
+MCPs).
 
 ## Result
 

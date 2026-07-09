@@ -1,0 +1,97 @@
+name: "Ship It — new docs"
+description: "Kick off the ship-it docs workflow for an upcoming release. The Slack /ship-it app opens this automatically; you can also file it by hand."
+title: "Ship It: <feature name>"
+labels: ["ship-it-new-docs"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue triggers `.github/workflows/ship-it.yml`, which drafts documentation
+        from the linked Jira ticket and opens a **draft PR** against `main`.
+        The workflow reads the **Jira issue** field below to find the ticket key
+        (for example `DOCT-2618`), so that field is required and must contain a
+        `https://snyksec.atlassian.net/browse/<KEY>` link.
+
+  - type: input
+    id: feature
+    attributes:
+      label: Feature
+      placeholder: "CLI v1.1306.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: false
+
+  - type: input
+    id: release_date
+    attributes:
+      label: Expected Release Date
+      placeholder: "2026-07-09"
+    validations:
+      required: false
+
+  - type: input
+    id: jira_issue
+    attributes:
+      label: Jira issue
+      description: "Full browse URL. The workflow extracts the ticket key from this line."
+      placeholder: "https://snyksec.atlassian.net/browse/DOCT-2618"
+    validations:
+      required: true
+
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      placeholder: "Feature Enhancement"
+    validations:
+      required: false
+
+  - type: input
+    id: release_type
+    attributes:
+      label: Release Type
+      placeholder: "General Availability (GA)"
+    validations:
+      required: false
+
+  - type: input
+    id: fedramp
+    attributes:
+      label: FedRAMP
+      placeholder: "No"
+    validations:
+      required: false
+
+  - type: input
+    id: product_areas
+    attributes:
+      label: Affected Product Areas
+      placeholder: "Snyk Container, Platform (CLI, IDE, API), Snyk Open Source"
+    validations:
+      required: false
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Resources
+      description: "Any reference links — PRD, Product Updates Draft, One-Pager, Figma, etc. Confluence and Google Docs links here are fetched automatically."
+      placeholder: |
+        PRD: n/a
+        Product Updates Draft: https://app.contentful.com/...
+        One-Pager: https://docs.google.com/presentation/d/.../edit
+    validations:
+      required: false
+
+  - type: input
+    id: submitted_by
+    attributes:
+      label: Submitted by
+      placeholder: "@matt.dolan"
+    validations:
+      required: false

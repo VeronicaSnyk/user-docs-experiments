@@ -1,0 +1,221 @@
+name: ship-it new docs
+
+# Triggered by the Slack /ship-it app, which opens (or labels) a GitHub issue
+# carrying the `ship-it-new-docs` label. The issue body contains a Jira browse
+# URL (for example https://snyksec.atlassian.net/browse/DOCT-2618). This workflow
+# extracts the ticket key, runs the ship-it-new-docs skill headlessly with Claude
+# Code, and opens a draft PR against main. It then comments the result on the issue.
+#
+# See .github/ship-it-README.md for the full contract and the required secrets.
+
+on:
+  issues:
+    types: [opened, labeled]
+
+# Never run two ship-it jobs for the same issue at once.
+concurrency:
+  group: ship-it-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write        # push the docs branch
+  pull-requests: write   # open the draft PR
+  issues: write          # comment + relabel the triggering issue
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Gate: only proceed for ship-it issues that carry a parseable Jira key and
+  # have not already been processed. Extracts the key for the next job.
+  # ---------------------------------------------------------------------------
+  gate:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'ship-it-new-docs')
+    outputs:
+      ticket: ${{ steps.parse.outputs.ticket }}
+      proceed: ${{ steps.parse.outputs.proceed }}
+    steps:
+      - name: Extract Jira ticket key from the issue body
+        id: parse
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          LABELS_JSON: ${{ toJSON(github.event.issue.labels.*.name) }}
+        run: |
+          # Already handled? Bail out quietly.
+          if echo "$LABELS_JSON" | grep -q 'ship-it-processed'; then
+            echo "Issue already processed; skipping."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Pull the first DOCT-#### (or other PROJECT-####) key out of the body.
+          # Prefer a key on a "Jira issue:" line / browse URL, fall back to any key.
+          TICKET="$(printf '%s' "$ISSUE_BODY" \
+            | grep -oiE 'atlassian\.net/browse/[A-Z][A-Z0-9]+-[0-9]+' \
+            | grep -oiE '[A-Z][A-Z0-9]+-[0-9]+' \
+            | head -n1 || true)"
+
+          if [ -z "$TICKET" ]; then
+            TICKET="$(printf '%s' "$ISSUE_BODY" \
+              | grep -oiE '\b[A-Z][A-Z0-9]+-[0-9]+\b' | head -n1 || true)"
+          fi
+
+          if [ -z "$TICKET" ]; then
+            echo "No Jira ticket key found in issue body."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Normalize to upper case.
+          TICKET="$(printf '%s' "$TICKET" | tr '[:lower:]' '[:upper:]')"
+          echo "Found ticket: $TICKET"
+          echo "ticket=$TICKET" >> "$GITHUB_OUTPUT"
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Comment when no ticket key is found
+        if: steps.parse.outputs.proceed == 'false' && steps.parse.outputs.ticket == ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: [
+                "⚠️ **ship-it skipped.**",
+                "",
+                "No Jira ticket key found in this issue. Add a line like:",
+                "`Jira issue: https://snyksec.atlassian.net/browse/DOCT-1234`",
+                "then re-apply the **ship-it-new-docs** label.",
+              ].join("\n"),
+            });
+
+  # ---------------------------------------------------------------------------
+  # Run: draft the docs with Claude Code and open a draft PR.
+  # ---------------------------------------------------------------------------
+  draft:
+    needs: gate
+    if: needs.gate.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout user-docs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so placement/dedup logic can read main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install docs-agent Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install \
+            'requests>=2.31.0' \
+            'python-dotenv>=1.0.0' \
+            'markdownify>=0.11.0' \
+            'google-auth>=2.23.0' \
+            'google-auth-oauthlib>=1.1.0' \
+            'google-auth-httplib2>=0.1.1' \
+            'google-api-python-client>=2.100.0'
+
+      - name: Mark the issue as in-progress
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: "🚀 Running the ship-it docs workflow for **${{ needs.gate.outputs.ticket }}**…",
+            });
+
+      # Runs the committed ship-it-new-docs skill headlessly. The skill orchestrates
+      # fetch-jira-ticket / fetch-confluence / fetch-google-docs, applies
+      # snyk-docs-writing-rules, places the page, updates the section SUMMARY.md,
+      # commits to a new branch, and hands off to create-draft-pr.
+      - name: Draft docs with Claude Code
+        id: claude
+        uses: anthropics/claude-code-action@v1
+        env:
+          # Fetch-script credentials (read by the skill's Python scripts).
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          CONFLUENCE_BASE_URL: ${{ secrets.CONFLUENCE_BASE_URL }}
+          CONFLUENCE_EMAIL: ${{ secrets.CONFLUENCE_EMAIL }}
+          CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
+          # Optional: a pre-seeded Google token for headless Google Docs fetches.
+          # If absent, the skill skips Google Docs and notes it in the PR body.
+          GOOGLE_TOKEN_JSON: ${{ secrets.GOOGLE_TOKEN_JSON }}
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # A PAT (not the default GITHUB_TOKEN) so the PR can trigger the
+          # docs-quality / link-checker / image-audit checks on itself.
+          github_token: ${{ secrets.SHIP_IT_PAT }}
+          prompt: |
+            Run the /ship-it-new-docs skill for Jira ticket ${{ needs.gate.outputs.ticket }}.
+
+            You are running headlessly in GitHub Actions — there is no human to
+            answer prompts. Follow these non-interactive rules:
+            - Do NOT run the interactive "sync local clone" checkpoint; the checkout
+              is already current. Skip Step 0's questions.
+            - Decide page placement yourself using the fixed section rules in the
+              skill (never create a new top-level folder). State the chosen
+              placement in the PR body so a Technical Writer can confirm it.
+            - If a Google Docs URL is referenced but no Google token is configured,
+              skip that source and note the omission in the PR body — do not fail.
+            - Create the page and update the matching section SUMMARY.md.
+            - Commit to a new branch named ship-it/${{ needs.gate.outputs.ticket }},
+              push it, then run /create-draft-pr to open a DRAFT PR against main.
+            - The PR title must start with "${{ needs.gate.outputs.ticket }}:".
+            - In the PR body, add: "Triggered by issue #${{ github.event.issue.number }}".
+          claude_args: |
+            --max-turns 40
+            --model claude-opus-4-8
+            --allowedTools "Bash,Read,Write,Edit,Glob,Grep"
+
+      - name: Report success on the issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Find the draft PR that references this issue.
+            const { data: prs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              head: `${context.repo.owner}:ship-it/${{ needs.gate.outputs.ticket }}`,
+            });
+            const pr = prs[0];
+            const link = pr ? `#${pr.number}` : "the newly opened draft PR";
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `✅ Draft docs ready in ${link} for **${{ needs.gate.outputs.ticket }}**. A Technical Writer reviews it after it is moved from Draft to Ready.`,
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ["ship-it-processed"],
+            });
+
+      - name: Report failure on the issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `❌ The ship-it workflow failed for **${{ needs.gate.outputs.ticket }}**. See the [run log](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).`,
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ["ship-it-failed"],
+            });

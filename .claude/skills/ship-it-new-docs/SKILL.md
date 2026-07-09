@@ -1,6 +1,6 @@
 ---
 name: ship-it-new-docs
-description: End-to-end workflow for creating documentation from a Jira ticket. Fetches the ticket, retrieves referenced Confluence/Google Docs, searches existing docs for context, generates a clean draft, commits changes, and automatically creates a GitHub draft PR with metadata.
+description: End-to-end workflow for creating NEW documentation from a Jira ticket. Fetches the ticket, retrieves referenced Confluence/Google Docs, searches existing docs for context, generates a clean draft, commits changes, and automatically creates a GitHub draft PR with metadata. Use whenever a Jira ticket has the label ship-it-new-docs (the new-docs branch of the Slack /ship-it app), when someone asks to draft or create a new docs page from a ticket/PRD/one-pager, or when a feature launch needs a brand-new page rather than an edit to an existing one. For editing pages that already exist, use ship-it-doc-updates instead.
 license: Proprietary
 compatibility: Requires Python 3.x, Jira/Confluence/Google Docs credentials in .env, Snyk User Docs MCP server, GitHub CLI
 metadata:

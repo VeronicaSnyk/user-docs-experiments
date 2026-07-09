@@ -215,33 +215,25 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.SHIP_IT_PAT }}
           prompt: |
-            Update EXISTING Snyk documentation for the change described in Jira
-            ticket ${{ needs.gate.outputs.ticket }}. This is a doc-UPDATE, not a
-            new page — do not create a new page unless the change genuinely has no
-            existing home.
+            Run the /ship-it-doc-updates skill for Jira ticket ${{ needs.gate.outputs.ticket }}.
+            This is a doc-UPDATE — edit the existing page(s); do not create a new
+            page unless the change genuinely has no existing home.
 
             You are running headlessly in GitHub Actions — there is no human to
-            answer prompts. Steps:
-            1. Fetch the ticket with:
-               python .claude/skills/fetch-jira-ticket/scripts/fetch_jira_ticket.py ${{ needs.gate.outputs.ticket }}
-               and fetch any referenced Confluence pages / Google Docs with the
-               fetch-confluence and fetch-google-docs scripts under .claude/skills/.
-               If a Google token is not configured, skip Google Docs and note it.
-            2. Identify which existing page(s) the change affects. Search the
-               repository (Grep/Glob over the section folders and each SUMMARY.md)
-               for the feature, product area, commands, or UI names in the ticket.
-               List the candidate files you found.
-            3. Edit the existing page(s) in place to reflect the change. Apply the
-               /snyk-docs-writing-rules skill. Keep edits scoped to what the ticket
-               describes; do not rewrite unrelated content.
-            4. If the ticket clearly describes something with no existing page,
-               fall back to creating one per the /ship-it-new-docs placement rules,
-               and say so in the PR body.
-            5. Commit to a new branch named ship-it/${{ needs.gate.outputs.ticket }},
-               push it, then run /create-draft-pr to open a DRAFT PR against main.
-            6. The PR title must start with "${{ needs.gate.outputs.ticket }}:".
-               In the PR body: list every file changed and why, note this was a
-               doc-update run, and add "Triggered by issue #${{ github.event.issue.number }}".
+            answer prompts. Follow these non-interactive rules:
+            - Skip the interactive "sync local clone" checkpoint (Step 0); the
+              checkout is already current.
+            - If a Google Docs URL is referenced but no Google token is configured,
+              skip that source and note the omission in the PR body — do not fail.
+            - Produce the explicit candidate list of affected files (skill Step 3)
+              and edit only what the ticket describes; keep the diff minimal.
+            - If there is truly no existing page, fall back to /ship-it-new-docs
+              placement rules and say so in the PR body.
+            - Commit to a new branch named ship-it/${{ needs.gate.outputs.ticket }},
+              push it, then run /create-draft-pr to open a DRAFT PR against main.
+            - The PR title must start with "${{ needs.gate.outputs.ticket }}:".
+              In the PR body, list every file changed and why, note this was a
+              doc-update run, and add "Triggered by issue #${{ github.event.issue.number }}".
           claude_args: |
             --max-turns 40
             --model claude-opus-4-8

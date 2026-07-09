@@ -433,7 +433,7 @@ See also [Invite users](../reference/organizations-v1.md#org-orgid-invite).
 
 **More information:** [Dart and Flutter](../../supported-languages/supported-languages-list/dart-and-flutter.md);\
 [Rust](../../supported-languages/supported-languages-list/rust.md):\
-[Guidance for Snyk for C++ page, Alternate testing options section](/broken/pages/11FkFB7EPbsM1mTkFvJ0#alternate-testing-options);\
+[Guidance for Snyk for C/C++](../../supported-languages/supported-languages-list/c-c++.md);\
 [Guidance for Java and Kotlin](../../supported-languages-package-managers-and-frameworks/java-and-kotlin/);\
 [Guidance for JavaScript and Node.js](../../supported-languages/supported-languages-list/javascript/#unmanaged-javascript);\
 [List issues for a package page](../using-specific-snyk-apis/issues-list-issues-for-a-package.md)
@@ -478,7 +478,7 @@ Additional information: [Reachability](../../manage-risk/prioritize-issues-for-f
 
 ### [Monitor Dep Graph](../reference/monitor-v1.md)
 
-**More information:** [Dep Graph API (Bazel)](/broken/pages/ZuJRV7SJ3orSDvlu5vGX)
+**More information:** Dep Graph API (Bazel)
 
 ## Organizations (v1)
 
@@ -884,7 +884,7 @@ This endpoint deletes the specified Targets and also deletes all the Projects in
 
 ### [Test Dep Graph](../reference/test-v1.md#test-dep-graph)
 
-**More information:** [Dep Graph API](/broken/pages/ZuJRV7SJ3orSDvlu5vGX) (Bazel);\
+**More information:** Dep Graph API (Bazel);\
 [Unmanaged JavaScript](../../supported-languages/supported-languages-list/javascript/#unmanaged-javascript);\
 [Start scanning](../../scan-with-snyk/start-scanning.md)
 

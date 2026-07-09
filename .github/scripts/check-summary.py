@@ -21,12 +21,17 @@ DOCS_ROOT = REPO_ROOT / "docs"
 SUMMARY_FILE = DOCS_ROOT / "SUMMARY.md"
 
 # Patterns to exclude from the "all files must be in SUMMARY" check
+# (substring match against the path relative to docs/)
 EXCLUDE_PATTERNS = [
     ".gitbook/includes/",   # reusable snippets — intentionally excluded from TOC
     ".gitbook/assets/",     # images
     "SUMMARY.md",           # itself
-    "README.md",            # root readme listed separately
 ]
+
+# Paths (relative to docs/) excluded by exact match only — nested variants stay in scope
+EXCLUDE_EXACT = {
+    "README.md",            # root readme listed separately; section READMEs are checked
+}
 
 LINK_RE = re.compile(r'\[.*?\]\(([^)]+)\)')
 
@@ -49,6 +54,8 @@ def get_all_doc_files(docs_root: Path) -> set[Path]:
     for f in docs_root.rglob("*.md"):
         rel = f.relative_to(docs_root)
         rel_str = str(rel)
+        if rel_str in EXCLUDE_EXACT:
+            continue
         if not any(excl in rel_str for excl in EXCLUDE_PATTERNS):
             all_files.add(rel)
     return all_files

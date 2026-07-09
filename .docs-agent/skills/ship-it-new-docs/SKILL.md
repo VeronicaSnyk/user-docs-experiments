@@ -291,16 +291,18 @@ Before finalizing the draft:
 
 After completing the documentation draft, **automatically proceed** to create a GitHub pull request:
 
-1. **Create a branch off `main`** and commit the changes:
+1. **Create a branch off `main`** and commit the changes. Name the branch
+   `ship-it/<JIRA-KEY>` (the ticket key, matching the `ship-it.yml` workflow, which
+   creates and looks up the branch as `ship-it/<TICKET>`):
    ```bash
-   git checkout -b <jira-key>-<slug> main
+   git checkout -b ship-it/<JIRA-KEY> main
    git add <section-folder>/<path>/new-file.md <section-folder>/SUMMARY.md
    git commit -m "Add [title] documentation for [JIRA-KEY]"
    ```
 
 2. **Push the branch** to remote:
    ```bash
-   git push -u origin <branch-name>
+   git push -u origin ship-it/<JIRA-KEY>
    ```
 
 3. **Automatically invoke the `create-draft-pr` skill** to create the GitHub pull request in draft mode with all metadata
@@ -310,6 +312,12 @@ The `create-draft-pr` skill will:
 - Include placement, source, references, and related pages in PR description
 - Set PR to draft mode
 - Add review instructions for Technical Writers
+
+**Headless (CI) outcome contract:** when running non-interactively (from
+`ship-it.yml`), after the draft PR is opened, write `done` to a file named
+`.ship-it-outcome` at the repo root. If instead you held at the source-of-truth gate
+(no source), write `held` to `.ship-it-outcome` and stop. The workflow reads this
+file to decide whether to report success or hold.
 
 4. **Automatically invoke the `update-jira-ticket` skill** to write the PR link back
    to the source ticket, so tracking is centralized (per the AI ContentOps outcome

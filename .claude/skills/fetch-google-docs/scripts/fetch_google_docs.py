@@ -64,7 +64,15 @@ SCOPES = [
     'https://www.googleapis.com/auth/drive.readonly',
     'https://www.googleapis.com/auth/documents.readonly'
 ]
-TOKEN_FILE = DOCS_AGENT_DIR / 'token.pickle'
+# Prefer the shared .docs-agent/token.pickle relative to cwd (e.g. when run from the
+# .claude copy of this skill); otherwise keep the token next to the script. This avoids
+# landing token.pickle in a surprising, unignored location. .docs-agent/.gitignore
+# already ignores *token.pickle*.
+_cwd_docs_agent = Path.cwd() / '.docs-agent'
+if _cwd_docs_agent.is_dir():
+    TOKEN_FILE = _cwd_docs_agent / 'token.pickle'
+else:
+    TOKEN_FILE = SCRIPT_DIR / 'token.pickle'
 
 # Get Google OAuth credentials from environment
 GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
@@ -98,6 +106,8 @@ class GoogleDocsClient:
             sys.exit(1)
 
         # Check if token.pickle exists
+        # Security note: pickle.load can execute arbitrary code. Only load a token
+        # file that is user-owned and trusted (written by this script's own auth flow).
         if TOKEN_FILE.exists():
             with open(TOKEN_FILE, 'rb') as token:
                 self.creds = pickle.load(token)
@@ -233,8 +243,13 @@ class GoogleDocsClient:
             else:
                 text = self._extract_text(elements)
                 if text:
-                    output.append(text)
-                    output.append("")
+                    # A paragraph with a `bullet` is a list item; emit it as a
+                    # bulleted markdown line. Keep it simple and defensive.
+                    if paragraph.get('bullet'):
+                        output.append(f"- {text}")
+                    else:
+                        output.append(text)
+                        output.append("")
 
         # Process table
         elif 'table' in element:
@@ -257,20 +272,26 @@ class GoogleDocsClient:
                 content = elem['textRun'].get('content', '')
                 text_style = elem['textRun'].get('textStyle', {})
 
+                # content often includes a trailing newline; apply formatting markers
+                # to the stripped text and re-append the newline(s) OUTSIDE the markers
+                # so we don't produce broken markdown like "**Title\n**".
+                stripped = content.rstrip('\n')
+                trailing = content[len(stripped):]
+
                 # Apply formatting
                 if text_style.get('bold'):
-                    content = f"**{content}**"
+                    stripped = f"**{stripped}**"
                 if text_style.get('italic'):
-                    content = f"*{content}*"
+                    stripped = f"*{stripped}*"
                 if text_style.get('underline'):
-                    content = f"__{content}__"
+                    stripped = f"__{stripped}__"
 
                 # Handle links
                 if 'link' in text_style:
                     url = text_style['link'].get('url', '')
-                    content = f"[{content}]({url})"
+                    stripped = f"[{stripped}]({url})"
 
-                text_parts.append(content)
+                text_parts.append(stripped + trailing)
 
         return ''.join(text_parts).strip()
 

@@ -89,21 +89,44 @@ def put_md(pid, md):
     return r.status_code
 
 mode = sys.argv[1] if len(sys.argv) > 1 else "check"
+
+# PASS 1: fetch every page and run the in-memory transform + assertions.
+# Nothing is written in this pass, so a mismatch on any page aborts cleanly
+# before any GitBook write happens (all-or-nothing).
+planned = []   # (pid, name, edits, newmd, changed)
+failures = []  # (pid, name, error)
 for pid, name, edits in EDITS:
     md = get_md(pid)
     try:
         newmd = apply_edits(md, edits)
     except AssertionError as e:
+        failures.append((pid, name, str(e)))
         print(f"✗ {name} ({pid}): {e}")
         continue
     changed = newmd != md
+    planned.append((pid, name, edits, newmd, changed))
     print(f"{'✓' if changed else '–'} {name} ({pid}): {len(edits)} edit(s) matched, {'CHANGED' if changed else 'no change'}")
-    if mode == "apply" and changed:
-        code = put_md(pid, newmd)
-        verify = get_md(pid)
-        ok = all((new in verify) for old, new, _ in edits if new) and all((old not in verify) for old, new, _ in edits if old and old not in verify or True)
-        # simpler verify: every old removed (for non-empty new) and new present
-        problems = []
-        for old, new, _ in edits:
-            if new and new not in verify: problems.append(f"new missing: {new[:40]!r}")
-        print(f"    submitted (HTTP {code}); verify: {'OK' if not problems else problems}")
+
+if failures:
+    print(f"\n{len(failures)} page(s) failed pre-flight; no writes performed.")
+    sys.exit(1)
+
+if mode != "apply":
+    print("\ncheck OK: all pages matched. Run with 'apply' to write.")
+    sys.exit(0)
+
+# PASS 2: all pages passed pre-flight — now write and verify each changed page.
+for pid, name, edits, newmd, changed in planned:
+    if not changed:
+        continue
+    code = put_md(pid, newmd)
+    verify = get_md(pid)
+    # Verify every non-empty `new` is present and every `old` was removed
+    # (a still-present `old` that is not a substring of some `new` means the write failed).
+    problems = []
+    for old, new, _ in edits:
+        if new and new not in verify:
+            problems.append(f"new missing: {new[:40]!r}")
+        if old and old in verify and old not in newmd:
+            problems.append(f"old still present: {old[:40]!r}")
+    print(f"    {name} ({pid}) submitted (HTTP {code}); verify: {'OK' if not problems else problems}")

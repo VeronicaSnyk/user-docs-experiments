@@ -26,9 +26,10 @@ skill_dir = script_dir.parent
 docs_agent_dir = skill_dir.parent.parent
 
 env_locations = [
-    docs_agent_dir / '.env',           # Shared .docs-agent/.env
-    skill_dir / '.env',                 # Skill-specific .env
-    Path.cwd() / '.env',                # Project root .env
+    docs_agent_dir / '.env',                    # Shared .docs-agent/.env
+    skill_dir / '.env',                          # Skill-specific .env
+    Path.cwd() / '.docs-agent' / '.env',         # Shared .docs-agent/.env relative to cwd
+    Path.cwd() / '.env',                         # Project root .env
 ]
 
 env_loaded = False
@@ -44,12 +45,6 @@ if not env_loaded:
 JIRA_BASE_URL = os.getenv('JIRA_BASE_URL')
 JIRA_EMAIL = os.getenv('JIRA_EMAIL')
 JIRA_API_TOKEN = os.getenv('JIRA_API_TOKEN')
-
-# Validate credentials
-if not all([JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN]):
-    print("Error: Missing Jira credentials in .env file", file=sys.stderr)
-    print("Required variables: JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN", file=sys.stderr)
-    sys.exit(1)
 
 
 class JiraClient:
@@ -125,14 +120,14 @@ class JiraClient:
         output.append(f"# {key}: {fields.get('summary', 'Untitled')}")
         output.append("")
         output.append(f"**URL:** {self.base_url}/browse/{key}")
-        output.append(f"**Status:** {fields.get('status', {}).get('name', 'Unknown')}")
-        output.append(f"**Priority:** {fields.get('priority', {}).get('name', 'Unknown')}")
+        output.append(f"**Status:** {(fields.get('status') or {}).get('name', 'Unknown')}")
+        output.append(f"**Priority:** {(fields.get('priority') or {}).get('name', 'Unknown')}")
 
-        reporter = fields.get('reporter', {})
+        reporter = fields.get('reporter') or {}
         if reporter:
             output.append(f"**Reporter:** {reporter.get('displayName', 'Unknown')}")
 
-        assignee = fields.get('assignee', {})
+        assignee = fields.get('assignee') or {}
         if assignee:
             output.append(f"**Assignee:** {assignee.get('displayName', 'Unassigned')}")
 
@@ -226,51 +221,67 @@ class JiraClient:
         # Simple ADF parser - extracts text from content blocks
         result = []
 
-        def extract_text(node):
+        def extract_text(node, depth=0):
             if isinstance(node, dict):
                 node_type = node.get('type', '')
 
                 if node_type == 'text':
                     text = node.get('text', '')
-                    # Apply marks (bold, italic, etc.)
+                    # Apply marks (bold, italic, code, link)
                     marks = node.get('marks', [])
                     for mark in marks:
-                        if mark.get('type') == 'strong':
+                        mark_type = mark.get('type')
+                        if mark_type == 'strong':
                             text = f"**{text}**"
-                        elif mark.get('type') == 'em':
+                        elif mark_type == 'em':
                             text = f"*{text}*"
-                        elif mark.get('type') == 'code':
+                        elif mark_type == 'code':
                             text = f"`{text}`"
+                        elif mark_type == 'link':
+                            href = mark.get('attrs', {}).get('href', '')
+                            if href:
+                                text = f"[{text}]({href})"
                     return text
 
                 elif node_type == 'paragraph':
                     content = node.get('content', [])
-                    return ''.join(extract_text(c) for c in content)
+                    return ''.join(extract_text(c, depth) for c in content)
 
                 elif node_type == 'heading':
                     level = node.get('attrs', {}).get('level', 1)
                     content = node.get('content', [])
-                    text = ''.join(extract_text(c) for c in content)
+                    text = ''.join(extract_text(c, depth) for c in content)
                     return f"{'#' * level} {text}"
 
-                elif node_type == 'bulletList' or node_type == 'orderedList':
+                elif node_type in ('bulletList', 'orderedList'):
+                    ordered = node_type == 'orderedList'
+                    indent = '  ' * depth
                     items = node.get('content', [])
-                    return '\n'.join(extract_text(item) for item in items)
+                    lines = []
+                    for i, item in enumerate(items, start=1):
+                        marker = f"{i}." if ordered else '-'
+                        item_text = extract_text(item, depth + 1)
+                        # Prefix the first line with the marker; keep any
+                        # nested list lines (already indented) as-is.
+                        parts = item_text.split('\n', 1)
+                        lines.append(f"{indent}{marker} {parts[0]}")
+                        if len(parts) > 1:
+                            lines.append(parts[1])
+                    return '\n'.join(lines)
 
                 elif node_type == 'listItem':
                     content = node.get('content', [])
-                    text = ''.join(extract_text(c) for c in content)
-                    return f"- {text}"
+                    return '\n'.join(extract_text(c, depth) for c in content)
 
                 elif node_type == 'codeBlock':
                     content = node.get('content', [])
-                    text = ''.join(extract_text(c) for c in content)
+                    text = ''.join(extract_text(c, depth) for c in content)
                     return f"```\n{text}\n```"
 
-                # Recursively process content
+                # Recursively process content (unknown node types)
                 content = node.get('content', [])
                 if content:
-                    return '\n\n'.join(extract_text(c) for c in content)
+                    return '\n\n'.join(extract_text(c, depth) for c in content)
 
             return ''
 
@@ -303,6 +314,12 @@ def main():
     )
 
     args = parser.parse_args()
+
+    # Validate credentials (after arg parsing so --help works without creds)
+    if not all([JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN]):
+        print("Error: Missing Jira credentials in .env file", file=sys.stderr)
+        print("Required variables: JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN", file=sys.stderr)
+        sys.exit(1)
 
     # Create Jira client
     client = JiraClient(JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN)

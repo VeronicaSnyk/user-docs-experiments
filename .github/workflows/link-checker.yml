@@ -6,13 +6,17 @@ on:
     branches: [main]
     paths:
       - 'docs/**/*.md'
-      - '.gitbook.yaml'
+      - 'docs/.gitbook.yaml'
 
   # Weekly full-repo check — catches external link rot
   schedule:
     - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
 
   workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
 
 jobs:
   # ── 1. Internal link check (relative paths and SUMMARY.md refs) ───────────

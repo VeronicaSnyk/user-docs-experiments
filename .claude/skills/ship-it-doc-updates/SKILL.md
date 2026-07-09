@@ -226,21 +226,29 @@ Before finalizing:
 
 After completing the edits, **automatically proceed** to create a GitHub pull request:
 
-1. **Create a branch off `main`** and commit the changes:
+1. **Create a branch off `main`** and commit the changes. Name the branch
+   `ship-it/<JIRA-KEY>` (the ticket key, matching the `ship-it.yml` workflow, which
+   creates and looks up the branch as `ship-it/<TICKET>`):
    ```bash
-   git checkout -b <jira-key>-<slug> main
+   git checkout -b ship-it/<JIRA-KEY> main
    git add <changed files...>
    git commit -m "Update [area] documentation for [JIRA-KEY]"
    ```
 
 2. **Push the branch** to remote:
    ```bash
-   git push -u origin <branch-name>
+   git push -u origin ship-it/<JIRA-KEY>
    ```
 
 3. **Automatically invoke the `create-draft-pr` skill** to open the PR in draft mode
    against `main` with all metadata. In the PR description, include the list of files
    changed and the reason for each so the Technical Writer can review the scope.
+
+**Headless (CI) outcome contract:** when running non-interactively (from
+`ship-it.yml`), after the draft PR is opened, write `done` to a file named
+`.ship-it-outcome` at the repo root. If instead you held at the source-of-truth gate
+(no source for a substantive change), write `held` to `.ship-it-outcome` and stop.
+The workflow reads this file to decide whether to report success or hold.
 
 4. **Automatically invoke the `update-jira-ticket` skill** to write the PR link back
    to the source ticket. Best-effort: skipped and noted if the Atlassian MCP is not

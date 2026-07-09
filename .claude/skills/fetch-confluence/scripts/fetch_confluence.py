@@ -29,9 +29,10 @@ skill_dir = script_dir.parent
 docs_agent_dir = skill_dir.parent.parent
 
 env_locations = [
-    docs_agent_dir / '.env',           # Shared .docs-agent/.env
-    skill_dir / '.env',                 # Skill-specific .env
-    Path.cwd() / '.env',                # Project root .env
+    docs_agent_dir / '.env',                    # Shared .docs-agent/.env
+    skill_dir / '.env',                         # Skill-specific .env
+    Path.cwd() / '.docs-agent' / '.env',        # Shared .docs-agent/.env relative to cwd (e.g. run from .claude copy)
+    Path.cwd() / '.env',                        # Project root .env
 ]
 
 env_loaded = False
@@ -47,12 +48,6 @@ if not env_loaded:
 CONFLUENCE_BASE_URL = os.getenv('CONFLUENCE_BASE_URL')
 CONFLUENCE_EMAIL = os.getenv('CONFLUENCE_EMAIL')
 CONFLUENCE_API_TOKEN = os.getenv('CONFLUENCE_API_TOKEN')
-
-# Validate credentials
-if not all([CONFLUENCE_BASE_URL, CONFLUENCE_EMAIL, CONFLUENCE_API_TOKEN]):
-    print("Error: Missing Confluence credentials in .env file", file=sys.stderr)
-    print("Required variables: CONFLUENCE_BASE_URL, CONFLUENCE_EMAIL, CONFLUENCE_API_TOKEN", file=sys.stderr)
-    sys.exit(1)
 
 
 class ConfluenceClient:
@@ -103,8 +98,10 @@ class ConfluenceClient:
     def search_content(self, query, limit=10):
         """Search for content in Confluence."""
         api_url = f"{self.base_url}/rest/api/content/search"
+        # Escape double-quotes so a query containing " does not break the CQL string
+        escaped_query = query.replace('"', '\\"')
         params = {
-            'cql': f'text ~ "{query}"',
+            'cql': f'text ~ "{escaped_query}"',
             'limit': limit,
             'expand': 'space,history.lastUpdated'
         }
@@ -201,6 +198,12 @@ def main():
 
     args = parser.parse_args()
 
+    # Validate credentials (after parse_args so --help works without credentials)
+    if not all([CONFLUENCE_BASE_URL, CONFLUENCE_EMAIL, CONFLUENCE_API_TOKEN]):
+        print("Error: Missing Confluence credentials in .env file", file=sys.stderr)
+        print("Required variables: CONFLUENCE_BASE_URL, CONFLUENCE_EMAIL, CONFLUENCE_API_TOKEN", file=sys.stderr)
+        sys.exit(1)
+
     # Create Confluence client
     client = ConfluenceClient(CONFLUENCE_BASE_URL, CONFLUENCE_EMAIL, CONFLUENCE_API_TOKEN)
 
@@ -216,7 +219,7 @@ def main():
             print(json.dumps(results, indent=2))
         else:
             print(f"# Search Results for '{args.search}'")
-            print(f"Found {results.get('size', 0)} results:")
+            print(f"Returned {results.get('size', 0)} results (this page, not the total available):")
             print()
 
             for result in results.get('results', []):

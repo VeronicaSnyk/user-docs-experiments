@@ -20,7 +20,6 @@ from dotenv import load_dotenv
 
 # Add parent skill directory to path to import from fetch-jira-ticket
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'fetch-jira-ticket' / 'scripts'))
-from fetch_jira_ticket import JiraClient
 
 # Load environment variables
 script_dir = Path(__file__).parent
@@ -30,6 +29,7 @@ docs_agent_dir = skill_dir.parent.parent
 env_locations = [
     docs_agent_dir / '.env',
     skill_dir / '.env',
+    Path.cwd() / '.docs-agent' / '.env',
     Path.cwd() / '.env',
 ]
 
@@ -44,10 +44,6 @@ JIRA_BASE_URL = os.getenv('JIRA_BASE_URL')
 JIRA_EMAIL = os.getenv('JIRA_EMAIL')
 JIRA_API_TOKEN = os.getenv('JIRA_API_TOKEN')
 
-if not all([JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN]):
-    print("Error: Missing Jira credentials in .env file", file=sys.stderr)
-    sys.exit(1)
-
 
 def extract_urls_from_text(text):
     """Extract all URLs from text."""
@@ -56,7 +52,23 @@ def extract_urls_from_text(text):
 
     # Simple URL regex pattern
     url_pattern = r'https?://[^\s<>"{}|\\^\[\]`]+'
-    return re.findall(url_pattern, str(text))
+    matches = re.findall(url_pattern, str(text))
+
+    cleaned = []
+    for url in matches:
+        # Strip trailing punctuation left over from prose/markdown, for
+        # example ".", ",", ";", "]", ">". A trailing ")" is handled
+        # separately below so balanced parentheses inside a URL survive.
+        prev = None
+        while url != prev:
+            prev = url
+            url = url.rstrip('.,;]>')
+            # Drop a trailing ")" only when unbalanced (markdown [text](url)).
+            if url.endswith(')') and url.count(')') > url.count('('):
+                url = url[:-1]
+        cleaned.append(url)
+
+    return cleaned
 
 
 def categorize_url(url):
@@ -64,7 +76,7 @@ def categorize_url(url):
     parsed = urlparse(url)
     hostname = parsed.hostname or ''
 
-    if 'atlassian.net/wiki' in hostname or 'confluence' in hostname:
+    if 'atlassian.net/wiki' in url or 'confluence' in hostname:
         return 'confluence'
     elif 'docs.google.com/document' in url:
         return 'google_docs'
@@ -144,6 +156,15 @@ def main():
     parser.add_argument('--json', action='store_true', help='Output as JSON')
 
     args = parser.parse_args()
+
+    # Validate credentials (after arg parsing so --help works without creds)
+    if not all([JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN]):
+        print("Error: Missing Jira credentials in .env file", file=sys.stderr)
+        sys.exit(1)
+
+    # Lazy import so --help works without triggering the JiraClient
+    # module's import-time credential check.
+    from fetch_jira_ticket import JiraClient
 
     # Fetch ticket
     client = JiraClient(JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN)

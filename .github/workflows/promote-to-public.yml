@@ -1,0 +1,100 @@
+name: Promote docs to public
+
+# Publishes content from this INTERNAL source-of-truth repo to the PUBLIC user-docs
+# repo as a reviewable PR. Content only — the internal kitchen (skills, scripts,
+# workflows, orb/, .docs-agent, .claude) never leaves this repo.
+#
+# Path-scoped to docs/** so commits that touch only the kitchen or the orb/ tree do
+# NOT trigger a promotion (and the orb-publish pipeline is likewise unaffected).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "README.md"
+      - "SECURITY.md"
+      - "catalog-info.yaml"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Build the diff but do not push or open a PR"
+        type: boolean
+        default: false
+
+concurrency:
+  group: promote-to-public
+  cancel-in-progress: false
+
+env:
+  # The public target. Configurable so this same workflow works from a fork while
+  # you validate, then flips to snyk/user-docs for production.
+  PUBLIC_REPO: ${{ vars.PUBLIC_DOCS_REPO || 'snyk/user-docs' }}
+
+jobs:
+  # ---- Gate: quality checks must pass before anything is promoted --------------
+  # The roadmap's promotion gate: Vale style, broken internal links, SUMMARY.md
+  # consistency, and alt-text/image audit. Any failure blocks promotion. These reuse
+  # the scripts already in this repo (.github/scripts) + the Vale config.
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Vale style lint
+        uses: errata-ai/vale-action@reviewdog
+        with:
+          files: docs/
+          fail_on_error: true
+          reporter: github-check
+
+      - name: Broken internal links
+        run: python3 .github/scripts/check-links.py
+
+      - name: SUMMARY.md consistency
+        run: python3 .github/scripts/check-summary.py
+
+      - name: Image / alt-text audit
+        run: python3 .github/scripts/audit-images.py
+
+  promote:
+    needs: gate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compute branch name
+        id: meta
+        run: echo "branch=promote/${GITHUB_SHA::12}" >> "$GITHUB_OUTPUT"
+
+      - name: Run promotion (push branch to public)
+        env:
+          # A token (PAT or GitHub App) with push access to PUBLIC_REPO.
+          GH_TOKEN: ${{ secrets.PUBLIC_DOCS_PUSH_TOKEN }}
+        run: |
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+          DRY="${{ github.event.inputs.dry_run || 'false' }}"
+          ARGS=(--public-repo "$PUBLIC_REPO" --branch "${{ steps.meta.outputs.branch }}")
+          [ "$DRY" = "true" ] && ARGS+=(--dry-run)
+          bash promote/promote-to-public.sh "${ARGS[@]}"
+
+      - name: Open PR into public repo
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.PUBLIC_DOCS_PUSH_TOKEN }}
+        run: |
+          gh pr create \
+            --repo "$PUBLIC_REPO" \
+            --head "${{ steps.meta.outputs.branch }}" \
+            --base main \
+            --title "docs: promote from internal source of truth (${GITHUB_SHA::12})" \
+            --body "Automated content promotion. Internal kitchen excluded by construction. Source commit: ${GITHUB_SHA}" \
+            || echo "PR may already exist for this branch."

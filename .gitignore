@@ -2,3 +2,6 @@
 **/.DS_Store
 .idea/
 error-catalog/
+
+# Promotion/ingestion scratch clones — never commit
+.work/

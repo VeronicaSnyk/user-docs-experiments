@@ -1,3 +1,231 @@
+## 2026-03-25 - Updated 2026-09-07
+
+### POST - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments` - Updated
+- added the required property `data/attributes/created_at` to the response with the `201` status
+
+- added the required property `data/attributes/updated_at` to the response with the `201` status
+
+
+
+### GET - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments` - Updated
+- added the required property `data/items/attributes/created_at` to the response with the `200` status
+
+- added the required property `data/items/attributes/updated_at` to the response with the `200` status
+
+
+
+### PATCH - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}` - Updated
+- added the required property `data/attributes/created_at` to the response with the `200` status
+
+- added the required property `data/attributes/updated_at` to the response with the `200` status
+
+
+
+### GET - `/tenants/{tenant_id}/brokers/deployments` - Updated
+- added the required property `data/items/attributes/created_at` to the response with the `200` status
+
+- added the required property `data/items/attributes/updated_at` to the response with the `200` status
+
+
+
+### GET - `/orgs` - Updated
+- for the `query` request parameter `name`, the minLength was increased from `0` to `1`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+
+### POST - `/orgs/{org_id}/projects/bulk-delete` - Added
+- Delete up to 100 projects in one request. Each project is reported in
+`meta.deleted` or `meta.failed`, so a partially successful request is
+still a 200. A project that does not exist in the org is ignored, and
+appears in neither list.
+
+#### Required permissions
+
+- `View Projects (org.project.read)`
+
+- `Remove Projects (org.project.delete)`
+
+
+### GET - `/orgs/{org_id}/policies` - Updated
+- added the non-success response with the status `500`
+
+
+
+### GET - `/orgs/{org_id}/issues` - Updated
+- added the new `secrets` enum value to the `data/items/attributes/type` response property for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- added the new optional `query` request parameter `include_code_flows`
+
+- added the optional property `data/items/attributes/coordinates/items/code_flows` to the response with the `200` status
+
+- added the optional property `data/items/attributes/coordinates/items/code_flows_omitted` to the response with the `200` status
+
+
+
+### GET - `/orgs/{org_id}/issues/{issue_id}` - Updated
+- added the new `secrets` enum value to the `data/attributes/type` response property for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- added the new optional `query` request parameter `include_code_flows`
+
+- added the optional property `data/attributes/coordinates/items/code_flows` to the response with the `200` status
+
+- added the optional property `data/attributes/coordinates/items/code_flows_omitted` to the response with the `200` status
+
+
+
+### POST - `/groups/{group_id}/secrets/rule_extensions` - Added
+- Secrets rule extensions adapt Snyk Secret analysis, making Snyk Secret Rules more suitable for your code. Only published secrets rule extensions with assignment would be applied to Snyk scans.
+
+#### Required permissions
+
+- `group.rule_extension.create`
+
+
+### GET - `/groups/{group_id}/secrets/rule_extensions` - Added
+- Get a list of all secrets rule extensions for the requested Group ID and its child Org(s).
+
+#### Required permissions
+
+- `group.rule_extension.read`
+
+
+### PATCH - `/groups/{group_id}/secrets/rule_extensions/{rule_extension_id}` - Added
+- Update the secrets rule extension for the requested rule extension ID.
+
+#### Required permissions
+
+- `group.rule_extension.edit`
+
+
+### GET - `/groups/{group_id}/secrets/rule_extensions/{rule_extension_id}` - Added
+- Get the secrets rule extension for the requested rule extension ID.
+
+#### Required permissions
+
+- `group.rule_extension.read`
+
+
+### DELETE - `/groups/{group_id}/secrets/rule_extensions/{rule_extension_id}` - Added
+- Delete the secrets rule extension for the requested rule extension ID. Draft rule extensions can be deleted unconditionally. Published rule extensions can only be deleted if they have no assignments.
+
+#### Required permissions
+
+- `group.rule_extension.delete`
+
+
+### POST - `/groups/{group_id}/sast/rule_extensions` - Added
+- SAST rule extensions adapt Snyk SAST analysis, making Snyk Code Rules more suitable for your code. You must associate SAST rule extensions with particular Snyk Code Rule Keys. Only published SAST rule extensions with assignment would be applied to Snyk SAST scans.
+
+#### Required permissions
+
+- `group.rule_extension.create`
+
+
+### GET - `/groups/{group_id}/sast/rule_extensions` - Added
+- Get a list of all the SAST rule extensions for the requested Group ID and its child Org(s).
+
+#### Required permissions
+
+- `group.rule_extension.read`
+
+
+### PATCH - `/groups/{group_id}/sast/rule_extensions/{rule_extension_id}` - Added
+- Update the SAST rule extension for the requested SAST rule extension ID
+
+#### Required permissions
+
+- `group.rule_extension.edit`
+
+
+### GET - `/groups/{group_id}/sast/rule_extensions/{rule_extension_id}` - Added
+- Get the SAST rule extension for the requested SAST rule extension ID
+
+#### Required permissions
+
+- `group.rule_extension.read`
+
+
+### DELETE - `/groups/{group_id}/sast/rule_extensions/{rule_extension_id}` - Added
+- Delete the SAST rule extension for the requested SAST rule extension ID. Draft rule extensions can be deleted unconditionally. Published rule extensions can only be deleted if they have no assignments. All assignments must be removed before a published rule extension can be deleted.
+
+#### Required permissions
+
+- `group.rule_extension.delete`
+
+
+### POST - `/groups/{group_id}/sast/rule_extensions/tests` - Added
+- Create a test on a Snyk Code project to understand the impact of the input SAST Rule Extension.
+
+#### Required permissions
+
+- `group.rule_extension.read`
+
+
+### GET - `/groups/{group_id}/sast/rule_extensions/tests/{test_id}` - Added
+- Get the SAST rule extension test status for a requested Snyk Code project.
+
+#### Required permissions
+
+- `group.rule_extension.read`
+
+
+### GET - `/groups/{group_id}/sast/rule_extensions/tests/{test_id}/results` - Added
+- Get the test result of a Snyk Code project to understand the impact of the input SAST Rule Extension.
+
+#### Required permissions
+
+- `group.rule_extension.read`
+
+
+### POST - `/groups/{group_id}/rule_extensions/assignments` - Added
+- Assign published rule extensions with Group or Organization scope.
+
+#### Required permissions
+
+- `group.rule_extension.edit`
+
+
+### GET - `/groups/{group_id}/rule_extensions/assignments` - Added
+- Returns a paginated list of all rule extension assignments for the requested group.
+
+**Pagination:** The `starting_after` and `ending_before` query parameters are mutually exclusive. Providing both will result in a 400 Bad Request response.
+
+**Filtering:** The `org_id` and `group_id` query parameters are mutually exclusive. Providing both will result in a 400 Bad Request response.
+
+#### Required permissions
+
+- `group.rule_extension.read`
+
+
+### DELETE - `/groups/{group_id}/rule_extensions/assignments` - Added
+- Delete assignments for rule extensions with Group or Organization scope.
+
+#### Required permissions
+
+- `group.rule_extension.edit`
+
+
+### GET - `/groups/{group_id}/issues` - Updated
+- added the new `secrets` enum value to the `data/items/attributes/type` response property for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- added the new optional `query` request parameter `include_code_flows`
+
+- added the optional property `data/items/attributes/coordinates/items/code_flows` to the response with the `200` status
+
+- added the optional property `data/items/attributes/coordinates/items/code_flows_omitted` to the response with the `200` status
+
+
+
+### GET - `/groups/{group_id}/issues/{issue_id}` - Updated
+- added the new `secrets` enum value to the `data/attributes/type` response property for the response status `200`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- added the new optional `query` request parameter `include_code_flows`
+
+- added the optional property `data/attributes/coordinates/items/code_flows` to the response with the `200` status
+
+- added the optional property `data/attributes/coordinates/items/code_flows_omitted` to the response with the `200` status
+
+
 ## 2026-03-25 - Updated 2026-07-06
 
 ### POST - `/groups/{group_id}/export` - Updated

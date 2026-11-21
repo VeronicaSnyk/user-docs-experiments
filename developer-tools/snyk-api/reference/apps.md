@@ -4,6 +4,22 @@
 This document uses the REST API. For more details, see the [Authentication for API](../authentication-for-api/) page.
 {% endhint %}
 
+{% openapi src="../../.gitbook/assets/rest-spec.json" path="/tenants/{tenant_id}/apps/installs" method="post" %}
+[rest-spec.json](../../.gitbook/assets/rest-spec.json)
+{% endopenapi %}
+
+{% openapi src="../../.gitbook/assets/rest-spec.json" path="/tenants/{tenant_id}/apps/installs" method="get" %}
+[rest-spec.json](../../.gitbook/assets/rest-spec.json)
+{% endopenapi %}
+
+{% openapi src="../../.gitbook/assets/rest-spec.json" path="/tenants/{tenant_id}/apps/installs/{install_id}" method="delete" %}
+[rest-spec.json](../../.gitbook/assets/rest-spec.json)
+{% endopenapi %}
+
+{% openapi src="../../.gitbook/assets/rest-spec.json" path="/tenants/{tenant_id}/apps/installs/{install_id}/secrets" method="post" %}
+[rest-spec.json](../../.gitbook/assets/rest-spec.json)
+{% endopenapi %}
+
 {% openapi src="../../.gitbook/assets/rest-spec.json" path="/self/apps" method="get" %}
 [rest-spec.json](../../.gitbook/assets/rest-spec.json)
 {% endopenapi %}
